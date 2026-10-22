@@ -64,7 +64,7 @@ def test_explanation_is_factual_and_fields_reserved():
     p, v = Profile(skills=["Python"]), Vacancy(required_skills=["SQL"])
     result = Postprocessor().process(0.7, detail(p, v), p, v)
     assert result.unknown_skills == ["sql"]
-    assert "не доказательство" in result.explanation
+    assert "not proof" in result.explanation
     assert result.summary is result.resume_id is result.cover_letter is None
 
 

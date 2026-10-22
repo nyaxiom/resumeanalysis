@@ -1,0 +1,2840 @@
+{
+  "audit_date": "2026-10-22",
+  "audited_commit": "c66b74966c7734f984a309aad36b726dcaa38eef",
+  "uv_lock_sha256": "a23ad7ffb58e3a42d8b6c2eefb9cc38a37076e29ceb4060e2a8b889166277322",
+  "scope": "Every external package/version in uv.lock; installed Python 3.12 Linux wheel notices plus explicit noninstalled variants. Not a platform-complete binary SBOM.",
+  "packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/annotated-types/annotated-types",
+        "Source, https://github.com/annotated-types/annotated-types",
+        "Changelog, https://github.com/annotated-types/annotated-types/releases"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "annotated_types-0.8.0.dist-info/licenses/LICENSE",
+          "sha256": "fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d",
+          "bytes": 1083
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/annotated-types-0.8.0.txt",
+      "notice_sha256": "d2f31217040fd1d98c015c7fd25a56dda8d992f468f65df39bcf1ebf0c51d0bf",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "build",
+      "version": "1.6.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "changelog, https://build.pypa.io/en/stable/changelog.html",
+        "homepage, https://build.pypa.io",
+        "issues, https://github.com/pypa/build/issues",
+        "source, https://github.com/pypa/build"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "build-1.6.1.dist-info/licenses/LICENSE",
+          "sha256": "aaf9a29ca5907971ccf07de025375db34539a8d5eeebce20b46099805722106f",
+          "bytes": 1113
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/build-1.6.1.txt",
+      "notice_sha256": "8bf5ac8c30942defe698b957e34b9c0633e5a01e9f463a32082de530d1ded2e8",
+      "reviewed_license": "MIT",
+      "role": "direct development",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.19",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MPL-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "project_urls": [
+        "Source, https://github.com/certifi/python-certifi"
+      ],
+      "home_page": "https://github.com/certifi/python-certifi",
+      "license_files": [
+        {
+          "path": "certifi-2026.10.19.dist-info/licenses/LICENSE",
+          "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+          "bytes": 989
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/certifi-2026.10.19.txt",
+      "notice_sha256": "3d073f4951ae590010774ed7c773d83c64a730f7face8c72648a77e9a655e666",
+      "reviewed_license": "MPL-2.0",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MIT",
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md",
+        "Documentation, https://charset-normalizer.readthedocs.io/",
+        "Code, https://github.com/jawah/charset_normalizer",
+        "Issue tracker, https://github.com/jawah/charset_normalizer/issues"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+          "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+          "bytes": 1071
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/charset-normalizer-3.5.2.txt",
+      "notice_sha256": "419aa1e7f8a809768d36f37812b45f3d113ab7a4ac2c59d4123d38f3cf09294d",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "BSD-3-Clause",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [],
+      "home_page": "https://github.com/cloudpipe/cloudpickle",
+      "license_files": [
+        {
+          "path": "cloudpickle-3.1.2.dist-info/licenses/LICENSE",
+          "sha256": "3029ea34173e9fdc233ad315dc6b100bd1ea71f529b1c1af97664a272fdc55f5",
+          "bytes": 1754
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/cloudpickle-3.1.2.txt",
+      "notice_sha256": "6afc4c897a9ab9fda03dc88a0c8b83826c46293acb37c6613ab33e0ccd552555",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "exact-version PyPI metadata; platform/version not installed",
+      "metadata_url": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "license_expression": null,
+      "license_field": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/tartley/colorama"
+      },
+      "home_page": "",
+      "license_files": [
+        {
+          "path": "colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+          "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+          "bytes": 1491
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/colorama-0.4.6.txt",
+      "notice_sha256": "729831802db54d6f7d305b6300b1758bd4d0b6aaa5b644fe5c2e5161bf45f1ce",
+      "wheel_evidence": {
+        "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+        "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+        "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+        "matches_uv_lock": true
+      },
+      "notice_review_status": "Exact-version wheel notices extracted without installing",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)"
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.4",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Documentation, https://py-filelock.readthedocs.io",
+        "Homepage, https://github.com/tox-dev/py-filelock",
+        "Source, https://github.com/tox-dev/py-filelock",
+        "Tracker, https://github.com/tox-dev/py-filelock/issues"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "filelock-4.2.4.dist-info/licenses/LICENSE",
+          "sha256": "608c89d5060ae9921adccf3236695bc654a9946e12323ef6c021dfa04e294d48",
+          "bytes": 1088
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/filelock-4.2.4.txt",
+      "notice_sha256": "5a0bf3770bfa31a9aced37e4d86a627bb71df913c4351c1b50b4444a8c3b212d",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://filesystem-spec.readthedocs.io/en/latest/changelog.html",
+        "Documentation, https://filesystem-spec.readthedocs.io/en/latest/",
+        "Homepage, https://github.com/fsspec/filesystem_spec"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "fsspec-2026.9.0.dist-info/licenses/LICENSE",
+          "sha256": "2dc35496ce53a7307915c008a844aad53e772b49b34cdd00445067691407ec94",
+          "bytes": 1513
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/fsspec-2026.9.0.txt",
+      "notice_sha256": "66117fd1d3bda00455623df7342b91a5ee69594693b752f7781beeae7ba4c9cf",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.7.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "Apache-2.0",
+      "license_field": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Documentation, https://huggingface.co/docs/hub/xet/index",
+        "Homepage, https://github.com/huggingface/xet-core",
+        "Issues, https://github.com/huggingface/xet-core/issues",
+        "Repository, https://github.com/huggingface/xet-core.git"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "hf_xet-1.7.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/hf-xet-1.7.0.txt",
+      "notice_sha256": "cba2ddddfe886282d4e73a8cc38746034e4000e18c86b3b040c391c8a4f207a5",
+      "reviewed_license": "Apache-2.0",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "0.36.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "Apache",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "https://github.com/huggingface/huggingface_hub",
+      "license_files": [
+        {
+          "path": "huggingface_hub-0.36.2.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/huggingface-hub-0.36.2.txt",
+      "notice_sha256": "d8577c9278816377e8f8b0840f1bcc86a56b08464969fd015dc8ef0946f26410",
+      "reviewed_license": "Apache-2.0",
+      "role": "direct runtime",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+        "Issue tracker, https://github.com/kjd/idna/issues",
+        "Source, https://github.com/kjd/idna"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "idna-3.20.dist-info/licenses/LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+          "bytes": 1541
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/idna-3.20.txt",
+      "notice_sha256": "8719cbf5e2bf5bcf27d88417892c7114b46b983f2669c1111202a2c63b2b53bd",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/pytest-dev/iniconfig"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "iniconfig-2.3.1.dist-info/licenses/LICENSE",
+          "sha256": "3409fa91f7ace557894632676656e32264fe5ef7581535725dc9a23774551bd4",
+          "bytes": 1098
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/iniconfig-2.3.1.txt",
+      "notice_sha256": "03d7d81d1e43b9996789df8129cf78e98abefa97393d729d4256169879f3d600",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "Changes, https://jinja.palletsprojects.com/changes/",
+        "Chat, https://discord.gg/pallets",
+        "Documentation, https://jinja.palletsprojects.com/",
+        "Donate, https://palletsprojects.com/donate",
+        "Source, https://github.com/pallets/jinja/"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "jinja2-3.1.6.dist-info/licenses/LICENSE.txt",
+          "sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b",
+          "bytes": 1475
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/jinja2-3.1.6.txt",
+      "notice_sha256": "7e71a8fa0eb5e7d1133df74f568c2ce917038dc12cc378275453e6c2b6eb4685",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://joblib.readthedocs.io",
+        "Source, https://github.com/joblib/joblib"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "joblib-1.6.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "42612911c1872c5e4b43f6ae0e8ee59467cd350332241cf72ce90640264fae6a",
+          "bytes": 1527
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/joblib-1.6.0.txt",
+      "notice_sha256": "955e215c06a536cd602d81963736400b65f69323ba0bca7439fb81d4c4d142cf",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Donate, https://palletsprojects.com/donate",
+        "Documentation, https://markupsafe.palletsprojects.com/",
+        "Changes, https://markupsafe.palletsprojects.com/page/changes/",
+        "Source, https://github.com/pallets/markupsafe/",
+        "Chat, https://discord.gg/pallets"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "markupsafe-3.0.4.dist-info/licenses/LICENSE.txt",
+          "sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+          "bytes": 1475
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/markupsafe-3.0.4.txt",
+      "notice_sha256": "b936ec089c21ce6e494270d80a298e9a42353ef2b56929e73c4d44a40ec1ba80",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "BSD",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "Source, https://github.com/fredrik-johansson/mpmath",
+        "Tracker, https://github.com/fredrik-johansson/mpmath/issues",
+        "Documentation, http://mpmath.org/doc/current/"
+      ],
+      "home_page": "http://mpmath.org/",
+      "license_files": [
+        {
+          "path": "mpmath-1.3.0.dist-info/LICENSE",
+          "sha256": "c26cae81da4508e5e249985777a33821f183223ebb74d7f8cfbf90fe7eef2fb7",
+          "bytes": 1537
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/mpmath-1.3.0.txt",
+      "notice_sha256": "2e4862b2855a8bd50ca03960fc725ac87bae70e2916043f7a2c0eb16600d26ef",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.27.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/narwhals-dev/narwhals",
+        "Documentation, https://narwhals-dev.github.io/narwhals/",
+        "Repository, https://github.com/narwhals-dev/narwhals",
+        "Bug Tracker, https://github.com/narwhals-dev/narwhals/issues"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "narwhals-2.27.1.dist-info/licenses/LICENSE.md",
+          "sha256": "811445f30147b8f0c9d444c9025fd528f9532c54b7b83f6e2368473dc91cfdf0",
+          "bytes": 1082
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/narwhals-2.27.1.txt",
+      "notice_sha256": "53c3a5b392dd52d5203898272a68c9767f7305662a46c8a8a7360b38e0fa37b7",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "exact-version PyPI metadata; platform/version not installed",
+      "metadata_url": "https://pypi.org/pypi/networkx/3.6.1/json",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": {
+        "Bug Tracker": "https://github.com/networkx/networkx/issues",
+        "Documentation": "https://networkx.org/documentation/stable/",
+        "Homepage": "https://networkx.org/",
+        "Source Code": "https://github.com/networkx/networkx"
+      },
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "networkx-3.6.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "3cf7c3a179d817b23b8b8568211769fefdf93797d207d984b8b2fa24d0220b33",
+          "bytes": 1763
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/networkx-3.6.1.txt",
+      "notice_sha256": "793b404d4046562c8200d106e7935f0bd7d944df749088fbbc86f090dd606351",
+      "wheel_evidence": {
+        "filename": "networkx-3.6.1-py3-none-any.whl",
+        "url": "https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl",
+        "sha256": "d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762",
+        "matches_uv_lock": true
+      },
+      "notice_review_status": "Exact-version wheel notices extracted without installing",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)"
+    },
+    {
+      "name": "networkx",
+      "version": "3.7",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://networkx.org/",
+        "Bug Tracker, https://github.com/networkx/networkx/issues",
+        "Documentation, https://networkx.org/documentation/stable/",
+        "Source Code, https://github.com/networkx/networkx"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "networkx-3.7.dist-info/licenses/LICENSE.txt",
+          "sha256": "6025f323ea29dc2f0ee0abd9523bf910186f55b0e148e6ebf646c55566278e2e",
+          "bytes": 1763
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/networkx-3.7.txt",
+      "notice_sha256": "35f3f261fda00f928eedfe5f2202ec4dad13bdccd115648d3beacb316d404b22",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "numpy",
+      "version": "2.4.6",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "exact-version PyPI metadata; platform/version not installed",
+      "metadata_url": "https://pypi.org/pypi/numpy/2.4.6/json",
+      "license_expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": {
+        "documentation": "https://numpy.org/doc/",
+        "download": "https://pypi.org/project/numpy/#files",
+        "homepage": "https://numpy.org",
+        "release notes": "https://numpy.org/doc/stable/release",
+        "source": "https://github.com/numpy/numpy",
+        "tracker": "https://github.com/numpy/numpy/issues"
+      },
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/LICENSE.txt",
+          "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+          "bytes": 46794
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+          "bytes": 1018
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+          "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+          "bytes": 690
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+          "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+          "bytes": 20785
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+          "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+          "bytes": 1414
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+          "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+          "bytes": 1514
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+          "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+          "bytes": 1543
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+          "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+          "bytes": 1498
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+          "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+          "bytes": 2266
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+          "bytes": 1593
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+          "bytes": 3511
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+          "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+          "bytes": 2745
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+          "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+          "bytes": 2926
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+          "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+          "bytes": 1154
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+          "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+          "bytes": 1509
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+          "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+          "bytes": 1226
+        },
+        {
+          "path": "numpy-2.4.6.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+          "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+          "bytes": 332
+        },
+        {
+          "path": "numpy/_core/include/numpy/random/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+          "bytes": 1018
+        },
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+          "bytes": 1593
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+          "bytes": 3511
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/numpy-2.4.6.txt",
+      "notice_sha256": "42e00da0835a333425bc5dff7a6cfd113024f65eae4a443116b06a7017b1d642",
+      "wheel_evidence": {
+        "filename": "numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "url": "https://files.pythonhosted.org/packages/02/03/74fe2a4cb3817d94d86402f2506554130a2f01414e299b5a843e5a8a957f/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256": "89cd468399cfd2504718f0ba50e410dca55a170b61a02ad92bb18c8a65186e93",
+        "matches_uv_lock": true
+      },
+      "notice_review_status": "Exact-version wheel notices extracted without installing",
+      "reviewed_license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "role": "direct runtime",
+      "bundled_license_findings": [
+        "OpenBLAS BSD-3-Clause",
+        "LAPACK upstream BSD notice",
+        "GCC runtime GPL-3.0-or-later WITH GCC-exception-3.1",
+        "libquadmath LGPL-2.1-or-later"
+      ],
+      "review_scope_note": "Source SPDX expression omits additional binary-bundled runtime terms; read full wheel license."
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "homepage, https://numpy.org",
+        "documentation, https://numpy.org/doc/",
+        "source, https://github.com/numpy/numpy",
+        "download, https://pypi.org/project/numpy/#files",
+        "tracker, https://github.com/numpy/numpy/issues",
+        "release notes, https://numpy.org/doc/stable/release"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+          "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+          "bytes": 46794
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+          "bytes": 1018
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+          "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+          "bytes": 690
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+          "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+          "bytes": 20785
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+          "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+          "bytes": 1414
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+          "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+          "bytes": 1514
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+          "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+          "bytes": 1543
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+          "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+          "bytes": 1498
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+          "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+          "bytes": 2266
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+          "bytes": 1593
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+          "bytes": 3511
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+          "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+          "bytes": 2745
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+          "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+          "bytes": 2926
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+          "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+          "bytes": 1154
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+          "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+          "bytes": 1509
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+          "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+          "bytes": 1226
+        },
+        {
+          "path": "numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+          "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+          "bytes": 332
+        },
+        {
+          "path": "numpy/_core/include/numpy/random/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+          "bytes": 1018
+        },
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+          "bytes": 1593
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+          "bytes": 3511
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/numpy-2.5.4.txt",
+      "notice_sha256": "7d688d6e64281a24ef3edb642c1bb56b38561f5c50f5042816b533d6e3393e8a",
+      "reviewed_license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "role": "direct runtime",
+      "bundled_license_findings": [
+        "OpenBLAS BSD-3-Clause",
+        "LAPACK upstream BSD notice",
+        "GCC runtime GPL-3.0-or-later WITH GCC-exception-3.1",
+        "libquadmath LGPL-2.1-or-later"
+      ],
+      "review_scope_note": "Source SPDX expression omits additional binary-bundled runtime terms; read full wheel license.",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Documentation, https://packaging.pypa.io/",
+        "Source, https://github.com/pypa/packaging"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "bytes": 197
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "bytes": 10174
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "bytes": 1344
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/packaging-26.3.txt",
+      "notice_sha256": "1567016139a83d5d8f1b9ab7121fb809322605b58a4841598ab3a49de881a4dd",
+      "reviewed_license": "Apache-2.0 OR BSD-2-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/pytest-dev/pluggy",
+        "Documentation, https://pluggy.readthedocs.io/",
+        "Changelog, https://pluggy.readthedocs.io/en/latest/changelog.html",
+        "Repository, https://github.com/pytest-dev/pluggy",
+        "Issues, https://github.com/pytest-dev/pluggy/issues",
+        "Funding, https://tidelift.com/subscription/pkg/pypi-pluggy"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "pluggy-1.7.0.dist-info/licenses/LICENSE",
+          "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+          "bytes": 1110
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pluggy-1.7.0.txt",
+      "notice_sha256": "699deb7739b8a28ead362ebd4415d220875e4fac775daa4c1c7e1e12a30b9523",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pyarrow",
+      "version": "23.0.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "Apache-2.0",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://arrow.apache.org/",
+        "Documentation, https://arrow.apache.org/docs/python",
+        "Repository, https://github.com/apache/arrow",
+        "Issues, https://github.com/apache/arrow/issues"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "pyarrow-23.0.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "23fc45dce1769d9ddf4aac4d6cdaf3f7f0d14fcc4d930dd0d4afbefa2ea3322a",
+          "bytes": 113501
+        },
+        {
+          "path": "pyarrow-23.0.1.dist-info/licenses/NOTICE.txt",
+          "sha256": "afd895d61a00101f6d5a41cf518c83865d815e8109e956f512a0ce4ea9738c06",
+          "bytes": 2916
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pyarrow-23.0.1.txt",
+      "notice_sha256": "91b2a1894d1f228953504ff52946a97e799e2965c91e228e82615785b8e4f576",
+      "reviewed_license": "Apache-2.0 (plus bundled components)",
+      "role": "optional data",
+      "review_scope_note": "Original Apache NOTICE and composite LICENSE retained; includes third-party BSD/MIT/Boost and other notices. This is not Apache-only for every bundled file.",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/pydantic/pydantic",
+        "Documentation, https://pydantic.dev/docs/validation/latest/get-started/",
+        "Funding, https://github.com/sponsors/samuelcolvin",
+        "Source, https://github.com/pydantic/pydantic",
+        "Changelog, https://pydantic.dev/docs/validation/latest/get-started/changelog/"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "pydantic-2.14.1.dist-info/licenses/LICENSE",
+          "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3",
+          "bytes": 1129
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pydantic-2.14.1.txt",
+      "notice_sha256": "ce6d042f0b98fcd0c7263efc224ed6645aa87ffb91110e09f31c5b54d6b675f4",
+      "reviewed_license": "MIT",
+      "role": "direct runtime",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Funding, https://github.com/sponsors/samuelcolvin",
+        "Homepage, https://github.com/pydantic",
+        "Source, https://github.com/pydantic/pydantic/tree/main/pydantic-core"
+      ],
+      "home_page": "https://github.com/pydantic/pydantic",
+      "license_files": [
+        {
+          "path": "pydantic_core-2.50.1.dist-info/licenses/LICENSE",
+          "sha256": "2afdd30d54b4d62b6f488a6bcc1546e84ec5061f13f4209c03d012348783795a",
+          "bytes": 1080
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pydantic-core-2.50.1.txt",
+      "notice_sha256": "4028ed17ffacdda8d5e7c309f1739278c3ace4d5904f3df9becb257d7560be8a",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-2-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://pygments.org",
+        "Documentation, https://pygments.org/docs",
+        "Source, https://github.com/pygments/pygments",
+        "Bug Tracker, https://github.com/pygments/pygments/issues",
+        "Changelog, https://github.com/pygments/pygments/blob/master/CHANGES"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "pygments-2.21.0.dist-info/licenses/AUTHORS",
+          "sha256": "71a83872ad82f57be692cf827e048e2cd51d45169cfa1ea3f28706d97a872c0f",
+          "bytes": 11048
+        },
+        {
+          "path": "pygments-2.21.0.dist-info/licenses/LICENSE",
+          "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17",
+          "bytes": 1331
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pygments-2.21.0.txt",
+      "notice_sha256": "bc2af628afbca59061ae7b107128f9669d34b72291b5e773aa1f633f0b905a24",
+      "reviewed_license": "BSD-2-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pyproject-hooks",
+      "version": "1.3.3",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://pyproject-hooks.readthedocs.io/en/latest/changelog.html",
+        "Documentation, https://pyproject-hooks.readthedocs.io/",
+        "Source, https://github.com/pypa/pyproject-hooks"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "pyproject_hooks-1.3.3.dist-info/licenses/LICENSE",
+          "sha256": "1b22b049b5267d6dfc23a67bf4a84d8ec04b9fdfb1a51d360e42b4342c8b4154",
+          "bytes": 1081
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pyproject-hooks-1.3.3.txt",
+      "notice_sha256": "c2cf628970ea1674711e67d302e280a1a8e1f7d2441c2f634cd3ad9d443822da",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://docs.pytest.org/en/stable/changelog.html",
+        "Contact, https://docs.pytest.org/en/stable/contact.html",
+        "Funding, https://docs.pytest.org/en/stable/sponsor.html",
+        "Homepage, https://docs.pytest.org/en/latest/",
+        "Source, https://github.com/pytest-dev/pytest",
+        "Tracker, https://github.com/pytest-dev/pytest/issues"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "pytest-9.1.1.dist-info/licenses/LICENSE",
+          "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b",
+          "bytes": 1091
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pytest-9.1.1.txt",
+      "notice_sha256": "d66444e8ab52f9db0de53c546e3a0739c7097dc3795dc8dbe2ce99533c2090b0",
+      "reviewed_license": "MIT",
+      "role": "direct development",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Bug Tracker, https://github.com/yaml/pyyaml/issues",
+        "CI, https://github.com/yaml/pyyaml/actions",
+        "Documentation, https://pyyaml.org/wiki/PyYAMLDocumentation",
+        "Mailing lists, http://lists.sourceforge.net/lists/listinfo/yaml-core",
+        "Source Code, https://github.com/yaml/pyyaml"
+      ],
+      "home_page": "https://pyyaml.org/",
+      "license_files": [
+        {
+          "path": "pyyaml-6.0.3.dist-info/licenses/LICENSE",
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+          "bytes": 1101
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/pyyaml-6.0.3.txt",
+      "notice_sha256": "60624028f94c38cc6edc0b16f25c68b396033cf391a5adfca5a064a07ed369e3",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.29",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "Apache-2.0 AND CNRI-Python",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/mrabarnett/mrab-regex"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "regex-2026.9.29.dist-info/licenses/LICENSE.txt",
+          "sha256": "bff55ef4cdcc8c14ce259f8e8ab60e264418440d6335f4dc138273fbd506144d",
+          "bytes": 11584
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/regex-2026.9.29.txt",
+      "notice_sha256": "030a6a5f99a7dfcb755a0130f54dbc79bb89b7e0ebfcf8fe0de528a16142a0c2",
+      "reviewed_license": "Apache-2.0 AND CNRI-Python",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Documentation, https://requests.readthedocs.io",
+        "Source, https://github.com/psf/requests"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "requests-2.34.2.dist-info/licenses/LICENSE",
+          "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+          "bytes": 10142
+        },
+        {
+          "path": "requests-2.34.2.dist-info/licenses/NOTICE",
+          "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+          "bytes": 38
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/requests-2.34.2.txt",
+      "notice_sha256": "b22716be6f02f5fad94fc82ba36ef7e6e9cab8269f7209a1ed44ee483d3d3142",
+      "reviewed_license": "Apache-2.0",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "ruff",
+      "version": "0.17.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md",
+        "Documentation, https://docs.astral.sh/ruff/",
+        "Repository, https://github.com/astral-sh/ruff"
+      ],
+      "home_page": "https://docs.astral.sh/ruff",
+      "license_files": [
+        {
+          "path": "ruff-0.17.1.dist-info/licenses/LICENSE",
+          "sha256": "2597d854122b77ddc71971564ca2350a37608575ce324adc5650a2b2051c8f18",
+          "bytes": 20731
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/ruff-0.17.1.txt",
+      "notice_sha256": "2f25309a5d8f4ed9640ae61b08a069e15734de5174bba5c3d10edca54a38ddf4",
+      "reviewed_license": "MIT",
+      "role": "direct development",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/huggingface/safetensors",
+        "Source, https://github.com/huggingface/safetensors"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "safetensors-0.8.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/safetensors-0.8.0.txt",
+      "notice_sha256": "cde642099d9dbb48f5e6495b565e47d425bf6054c1faf0e2def7aec464bea3ef",
+      "reviewed_license": "Apache-2.0",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "homepage, https://scikit-learn.org",
+        "source, https://github.com/scikit-learn/scikit-learn",
+        "download, https://pypi.org/project/scikit-learn/#files",
+        "tracker, https://github.com/scikit-learn/scikit-learn/issues",
+        "release notes, https://scikit-learn.org/stable/whats_new"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "scikit_learn-1.9.1.dist-info/licenses/COPYING",
+          "sha256": "8752dfe82d4a768e76ee309b202e7b33906d1ea9004d68cc61564391cc6b1a96",
+          "bytes": 5078
+        },
+        {
+          "path": "sklearn/externals/array_api_compat/LICENSE",
+          "sha256": "4ffd978e3fa18d058d98c66771cfea7ed634aaf7023cf9612b8b55eee9a8f0fe",
+          "bytes": 1097
+        },
+        {
+          "path": "sklearn/externals/array_api_extra/LICENSE",
+          "sha256": "58494398fe147fdce76a68b2decd4c08ce3a1ea237b6d6785001c15f822c6ed6",
+          "bytes": 1097
+        },
+        {
+          "path": "sklearn/svm/src/liblinear/COPYRIGHT",
+          "sha256": "36f048db5651dd450f03e513016b77036cc99a44a66b2fdcecf4f6418657e0e1",
+          "bytes": 1486
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/scikit-learn-1.9.1.txt",
+      "notice_sha256": "896f04873010a35c5430b69963a1fc6a07e404b9df8dbf0da90c863899460b47",
+      "reviewed_license": "BSD-3-Clause (plus bundled GCC runtime)",
+      "role": "direct runtime",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "scipy",
+      "version": "1.17.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "exact-version PyPI metadata; platform/version not installed",
+      "metadata_url": "https://pypi.org/pypi/scipy/1.17.1/json",
+      "license_expression": null,
+      "license_field": "[Long upstream license metadata omitted from this index; original texts preserved in notice_file]",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": {
+        "documentation": "https://docs.scipy.org/doc/scipy/",
+        "download": "https://github.com/scipy/scipy/releases",
+        "homepage": "https://scipy.org/",
+        "source": "https://github.com/scipy/scipy",
+        "tracker": "https://github.com/scipy/scipy/issues"
+      },
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "scipy-1.17.1.dist-info/LICENSE.txt",
+          "sha256": "4daf14e37432e7026165979ecb7a39930707a3e89bef4876cfaf9dad36ed364a",
+          "bytes": 46838
+        },
+        {
+          "path": "scipy/_lib/_uarray/LICENSE",
+          "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+          "bytes": 1514
+        },
+        {
+          "path": "scipy/fft/_pocketfft/LICENSE.md",
+          "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+          "bytes": 1498
+        },
+        {
+          "path": "scipy/integrate/LICENSE_DOP",
+          "sha256": "ed9bf58c6d74d3fad9d92d1d67d9bff8141d8ab60de784516b0711364fd43357",
+          "bytes": 3572
+        },
+        {
+          "path": "scipy/spatial/qhull_src/COPYING_QHULL.txt",
+          "sha256": "106d55c931fd6a84822e5345d900273d059f1c27310d02567ccb313c5d18c55d",
+          "bytes": 1720
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/scipy-1.17.1.txt",
+      "notice_sha256": "ea74c46ea3664dd899dbc172d56cadd75c7b67a1e3bdbe64f078f68fc99bbc3d",
+      "wheel_evidence": {
+        "filename": "scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "url": "https://files.pythonhosted.org/packages/09/7d/af933f0f6e0767995b4e2d705a0665e454d1c19402aa7e895de3951ebb04/scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256": "43af8d1f3bea642559019edfe64e9b11192a8978efbd1539d7bc2aaa23d92de4",
+        "matches_uv_lock": true
+      },
+      "notice_review_status": "Exact-version wheel notices extracted without installing",
+      "reviewed_license": "BSD-3-Clause (plus bundled components)",
+      "role": "transitive (including platform-conditional dependencies)",
+      "license_field_sha256": "9721740853ba56a7e5a77185608c83b808a92f6730d7c108006fca0a9f71d1a3",
+      "bundled_license_findings": [
+        "OpenBLAS BSD-3-Clause",
+        "LAPACK upstream BSD notice",
+        "GCC runtime GPL-3.0-or-later WITH GCC-exception-3.1",
+        "libquadmath LGPL-2.1-or-later"
+      ],
+      "review_scope_note": "Source SPDX expression omits additional binary-bundled runtime terms; read full wheel license."
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "[Long upstream license metadata omitted from this index; original texts preserved in notice_file]",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "homepage, https://scipy.org/",
+        "documentation, https://docs.scipy.org/doc/scipy/",
+        "source, https://github.com/scipy/scipy",
+        "download, https://github.com/scipy/scipy/releases",
+        "tracker, https://github.com/scipy/scipy/issues"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "scipy-1.18.1.dist-info/LICENSE.txt",
+          "sha256": "17e7db9ffa4913121fa2df484633a362456a482da736c99db4711a98473770ea",
+          "bytes": 46845
+        },
+        {
+          "path": "scipy/_lib/_uarray/LICENSE",
+          "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+          "bytes": 1514
+        },
+        {
+          "path": "scipy/fft/_duccfft/LICENSE.md",
+          "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+          "bytes": 1498
+        },
+        {
+          "path": "scipy/integrate/LICENSE_DOP",
+          "sha256": "ed9bf58c6d74d3fad9d92d1d67d9bff8141d8ab60de784516b0711364fd43357",
+          "bytes": 3572
+        },
+        {
+          "path": "scipy/spatial/qhull_src/COPYING_QHULL.txt",
+          "sha256": "106d55c931fd6a84822e5345d900273d059f1c27310d02567ccb313c5d18c55d",
+          "bytes": 1720
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/scipy-1.18.1.txt",
+      "notice_sha256": "8519b9d1fc97cec634cb9f8327775b25113fac39a7b71708be3a187948e53d4d",
+      "reviewed_license": "BSD-3-Clause (plus bundled components)",
+      "role": "transitive (including platform-conditional dependencies)",
+      "license_field_sha256": "2a463073ea6816d22b763c8e2f03886f4e8bf4f2a234f3c9267401d688588d17",
+      "bundled_license_findings": [
+        "OpenBLAS BSD-3-Clause",
+        "LAPACK upstream BSD notice",
+        "GCC runtime GPL-3.0-or-later WITH GCC-exception-3.1",
+        "libquadmath LGPL-2.1-or-later"
+      ],
+      "review_scope_note": "Source SPDX expression omits additional binary-bundled runtime terms; read full wheel license.",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Source, https://github.com/pypa/setuptools",
+        "Documentation, https://setuptools.pypa.io/",
+        "Changelog, https://setuptools.pypa.io/en/stable/history.html"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "setuptools-84.2.1.dist-info/licenses/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+          "bytes": 1023
+        },
+        {
+          "path": "setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+          "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+          "bytes": 7634
+        },
+        {
+          "path": "setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+          "bytes": 1023
+        },
+        {
+          "path": "setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+          "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+          "bytes": 10278
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+          "bytes": 1023
+        },
+        {
+          "path": "setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+          "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+          "bytes": 1076
+        },
+        {
+          "path": "setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+          "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+          "bytes": 1076
+        },
+        {
+          "path": "setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+          "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+          "bytes": 1053
+        },
+        {
+          "path": "setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "bytes": 197
+        },
+        {
+          "path": "setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "bytes": 10174
+        },
+        {
+          "path": "setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "bytes": 1344
+        },
+        {
+          "path": "setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+          "bytes": 1089
+        },
+        {
+          "path": "setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+          "bytes": 1072
+        },
+        {
+          "path": "setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+          "bytes": 1107
+        },
+        {
+          "path": "setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+          "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+          "bytes": 1076
+        },
+        {
+          "path": "setuptools/config/NOTICE",
+          "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+          "bytes": 493
+        },
+        {
+          "path": "setuptools/config/_validate_pyproject/NOTICE",
+          "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+          "bytes": 18737
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/setuptools-84.2.1.txt",
+      "notice_sha256": "d3475e6783fcbe61c84d8ae41c85f1ec846e2133904406de025265616c96ebcd",
+      "reviewed_license": "MIT (plus vendored packages)",
+      "role": "build backend and transitive",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "BSD",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "Source, https://github.com/sympy/sympy"
+      ],
+      "home_page": "https://sympy.org",
+      "license_files": [
+        {
+          "path": "sympy-1.14.0.dist-info/licenses/AUTHORS",
+          "sha256": "82b1038521b0696c63c90b31ed4a0a2c9c4c16871c648b157b07ca44b6f18f8d",
+          "bytes": 55779
+        },
+        {
+          "path": "sympy-1.14.0.dist-info/licenses/LICENSE",
+          "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+          "bytes": 7885
+        },
+        {
+          "path": "sympy/parsing/latex/LICENSE.txt",
+          "sha256": "007bc30a58fa40a996e772047120de4eaf31f5110e4f9c3b5f93fcdfbe2eaca1",
+          "bytes": 1075
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/sympy-1.14.0.txt",
+      "notice_sha256": "a7c17367bced73b77920c8ee294f8e6bcd90aff52286b162bf58a21cbc48bcea",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "homepage, https://github.com/joblib/threadpoolctl"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "threadpoolctl-3.7.0.dist-info/licenses/LICENSE",
+          "sha256": "81ac619075248b06e53660b652d10e485f4675f5d0ae0f97ea22370da1f7e23b",
+          "bytes": 1507
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/threadpoolctl-3.7.0.txt",
+      "notice_sha256": "09305ea2a24f7df9076dca2f712d43b97d3f7eaabf458797a814760027aaecbf",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/huggingface/tokenizers",
+        "Source, https://github.com/huggingface/tokenizers"
+      ],
+      "home_page": null,
+      "license_files": [],
+      "notice_file": "LICENSES/dependencies/tokenizers-0.22.2.txt",
+      "notice_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "notice_review_status": "Installed wheel lacks a license file; Apache-2.0 text recovered from exact upstream v0.22.2 tag; compiled Rust dependency notices not exhaustively verified",
+      "upstream_notice_url": "https://github.com/huggingface/tokenizers/blob/f383101a26663708484cac0727792aad74f78234/LICENSE",
+      "reviewed_license": "Apache-2.0",
+      "role": "transitive (including platform-conditional dependencies)"
+    },
+    {
+      "name": "torch",
+      "version": "2.14.1",
+      "lock_source": {
+        "registry": "https://download.pytorch.org/whl/cpu"
+      },
+      "evidence": "exact-version PyPI metadata; platform/version not installed",
+      "metadata_url": "https://pypi.org/pypi/torch/2.14.1/json",
+      "license_expression": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": {
+        "Documentation": "https://pytorch.org/docs",
+        "Forum": "https://discuss.pytorch.org",
+        "Homepage": "https://pytorch.org",
+        "Issue Tracker": "https://github.com/pytorch/pytorch/issues",
+        "Repository": "https://github.com/pytorch/pytorch"
+      },
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "torch-2.14.1.dist-info/licenses/LICENSE",
+          "bytes": 3464,
+          "sha256": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/FP16/LICENSE",
+          "bytes": 1157,
+          "sha256": "17e4f539024be2749ee729d1e2f01d24cef12ece8c9bf18e91a4349be29c80bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/FXdiv/LICENSE",
+          "bytes": 1117,
+          "sha256": "7cac00006125b1486a27e4801ed66357236e984c540bd323945ab7b66b078ec3"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/NNPACK/LICENSE",
+          "bytes": 1352,
+          "sha256": "ab09e33621f513ebdd1ef685b324f39c1f6bee9221d15600bafd958322df1231"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/NVTX/LICENSE.txt",
+          "bytes": 12483,
+          "sha256": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/NVTX/docs/LICENSE.txt",
+          "bytes": 12483,
+          "sha256": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/NVTX/python/LICENSE.txt",
+          "bytes": 12483,
+          "sha256": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/NVTX/rust/LICENSE",
+          "bytes": 12449,
+          "sha256": "e165ed77854f47fb208850d23d935a9f0ab8bb4527381466beeb16025e2f6e9e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/NVTX/tools/docs/github-markdown-css/LICENSE",
+          "bytes": 1117,
+          "sha256": "5c932d88256b4ab958f64a856fa48e8bd1f55bc1d96b8149c65689e0c61789d3"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/VulkanMemoryAllocator/LICENSE.txt",
+          "bytes": 1099,
+          "sha256": "8d70e4cf2a9941f6454da71cd60e38484dd3e34810c824760d550e982af6d97a"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/XNNPACK/LICENSE",
+          "bytes": 1560,
+          "sha256": "63f519e15726f4c4f830bd958f694c84fecb4e0a4cacc527d2696bb71ef95ada"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/aiter/3rdparty/composable_kernel/LICENSE",
+          "bytes": 1726,
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/aiter/3rdparty/composable_kernel/docs/LICENSE.rst",
+          "bytes": 330,
+          "sha256": "527eec8a9670f793119a685a3510369e5fd64b45515a885c7226641777ecff8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/aiter/LICENSE",
+          "bytes": 1100,
+          "sha256": "0baca809927cad448401b252ce3bae12687c2987597ad7088cf3423f872d5bcd"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/benchmark/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/composable_kernel/LICENSE",
+          "bytes": 1726,
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/composable_kernel/docs/LICENSE.rst",
+          "bytes": 330,
+          "sha256": "527eec8a9670f793119a685a3510369e5fd64b45515a885c7226641777ecff8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/cpp-httplib/LICENSE",
+          "bytes": 1075,
+          "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/cpuinfo/LICENSE",
+          "bytes": 1424,
+          "sha256": "8e7e60636c3aa0cb03571a1a841ce5697f9551ff92b3c426c2561613d15ade70"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/cpuinfo/deps/clog/LICENSE",
+          "bytes": 1384,
+          "sha256": "68a14c3e79add023eecd83d611e73f05b8bf1d16852efeb7eb4033a96736da9e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/cudnn_frontend/LICENSE.txt",
+          "bytes": 1148,
+          "sha256": "3fc4b473a2c08768a8066bf7e4a58a1185060f3ad674f2ca9e2011bca4adf2ce"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/cutlass/LICENSE.txt",
+          "bytes": 1861,
+          "sha256": "ad1513ca983da737a6843364ad19e8424a56d860736c2da773b8c5be527e1475"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/cutlass/python/LICENSE.txt",
+          "bytes": 1547,
+          "sha256": "00bf1806f664ac1afe4221f5f04b384fb6f1ca6eb33efcb6dccf599eb06d08b9"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/LICENSE",
+          "bytes": 1535,
+          "sha256": "12c2370ec32e78115dcd71ba22cdcb1297320fdc4ade81f798136d42357c58b8"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/composable_kernel/LICENSE",
+          "bytes": 1726,
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/composable_kernel/docs/LICENSE.rst",
+          "bytes": 330,
+          "sha256": "527eec8a9670f793119a685a3510369e5fd64b45515a885c7226641777ecff8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/cpuinfo/LICENSE",
+          "bytes": 1424,
+          "sha256": "8e7e60636c3aa0cb03571a1a841ce5697f9551ff92b3c426c2561613d15ade70"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/cpuinfo/deps/clog/LICENSE",
+          "bytes": 1384,
+          "sha256": "68a14c3e79add023eecd83d611e73f05b8bf1d16852efeb7eb4033a96736da9e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/cutlass/LICENSE.txt",
+          "bytes": 1854,
+          "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/cutlass/python/LICENSE.txt",
+          "bytes": 1547,
+          "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/external/hipify_torch/LICENSE.txt",
+          "bytes": 1112,
+          "sha256": "ecf819d55b17c2f091b3ba0934d044368aa0680d8a81374860306aa2b91aa1eb"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/docs/src/general/LICENSE.rst",
+          "bytes": 148,
+          "sha256": "28e8a7bea8e35cc341133847d66ca4b34e7156724e31e7fb62e37872d4259416"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/experimental/hstu/LICENSE",
+          "bytes": 1558,
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/src/quantize_ops/mx/LICENSE",
+          "bytes": 1141,
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/test/quantize/mx/LICENSE",
+          "bytes": 1141,
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/LICENSE",
+          "bytes": 1558,
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/csrc/composable_kernel/LICENSE",
+          "bytes": 1726,
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/csrc/composable_kernel/docs/LICENSE.rst",
+          "bytes": 330,
+          "sha256": "527eec8a9670f793119a685a3510369e5fd64b45515a885c7226641777ecff8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/csrc/cutlass/LICENSE.txt",
+          "bytes": 1854,
+          "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/csrc/cutlass/python/LICENSE.txt",
+          "bytes": 1547,
+          "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/flash_attn/cute/LICENSE",
+          "bytes": 1558,
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/third_party/aiter/3rdparty/composable_kernel/LICENSE",
+          "bytes": 1726,
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/third_party/aiter/3rdparty/composable_kernel/docs/LICENSE.rst",
+          "bytes": 330,
+          "sha256": "527eec8a9670f793119a685a3510369e5fd64b45515a885c7226641777ecff8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flash-attention/third_party/aiter/LICENSE",
+          "bytes": 1100,
+          "sha256": "0baca809927cad448401b252ce3bae12687c2987597ad7088cf3423f872d5bcd"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flatbuffers/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flatbuffers/dart/LICENSE",
+          "bytes": 11341,
+          "sha256": "edd9b3459bee4c79b549a5ef66d06d12bd144ddb8d08e0b448fb421267f43dd5"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/flatbuffers/swift/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/fmt/LICENSE",
+          "bytes": 1094,
+          "sha256": "a65fcc5a1095fc33cc37e4fff69366e49d7e92f613558a2b95ed1b70e33758b4"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/gemmlowp/gemmlowp/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/gloo/LICENSE",
+          "bytes": 1525,
+          "sha256": "2afbc572cf7f60888159bc2ca48ba58f8adec06682ae5de820d61449d1eeea81"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/ideep/LICENSE",
+          "bytes": 1062,
+          "sha256": "a26add03107a53a605a89711b9b7dbd4f5dd668ae193a912e01a879366a23b0e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/ideep/mkl-dnn/LICENSE",
+          "bytes": 11607,
+          "sha256": "e9fc874fc09801b9acf3411ba72394098473704d832d713404b6c4861a086318"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/ideep/mkl-dnn/third_party/gtest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/ideep/mkl-dnn/third_party/opencl/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/kineto/LICENSE",
+          "bytes": 1609,
+          "sha256": "6f3d59b9103e72e5c977eecf61b261c2e1546a9be2995847e3ee2d31021fd39b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/kineto/libkineto/third_party/dynolog_headers/LICENSE",
+          "bytes": 1086,
+          "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/kineto/libkineto/third_party/fmt/LICENSE",
+          "bytes": 1431,
+          "sha256": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/kineto/libkineto/third_party/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/llvm-openmp/LICENSE.txt",
+          "bytes": 17003,
+          "sha256": "68395143f21a9aa29b8232168c71892af5ec4f1ae2529571cd250a71c9e37a03"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mimalloc/LICENSE",
+          "bytes": 1096,
+          "sha256": "82ade5d7d9b029044b5fbbc326207fc47c2d44ee4dd71e8a559c36d728217de9"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/miniz-3.0.2/LICENSE",
+          "bytes": 1184,
+          "sha256": "0115478d567121238cf6cc1c0c361926cf07a49d9e4c9e66da97fac6a01646b3"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/LICENSE",
+          "bytes": 1533,
+          "sha256": "44519cbe722d7bf092cd7e0fa26558b9e3905b88fca4c0c278e2733a9f6b4cf9"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/external/composable_kernel/LICENSE",
+          "bytes": 1726,
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/external/composable_kernel/docs/LICENSE.rst",
+          "bytes": 330,
+          "sha256": "527eec8a9670f793119a685a3510369e5fd64b45515a885c7226641777ecff8b"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/external/cutlass/LICENSE.txt",
+          "bytes": 1854,
+          "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/external/cutlass/python/LICENSE.txt",
+          "bytes": 1547,
+          "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/external/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/external/hipify_torch/LICENSE.txt",
+          "bytes": 1112,
+          "sha256": "ecf819d55b17c2f091b3ba0934d044368aa0680d8a81374860306aa2b91aa1eb"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/mslk/mslk/attention/flash_attn/LICENSE",
+          "bytes": 1558,
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/nccl/LICENSE.txt",
+          "bytes": 13261,
+          "sha256": "c1f53beabe4dbf05bd87c00f7ca6084c0cb541c3f7bf8edab7913f266018b7be"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/nccl/bindings/nccl4py/LICENSE.txt",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/nccl/contrib/nccl_checkpoint/python/LICENSE.txt",
+          "bytes": 11365,
+          "sha256": "89374f8cc48236dccfcd0cea43974f7ee4f4bf77c8649da71c7c4cfef515f0d7"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/nccl/contrib/nccl_ep/LICENSE.txt",
+          "bytes": 11365,
+          "sha256": "89374f8cc48236dccfcd0cea43974f7ee4f4bf77c8649da71c7c4cfef515f0d7"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/nccl/contrib/nccl_ubx/LICENSE.txt",
+          "bytes": 11365,
+          "sha256": "89374f8cc48236dccfcd0cea43974f7ee4f4bf77c8649da71c7c4cfef515f0d7"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/onnx/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/onnx/third_party/pybind11/LICENSE",
+          "bytes": 1684,
+          "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/perfetto/LICENSE",
+          "bytes": 14990,
+          "sha256": "9a682a56cffc9524dfa9b0b1c0dca9cb81a19e96d5bd0793aaf02c08a95ee7ca"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/LICENSE",
+          "bytes": 1732,
+          "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/third_party/benchmark/LICENSE",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/third_party/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/third_party/googletest/googlemock/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/third_party/googletest/googlemock/scripts/generator/LICENSE",
+          "bytes": 11386,
+          "sha256": "5e0df8c845c742e76f2f64d2d9ce1b7e74a2422fddbc577ae6a56319083de0bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/third_party/googletest/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/protobuf/third_party/utf8_range/LICENSE",
+          "bytes": 1065,
+          "sha256": "5a629d2b868081d8af08bbce5d038116f3a0e2e0d4ce9adf4d53f14e76b6b2e0"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/psimd/LICENSE",
+          "bytes": 1162,
+          "sha256": "984ce1e0b8ee89d234e28b960381f240e03a07a8031f35012f9c3256f56964e2"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/pthreadpool/LICENSE",
+          "bytes": 1378,
+          "sha256": "57814a606b4d0fb087d9a534919084b6c11b58a4174cb5a4aef200187780dc3a"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/pybind11/LICENSE",
+          "bytes": 1684,
+          "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/python-peachpy/LICENSE.rst",
+          "bytes": 1443,
+          "sha256": "e6d6fdbfc09c9cc1bfc55946ca9690dd9276deeaed2b72ac7fc5c79bde80ff32"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/sleef/LICENSE.txt",
+          "bytes": 1338,
+          "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/LICENSE.txt",
+          "bytes": 1535,
+          "sha256": "f4dcef0d1f0520b414d5bfaeed8df02f188e4ec05c0a17bf1c18f25f6cc66245"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/googletest/googlemock/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/googletest/googlemock/scripts/generator/LICENSE",
+          "bytes": 11386,
+          "sha256": "5e0df8c845c742e76f2f64d2d9ce1b7e74a2422fddbc577ae6a56319083de0bf"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/googletest/googletest/LICENSE",
+          "bytes": 1475,
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/libnop/LICENSE",
+          "bytes": 577,
+          "sha256": "876e8f7432440974ee5543a2aa1344370ef1f2f7949ad98a1f3899cf722d5631"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/libuv/LICENSE",
+          "bytes": 1079,
+          "sha256": "16de0c32b265cb7d46a6d3bd614f259dd4d693a5e26b3407b04aae8d73041f0c"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/pybind11/LICENSE",
+          "bytes": 1676,
+          "sha256": "9a37ea54aa3cf12c7f3292799f20822ffd4b9b7142b36a7a9997b28c39264dc9"
+        },
+        {
+          "path": "torch-2.14.1.dist-info/licenses/third_party/tensorpipe/third_party/pybind11/tools/clang/LICENSE.txt",
+          "bytes": 2749,
+          "sha256": "23c817ddf55e9a8ea332a376e6c23469c31a6c833516385cf0662767ba863276"
+        },
+        {
+          "path": "torch/_vendor/packaging/LICENSE",
+          "bytes": 197,
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "torch/_vendor/packaging/LICENSE.APACHE",
+          "bytes": 10174,
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "torch/_vendor/packaging/LICENSE.BSD",
+          "bytes": 1344,
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "torch/_vendor/quack/LICENSE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/torch-2.14.1.txt",
+      "notice_sha256": "67e04ca3b2c4a8d7519dac00c13ada3d90748992e835e4f77719a75aef872493",
+      "wheel_evidence": {
+        "filename": "torch-2.14.1-cp311-cp311-macosx_14_0_arm64.whl",
+        "url": "https://download-r2.pytorch.org/whl/cpu/torch-2.14.1-cp311-cp311-macosx_14_0_arm64.whl",
+        "sha256": "7b0670b545f1b732a3219966e6704b27398a32a764bc7cce065e40b142dcf8a1",
+        "matches_uv_lock": true
+      },
+      "notice_review_status": "Exact locked wheel notices extracted without installing; platform-specific selection is recorded",
+      "reviewed_license": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "role": "direct runtime",
+      "review_scope_note": "Metadata is an aggregate expression; original BSD core notice and all shipped third-party license files preserved. Linux libgomp runtime requires separate distribution review; some bundled notices cover components not active in the CPU build."
+    },
+    {
+      "name": "torch",
+      "version": "2.14.1+cpu",
+      "lock_source": {
+        "registry": "https://download.pytorch.org/whl/cpu"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://pytorch.org",
+        "Repository, https://github.com/pytorch/pytorch",
+        "Documentation, https://pytorch.org/docs",
+        "Issue Tracker, https://github.com/pytorch/pytorch/issues",
+        "Forum, https://discuss.pytorch.org"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/LICENSE",
+          "sha256": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43",
+          "bytes": 3464
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/FP16/LICENSE",
+          "sha256": "17e4f539024be2749ee729d1e2f01d24cef12ece8c9bf18e91a4349be29c80bf",
+          "bytes": 1157
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/FXdiv/LICENSE",
+          "sha256": "7cac00006125b1486a27e4801ed66357236e984c540bd323945ab7b66b078ec3",
+          "bytes": 1117
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/NNPACK/LICENSE",
+          "sha256": "ab09e33621f513ebdd1ef685b324f39c1f6bee9221d15600bafd958322df1231",
+          "bytes": 1352
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/NVTX/LICENSE.txt",
+          "sha256": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0",
+          "bytes": 12483
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/NVTX/docs/LICENSE.txt",
+          "sha256": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0",
+          "bytes": 12483
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/NVTX/python/LICENSE.txt",
+          "sha256": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0",
+          "bytes": 12483
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/NVTX/rust/LICENSE",
+          "sha256": "e165ed77854f47fb208850d23d935a9f0ab8bb4527381466beeb16025e2f6e9e",
+          "bytes": 12449
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/VulkanMemoryAllocator/LICENSE.txt",
+          "sha256": "8d70e4cf2a9941f6454da71cd60e38484dd3e34810c824760d550e982af6d97a",
+          "bytes": 1099
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/XNNPACK/LICENSE",
+          "sha256": "63f519e15726f4c4f830bd958f694c84fecb4e0a4cacc527d2696bb71ef95ada",
+          "bytes": 1560
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/aiter/3rdparty/composable_kernel/LICENSE",
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+          "bytes": 1726
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/aiter/LICENSE",
+          "sha256": "0baca809927cad448401b252ce3bae12687c2987597ad7088cf3423f872d5bcd",
+          "bytes": 1100
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/benchmark/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/composable_kernel/LICENSE",
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+          "bytes": 1726
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/cpp-httplib/LICENSE",
+          "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+          "bytes": 1075
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/cpuinfo/LICENSE",
+          "sha256": "8e7e60636c3aa0cb03571a1a841ce5697f9551ff92b3c426c2561613d15ade70",
+          "bytes": 1424
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/cpuinfo/deps/clog/LICENSE",
+          "sha256": "68a14c3e79add023eecd83d611e73f05b8bf1d16852efeb7eb4033a96736da9e",
+          "bytes": 1384
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/cudnn_frontend/LICENSE.txt",
+          "sha256": "3fc4b473a2c08768a8066bf7e4a58a1185060f3ad674f2ca9e2011bca4adf2ce",
+          "bytes": 1148
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/cutlass/LICENSE.txt",
+          "sha256": "ad1513ca983da737a6843364ad19e8424a56d860736c2da773b8c5be527e1475",
+          "bytes": 1861
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/cutlass/python/LICENSE.txt",
+          "sha256": "00bf1806f664ac1afe4221f5f04b384fb6f1ca6eb33efcb6dccf599eb06d08b9",
+          "bytes": 1547
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/LICENSE",
+          "sha256": "12c2370ec32e78115dcd71ba22cdcb1297320fdc4ade81f798136d42357c58b8",
+          "bytes": 1535
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/composable_kernel/LICENSE",
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+          "bytes": 1726
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/cpuinfo/LICENSE",
+          "sha256": "8e7e60636c3aa0cb03571a1a841ce5697f9551ff92b3c426c2561613d15ade70",
+          "bytes": 1424
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/cpuinfo/deps/clog/LICENSE",
+          "sha256": "68a14c3e79add023eecd83d611e73f05b8bf1d16852efeb7eb4033a96736da9e",
+          "bytes": 1384
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/cutlass/LICENSE.txt",
+          "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+          "bytes": 1854
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/cutlass/python/LICENSE.txt",
+          "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+          "bytes": 1547
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/external/hipify_torch/LICENSE.txt",
+          "sha256": "ecf819d55b17c2f091b3ba0934d044368aa0680d8a81374860306aa2b91aa1eb",
+          "bytes": 1112
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/experimental/hstu/LICENSE",
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+          "bytes": 1558
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/src/quantize_ops/mx/LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "bytes": 1141
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fbgemm/fbgemm_gpu/test/quantize/mx/LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "bytes": 1141
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/LICENSE",
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+          "bytes": 1558
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/csrc/composable_kernel/LICENSE",
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+          "bytes": 1726
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/csrc/cutlass/LICENSE.txt",
+          "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+          "bytes": 1854
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/csrc/cutlass/python/LICENSE.txt",
+          "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+          "bytes": 1547
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/flash_attn/cute/LICENSE",
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+          "bytes": 1558
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/third_party/aiter/3rdparty/composable_kernel/LICENSE",
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+          "bytes": 1726
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flash-attention/third_party/aiter/LICENSE",
+          "sha256": "0baca809927cad448401b252ce3bae12687c2987597ad7088cf3423f872d5bcd",
+          "bytes": 1100
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flatbuffers/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flatbuffers/dart/LICENSE",
+          "sha256": "edd9b3459bee4c79b549a5ef66d06d12bd144ddb8d08e0b448fb421267f43dd5",
+          "bytes": 11341
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/flatbuffers/swift/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/fmt/LICENSE",
+          "sha256": "a65fcc5a1095fc33cc37e4fff69366e49d7e92f613558a2b95ed1b70e33758b4",
+          "bytes": 1094
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/gemmlowp/gemmlowp/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/gloo/LICENSE",
+          "sha256": "2afbc572cf7f60888159bc2ca48ba58f8adec06682ae5de820d61449d1eeea81",
+          "bytes": 1525
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/ideep/LICENSE",
+          "sha256": "a26add03107a53a605a89711b9b7dbd4f5dd668ae193a912e01a879366a23b0e",
+          "bytes": 1062
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/ideep/mkl-dnn/LICENSE",
+          "sha256": "e9fc874fc09801b9acf3411ba72394098473704d832d713404b6c4861a086318",
+          "bytes": 11607
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/ideep/mkl-dnn/third_party/gtest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/ideep/mkl-dnn/third_party/opencl/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/kineto/LICENSE",
+          "sha256": "6f3d59b9103e72e5c977eecf61b261c2e1546a9be2995847e3ee2d31021fd39b",
+          "bytes": 1609
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/kineto/libkineto/third_party/dynolog_headers/LICENSE",
+          "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+          "bytes": 1086
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/kineto/libkineto/third_party/fmt/LICENSE",
+          "sha256": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8",
+          "bytes": 1431
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/kineto/libkineto/third_party/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/llvm-openmp/LICENSE.txt",
+          "sha256": "68395143f21a9aa29b8232168c71892af5ec4f1ae2529571cd250a71c9e37a03",
+          "bytes": 17003
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mimalloc/LICENSE",
+          "sha256": "82ade5d7d9b029044b5fbbc326207fc47c2d44ee4dd71e8a559c36d728217de9",
+          "bytes": 1096
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/miniz-3.0.2/LICENSE",
+          "sha256": "0115478d567121238cf6cc1c0c361926cf07a49d9e4c9e66da97fac6a01646b3",
+          "bytes": 1184
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/LICENSE",
+          "sha256": "44519cbe722d7bf092cd7e0fa26558b9e3905b88fca4c0c278e2733a9f6b4cf9",
+          "bytes": 1533
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/external/composable_kernel/LICENSE",
+          "sha256": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+          "bytes": 1726
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/external/cutlass/LICENSE.txt",
+          "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+          "bytes": 1854
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/external/cutlass/python/LICENSE.txt",
+          "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+          "bytes": 1547
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/external/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/external/hipify_torch/LICENSE.txt",
+          "sha256": "ecf819d55b17c2f091b3ba0934d044368aa0680d8a81374860306aa2b91aa1eb",
+          "bytes": 1112
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/mslk/mslk/attention/flash_attn/LICENSE",
+          "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+          "bytes": 1558
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/onnx/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/onnx/third_party/pybind11/LICENSE",
+          "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb",
+          "bytes": 1684
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/perfetto/LICENSE",
+          "sha256": "9a682a56cffc9524dfa9b0b1c0dca9cb81a19e96d5bd0793aaf02c08a95ee7ca",
+          "bytes": 14990
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/LICENSE",
+          "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+          "bytes": 1732
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/third_party/benchmark/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/third_party/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/third_party/googletest/googlemock/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/third_party/googletest/googlemock/scripts/generator/LICENSE",
+          "sha256": "5e0df8c845c742e76f2f64d2d9ce1b7e74a2422fddbc577ae6a56319083de0bf",
+          "bytes": 11386
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/third_party/googletest/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/protobuf/third_party/utf8_range/LICENSE",
+          "sha256": "5a629d2b868081d8af08bbce5d038116f3a0e2e0d4ce9adf4d53f14e76b6b2e0",
+          "bytes": 1065
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/psimd/LICENSE",
+          "sha256": "984ce1e0b8ee89d234e28b960381f240e03a07a8031f35012f9c3256f56964e2",
+          "bytes": 1162
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/pthreadpool/LICENSE",
+          "sha256": "57814a606b4d0fb087d9a534919084b6c11b58a4174cb5a4aef200187780dc3a",
+          "bytes": 1378
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/pybind11/LICENSE",
+          "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb",
+          "bytes": 1684
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/python-peachpy/LICENSE.rst",
+          "sha256": "e6d6fdbfc09c9cc1bfc55946ca9690dd9276deeaed2b72ac7fc5c79bde80ff32",
+          "bytes": 1443
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/sleef/LICENSE.txt",
+          "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+          "bytes": 1338
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/LICENSE.txt",
+          "sha256": "f4dcef0d1f0520b414d5bfaeed8df02f188e4ec05c0a17bf1c18f25f6cc66245",
+          "bytes": 1535
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/googletest/googlemock/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/googletest/googlemock/scripts/generator/LICENSE",
+          "sha256": "5e0df8c845c742e76f2f64d2d9ce1b7e74a2422fddbc577ae6a56319083de0bf",
+          "bytes": 11386
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/googletest/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "bytes": 1475
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/libnop/LICENSE",
+          "sha256": "876e8f7432440974ee5543a2aa1344370ef1f2f7949ad98a1f3899cf722d5631",
+          "bytes": 577
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/libuv/LICENSE",
+          "sha256": "16de0c32b265cb7d46a6d3bd614f259dd4d693a5e26b3407b04aae8d73041f0c",
+          "bytes": 1079
+        },
+        {
+          "path": "torch-2.14.1+cpu.dist-info/licenses/third_party/tensorpipe/third_party/pybind11/LICENSE",
+          "sha256": "9a37ea54aa3cf12c7f3292799f20822ffd4b9b7142b36a7a9997b28c39264dc9",
+          "bytes": 1676
+        },
+        {
+          "path": "torch/_vendor/packaging/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "bytes": 197
+        },
+        {
+          "path": "torch/_vendor/packaging/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "bytes": 10174
+        },
+        {
+          "path": "torch/_vendor/packaging/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "bytes": 1344
+        },
+        {
+          "path": "torch/_vendor/quack/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/torch-2.14.1+cpu.txt",
+      "notice_sha256": "c3a0ed6ea28ab8c45e15caa2b225f1ae6272a1461ec781e56d17e03690ebbcc6",
+      "reviewed_license": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "role": "direct runtime",
+      "review_scope_note": "Metadata is an aggregate expression; original BSD core notice and all shipped third-party license files preserved. Linux libgomp runtime requires separate distribution review; some bundled notices cover components not active in the CPU build.",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MPL-2.0 AND MIT",
+      "license_classifiers": [],
+      "project_urls": [
+        "homepage, https://tqdm.github.io",
+        "repository, https://github.com/tqdm/tqdm",
+        "changelog, https://tqdm.github.io/releases",
+        "wiki, https://github.com/tqdm/tqdm/wiki"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "tqdm-4.70.1.dist-info/licenses/LICENCE",
+          "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+          "bytes": 1985
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/tqdm-4.70.1.txt",
+      "notice_sha256": "571f956f0f7d04aa511abd10e68727bc963b2f4f7e50d9807fa3ff41acec1cfc",
+      "reviewed_license": "MPL-2.0 AND MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "transformers",
+      "version": "4.57.6",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "Apache 2.0 License",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "https://github.com/huggingface/transformers",
+      "license_files": [
+        {
+          "path": "transformers-4.57.6.dist-info/licenses/LICENSE",
+          "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+          "bytes": 11418
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/transformers-4.57.6.txt",
+      "notice_sha256": "704e58e49fc630e489b4cdf52be07ecc52aa0fed3e051f648307663abb50b834",
+      "reviewed_license": "Apache-2.0",
+      "role": "direct runtime",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "PSF-2.0",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Bug Tracker, https://github.com/python/typing_extensions/issues",
+        "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation, https://typing-extensions.readthedocs.io/",
+        "Home, https://github.com/python/typing_extensions",
+        "Q & A, https://github.com/python/typing/discussions",
+        "Repository, https://github.com/python/typing_extensions"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+          "bytes": 13936
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/typing-extensions-4.16.0.txt",
+      "notice_sha256": "920fb81dedf4cf00be9ea09e0296e68dc767bbde606f0c0f7efb969510d644ce",
+      "reviewed_license": "PSF-2.0",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/pydantic/typing-inspection",
+        "Documentation, https://pydantic.github.io/typing-inspection/dev/",
+        "Source, https://github.com/pydantic/typing-inspection",
+        "Changelog, https://github.com/pydantic/typing-inspection/blob/main/HISTORY.md"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "typing_inspection-0.4.4.dist-info/licenses/LICENSE",
+          "sha256": "804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3",
+          "bytes": 1090
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/typing-inspection-0.4.4.txt",
+      "notice_sha256": "b3122e0cc9bd0c9531366b58eb85bbe00191799f1c1cfc016b683c81e78b4545",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://github.com/urllib3/urllib3/blob/main/CHANGES.rst",
+        "Documentation, https://urllib3.readthedocs.io",
+        "Code, https://github.com/urllib3/urllib3",
+        "Issue tracker, https://github.com/urllib3/urllib3/issues",
+        "Security policy, https://urllib3.readthedocs.io/en/latest/security.html"
+      ],
+      "home_page": null,
+      "license_files": [
+        {
+          "path": "urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+          "bytes": 1093
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/urllib3-2.8.0.txt",
+      "notice_sha256": "e14a8bcad8fdaa15a27bddbf91c3d9c4e1caa0a44569deb8a079dc433ecf8c77",
+      "reviewed_license": "MIT",
+      "role": "transitive (including platform-conditional dependencies)",
+      "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    }
+  ],
+  "package_version_count": 48,
+  "unique_package_count": 44,
+  "noninstalled_variants_note": "Exact locked wheel notice files were extracted without installing alternate versions/platform builds; evidence includes filename, URL and matching lock SHA256. This does not audit every wheel across every supported platform."
+}

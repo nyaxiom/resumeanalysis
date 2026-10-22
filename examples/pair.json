@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "resume_text": "Data Analyst: developed ETL pipelines in Python and SQL on Linux. Built a PyTorch model for a personal project.",
+    "skills": ["Python", "SQL", "Linux", "PyTorch"],
+    "experience_years": 2,
+    "projects": ["ETL pipeline"],
+    "remote_only": true
+  },
+  "vacancy": {
+    "title": "Junior Data Engineer",
+    "description": "Required: Python and SQL. Nice to have: Airflow.",
+    "required_skills": ["Python", "SQL"],
+    "optional_skills": ["Airflow"],
+    "min_experience_years": 2,
+    "remote": true
+  }
+}

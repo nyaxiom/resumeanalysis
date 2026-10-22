@@ -1,0 +1,83 @@
+{
+  "rows": 3569,
+  "exact_span": {
+    "true_positive": 188,
+    "false_positive": 122,
+    "false_negative": 2077,
+    "precision": 0.6064516129032258,
+    "recall": 0.08300220750551876,
+    "f1": 0.14601941747572816
+  },
+  "token": {
+    "true_positive": 268,
+    "false_positive": 71,
+    "false_negative": 6012,
+    "precision": 0.7905604719764012,
+    "recall": 0.04267515923566879,
+    "f1": 0.08097899984891978
+  },
+  "common_missed_spans": [
+    [
+      "english",
+      30
+    ],
+    [
+      ". net",
+      13
+    ],
+    [
+      "financial services",
+      13
+    ],
+    [
+      "automation",
+      12
+    ],
+    [
+      "testing",
+      11
+    ],
+    [
+      "cloud",
+      10
+    ],
+    [
+      "reactjs",
+      9
+    ],
+    [
+      "development",
+      9
+    ],
+    [
+      "qa",
+      9
+    ],
+    [
+      "design",
+      8
+    ],
+    [
+      "financial technology",
+      8
+    ],
+    [
+      "agile",
+      8
+    ],
+    [
+      "teaching",
+      8
+    ],
+    [
+      "solving business problems",
+      7
+    ],
+    [
+      "apply your depth of knowledge and expertise",
+      7
+    ]
+  ],
+  "scope": "All SKILL and KNOWLEDGE annotations; finite RU/EN dictionary fallback, not trained NER",
+  "source_revision": "2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b"
+}

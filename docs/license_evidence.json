@@ -1,0 +1,392 @@
+{
+  "audit_date": "2026-10-22",
+  "upstream_license_files": [
+    {
+      "path": "LICENSES/references/resumatch-LICENSE.txt",
+      "source_url": "https://github.com/JananiV07/resumatch/blob/6eb8d49b6a5de28222d538f5c9350c639caa380b/LICENSE",
+      "sha256": "07d5e8d2b643d93cc3460a1ae049e41e1087e06bedbdea92840eab3c0bd82b71"
+    },
+    {
+      "path": "LICENSES/references/nesta-LICENSE.txt",
+      "source_url": "https://github.com/nestauk/ojd_daps_skills/blob/e73c2b5045793d891678ad387b2c7fda1756d236/LICENSE",
+      "sha256": "3ffac39424a5dcd2659b61cc90b810e40ea1dad3b7486d85831f2a13423e8402"
+    },
+    {
+      "path": "LICENSES/references/skillalign-LICENSE.txt",
+      "source_url": "https://github.com/Y4SSERk/SkillAlign/blob/cf0681df995838b14823825f0a44ec18c3903108/LICENSE",
+      "sha256": "3ad240b0fceb7e272f070e441620c8be6c731a7833ad3b41e3f3295b399e459e"
+    },
+    {
+      "path": "LICENSES/references/skillalign-NOTICE.txt",
+      "source_url": "https://github.com/Y4SSERk/SkillAlign/blob/cf0681df995838b14823825f0a44ec18c3903108/NOTICE",
+      "sha256": "d44770604907812d395e98c53c91b1669737ef85d44822137d5aff31e86f264a"
+    },
+    {
+      "path": "LICENSES/references/skillspan-LICENSE.txt",
+      "source_url": "https://github.com/kris927b/SkillSpan/blob/2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b/LICENSE",
+      "sha256": "c7843d7998182d06cfe6d0cf4b215d487595527dfcd3ddce6584a9fdb8f61416"
+    },
+    {
+      "path": "LICENSES/tools/checkout.txt",
+      "source_url": "https://github.com/actions/checkout/blob/11d5960a326750d5838078e36cf38b85af677262/LICENSE",
+      "sha256": "3e855ffa704114a51628ef8f0bf3aeb41728adf9d9070e263bf58aa5640b0eb5"
+    },
+    {
+      "path": "LICENSES/tools/setup-uv.txt",
+      "source_url": "https://github.com/astral-sh/setup-uv/blob/d0cc045d04ccac9d8b7881df0226f9e82c39688e/LICENSE",
+      "sha256": "933c6b13611b145de8fc8016281b2733e4a38c66f431de5bf48ed89b42af164b"
+    },
+    {
+      "path": "LICENSES/dependencies/tokenizers-0.22.2.txt",
+      "source_url": "https://github.com/huggingface/tokenizers/blob/f383101a26663708484cac0727792aad74f78234/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "LICENSES/texts/MPL-2.0.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/MPL-2.0.txt",
+      "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172"
+    },
+    {
+      "path": "LICENSES/texts/LGPL-2.1-or-later.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/LGPL-2.1-or-later.txt",
+      "sha256": "5749785c8bdefafcb5d798270ed0a967036fe2ca63dcedade1627565dfef81d2"
+    },
+    {
+      "path": "LICENSES/texts/CNRI-Python.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/CNRI-Python.txt",
+      "sha256": "69b5d7d41a6ece3b20c6a77774f567948766d8643f7646e3f65474692cce5c15"
+    },
+    {
+      "path": "LICENSES/texts/CC-BY-4.0.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/CC-BY-4.0.txt",
+      "sha256": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744"
+    },
+    {
+      "path": "LICENSES/tools/uv-LICENSE-MIT.txt",
+      "source_url": "https://raw.githubusercontent.com/astral-sh/uv/46b84fd0bfec23b72f29e8e2185ba68a65052f48/LICENSE-MIT",
+      "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c"
+    },
+    {
+      "path": "LICENSES/tools/uv-LICENSE-APACHE.txt",
+      "source_url": "https://raw.githubusercontent.com/astral-sh/uv/46b84fd0bfec23b72f29e8e2185ba68a65052f48/LICENSE-APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "LICENSES/texts/GPL-3.0-or-later.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/GPL-3.0-or-later.txt",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    {
+      "path": "LICENSES/texts/GCC-exception-3.1.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/GCC-exception-3.1.txt",
+      "sha256": "7103d4f7f7e2f8ce10d282a05e0689637f8d6d9ef7b399d808d1da313e69b960"
+    }
+  ],
+  "external_assets": [
+    {
+      "type": "models",
+      "id": "intfloat/multilingual-e5-small",
+      "usage": "downloaded local encoder; weights/tokenizer excluded from Git",
+      "metadata_url": "https://huggingface.co/api/models/intfloat/multilingual-e5-small/revision/614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "declared_license": "mit",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "52d119a6a9248a76e95623f1d3fa0c5662c87a8052e4459521ba4fa0915c8a32",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "michaelozon/candidate-matching-synthetic",
+      "usage": "downloaded training/evaluation data; excluded from Git",
+      "metadata_url": "https://huggingface.co/api/datasets/michaelozon/candidate-matching-synthetic/revision/178ab864dcad9910c5670d43e4bdbbb901a11f18",
+      "revision": "178ab864dcad9910c5670d43e4bdbbb901a11f18",
+      "declared_license": "mit",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "ff7a109ec4c83704594aa3c17b3b58864682c447863deef90928ed4c305ba537",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "med2425/resume-job-fit-merged-v1",
+      "usage": "schema/card inspected; payload not used",
+      "metadata_url": "https://huggingface.co/api/datasets/med2425/resume-job-fit-merged-v1/revision/f46f355acddab1368a7386cbe94d42fd42767d88",
+      "revision": "f46f355acddab1368a7386cbe94d42fd42767d88",
+      "declared_license": null,
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "ca91977f65dcc6bd93e3580971c104828223635195ed063ccbdad451573b5ef1",
+      "separate_license_files": []
+    },
+    {
+      "type": "models",
+      "id": "microsoft/Multilingual-MiniLM-L12-H384",
+      "usage": "E5 upstream initialization; not separately downloaded",
+      "metadata_url": "https://huggingface.co/api/models/microsoft/Multilingual-MiniLM-L12-H384",
+      "revision": "6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf",
+      "declared_license": "mit",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "f26dc119a2b20b23a54bdb54ac9f47da246a0b11c6732b168aed6d0511c70dec",
+      "separate_license_files": []
+    },
+    {
+      "type": "models",
+      "id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "usage": "upstream synthetic-data generator; not run here",
+      "metadata_url": "https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "declared_license": "apache-2.0",
+      "license_name": null,
+      "license_link": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/main/LICENSE",
+      "metadata_sha256": "2abea7eb12403c875570de140ed4b7a23b22da090ea77a3f6897793020ab0740",
+      "separate_license_files": [
+        "LICENSE"
+      ],
+      "upstream_license_file": {
+        "path": "LICENSES/references/qwen-data-generator-LICENSE.txt",
+        "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/resolve/7ae557604adf67be50417f59c2c2f167def9a775/LICENSE"
+      }
+    },
+    {
+      "type": "models",
+      "id": "nestauk/en_skillner",
+      "usage": "reference only; not installed",
+      "metadata_url": "https://huggingface.co/api/models/nestauk/en_skillner/revision/2610a6de4a5764a167c2eceff7cfd0a3e89e7c40",
+      "revision": "2610a6de4a5764a167c2eceff7cfd0a3e89e7c40",
+      "declared_license": "mit",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "c979a87295dca2e26367e7fb2ddf4ba4387dd5dca8f54adfaa28a1a6b1ac0d36",
+      "separate_license_files": []
+    },
+    {
+      "type": "models",
+      "id": "nestauk/multiskill-classifier",
+      "usage": "reference only; not installed",
+      "metadata_url": "https://huggingface.co/api/models/nestauk/multiskill-classifier/revision/19eea6bff155af799c349348f0c87960b87ad85e",
+      "revision": "19eea6bff155af799c349348f0c87960b87ad85e",
+      "declared_license": "mit",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "722eac33d07fb7a7e483cd49e780a4f31331b7415bbe5b15787d63b0b0aebe96",
+      "separate_license_files": []
+    },
+    {
+      "type": "models",
+      "id": "sentence-transformers/all-MiniLM-L6-v2",
+      "usage": "ResuMatch reference/E5 upstream provenance; not used as local encoder",
+      "metadata_url": "https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "declared_license": "apache-2.0",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "de88e93fd6174bc07ad825372331970957f80e40ff57ffba755721fcdb54eebf",
+      "separate_license_files": []
+    },
+    {
+      "type": "models",
+      "id": "sentence-transformers/all-mpnet-base-v2",
+      "usage": "SkillAlign reference only; not used",
+      "metadata_url": "https://huggingface.co/api/models/sentence-transformers/all-mpnet-base-v2",
+      "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+      "declared_license": "apache-2.0",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "64504ab4d4a9a3b79861f25ac1149e0e20f4f5b3660b3f55d1361114d880e4c6",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "cnamuangtoun/resume-job-description-fit",
+      "usage": "med2425 upstream source only; not used",
+      "metadata_url": "https://huggingface.co/api/datasets/cnamuangtoun/resume-job-description-fit",
+      "revision": "08978e21714984bb417547d2c0f9b477f5298163",
+      "declared_license": null,
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "0f671d02f5ee765838dbbc970dc8300c99e8983c57fa39eb0b248b380051accc",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "kens1ang/resume-job-fit-augmented",
+      "usage": "med2425 upstream source only; not used",
+      "metadata_url": "https://huggingface.co/api/datasets/kens1ang/resume-job-fit-augmented",
+      "revision": "b4ea1f6013e1a9e52c18edd2d9cd23ab66b754a2",
+      "declared_license": null,
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "e8dd425d6b29e2b27c4d46823f274f7f2f6c56f3d801308c978fc8d7d4d92626",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "mc4",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/mc4",
+      "revision": "581c47a3fea21f0f65f10f616396305702c5de4f",
+      "declared_license": [
+        "odc-by"
+      ],
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "defe942cd63120bf625ed65f7bf8e89c655dd3bd1ca1e99f7bd7aaa9b3b5a988",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "intfloat/multilingual_cc_news",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/intfloat/multilingual_cc_news",
+      "revision": "1c24f619ae44d0a4c87fde72efa741dc25f7530e",
+      "declared_license": null,
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "701f90693711ce4235eaa1609e276b9e7edc53e56ce3fce6838f96e30c50666d",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "allenai/nllb",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/allenai/nllb",
+      "revision": "c36967abb45f06ff7659849372ab41e01838193e",
+      "declared_license": null,
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "ccfd06b2a76f75cbefea93524a2b3eda078342ba2b4ceab00ed6cce632ff7a1b",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "intfloat/wikipedia",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/intfloat/wikipedia",
+      "revision": "3515d71e9bd0120edceda41c78828752cd165d5d",
+      "declared_license": null,
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "0f871e2fb44ad666c5b6cc0854ace9790ee608687e232a8dccf098080b8ee4f8",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "bigscience/xP3",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/bigscience/xP3",
+      "revision": "0ab0411dca6e222e62d210bc681dbcb476d6fe4c",
+      "declared_license": [
+        "apache-2.0"
+      ],
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "4b1b486d0f8b9fb55d47daa4908f126c1485de9bb4741562c8fdee409b5b0a8a",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "eli5",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/eli5",
+      "revision": "3e8e3c29ce51a77b35eaa45965474c4b35850430",
+      "declared_license": [
+        "unknown"
+      ],
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "0408767d9bd9eb06056bf67c4047066dde985e7234da8be44cb9589118b04f25",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "kilt_tasks",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/kilt_tasks",
+      "revision": "0f7881c6bf693742af91a31b4d8f827db2f41233",
+      "declared_license": [
+        "mit"
+      ],
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "3a5dbd43c7c31a45b4e9df386a33521dc0a22203ec8a565d1107a50b2981404d",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "squad",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/squad",
+      "revision": "7b6d24c440a36b6815f21b70d25016731768db1f",
+      "declared_license": "cc-by-sa-4.0",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "4777c907646fceb5228f9e7e94358beeebb339770136bf0fb192b3973318c373",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "quora",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/quora",
+      "revision": "937136413f0daf2ada779d81a2c779ca1421ca4c",
+      "declared_license": [
+        "unknown"
+      ],
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "59c73129aa87a5c8c7261957cd737947898209937e9a767e4552eff30637bd67",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "castorini/mr-tydi",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/castorini/mr-tydi",
+      "revision": "1d43c80218d06d0ef80f5b172ccabd848b948bc1",
+      "declared_license": "apache-2.0",
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "4738c274a67ca80d3198d06a6e3e8fdbd6d06b39a472c1feae2756e345aa2bb2",
+      "separate_license_files": []
+    },
+    {
+      "type": "datasets",
+      "id": "miracl/miracl",
+      "usage": "E5 upstream training provenance only; not downloaded or used as local training records",
+      "metadata_url": "https://huggingface.co/api/datasets/miracl/miracl",
+      "revision": "5be20db9509754dadad47689368639fcec739c00",
+      "declared_license": [
+        "apache-2.0"
+      ],
+      "license_name": null,
+      "license_link": null,
+      "metadata_sha256": "6cce826666750e2c1f4ce4d02468d61bf68931ba68c0357af915d04a9405c51a",
+      "separate_license_files": []
+    }
+  ],
+  "official_legal_sources": [
+    {
+      "url": "https://commission.europa.eu/legal-notice_en",
+      "status": 200,
+      "sha256": "450b710596881f1dbfbdbd63013ab1995237ce05b1532ccc27ed586940804006",
+      "verified_statement": "EU-owned website content defaults to CC BY 4.0 unless otherwise indicated; credit and changes required; third-party rights excluded",
+      "scope_limit": "General Commission policy; ESCO v1.1.1 download-specific terms not accessible"
+    },
+    {
+      "url": "https://ec.europa.eu/info/legal-notice_en",
+      "status": 200,
+      "sha256": "450b710596881f1dbfbdbd63013ab1995237ce05b1532ccc27ed586940804006",
+      "verified_statement": "EU-owned website content defaults to CC BY 4.0 unless otherwise indicated; credit and changes required; third-party rights excluded",
+      "scope_limit": "General Commission policy; ESCO v1.1.1 download-specific terms not accessible"
+    }
+  ],
+  "source_comparison": {
+    "scope": "src, training and tests Python vs pinned ResuMatch/Nesta/SkillAlign Python files",
+    "method": "tokenize Python, omit comments/whitespace, compare longest contiguous token blocks with difflib",
+    "matches_at_least_35_tokens": [],
+    "limit": "Similarity screening is not proof of independent authorship or a legal substantial-similarity test"
+  }
+}

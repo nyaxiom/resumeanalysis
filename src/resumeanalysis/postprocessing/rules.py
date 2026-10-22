@@ -14,37 +14,39 @@ class Postprocessor:
         conflicts, unknowns = [], []
         if profile.remote_only:
             if vacancy.remote is False:
-                conflicts.append("Требуется удалённая работа, вакансия её не предусматривает.")
+                conflicts.append("Remote work is required, but the vacancy does not offer it.")
             elif vacancy.remote is None:
-                unknowns.append("Удалённый формат работы не подтверждён.")
+                unknowns.append("Remote work has not been confirmed.")
         if profile.allowed_locations:
             if vacancy.location is None:
-                unknowns.append("Местоположение вакансии не указано.")
+                unknowns.append("The vacancy location is not specified.")
             elif vacancy.location.casefold() not in {
                 v.casefold() for v in profile.allowed_locations
             }:
-                conflicts.append("Местоположение не соответствует предпочтениям.")
+                conflicts.append("The location does not match the allowed locations.")
         parts = []
         if detail.matched:
-            parts.append("Подтверждены навыки: " + ", ".join(sorted(detail.matched)) + ".")
+            parts.append("Confirmed skills: " + ", ".join(sorted(detail.matched)) + ".")
         if detail.unknown:
             parts.append(
-                "Нет подтверждения навыков (это не доказательство их отсутствия): "
+                "Unconfirmed skills (this is not proof that the candidate lacks them): "
                 + ", ".join(sorted(detail.unknown))
                 + "."
             )
         if detail.contradicted:
             parts.append(
-                "Явно указано отсутствие навыков: " + ", ".join(sorted(detail.contradicted)) + "."
+                "Explicitly denied skills: " + ", ".join(sorted(detail.contradicted)) + "."
             )
         if detail.experience_gap is None:
-            parts.append("Недостаточно данных для сравнения продолжительности опыта.")
+            parts.append("There is not enough information to compare experience duration.")
         elif detail.experience_gap > 0:
-            parts.append(f"До требования по опыту: {detail.experience_gap:g} лет.")
+            parts.append(
+                f"Experience falls short of the requirement by {detail.experience_gap:g} years."
+            )
         else:
-            parts.append("Указанное требование по продолжительности опыта выполнено.")
+            parts.append("The stated experience-duration requirement is met.")
         if not detail.required:
-            parts.append("Обязательные навыки явно не выделены.")
+            parts.append("Mandatory skills have not been explicitly identified.")
         parts.extend(conflicts + unknowns)
         return VacancyAnalysis(
             relevant=score >= self.threshold and not conflicts and not unknowns,

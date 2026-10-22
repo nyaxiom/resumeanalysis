@@ -1,108 +1,109 @@
-# Исследование исходников и данных
+# Source and dataset research
 
-Проверено 22 октября 2026 года. Временные клоны находятся вне checkout проекта,
-в `/workspace/reference-repos/`. Исходный код ниже не копировался: реализация пакета
-написана заново; используются архитектурные идеи и публичные библиотеки.
+Reviewed on 2026-10-22. Temporary reference clones are outside the project checkout,
+in `/workspace/reference-repos/`. The local implementation uses architectural ideas
+and public libraries; no reference implementation was vendored. The later
+[license audit](license_audit.md) records evidence, limits and unresolved rights.
 
-| Проект | Проверенный commit | Изученные файлы и решение |
+## Reference projects
+
+| Project | Reviewed commit | Files and decisions |
 |---|---|---|
-| [ResuMatch](https://github.com/JananiV07/resumatch) | `6eb8d49b6a5de28222d538f5c9350c639caa380b` | `backend/resumatch/features.py`, `skill_matcher.py`, `ranker.py`, `explain.py`, `api.py`, `backend/scripts/train.py`, requirements, tests. Референс разделения extraction → features → ranker → explanation. Три признака: семантика, пересечение навыков, опыт. Обучение на случайных beta-признаках и эвристических метках не переносилось. |
-| [Nesta OJD DAPS Skills](https://github.com/nestauk/ojd_daps_skills) | `e73c2b5045793d891678ad387b2c7fda1756d236` | `extract_skills/extract_skills.py`, `extract_skills_utils.py`, `multiskill_rules.py`, `map_skills/skill_mapper.py`, ESCO config и таблица. NER в spaCy, разделение составных span, семантический mapper и пороги уровней таксономии. Использована идея разделять извлечение, нормализацию и taxonomy mapping. |
-| [SkillAlign](https://github.com/Y4SSERk/SkillAlign) | `cf0681df995838b14823825f0a44ec18c3903108` | `ml_pipeline/data_processing.py`, `embedding_generator.py`, `neo4j_etl.py`, `app/api/services/occupations.py`, routes, requirements, LICENSE/NOTICE. Референс ESCO concept URI, essential/optional и skill gap. Neo4j, FAISS, frontend и occupation-based inference не переносились. |
-| [SkillSpan](https://github.com/kris927b/SkillSpan) | `2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b` | README, LICENSE, JSONL train/dev/test, BIO skill/knowledge tags и evaluation scripts. Выполнена независимая проверка словаря на полном test split, без обучения/расширения словаря по test. |
+| [ResuMatch](https://github.com/JananiV07/resumatch) | `6eb8d49b6a5de28222d538f5c9350c639caa380b` | `backend/resumatch/features.py`, `skill_matcher.py`, `ranker.py`, `explain.py`, `api.py`, training script, requirements and tests. Reference for extraction, features, ranking and explanation. Its random beta-feature training scheme was not adopted. |
+| [Nesta OJD DAPS Skills](https://github.com/nestauk/ojd_daps_skills) | `e73c2b5045793d891678ad387b2c7fda1756d236` | Extraction/config utilities, `multiskill_rules.py`, taxonomy mapper, ESCO config/table. Reference for separating extraction, normalization and mapping, including compound skill spans and hierarchical thresholds. |
+| [SkillAlign](https://github.com/Y4SSERk/SkillAlign) | `cf0681df995838b14823825f0a44ec18c3903108` | Data processing, embedding generation, Neo4j ETL, occupation skill-gap service/routes, requirements and LICENSE/NOTICE. Reference for concept URIs, essential/optional requirements and skill gaps. Neo4j, FAISS, frontend and occupation-to-skill inference were not adopted. |
+| [SkillSpan](https://github.com/kris927b/SkillSpan) | `2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b` | README, LICENSE, JSONL train/dev/test, BIO skill/knowledge annotations and evaluation scripts. The full test split evaluates the dictionary without expanding it from test examples. |
 
-## Совместимость и лицензии
+## Compatibility and licenses
 
-Все три репозитория имеют MIT для кода. Их зависимости не устанавливаются целиком.
-ResuMatch использует sentence-transformers 3.1.1 и scikit-learn 1.5.2.
-Nesta 3.0.0 декларирует Python ^3.9, spaCy ~3.7.4, torch ^1.13.1,
-transformers 4.41.2; torch 1.13 несовместим с выбранным Python 3.12.
-Nesta также автоматически устанавливает модель через shell и загружает pickle;
-этот механизм не используется. В MVP работает собственный словарный fallback RU/EN.
-Nesta NER не обучался и не запускался; полноценное выделение произвольных компетенций
-остаётся отдельной задачей.
+The three reference projects have MIT source licenses, but their full dependency
+stacks are not installed. ResuMatch pins sentence-transformers 3.1.1 and scikit-learn
+1.5.2. Nesta declares spaCy ~3.7.4, torch ^1.13.1 and transformers 4.41.2;
+its pinned torch is incompatible with the selected Python 3.12 environment.
+Its automatic shell model installation and pickle loading are not used.
+The MVP uses independently implemented English/Russian dictionary rules. Nesta NER
+has not been installed, run or trained.
 
-Лицензии model cards проверены отдельно через Hugging Face metadata:
-
-| Модель | Лицензия | Использование |
+| Model | Declared card license | Use |
 |---|---|---|
-| `intfloat/multilingual-e5-small` | MIT | Скачана и проверена SHA256, frozen CPU encoder; revision `614241f622f53c4eeff9890bdc4f31cfecc418b3`. |
-| `nestauk/en_skillner` | MIT | Исследована metadata, не загружалась и не используется. |
-| `nestauk/multiskill-classifier` | MIT | Исследована metadata, не загружалась и не используется. |
-| `sentence-transformers/all-MiniLM-L6-v2` | Apache-2.0 | Модель референса ResuMatch, не используется. |
-| `sentence-transformers/all-mpnet-base-v2` | Apache-2.0 | Модель референса SkillAlign, не используется. |
+| `intfloat/multilingual-e5-small` | MIT | Downloaded and SHA256-checked frozen encoder, revision `614241f622f53c4eeff9890bdc4f31cfecc418b3`. No separate upstream license file was found; see the audit. |
+| `nestauk/en_skillner` | MIT | Metadata/reference only; not installed. |
+| `nestauk/multiskill-classifier` | MIT | Metadata/reference only; not installed. |
+| `sentence-transformers/all-MiniLM-L6-v2` | Apache-2.0 | ResuMatch reference, not the local encoder. |
+| `sentence-transformers/all-mpnet-base-v2` | Apache-2.0 | SkillAlign reference, not used. |
 
-ESCO: четыре concept URI сверены с форматированной таблицей ESCO v1.1.1 в Nesta.
-Русские алиасы и веса связей составлены вручную; это не официальные ESCO relations.
-SkillAlign NOTICE указывает CC BY 4.0 для ESCO. Ссылка на официальный download page
-во время проверки возвращала HTTP 403; полный официальный CSV не скачивался.
-Есть импорт `Taxonomy.import_esco()` для CSV с `conceptUri/preferredLabel/altLabels`.
-Атрибуция и уведомления находятся в `THIRD_PARTY_NOTICES.md`.
+Four concept URIs were checked against Nesta's formatted ESCO v1.1.1 table.
+Aliases and weighted relationships are local additions, not official ESCO relations.
+SkillAlign's NOTICE describes ESCO as CC BY 4.0; the Commission's official legal
+notice confirms a general CC BY 4.0 default for EU-owned website content, subject
+to exceptions. The ESCO download page returned HTTP 403, so export-specific terms
+remain unverified. `Taxonomy.import_esco()` accepts official CSV columns
+`conceptUri`, `preferredLabel`, and `altLabels`. Attribution is retained in
+`THIRD_PARTY_NOTICES.md`; this does not relicense ESCO material to MIT.
 
-## Проверенные схемы датасетов
+## Candidate Matching Synthetic
 
-### Candidate Matching Synthetic
-
-Источник: `michaelozon/candidate-matching-synthetic`, MIT, revision
-`178ab864dcad9910c5670d43e4bdbbb901a11f18`.
-Загружены и проверены checksum трёх parquet: 10 000 резюме, 2 500 вакансий,
-2 500 списков соответствий. В отличие от обычного pair-classification датасета,
-таблица matches содержит **только положительные resume IDs**, примерно 30 на вакансию.
+Source: `michaelozon/candidate-matching-synthetic`, MIT declaration, revision
+`178ab864dcad9910c5670d43e4bdbbb901a11f18`. Three downloaded parquet tables contain
+10,000 profiles, 2,500 vacancies and 2,500 positive-match lists. Checksums were verified.
+The matches table contains only positive resume IDs, approximately 30 per job.
 
 * `resumes`: `resume_id`, `role`, `seniority`, `years_experience`, `industry`,
-  `education`, `skills` (список), `summary`, `experience_bullets` (список).
+  `education`, `skills`, `summary`, `experience_bullets`.
 * `jobs`: `job_id`, `job_title`, `seniority`, `industry`, `must_have_skills`,
   `nice_to_have_skills`, `description`, `responsibilities`, `requirements`.
-* `matches`: `job_id`, `relevant_resume_ids` (список).
+* `matches`: `job_id`, `relevant_resume_ids`.
 
-Профили/вакансии сгенерированы Qwen, соответствия основаны на эвристиках навыков.
-Это загруженные текстовые данные, а не случайные числовые признаки; метки при этом
-не являются решениями работодателей. Предварительно рассчитанные upstream embeddings
-не используются: E5 считает собственные векторы.
+Skills, bullets and relevant IDs are actual lists in the inspected files.
+Profiles/jobs were generated upstream with Qwen, and matching labels are heuristic.
+These are downloaded text records, not random numeric features, but they are not
+employer decisions. Upstream precomputed embeddings are not used; local E5 computes
+its own representations.
 
-Отрицательные примеры — **дополнительная слабая синтетическая разметка**:
-кандидат не находится в опубликованном positive list, и покрытие обязательных
-навыков меньше 60% с учётом списков **и текста**. Из допустимых кандидатов выбираются
-самые близкие по пересечению навыков. Одно отсутствие в positive list не даёт метку 0.
-Критерий нужен только для эксперимента и не трактуется как доказательство
-отсутствия компетенций у реального человека.
+Additional negatives are explicitly weak synthetic labels: a candidate must be absent
+from the published positive list and cover less than 60% of required skills after
+combining structured and text evidence. The closest eligible candidates become hard
+negatives. Absence from the positive list alone is not a negative label or evidence
+that a real candidate lacks a skill.
 
-### Resume-Job Fit Merged
+## Resume-Job Fit Merged
 
-Источник: `med2425/resume-job-fit-merged-v1`, revision
-`f46f355acddab1368a7386cbe94d42fd42767d88`. Изучены model/dataset card и metadata
-схемы; payload не загружался и обучение на нём не выполнялось.
+Source: `med2425/resume-job-fit-merged-v1`, revision
+`f46f355acddab1368a7386cbe94d42fd42767d88`. Only card/schema metadata was inspected;
+its payload was not downloaded or used for training.
 
-Поля: `resume`, `jd`, `label`, `source`, `resume_domain`, `jd_domain`.
-Метки — `Good Fit`, `Potential Fit`, `No Fit`, а не бинарный integer.
-Card указывает Qwen2.5-32B как источник меток и смешение двух других датасетов.
-Лицензия в metadata/card не заявлена; использовать её как MIT нельзя.
+Fields are `resume`, `jd`, `label`, `source`, `resume_domain`, `jd_domain`.
+Labels are `Good Fit`, `Potential Fit`, and `No Fit`, not binary integers.
+The card describes Qwen2.5-32B labels and merging two other datasets. No license is
+declared in the inspected card/metadata, including its named upstream inputs.
 
-Адаптер `prepare_med2425` / CLI `prepare-med2425` требует reviewed manifest
-с `license` и `source_license_urls`, после получения подходящих прав на все исходные
-компоненты. `Good Fit → 1`, `No Fit → 0`, `Potential Fit` по умолчанию исключается;
-другую политику нужно выбрать явно. Текущая реализация адаптера проверена на отказе
-при отсутствующей лицензии; полноценный запуск на upstream payload не проверен.
+The separate `prepare_med2425` adapter requires reviewed license evidence and an
+explicit Potential Fit policy. Good Fit maps to 1, No Fit to 0, and Potential Fit
+is excluded by default. The manifest-field check is not a legal permission grant.
+Refusal without evidence has been tested; full upstream-data execution has not.
 
-### SkillSpan
+## SkillSpan
 
-README явно выпускает код и данные, корневой LICENSE — MIT, copyright Mike Zhang.
-JSON-файлы на деле JSONL, одна строка на предложение:
-`idx`, `tokens`, `tags_skill`, `tags_knowledge`, `source`.
-Это NER-разметка, **не** fit labels; не конвертировалась в решения о найме.
-Оценка использует объединение skill/knowledge spans на всех 3 569 test-предложениях.
+The README releases code and data; the repository LICENSE is MIT, copyright
+(c) 2023 Mike Zhang. No separate data license was found. Retained notices and the
+requested paper citation are in `THIRD_PARTY_NOTICES.md`.
 
-## Предотвращение утечек
+Files named `.json` are JSONL with `idx`, `tokens`, `tags_skill`, `tags_knowledge`,
+and `source`. This is extraction annotation, not hiring-fit labels. It was not
+converted into hiring decisions. Evaluation combines skill/knowledge gold spans
+across all 3,569 test sentences. Aggregate results and short missed-span phrases
+are committed; complete dataset records remain outside Git.
 
-Для Candidate Matching независимые кандидаты и вакансии распределяются до sampling
-пар: seed + hash нормализованного summary/description, доли 70/15/15.
-Одинаковые тексты получают один split даже при разных IDs/metadata. Положительные
-рёбра между разными partitions отбрасываются, отрицательные ищутся только внутри split.
-После подготовки проверяются пересечения IDs и нормализованных текстов обеих сторон.
-Из-за этого эксперимент меньше исходных 75 000 положительных пар.
+## Leakage prevention
 
-Для произвольных готовых пар используется объединение связных компонент двудольного
-графа кандидатов/вакансий, включая связи дублирующих текстов. Если компонент меньше
-трёх, подготовка завершается ошибкой, без fallback на случайный split строк.
-Near-duplicates и перефразировки остаются риском; template-based синтетические данные
-не дают независимой проверки качества на живых резюме.
+Candidate Matching entities are partitioned before pair sampling using a seeded hash
+of normalized profile summaries and vacancy descriptions, with 70/15/15 proportions.
+Identical text gets the same split despite different IDs or supplemental fields.
+Cross-partition positive edges are discarded; negatives are drawn only within a split.
+Final checks reject candidate/vacancy ID or normalized-text overlap across splits.
+This yields fewer pairs than all published positive edges.
+
+For existing arbitrary pairs, connected components of the candidate/vacancy graph
+also join duplicate-text identities. Fewer than three independent components cause
+an error rather than a random row split. Near-duplicates and paraphrases remain a
+risk, and template-based synthetic data does not independently validate real-world fit.

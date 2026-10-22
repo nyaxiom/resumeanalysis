@@ -1,23 +1,21 @@
 # ResumeAnalysis
 
-Локальная ML-подсистема ApplyPilot для сопоставления компетенций кандидата и вакансии.
+A local ML subsystem for ApplyPilot that matches a candidate's competencies to a vacancy.
 
-`predict(profile, vacancy) -> VacancyAnalysis` использует собственную обучаемую
-PyTorch MLP и замороженный `intfloat/multilingual-e5-small`. Inference работает
-на CPU без сетевых запросов. Название вакансии не превращается в навыки: сопоставляются
-текст, явные списки компетенций, опыт и квалификация. Нет генеративных API,
-frontend, Kafka, обязательной БД, Neo4j или GPU.
+`predict(profile, vacancy) -> VacancyAnalysis` uses a trainable PyTorch MLP and frozen
+`intfloat/multilingual-e5-small` embeddings. Inference runs locally on CPU without
+external API calls. Job titles do not become assumed skills: matching uses evidence
+in the text, explicit skills, experience and seniority.
 
-Это исследовательский MVP: голова обучена на загруженных синтетических данных.
-Словарный extractor поддерживает RU/EN для ограниченного набора компетенций;
-полноценный NER пока не обучен. Подробности исходников и лицензий —
-[исследование](docs/research.md), [уведомления](THIRD_PARTY_NOTICES.md).
+The project is a research MVP trained on downloaded synthetic data. Its English/Russian
+skill extractor uses a finite dictionary and rules; a full NER model has not been trained.
+See [research](docs/research.md), [evaluation](docs/evaluation.md), and the
+[license audit](docs/license_audit.md) for evidence and limitations.
 
-## Установка на Arch Linux
+## Installation
 
-Пакет требует Python 3.11+. Проверен в Linux x86_64 / Python 3.12 на CPU;
-отдельный запуск на Arch Linux и Ryzen 7 5700U не выполнялся.
-Рекомендуемый воспроизводимый путь:
+Python 3.11+ is required. The development environment has been tested on Linux with
+Python 3.12; CI also checks Python 3.11. Arch Linux installation:
 
 ```bash
 sudo pacman -S --needed git uv
@@ -28,13 +26,13 @@ uv sync --python 3.12 --frozen --extra dev --extra data
 source .venv/bin/activate
 ```
 
-`uv.lock` фиксирует зависимости с checksum; torch берётся из CPU index PyTorch.
-На других Linux нужны Git, uv и Python 3.11/3.12. Для refresh используйте тот же
-`uv sync --frozen`; системный Python менять не нужно.
+On other Linux distributions, install Git and uv, then use the same Python and uv commands.
+`uv.lock` fixes dependencies and artifact checksums. PyTorch comes from its CPU index.
+Use `uv sync --frozen` to refresh the environment without changing the lockfile.
 
-## Воспроизвести выполненный эксперимент
+## Reproduce the completed experiment
 
-Все команды ниже запускаются из корня checkout с активированной `.venv`:
+Run these commands from the checkout root with the virtual environment activated:
 
 ```bash
 resumeanalysis download-e5 --output artifacts/e5
@@ -46,40 +44,42 @@ HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
   resumeanalysis predict --input examples/pair.json
 ```
 
-Первая команда скачивает около 470 MB safetensors E5 и tokenizer, проверяет MIT
-model card и SHA256 весов. Вторая скачивает три небольших parquet (10 000 profiles,
-2 500 jobs, 2 500 positive lists), проверяет MIT и checksum.
-Обе закреплены на конкретных upstream revisions в `data/download.py`,
-сохраняют README и provenance manifests. Для загрузки нужны HTTPS-домены
-`huggingface.co` и текущий redirect-host `us.aws.cdn.hf.co` (возможны Xet/CDN hosts).
-На этапе inference сеть не нужна; `local_files_only=True`, `trust_remote_code=False`.
+The E5 download retrieves the pinned safetensors weights and tokenizer, checks the
+model card's MIT declaration, and verifies the weights' SHA256. The dataset command
+retrieves three pinned parquet tables, checks the dataset card's MIT declaration,
+and verifies checksums. Both retain upstream cards and provenance manifests.
+A card's declaration does not resolve every upstream-rights question: see the license audit.
 
-Обязательны install, скачивание E5, prepare, train и проверка inference.
-SkillSpan — отдельная проверка extraction; полный NER train и большой fit benchmark
-не входят в выполненный smoke-эксперимент.
+Downloads require HTTPS access to `huggingface.co` and its redirect/CDN destinations,
+currently including `us.aws.cdn.hf.co`. Inference uses `local_files_only=True` and
+`trust_remote_code=False`; it does not need network access.
 
-Выходы (в Git не включаются):
+Installation, E5 download, data preparation, training and functional inference are
+required to reproduce the workflow. SkillSpan is a separate extraction evaluation.
+Full-data training and full NER training have not been performed.
 
-| Путь | Содержимое |
+Generated files are excluded from Git:
+
+| Path | Contents |
 |---|---|
-| `data/raw/.../manifest.json` | Source revision, лицензия, SHA256 загруженных файлов |
-| `data/processed/{train,validation,test}.jsonl` | Строго разделённые пары с provenance |
-| `data/processed/manifest.json` | Counts, seed, hashes, negative policy, leakage check |
-| `artifacts/e5/` | Проверенные локальные frozen weights и tokenizer |
-| `artifacts/embeddings/`, `artifacts/feature_cache/` | Кеши текста/признаков, зависящие от версий pipeline |
-| `artifacts/run/model.pt` | Обученная MLP, конфигурация, порог и encoder/taxonomy identity |
-| `artifacts/run/logistic.npz` | Числовые веса и scaler Logistic Regression |
-| `artifacts/run/metrics.json` | Метрики, история обучения, hashes splits |
-| `artifacts/run/errors_*.json` | Ошибки по IDs и признакам, без полного текста резюме |
+| `data/raw/.../manifest.json` | Source revision, declared license and downloaded-file hashes |
+| `data/processed/{train,validation,test}.jsonl` | Entity-disjoint pairs with label provenance |
+| `data/processed/manifest.json` | Counts, seed, hashes, negative policy and leakage check |
+| `artifacts/e5/` | Local frozen weights, tokenizer and model manifest |
+| `artifacts/embeddings/`, `artifacts/feature_cache/` | Versioned embedding and feature caches |
+| `artifacts/run/model.pt` | Trained MLP, configuration, threshold and pipeline identities |
+| `artifacts/run/logistic.npz` | Numeric Logistic Regression coefficients and scaler |
+| `artifacts/run/metrics.json` | Metrics, training history and split hashes |
+| `artifacts/run/errors_*.json` | Error IDs, scores and features, without full resume texts |
 
-Не удаляйте embeddings cache между запусками головы: encoder не переобучается.
-Кеш содержит производные профилей; храните его как локальные данные приложения.
+Keep valid embedding caches between head-training runs; the encoder is frozen.
+Caches contain data derived from profiles and should be handled as local application data.
 
-## Архитектура
+## Architecture
 
 ```mermaid
 flowchart LR
-    A[Profile + Vacancy] --> B[SkillExtractor RU/EN]
+    A[Profile + Vacancy] --> B[English/Russian SkillExtractor]
     B --> C[SkillNormalizer + local taxonomy]
     A --> D[Frozen multilingual E5]
     C --> E[Interpretable features]
@@ -90,50 +90,57 @@ flowchart LR
     G --> H[VacancyAnalysis]
 ```
 
-* **SkillExtractor**: слова/границы, spans, explicit negation и планы обучения,
-  required/optional sections, годы и seniority по правилам. Из title навыки
-  не извлекаются. Свободное описание без явного requirement marker не объявляется
-  обязательным набором: его навыки учитываются отдельным признаком `mentioned_match`.
-* **SkillNormalizer**: Postgres → postgresql, GNU/Linux → linux, Python 3 → python.
-  Torch → pytorch только с однозначным Python/tensor context. Частичные связи
-  PostgreSQL → SQL и Kubernetes → Docker не означают подтверждения целевого навыка.
-  Четыре verified ESCO concept URI, импорт официального skills CSV без Neo4j.
-* **TextEncoder**: E5 `query:` для профиля, `passage:` для вакансии, максимум 512 токенов
-  вместе с prefix/special tokens, overlap 32, masked mean pooling, weighted chunk
-  pooling и L2-normalization. Cache key включает model revision, роль, текст и chunk config.
-* **FeatureEngineering**: 17 интерпретируемых числовых признаков; полный перечень и порядок
-  в `FEATURE_NAMES`. Покрытие required/optional разделено на confirmed / unknown / denied,
-  семантика, частичная поддержка связями, опыт и известность опыта, разрыв, seniority,
-  размеры наборов, совпадение прочих упоминаний и наличие explicit requirements.
-* **ResumeAnalysisNet**: `[r, j, abs(r-j), r*j, features]`, 1 553 входа при E5 384,
-  Linear(128) → GELU → Dropout → Linear(32) → GELU → Dropout → один логит.
-  BCEWithLogitsLoss, AdamW, class weighting, gradient clipping, validation loss,
-  early stopping и восстановление лучшей эпохи. Все гиперпараметры в `configs/cpu.json`.
-* **Postprocessor**: sigmoid score и порог, проверка жёстких предпочтений, matched/
-  unknown/contradicted skills и шаблонное объяснение. Генеративной LLM нет.
+* **SkillExtractor** finds bounded skill mentions and spans, explicit negation,
+  learning plans, required/optional sections, years and seniority using rules.
+  It does not extract skills from the vacancy's title field. Unclassified mentions
+  remain separate from explicit mandatory requirements.
+* **SkillNormalizer** maps aliases such as Postgres to postgresql, GNU/Linux to linux,
+  and Python 3 to python. Torch maps to pytorch only with clear Python/tensor context.
+  Directional relationships such as PostgreSQL to SQL provide partial support,
+  not confirmation that the candidate possesses the related skill. Four ESCO concept
+  identifiers and an official skills-CSV importer are included; Neo4j is not required.
+* **TextEncoder** uses E5 `query:` for profiles and `passage:` for vacancies.
+  Token-aware chunks include prefixes and special tokens within the 512-token limit,
+  with overlap, masked mean pooling, weighted chunk aggregation and L2 normalization.
+  Cache identity includes revision, role, text and chunk configuration.
+* **FeatureEngineering** exposes 17 numeric features in `FEATURE_NAMES`:
+  required/optional confirmed, unknown and denied ratios; semantic similarity;
+  related-skill support; experience match, knownness and gap; seniority match and
+  knownness; skill-set sizes; other mentioned-skill coverage; and known requirements.
+* **ResumeAnalysisNet** consumes `[r, j, abs(r-j), r*j, features]`: 1,553 inputs with
+  E5, two hidden layers, GELU, Dropout and one logit. Training uses BCEWithLogitsLoss,
+  AdamW, class weighting, gradient clipping, validation loss, early stopping and
+  restoration of the best checkpoint. Hyperparameters are in `configs/cpu.json`.
+* **Postprocessor** applies a threshold and hard preferences, lists matched, unknown
+  and contradicted skills, and produces English factual explanations. It uses no
+  generative model.
 
-`relevance` — некалиброванная оценка [0,1]. `missing_skills` — совместимый список
-неподтверждённых **и** явно отрицаемых навыков. Для различения используйте
-`unknown_skills` и `contradicted_skills`: отсутствие упоминания не доказывает отсутствие
-навыка. Конфликтующие положительные/отрицательные сведения считаются неизвестностью.
-Неизвестный опыт остаётся `None`, а не 0. Неподтверждённое жёсткое предпочтение
-(например, `remote_only=True`, `remote=None`) даёт `relevant=False` с объяснением;
-исходная оценка модели сохраняется.
+`relevance` is an uncalibrated score in [0,1]. The compatibility field `missing_skills`
+combines unknown and explicitly denied skills; inspect `unknown_skills` and
+`contradicted_skills` to distinguish them. Lack of a mention is not proof of inability.
+Conflicting positive/negative evidence becomes unknown. Unknown experience stays
+`None`, not zero. Unconfirmed hard preferences, such as remote-only with an unknown
+vacancy work arrangement, produce `relevant=False` with an explanation while preserving
+the model's score.
 
-## Интеграция с ApplyPilot
+Russian aliases, extraction patterns and multilingual test inputs remain intentional
+language data. Documentation, ordinary examples and user-facing output are English.
 
-После стандартного обучения функция работает из корня проекта:
+## ApplyPilot integration
+
+After the standard training command, use the public interface from the checkout root:
 
 ```python
 import json
 from resumeanalysis import predict
 
-pair = json.load(open("examples/pair.json", encoding="utf-8"))
+with open("examples/pair.json", encoding="utf-8") as stream:
+    pair = json.load(stream)
 analysis = predict(pair["profile"], pair["vacancy"])
-payload = analysis.model_dump()  # JSON-совместимый ответ backend
+payload = analysis.model_dump()
 ```
 
-В долгоживущем backend создавайте один predictor при старте процесса:
+In a long-lived backend, initialize one predictor when the process starts:
 
 ```python
 from resumeanalysis import Predictor
@@ -141,21 +148,21 @@ from resumeanalysis.embeddings.encoder import TextEncoder
 
 predictor = Predictor("artifacts/run/model.pt", TextEncoder("artifacts/e5"))
 analysis = predictor.predict(
-    {"resume_text": "Python и SQL", "experience_years": 2, "remote_only": True},
+    {"resume_text": "Python and SQL", "experience_years": 2, "remote_only": True},
     {"title": "ML Engineer", "description": "Required: Python and SQL.", "remote": True},
 )
 print(analysis.model_dump_json())
 ```
 
-`RESUMEANALYSIS_CHECKPOINT` и `RESUMEANALYSIS_E5_PATH` меняют пути default predictor;
-установите их до первого вызова `predict()`. В CLI есть `--checkpoint`, `--e5-path`.
-Отсутствующие веса или несовместимые encoder/taxonomy/schema приводят к ошибке,
-автоматической подмены нейросети эвристикой нет. `summary`, `resume_id`, `cover_letter`
-всегда `null` и зарезервированы для будущей совместимости.
+Set `RESUMEANALYSIS_CHECKPOINT` and `RESUMEANALYSIS_E5_PATH` before the first public
+`predict()` call to override its paths. The CLI also has `--checkpoint` and `--e5-path`.
+Missing weights or incompatible encoder/taxonomy/schema identities fail explicitly;
+the neural model is not silently replaced by a heuristic. `summary`, `resume_id`
+and `cover_letter` are reserved and always null.
 
-## Обучение на большей выборке и собственных парах
+## Larger experiments and custom data
 
-Пример расширенного запуска (не выполнялся в этом PR):
+Example larger run, not executed for the reported results:
 
 ```bash
 resumeanalysis prepare --max-jobs 2500 --pairs-per-job 10 --output data/full
@@ -164,23 +171,24 @@ resumeanalysis evaluate --data data/full --output artifacts/full
 resumeanalysis predict --checkpoint artifacts/full/model.pt --input examples/pair.json
 ```
 
-Количество реально полученных пар зависит от entity-disjoint partitions и positive pools.
-Сначала создайте кеш эмбеддингов, затем меняйте гиперпараметры головы; `train`
-автоматически переиспользует валидные кеши. Начните с 2 CPU threads и batch 64,
-на небольшом CPU уменьшайте `hidden_dims` и batch. Скорость на Ryzen 5700U не измерялась.
+Actual pair counts depend on entity partitions and available positive pools.
+`train` automatically reuses valid embedding/feature caches when tuning the head.
+Configure concurrency, batch size and hidden dimensions in `configs/cpu.json`.
 
-Для собственных данных используйте `PairRecord` в `data/dataset.py` и `grouped_split()`:
-`candidate_id`, `vacancy_id`, `profile`, `vacancy`, бинарная `label`, `provenance`,
-`hard_negative`. `save_splits()` создаёт JSONL и manifest. Обязательны независимые
-кандидаты **и** вакансии, обе метки в каждом split, provenance разметки и права на данные.
-Порог подбирается по validation Macro-F1; test не используется в training/early stopping.
-Rule-based baseline и Logistic Regression обучаются/оцениваются в том же запуске;
-LR и MLP получают одинаковый набор векторов и признаков, scaler обучается только на train.
-Rule-based baseline имеет фиксированную формулу, его порог также выбирается по validation.
+For your own data, use `PairRecord` and `grouped_split()` in `data/dataset.py`:
+`candidate_id`, `vacancy_id`, `profile`, `vacancy`, binary `label`, `provenance`,
+and `hard_negative`. `save_splits()` writes JSONL and a manifest. Both candidates
+and vacancies must be independent across splits, and each split must contain both classes.
+Document rights and label provenance before using a dataset.
 
-`prepare-med2425` реализован отдельно из-за трёхклассовой схемы. Upstream лицензия
-не указана, поэтому payload не скачан и результаты на нём не заявляются. После
-получения подходящих прав требуется manifest с `license` и `source_license_urls`:
+Thresholds are selected by validation Macro-F1. Test data is not used for training
+or early stopping. Rule-based and Logistic Regression baselines run on the same splits;
+LR and MLP receive the same representation, and the scaler is fitted only on train.
+The rule baseline uses a fixed formula with a validation-selected threshold.
+
+`prepare-med2425` handles its distinct three-class schema. The upstream card has no
+license declaration, so its payload has not been downloaded or used. After obtaining
+suitable rights, provide reviewed evidence containing `license` and `source_license_urls`:
 
 ```bash
 resumeanalysis prepare-med2425 --input /path/to/licensed.parquet \
@@ -188,16 +196,17 @@ resumeanalysis prepare-med2425 --input /path/to/licensed.parquet \
   --potential-fit exclude
 ```
 
-Для изменения ESCO taxonomy импортируйте официальный CSV через
-`Taxonomy.import_esco()`, передайте `SkillNormalizer(taxonomy)` в `SkillExtractor`
-и `FeatureEngineering`. Изменение словаря/правил требует пересчёта признаков,
-увеличения `PIPELINE_VERSION` при изменении логики и переобучения головы.
-Python API `train(..., extractor=extractor)`, `Predictor(..., extractor=extractor)`
-и `evaluate_saved(..., extractor=extractor)` позволяют передать один и тот же словарь.
-Текущий CLI использует seed taxonomy. Несовместимая taxonomy при inference
-отклоняется, готовые веса не переносятся на другой словарь молча.
+The manifest-field check is not legal validation. The license audit records unresolved
+rights in that dataset and its merged inputs.
 
-## Проверки и результаты
+For a custom taxonomy, import an official CSV with `Taxonomy.import_esco()`, then pass
+`SkillNormalizer(taxonomy)` to `SkillExtractor`. The Python APIs `train`, `Predictor`
+and `evaluate_saved` accept `extractor=extractor`; use the same extractor throughout.
+Changing rules requires feature recomputation, a `PIPELINE_VERSION` update when logic
+changes, and retraining. The CLI uses the seed taxonomy. Incompatible checkpoints
+are rejected rather than silently reused.
+
+## Validation and results
 
 ```bash
 pytest -q
@@ -207,29 +216,28 @@ ruff format --check .
 uv build
 ```
 
-Обычный pytest не скачивает модели: тестирует правила, нормализацию, split/leakage,
-адаптеры и train/save/reload на текстовых fixtures. E5 chunking/prefix/pooling/cache
-проверяется настоящим маленьким локальным transformer из тестового fixture.
-Opt-in дополнительно проверяет скачанный pretrained multilingual E5, RU/EN и длинный текст.
-Тестовые random weights не используются для опубликованных fit-метрик.
+The default suite requires no model downloads. It tests rules, normalization,
+adapters, leakage prevention, training and save/reload on authored text fixtures.
+A tiny local transformer tests prefix/chunk/pooling/cache mechanics; its random
+weights are not used for published fit metrics. The opt-in test additionally checks
+the downloaded pretrained E5 on multilingual and long texts.
 
-Фактический CPU smoke: 696 train / 150 validation / 148 test, seed 42,
-лучший checkpoint на эпохе 63, остановка после 73 эпох. Замороженный E5,
-обучались MLP и Logistic Regression. Precision/recall для класса relevant;
-confusion matrix имеет строки true `[0,1]`, столбцы predicted `[0,1]`.
+Completed experiment: 696 train / 150 validation / 148 test pairs, seed 42,
+best MLP checkpoint at epoch 63, early stopping after epoch 73. Only MLP and LR
+were trained; E5 stayed frozen. Precision/recall below are for the positive class.
+Confusion matrices use true rows and predicted columns, ordered `[0,1]`.
 
-| Подход | Precision | Recall | Macro-F1 | ROC-AUC | Confusion matrix |
+| Method | Precision | Recall | Macro-F1 | ROC-AUC | Confusion matrix |
 |---|---:|---:|---:|---:|---|
 | Rule-based | 0.9024 | 1.0000 | 0.9458 | 0.9956 | `[[66,8],[0,74]]` |
 | Logistic Regression | 0.8625 | 0.9324 | 0.8917 | 0.9680 | `[[63,11],[5,69]]` |
 | ResumeAnalysisNet | 0.9733 | 0.9865 | 0.9797 | 0.9996 | `[[72,2],[1,73]]` |
 
-На этой выборке MLP улучшила Macro-F1 относительно обоих baseline. Это небольшой,
-исследовательский синтетический эксперимент с rule-derived negatives, **не**
-доказательство преимущества на реальных данных или калиброванности score.
-Полные метрики, hashes и анализ ошибок — [docs/evaluation.md](docs/evaluation.md).
+The MLP improved Macro-F1 on this small exploratory synthetic sample. This does not
+establish performance on real hiring decisions or score calibration. Full results,
+hashes and error analysis are in [docs/evaluation.md](docs/evaluation.md).
 
-Проверка SkillSpan (внешний временный clone, данные в Git не добавляются):
+SkillSpan extraction evaluation uses an external checkout:
 
 ```bash
 git clone https://github.com/kris927b/SkillSpan /tmp/SkillSpan
@@ -237,19 +245,24 @@ git -C /tmp/SkillSpan checkout 2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b
 resumeanalysis skillspan --input /tmp/SkillSpan/data/json/test.json
 ```
 
-На всех 3 569 test-предложениях exact-span F1 = **0.1460**, recall = **0.0830**.
-Словарь распознаёт некоторые технологии, но пропускает большинство свободных
-профессиональных навыков; нельзя выдавать его за полноценный NER Nesta.
-Русский язык проверен правилами и E5, количественный RU NER benchmark отсутствует.
+Across all 3,569 test sentences, exact-span F1 is **0.1460**, recall **0.0830**.
+The dictionary recognizes some technologies but misses most open-ended professional
+competencies. It is not a replacement for Nesta's full NER. Russian extraction has
+unit coverage, but no quantitative Russian NER benchmark has been run.
 
-## Следующие задачи
+## Next work
 
-1. Обучить/подключить полноценный локальный NER и проверить на независимом RU/EN корпусе.
-2. Получить лицензированные fit labels, разметку работодателей и near-duplicate audit.
-3. Проверить независимые seed/splits, доверительные интервалы, калибровку и рабочие пороги.
-4. Улучшить scope отрицаний и извлечение длительности/диапазонов опыта: текущие regex
-   не заменяют разбор карьеры и не суммируют employment dates.
-5. Проверить latency/RAM на Ryzen 5700U, при необходимости измерить quantization.
+1. Train or integrate a full local NER and evaluate on independent English/Russian data.
+2. Obtain licensed fit labels and employer annotations; audit near-duplicates.
+3. Evaluate independent seeds/splits, confidence intervals, calibration and thresholds.
+4. Improve negation scope and experience-range parsing; regex does not reconstruct a career.
+5. Benchmark inference and investigate quantization if measurements justify it.
 
-Веса, датасеты и кеши остаются локальными. Снимок облачного окружения и публикация
-PR не заменяют отдельную проверку восстановления в новой задаче.
+## Licensing
+
+Original ResumeAnalysis code is MIT. Third-party components retain their own terms.
+Read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and
+[the compliance audit](docs/license_audit.md) before distributing software bundles,
+model weights, data or a complete environment. Model/data MIT card declarations,
+ESCO version-specific terms, native runtime obligations and unlicensed med2425 inputs
+have unresolved review items. License notices are included in built distributions.

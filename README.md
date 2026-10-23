@@ -1,5 +1,12 @@
 # ResumeAnalysis
 
+An optional local Qwen Instruct backend and strict dataset adapters are available
+on this feature branch. See [Qwen setup and experiments](docs/qwen.md) and
+[loss-aware dataset conversion](docs/dataset_adapters.md). The E5 + MLP workflow
+below remains the default.
+See the [implementation and validation record](docs/qwen_validation.md) for safeguards,
+executed checks and remaining limitations.
+
 A local ML subsystem for ApplyPilot that matches a candidate's competencies to a vacancy.
 
 `predict(profile, vacancy) -> VacancyAnalysis` uses a trainable PyTorch MLP and frozen

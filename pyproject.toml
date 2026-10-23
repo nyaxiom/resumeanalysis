@@ -18,9 +18,12 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1.2,<2"]
 data = ["pyarrow>=17,<24"]
+qwen = ["accelerate>=1.2,<2", "lm-format-enforcer>=0.11,<0.12"]
+qwen-cuda = ["resumeanalysis[qwen]", "bitsandbytes>=0.45,<0.51"]
 
 [project.scripts]
 resumeanalysis = "resumeanalysis.cli:main"
+resumeanalysis-qwen = "resumeanalysis.qwen.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

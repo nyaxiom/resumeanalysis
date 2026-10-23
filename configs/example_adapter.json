@@ -1,0 +1,18 @@
+{
+  "name": "example-export-v1",
+  "schema_version_field": "/schema_version",
+  "expected_schema_version": "v1",
+  "rules": [
+    {"source": "/schema_version", "disposition": "excluded", "reason": "Version is checked and retained in source diagnostics"},
+    {"source": "/person/id", "target": "/candidate_id"},
+    {"source": "/person/skills", "target": "/profile/skills"},
+    {"source": "/person/years", "target": "/profile/experience_years", "disposition": "transformed", "transform": "float", "source_types": ["str"], "reason": "Known numeric string encoding in this export"},
+    {"source": "/job/id", "target": "/vacancy_id"},
+    {"source": "/job/description", "target": "/vacancy/description"},
+    {"source": "/job/skills", "target": "/vacancy/required_skills"},
+    {"source": "/fit", "target": "/label", "disposition": "transformed", "transform": "label", "source_types": ["str"]},
+    {"source": "/provenance", "target": "/provenance"},
+    {"source": "/metadata", "disposition": "auxiliary", "reason": "Preserve through source retention; not a model feature"}
+  ],
+  "labels": [{"source": "match", "target": 1}, {"source": "no_match", "target": 0}]
+}

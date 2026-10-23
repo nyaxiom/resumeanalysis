@@ -1,0 +1,14 @@
+{
+  "profile": {
+    "skills": ["Python", "PyTorch", "SQL"],
+    "experience_years": 2,
+    "preferred_roles": ["ML Engineer"],
+    "remote_only": true
+  },
+  "vacancy": {
+    "title": "Junior ML Engineer",
+    "description": "Required: Python, PyTorch, Docker. 2+ years of experience.",
+    "remote": true,
+    "min_experience_years": 2
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "max_missing_rates": {"/profile/skills": 0.1},
+  "reference_positive_rate": 0.5,
+  "max_balance_change": 0.15,
+  "near_duplicate_similarity": 0.95,
+  "max_near_duplicate_comparisons": 100000,
+  "rationale": "Illustration only: a curated balanced synthetic export expects explicit skills on most profiles. Review these limits for the actual source population."
+}

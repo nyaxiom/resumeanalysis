@@ -1,9 +1,35 @@
 {
   "audit_date": "2026-10-22",
   "audited_commit": "c66b74966c7734f984a309aad36b726dcaa38eef",
-  "uv_lock_sha256": "a23ad7ffb58e3a42d8b6c2eefb9cc38a37076e29ceb4060e2a8b889166277322",
+  "uv_lock_sha256": "98b10af739287fd6d3b9bd6ba7e2646d498a3d41f9023f97feafba8ec5821504",
   "scope": "Every external package/version in uv.lock; installed Python 3.12 Linux wheel notices plus explicit noninstalled variants. Not a platform-complete binary SBOM.",
   "packages": [
+    {
+      "name": "accelerate",
+      "version": "1.15.0",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "Apache",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "license_files": [
+        {
+          "path": "accelerate-1.15.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/accelerate-1.15.0.txt",
+      "notice_sha256": "25ff242aa64fd224d006d24a30694d9c2aad7e7f759431513fdb20cc86b2c2bf",
+      "reviewed_license": "Apache-2.0",
+      "role": "optional Qwen runtime or transitive dependency",
+      "notice_review_status": "Original wheel notices retained; CUDA/native and all platform variants not exhaustively audited"
+    },
     {
       "name": "annotated-types",
       "version": "0.8.0",
@@ -34,6 +60,41 @@
       "reviewed_license": "MIT",
       "role": "transitive (including platform-conditional dependencies)",
       "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "bitsandbytes",
+      "version": "0.50.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "exact locked wheel, SHA256 verified",
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_classifiers": [],
+      "project_urls": [
+        "homepage, https://github.com/bitsandbytes-foundation/bitsandbytes",
+        "changelog, https://github.com/bitsandbytes-foundation/bitsandbytes/blob/main/CHANGELOG.md",
+        "docs, https://huggingface.co/docs/bitsandbytes/main",
+        "issues, https://github.com/bitsandbytes-foundation/bitsandbytes/issues"
+      ],
+      "license_files": [
+        {
+          "path": "bitsandbytes-0.50.2.dist-info/licenses/LICENSE",
+          "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+          "bytes": 1086
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/bitsandbytes-0.50.2.txt",
+      "notice_sha256": "68ac03e497ba496e3ffa01dd6e0d30a54306df9a656c49ecd50b95aac2652986",
+      "reviewed_license": "MIT",
+      "role": "optional Qwen runtime or transitive dependency",
+      "notice_review_status": "Original wheel notices retained; CUDA/native and all platform variants not exhaustively audited",
+      "inspected_wheel": {
+        "url": "https://files.pythonhosted.org/packages/a5/6e/e4e8b75716dbe5e50964f070266e06f4e6806ce051bfb97f52ee162b9310/bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl",
+        "hash": "sha256:55348a9a4a21bfd99cf8c7b32fe67b4030ae5c2a05738e03c1747f65fa6ec283",
+        "size": 43139553,
+        "upload-time": "2026-08-27T00:10:54.751Z"
+      }
     },
     {
       "name": "build",
@@ -364,6 +425,32 @@
       "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
     },
     {
+      "name": "interegular",
+      "version": "0.3.3",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [],
+      "license_files": [
+        {
+          "path": "interegular-0.3.3.dist-info/LICENSE.txt",
+          "sha256": "8a23189a107478fa292418a2e0b1b8bd2fe60617c1ce6325c2194f6d91f27b29",
+          "bytes": 1096
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/interegular-0.3.3.txt",
+      "notice_sha256": "0ebb73351c1e36ae5ce3d5dfa66dbe6d88c166ef91c624728319412e2682d866",
+      "reviewed_license": "MIT",
+      "role": "optional Qwen runtime or transitive dependency",
+      "notice_review_status": "Original wheel notices retained; CUDA/native and all platform variants not exhaustively audited"
+    },
+    {
       "name": "jinja2",
       "version": "3.1.6",
       "lock_source": {
@@ -423,6 +510,37 @@
       "reviewed_license": "BSD-3-Clause",
       "role": "transitive (including platform-conditional dependencies)",
       "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "lm-format-enforcer",
+      "version": "0.11.3",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Bug Tracker, https://github.com/noamgat/lm-format-enforcer/issues",
+        "Documentation, https://github.com/noamgat/lm-format-enforcer",
+        "Homepage, https://github.com/noamgat/lm-format-enforcer",
+        "Repository, https://github.com/noamgat/lm-format-enforcer"
+      ],
+      "license_files": [
+        {
+          "path": "lm_format_enforcer-0.11.3.dist-info/LICENSE",
+          "sha256": "d1c02373f9da54abb40fb9fa5ca6c19136d10da76a1054ff1ee2528221ae1bfe",
+          "bytes": 1065
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/lm-format-enforcer-0.11.3.txt",
+      "notice_sha256": "739ec5260f498079a556374332478f60b5ee8c979f20332a73bf1bcc3273fbee",
+      "reviewed_license": "MIT",
+      "role": "optional Qwen runtime or transitive dependency",
+      "notice_review_status": "Original wheel notices retained; CUDA/native and all platform variants not exhaustively audited"
     },
     {
       "name": "markupsafe",
@@ -929,6 +1047,30 @@
       "reviewed_license": "MIT",
       "role": "transitive (including platform-conditional dependencies)",
       "notice_review_status": "Installed wheel supplied original notice files; compiled/vendored dependency graph not exhaustively reconstructed"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "lock_source": {
+        "registry": "https://pypi.org/simple"
+      },
+      "evidence": "installed distribution METADATA and shipped license files",
+      "license_expression": null,
+      "license_field": "BSD-3-Clause",
+      "license_classifiers": [],
+      "project_urls": [],
+      "license_files": [
+        {
+          "path": "psutil-7.2.2.dist-info/LICENSE",
+          "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10",
+          "bytes": 1548
+        }
+      ],
+      "notice_file": "LICENSES/dependencies/psutil-7.2.2.txt",
+      "notice_sha256": "7fe7ceaf620d256a0d80a4c903b5b3a6a75876583dc0de47c9b9573ae2564be8",
+      "reviewed_license": "BSD-3-Clause",
+      "role": "optional Qwen runtime or transitive dependency",
+      "notice_review_status": "Original wheel notices retained; CUDA/native and all platform variants not exhaustively audited"
     },
     {
       "name": "pyarrow",
@@ -2836,5 +2978,11 @@
   ],
   "package_version_count": 48,
   "unique_package_count": 44,
-  "noninstalled_variants_note": "Exact locked wheel notice files were extracted without installing alternate versions/platform builds; evidence includes filename, URL and matching lock SHA256. This does not audit every wheel across every supported platform."
+  "noninstalled_variants_note": "Exact locked wheel notice files were extracted without installing alternate versions/platform builds; evidence includes filename, URL and matching lock SHA256. This does not audit every wheel across every supported platform.",
+  "baseline_uv_lock_sha256": "a23ad7ffb58e3a42d8b6c2eefb9cc38a37076e29ceb4060e2a8b889166277322",
+  "qwen_extension": {
+    "date": "2026-10-23",
+    "base_commit": "f682c2427bdb2e1ea7ccb8a778b5d92caaa4c2f8",
+    "scope": "Five additional optional packages only; baseline notices unchanged"
+  }
 }

@@ -1,0 +1,539 @@
+[
+  {
+    "id": "role-radar-essential-skills",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Essential Skills\n\nFront-end: React, Next.js, TypeScript, modern CSS\nBack-end: Python/FastAPI, Node.js, Express\nAPIs: REST, GraphQL\nDatabases: PostgreSQL, MongoDB, Redis\nCloud-native deployment: Docker, Kubernetes",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "react",
+        "next.js",
+        "typescript",
+        "css",
+        "python",
+        "fastapi",
+        "node.js",
+        "express",
+        "rest",
+        "graphql",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "docker",
+        "kubernetes"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-required-list",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required: Python, Docker, PostgreSQL.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "python",
+        "docker",
+        "postgresql"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-required-prose",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Обязательно знание Python и PostgreSQL.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "python",
+        "postgresql"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-optional-heading",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Nice to Have\nAirflow, Docker",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [
+        "airflow",
+        "docker"
+      ],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-optional-prose",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Желателен опыт работы с Docker.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [
+        "docker"
+      ],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-optional-advantage",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Знание Kubernetes будет преимуществом.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [
+        "kubernetes"
+      ],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-negated-requirement",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "No Kubernetes experience required.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [
+        "kubernetes"
+      ],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-negated-requirement",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Docker не обязателен.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [
+        "docker"
+      ],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-required-alternative",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required: Python or Node.js.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": [
+        [
+          "python",
+          "node.js"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "ru-required-alternative",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Обязательно Python или Node.js.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": [
+        [
+          "python",
+          "node.js"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "en-comma-alternatives",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required: Python, Node.js, or Java.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": [
+        [
+          "python",
+          "node.js",
+          "java"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "en-or-plus-independent-requirement",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required: Python or Node.js, Docker.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "docker"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": [
+        [
+          "python",
+          "node.js"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "ru-or-plus-independent-requirement",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Требования: Python или Node.js, Docker.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "docker"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": [
+        [
+          "python",
+          "node.js"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "en-preferred-suffix",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Experience with AWS is preferred.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [
+        "aws"
+      ],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-local-optional-contrast",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required: Python, but AWS is preferred.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "python"
+      ],
+      "optional": [
+        "aws"
+      ],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-section-reset",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Essential Skills\nPython\nBenefits\nDocker workshops.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "python"
+      ],
+      "optional": [],
+      "mentioned": [
+        "docker"
+      ],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-section-reset",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Требования\nPython\nУсловия\nВоркшопы Docker.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "python"
+      ],
+      "optional": [],
+      "mentioned": [
+        "docker"
+      ],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-unclassified-mentions",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Our product runs on Redis and Kafka.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [
+        "redis",
+        "apache kafka"
+      ],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-professional-soft-skills",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Qualifications:\nCommunication skills, critical thinking, test automation.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "communication",
+        "critical thinking",
+        "test automation"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-professional-soft-skills",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Требования:\nУмение работать в команде, внимание к деталям, анализ требований.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "teamwork",
+        "attention to detail",
+        "requirements analysis"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-explicit-aliases",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Must Have: JS, TS, Postgres, PyTorch.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "javascript",
+        "typescript",
+        "postgresql",
+        "pytorch"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-contextual-node",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Back-end programming: Node and Python",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [
+        "node.js",
+        "python"
+      ],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-ambiguous-short-names",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Each node of the graph contains a C rating. We go to meetings.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-unknown-terms",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required: HyperDriveUltra and NebulaDBX.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-punctuation-aliases",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Required:\nC++, C#, Node.js, scikit-learn",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "c++",
+        "c#",
+        "node.js",
+        "scikit-learn"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-explicit-programming-languages",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Обязательные языки программирования: C, Go, R.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "c",
+        "golang",
+        "r"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-negation-contrast",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Docker is not required, but Python is mandatory.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "python"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [
+        "docker"
+      ],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-negation-contrast",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Python не требуется, но обязателен SQL.",
+    "vacancy": true,
+    "expected": {
+      "required": [
+        "sql"
+      ],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [
+        "python"
+      ],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "en-preferred-soft-skills",
+    "language": "en",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Preferred Qualifications\n- Written communication\n- Mentoring",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [
+        "communication",
+        "mentoring"
+      ],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  },
+  {
+    "id": "ru-no-title-competence",
+    "language": "ru",
+    "label_note": "Manually authored controlled regression fixture; not an independent real-world language benchmark.",
+    "text": "Ищем ML Engineer и Data Analyst.",
+    "vacancy": true,
+    "expected": {
+      "required": [],
+      "optional": [],
+      "mentioned": [],
+      "negated_requirements": [],
+      "alternative_groups": []
+    }
+  }
+]

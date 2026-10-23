@@ -8,9 +8,13 @@ from resumeanalysis.embeddings.encoder import LexicalSmokeEncoder, TextEncoder
 
 
 def main():
+    from resumeanalysis.data.adapter_cli import configure_parser
+    from resumeanalysis.data.adapter_cli import run as datasets_run
+
     parser = argparse.ArgumentParser(description="ResumeAnalysis: local matching and CPU training")
     parser.add_argument("--threads", type=int, default=2)
     sub = parser.add_subparsers(dest="command", required=True)
+    configure_parser(sub.add_parser("datasets", help="Inspect, convert and audit JSONL datasets"))
     for name, default in [
         ("download-e5", "artifacts/e5"),
         ("download-data", "data/raw/candidate-matching-synthetic"),
@@ -39,6 +43,8 @@ def main():
             help="Diagnostic hashing encoder, explicitly not E5",
         )
         if name == "predict":
+            p.add_argument("--backend", choices=["mlp", "qwen"], default="mlp")
+            p.add_argument("--qwen-config", default="configs/qwen.json")
             p.add_argument("--checkpoint", default="artifacts/run/model.pt")
             p.add_argument("--input", required=True)
         else:
@@ -53,6 +59,8 @@ def main():
     if args.threads < 1:
         parser.error("--threads must be positive")
     torch.set_num_threads(args.threads)
+    if args.command == "datasets":
+        return datasets_run(args, parser)
     if args.command == "download-e5":
         from resumeanalysis.data.download import download_e5
 
@@ -84,6 +92,17 @@ def main():
         result = evaluate_skillspan(args.input)
         Path(args.output).parent.mkdir(parents=True, exist_ok=True)
         Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    elif args.command == "predict" and args.backend == "qwen":
+        from resumeanalysis.jsonio import loads
+        from resumeanalysis.qwen.cli import read_config
+        from resumeanalysis.qwen.predictor import QwenPredictor
+
+        pair = loads(Path(args.input).read_text())
+        result = (
+            QwenPredictor(read_config(args.qwen_config))
+            .predict(pair["profile"], pair["vacancy"])
+            .model_dump()
+        )
     else:
         encoder = LexicalSmokeEncoder() if args.smoke_lexical else TextEncoder(args.e5_path)
         if args.command == "train":

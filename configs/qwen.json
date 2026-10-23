@@ -1,0 +1,14 @@
+{
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "model_path": "artifacts/qwen",
+  "device": "cuda",
+  "quantization": "bnb4",
+  "dtype": "float16",
+  "max_input_tokens": 4096,
+  "max_new_tokens": 768,
+  "threshold": 0.5,
+  "retries": 1,
+  "seed": 42,
+  "structured_generation": true
+}

@@ -10,6 +10,11 @@ license compatibility, unresolved rights and the manual-review register. Exact
 sources, revisions and hashes are in [license_evidence.json](docs/license_evidence.json)
 and [dependency_licenses.json](docs/dependency_licenses.json).
 
+The optional Qwen extension was reviewed on 2026-10-23. Its model and five additional
+package notices are listed in the Qwen addendum at the end of this file and in
+[qwen_license_evidence.json](docs/qwen_license_evidence.json). Original notices below
+remain intact; this addendum does not clear the separate CUDA runtime for distribution.
+
 The following original copyright and permission notices are retained. No upstream
 copyright holder is replaced with the ResumeAnalysis contributors' name.
 
@@ -336,3 +341,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ```
+
+## Qwen backend addendum — 2026-10-23
+
+The optional inference model is `Qwen/Qwen2.5-7B-Instruct`, revision
+`a09a35458c702b33eeacc393d103063234e8bc28`.
+The actual pinned [upstream LICENSE](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/blob/a09a35458c702b33eeacc393d103063234e8bc28/LICENSE)
+is Apache-2.0 and is retained in full at
+[LICENSES/references/qwen-instruct-7b-LICENSE.txt](LICENSES/references/qwen-instruct-7b-LICENSE.txt).
+No separate NOTICE was listed in this model repository at the reviewed revision.
+Do not invent an asset-specific copyright line from the publisher's name. Preserve
+actual supplied copyright/license/NOTICE material, identify modifications, retain
+Apache patent and trademark conditions, and review training/output provenance before
+redistributing weights or making rights assurances. Weights/tokenizers are downloaded
+separately, not committed. Inference retains and verifies their source manifest.
+
+Five additional locked packages are optional. The linked bundles preserve their
+original complete notices, including the named copyright holders, byte-for-byte
+between file boundaries. Their original names are not replaced by this project's name.
+
+| Package/version | Actual license | Original full notice |
+|---|---|---|
+| accelerate 1.15.0 | Apache-2.0 | [LICENSE](LICENSES/dependencies/accelerate-1.15.0.txt) |
+| bitsandbytes 0.50.2 | MIT; copyright (c) Facebook, Inc. and its affiliates | [LICENSE](LICENSES/dependencies/bitsandbytes-0.50.2.txt) |
+| lm-format-enforcer 0.11.3 | MIT; copyright (c) 2023 Noam Gat | [LICENSE](LICENSES/dependencies/lm-format-enforcer-0.11.3.txt) |
+| interegular 0.3.3 | MIT; copyright (c) 2019 @MegaIng and @qntm | [LICENSE](LICENSES/dependencies/interegular-0.3.3.txt) |
+| psutil 7.2.2 | BSD-3-Clause; original multiple copyright holders retained | [LICENSE](LICENSES/dependencies/psutil-7.2.2.txt) |
+
+The first audit's 48 package/version entries remain unchanged; the complete current
+index has 53. Four additions were inspected from installed wheel metadata/notices;
+the exact locked Linux x86-64 bitsandbytes wheel was downloaded, hash-verified and
+inspected without installation. This is not an exhaustive inventory of compiled
+CUDA kernels, every platform wheel or external NVIDIA driver/runtime components.
+A separate CUDA-enabled PyTorch installation can introduce additional NVIDIA and
+native licenses that the CPU lock does not represent. Review the exact GPU release
+artifact and its source/notice obligations before distributing a bundled runtime.

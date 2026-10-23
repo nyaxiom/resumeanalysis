@@ -1,8 +1,9 @@
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass, field
 
 import numpy as np
 
 from resumeanalysis.embeddings.encoder import Encoder
+from resumeanalysis.extraction.registry import Extractor, extractor_identity, is_legacy
 from resumeanalysis.extraction.skill_extractor import SkillExtractor
 from resumeanalysis.schemas import Profile, Vacancy
 
@@ -40,6 +41,7 @@ class FeatureDetail:
     unknown: set[str]
     contradicted: set[str]
     experience_gap: float | None
+    alternative_groups: list[dict] = field(default_factory=list)
 
 
 def profile_text(profile: Profile) -> str:
@@ -66,8 +68,10 @@ def vacancy_text(vacancy: Vacancy) -> str:
 
 
 class FeatureEngineering:
-    def __init__(self, encoder: Encoder, extractor: SkillExtractor | None = None):
+    def __init__(self, encoder: Encoder, extractor: Extractor | None = None):
         self.encoder, self.extractor = encoder, extractor or SkillExtractor()
+        self.extractor_identity = extractor_identity(self.extractor)
+        self.pipeline_version = PIPELINE_VERSION if is_legacy(self.extractor) else 2
 
     def build(self, profile: Profile, vacancy: Vacancy) -> FeatureDetail:
         norm = self.extractor.normalizer
@@ -87,6 +91,18 @@ class FeatureEngineering:
         wanted = required | optional
         matched, contradicted = wanted & confirmed, wanted & denied
         unknown = wanted - matched - contradicted
+        alternatives = []
+        for group in getattr(v, "alternative_groups", []):
+            members = set(group.skills)
+            alternatives.append(
+                {
+                    **asdict(group),
+                    "status": "matched"
+                    if members & confirmed
+                    else ("contradicted" if members <= denied else "unknown"),
+                    "matched_skills": sorted(members & confirmed),
+                }
+            )
 
         def ratio(subset, pool):
             return len(subset & pool) / len(pool) if pool else 0.0
@@ -124,6 +140,39 @@ class FeatureEngineering:
             ratio(confirmed, v.confirmed - wanted),
             float(bool(required)),
         ]
+        if self.pipeline_version == 2:
+            # Each disjunction is one requirement unit, never independent mandatory
+            # skills. Public unknown/missing lists retain only independent terms;
+            # the complete alternative groups travel as evidence metadata.
+            units = {
+                "required": [{s} for s in sorted(required)],
+                "optional": [{s} for s in sorted(optional)],
+            }
+            group_members = set()
+            for group in getattr(v, "alternative_groups", []):
+                if group.requirement in units:
+                    members = set(group.skills)
+                    units[group.requirement].append(members)
+                    group_members |= members
+                    matched |= members & confirmed
+            for offset, category in [(0, "required"), (3, "optional")]:
+                pool = units[category]
+                statuses = [
+                    "matched" if unit & confirmed else ("denied" if unit <= denied else "unknown")
+                    for unit in pool
+                ]
+                values[offset : offset + 3] = [
+                    statuses.count(s) / len(pool) if pool else 0.0
+                    for s in ("matched", "unknown", "denied")
+                ]
+            values[7] = sum(
+                max((norm.taxonomy.related_support(confirmed, s) for s in unit), default=0)
+                for unit in units["required"]
+                if not unit & confirmed
+            ) / max(1, len(units["required"]))
+            values[13], values[14] = [min(len(units[c]), 20) / 20 for c in ("required", "optional")]
+            values[15] = ratio(confirmed, v.confirmed - wanted - group_members)
+            values[16] = float(bool(units["required"]))
         vector = np.asarray(values, dtype=np.float32)
         if (
             not np.isfinite(vector).all()
@@ -131,4 +180,6 @@ class FeatureEngineering:
             or j.shape != r.shape
         ):
             raise ValueError("Invalid feature/embedding output")
-        return FeatureDetail(vector, r, j, required, optional, matched, unknown, contradicted, gap)
+        return FeatureDetail(
+            vector, r, j, required, optional, matched, unknown, contradicted, gap, alternatives
+        )

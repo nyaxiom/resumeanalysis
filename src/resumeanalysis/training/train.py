@@ -18,10 +18,9 @@ from torch.utils.data import DataLoader, TensorDataset
 from resumeanalysis.data.dataset import SPLITS, assert_no_leakage, load_records
 from resumeanalysis.data.download import sha256_file
 from resumeanalysis.embeddings.encoder import Encoder
-from resumeanalysis.extraction.skill_extractor import SkillExtractor
+from resumeanalysis.extraction.registry import Extractor, is_legacy
 from resumeanalysis.features.feature_builder import (
     FEATURE_NAMES,
-    PIPELINE_VERSION,
     FeatureEngineering,
 )
 from resumeanalysis.models.resume_analysis_net import ResumeAnalysisNet
@@ -50,15 +49,18 @@ class TrainingConfig:
 
 
 def precompute(records, builder: FeatureEngineering, cache_path: Path, source_digest: str):
-    identity = json.dumps(
-        [
-            source_digest,
-            builder.encoder.identity,
-            PIPELINE_VERSION,
-            builder.extractor.normalizer.taxonomy.identity,
-            FEATURE_NAMES,
-        ]
-    )
+    components = [
+        source_digest,
+        builder.encoder.identity,
+        builder.pipeline_version,
+        builder.extractor.normalizer.taxonomy.identity,
+        FEATURE_NAMES,
+    ]
+    # The legacy list is intentionally unchanged, preserving original cache keys.
+    # Changed semantics require their own identity even if feature names are equal.
+    if not is_legacy(builder.extractor):
+        components.append(builder.extractor_identity)
+    identity = json.dumps(components)
     digest = hashlib.sha256(identity.encode()).hexdigest()
     cache_path.mkdir(parents=True, exist_ok=True)
     path = cache_path / f"{digest}.npz"
@@ -103,21 +105,35 @@ def train(
     output: str | Path,
     encoder: Encoder,
     config: TrainingConfig | None = None,
-    extractor: SkillExtractor | None = None,
+    extractor: Extractor | None = None,
 ) -> dict:
     config = config or TrainingConfig()
+    data_dir, output = Path(data_dir), Path(output)
+    builder = FeatureEngineering(encoder, extractor)
+    legacy = is_legacy(builder.extractor)
+    if (
+        not legacy
+        and output.exists()
+        and (
+            any(output.glob("*.pt"))
+            or any(output.glob("*.pth"))
+            or any(output.glob("*.safetensors"))
+            or (output / "metrics.json").exists()
+        )
+    ):
+        raise FileExistsError(
+            "Changed extraction requires a new training output directory; existing checkpoints/metrics are protected"
+        )
     random.seed(config.seed)
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
     torch.set_num_threads(config.threads)
     torch.use_deterministic_algorithms(True)
-    data_dir, output = Path(data_dir), Path(output)
     output.mkdir(parents=True, exist_ok=True)
     records = {s: load_records(data_dir / f"{s}.jsonl") for s in SPLITS}
     assert_no_leakage(records)
     if any(len({r.label for r in rows}) != 2 for rows in records.values()):
         raise ValueError("Each train/validation/test split must contain both classes")
-    builder = FeatureEngineering(encoder, extractor)
     digests = {s: sha256_file(data_dir / f"{s}.jsonl") for s in SPLITS}
     arrays = {
         s: precompute(records[s], builder, output.parent / "feature_cache", digests[s])
@@ -181,11 +197,11 @@ def train(
     val_neural = score_model(model, va)
     threshold = choose_threshold(va[3], val_neural)
     checkpoint = {
-        "format_version": 1,
+        "format_version": 1 if legacy else 2,
         "state_dict": best_state,
         "network_config": model.config,
         "feature_names": FEATURE_NAMES,
-        "pipeline_version": PIPELINE_VERSION,
+        "pipeline_version": builder.pipeline_version,
         "taxonomy_identity": builder.extractor.normalizer.taxonomy.identity,
         "encoder_identity": encoder.identity,
         "threshold": threshold,
@@ -193,6 +209,8 @@ def train(
         "best_epoch": best_epoch,
         "data_sha256": digests,
     }
+    if not legacy:
+        checkpoint["extractor_identity"] = builder.extractor_identity
     torch.save(checkpoint, output / "model.pt")
     # Both learned methods receive exactly the same input representation.
     logistic = make_pipeline(
@@ -237,6 +255,13 @@ def train(
         "score_warning": "Sigmoid score is not a validated calibrated probability.",
         "history": history,
     }
+    if not legacy:
+        report.update(
+            {
+                "pipeline_version": builder.pipeline_version,
+                "extractor_identity": builder.extractor_identity,
+            }
+        )
     report["neural_improves_over_rule"] = (
         report["test"]["neural"]["macro_f1"] > report["test"]["rule"]["macro_f1"]
     )
@@ -261,7 +286,7 @@ def evaluate_saved(
     data_dir: str | Path,
     output: str | Path,
     encoder: Encoder,
-    extractor: SkillExtractor | None = None,
+    extractor: Extractor | None = None,
 ) -> dict:
     """Re-evaluate saved weights on the exact held-out test, without refitting anything."""
     from resumeanalysis.inference.predictor import Predictor

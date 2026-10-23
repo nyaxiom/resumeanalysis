@@ -3,6 +3,7 @@
 import numpy as np
 from pydantic import ValidationError
 
+from resumeanalysis.extraction.registry import Extractor
 from resumeanalysis.extraction.skill_extractor import SkillExtractor
 from resumeanalysis.features.feature_builder import FeatureDetail
 from resumeanalysis.inference.backends import MatchingProfile
@@ -18,8 +19,10 @@ class InvalidModelOutput(ValueError):
     """No validated decision was produced; raw personal input is never in this error."""
 
 
-def skill_evidence(profile: Profile, vacancy: Vacancy) -> FeatureDetail:
-    extractor = SkillExtractor()
+def skill_evidence(
+    profile: Profile, vacancy: Vacancy, extractor: Extractor | None = None
+) -> FeatureDetail:
+    extractor = extractor or SkillExtractor()
     norm = extractor.normalizer
     p = extractor.extract("\n".join([profile.resume_text, *profile.projects, *profile.education]))
     v = extractor.extract(vacancy.description, vacancy=True)
@@ -36,6 +39,25 @@ def skill_evidence(profile: Profile, vacancy: Vacancy) -> FeatureDetail:
     years, minimum = profile.experience_years, vacancy.min_experience_years
     gap = max(0.0, minimum - years) if years is not None and minimum is not None else None
     empty = np.empty(0, dtype=np.float32)
+    from dataclasses import asdict
+
+    alternatives = [
+        {
+            **asdict(g),
+            "status": "matched"
+            if set(g.skills) & confirmed
+            else ("contradicted" if set(g.skills) <= denied else "unknown"),
+            "matched_skills": sorted(set(g.skills) & confirmed),
+        }
+        for g in getattr(v, "alternative_groups", [])
+    ]
+    matched |= {
+        s
+        for g in getattr(v, "alternative_groups", [])
+        if g.requirement in {"required", "optional"}
+        for s in g.skills
+        if s in confirmed
+    }
     return FeatureDetail(
         empty,
         empty,
@@ -46,6 +68,7 @@ def skill_evidence(profile: Profile, vacancy: Vacancy) -> FeatureDetail:
         wanted - matched - contradicted,
         contradicted,
         gap,
+        alternatives,
     )
 
 
@@ -60,9 +83,15 @@ def resolve_pointer(document, pointer: str):
 
 
 class QwenPredictor:
-    def __init__(self, config: QwenConfig | None = None, generator: Generator | None = None):
+    def __init__(
+        self,
+        config: QwenConfig | None = None,
+        generator: Generator | None = None,
+        extractor: Extractor | None = None,
+    ):
         self.config = config or QwenConfig()
         self.generator = generator if generator is not None else TransformersGenerator(self.config)
+        self.extractor = extractor or SkillExtractor()
 
     def predict(self, profile: Profile | dict, vacancy: Vacancy | dict) -> VacancyAnalysis:
         p = MatchingProfile.model_validate(
@@ -73,13 +102,20 @@ class QwenPredictor:
             if isinstance(vacancy, Vacancy)
             else Vacancy.model_validate(vacancy, strict=True)
         )
-        detail = skill_evidence(p, v)
+        detail = skill_evidence(p, v, self.extractor)
         catalog = {
             "matched_skills": sorted(detail.matched),
             "unknown_skills": sorted(detail.unknown),
             "contradicted_skills": sorted(detail.contradicted),
         }
         messages = build_messages(p, v, catalog, self.config.threshold)
+        if detail.alternative_groups:
+            import json
+
+            messages[1]["content"] += (
+                "\nRequirement metadata (do not flatten alternatives): "
+                + json.dumps(detail.alternative_groups, ensure_ascii=False)
+            )
         document = {"profile": p.model_dump(), "vacancy": v.model_dump()}
         decision = None
         for attempt in range(self.config.retries + 1):

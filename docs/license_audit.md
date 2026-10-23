@@ -197,3 +197,21 @@ platform-complete binary SBOM or upstream model training-data/output clearance i
 claimed. Existing E5/data/ESCO and native-library risks R1–R7 still apply. The new
 adapter's snapshots/diagnostics also require the custodian's dataset license and
 privacy retention policy; conversion success is not a grant of data rights.
+
+## Skill extractor v2 extension — 2026-10-24
+
+The extension from `ad45d07eb220dfa3e68083910d6aa0c47750fd21` introduces original
+curated matching/context code, not copied SkillNER/JobBot code or EMSI dictionaries.
+It adds no dependencies and downloads no pretrained NER weights. The optional
+train-only phrase artifact is a derivative of the already reviewed MIT SkillSpan
+training annotations; it stays outside Git and embeds the actual original MIT
+notice and provenance. Its measured precision is poor; licensing does not imply
+quality suitability. Exact source pins, actual-license evidence and excluded assets
+are documented in `skill_extractor_research.md` and `skill_extractor_evidence.json`.
+
+The actual MIT code licenses for both SkillNER forks do not establish rights in
+their default separately sourced dictionary. JobBot and inspected JobBERT weight
+repositories lack a verified applicable grant and were excluded. The existing
+SkillSpan attribution/citation and R6 underlying-advertisement rights review remain
+applicable to local derivatives or any later redistribution. The root MIT and all
+original copyright notices are preserved; no broader legal clearance is claimed.

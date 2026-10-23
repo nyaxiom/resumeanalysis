@@ -1,5 +1,11 @@
 # ResumeAnalysis
 
+Skill extraction has a selectable [v2 implementation and comparison workflow](docs/skill_extractor_v2.md).
+The original extractor remains the default. Using v2 with the MLP requires a matching
+separately trained checkpoint; the original saved model is preserved. See the
+[measured validation](docs/skill_extractor_validation.md) for precision/recall,
+CPU costs, split-overlap findings and downstream limitations.
+
 An optional local Qwen Instruct backend and strict dataset adapters are available
 on this feature branch. See [Qwen setup and experiments](docs/qwen.md) and
 [loss-aware dataset conversion](docs/dataset_adapters.md). The E5 + MLP workflow

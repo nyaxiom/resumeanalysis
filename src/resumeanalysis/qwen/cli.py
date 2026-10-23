@@ -29,6 +29,8 @@ def main(argv=None):
         p.add_argument("--config", default="configs/qwen.json")
         if name == "predict":
             p.add_argument("--input", required=True)
+            p.add_argument("--extractor", choices=["legacy", "v2"], default="legacy")
+            p.add_argument("--lexicon-path")
     p = sub.add_parser("augment")
     p.add_argument("--data", default="data/processed")
     p.add_argument("--output", required=True)
@@ -54,11 +56,15 @@ def main(argv=None):
 
         result = download(read_config(args.config))
     elif args.command == "predict":
+        from resumeanalysis.extraction.registry import create_extractor
         from resumeanalysis.qwen.predictor import QwenPredictor
 
         pair = loads(Path(args.input).read_text())
         result = (
-            QwenPredictor(read_config(args.config))
+            QwenPredictor(
+                read_config(args.config),
+                extractor=create_extractor(args.extractor, lexicon_path=args.lexicon_path),
+            )
             .predict(pair["profile"], pair["vacancy"])
             .model_dump()
         )

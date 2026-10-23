@@ -376,3 +376,39 @@ CUDA kernels, every platform wheel or external NVIDIA driver/runtime components.
 A separate CUDA-enabled PyTorch installation can introduce additional NVIDIA and
 native licenses that the CPU lock does not represent. Review the exact GPU release
 artifact and its source/notice obligations before distributing a bundled runtime.
+
+## Skill extractor v2 addendum — 2026-10-24
+
+The reviewed references are markovml/skill-ner
+(`c23846c19a084d48571b1e4a88f4095cba1094c0`), AnasAito/SkillNER
+(`e8cdbb6f591211bf5d0fe2c8a61ddb95526a78b3`), SkillSpan
+(`2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b`), and JobBot
+(`e2f38a1a8cf0714e973bf9d4b713cacb5a4cafc1`).
+No implementation source, EMSI/Lightcast skill dictionary or pretrained NER weights
+from these references were copied or imported. The new curated vocabulary and
+requirement rules are original project code under the root MIT. Research is not
+an assertion that all referenced assets are MIT or cleared for reuse.
+
+The optional phrase matcher derives a separately generated local vocabulary from
+**SkillSpan's training annotations only**. SkillSpan's actual original MIT notice,
+**Copyright (c) 2023 Mike Zhang**, is already retained above and in
+[LICENSES/references/skillspan-LICENSE.txt](LICENSES/references/skillspan-LICENSE.txt).
+Its full notice is also embedded in the generated derivative artifact with the
+source revision/hash and declared transformations (exact phrase counting, frequency,
+length and ambiguity/disjunction filters). The corpus and generated vocabulary
+are excluded from Git. The SkillSpan scholarly citation above still applies.
+Underlying advertisement rights and intended redistribution remain review items.
+
+The two SkillNER repositories supply MIT code notices naming **Copyright (c) 2021,
+Anas AIT AOMAR & Badr MOUFAD. All rights reserved.** No code is included here, so this
+is provenance research rather than an incorporated-code notice. Their separate
+default EMSI dictionary terms remain unresolved. JobBot has no verified license
+grant; do not copy its code/assets based on public access or its academic statement.
+The inspected JobBERT skill/knowledge weight repositories have no verified
+asset-specific license declaration/file and were not downloaded or executed.
+
+Read [the research matrix](docs/skill_extractor_research.md) and
+[evidence index](docs/skill_extractor_evidence.json) for exact scope, terms and
+excluded candidates. No new software dependencies or third-party source licenses
+were introduced by this extraction update; existing model/data/taxonomy/native
+runtime review items remain in force.

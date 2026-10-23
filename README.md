@@ -250,18 +250,23 @@ The MLP improved Macro-F1 on this small exploratory synthetic sample. This does 
 establish performance on real hiring decisions or score calibration. Full results,
 hashes and error analysis are in [docs/evaluation.md](docs/evaluation.md).
 
-SkillSpan extraction evaluation uses an external checkout:
-
-```bash
-git clone https://github.com/kris927b/SkillSpan /tmp/SkillSpan
-git -C /tmp/SkillSpan checkout 2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b
-resumeanalysis skillspan --input /tmp/SkillSpan/data/json/test.json
-```
-
-Across all 3,569 test sentences, exact-span F1 is **0.1460**, recall **0.0830**.
+The historical legacy evaluation across all 3,569 SkillSpan test sentences
+reported exact-span F1 **0.1460**, recall **0.0830**.
 The dictionary recognizes some technologies but misses most open-ended professional
 competencies. It is not a replacement for Nesta's full NER. Russian extraction has
 unit coverage, but no quantitative Russian NER benchmark has been run.
+
+For new dataset preparation and model selection, use the
+[Skill Extractor data foundation](docs/skill_data/README.md). It provides eight
+pinned dataset sources, immutable downloads, separate annotation schemas,
+duplicate/leakage auditing and train-only vocabulary experiments. The original
+SkillSpan test is now frozen; the new workflow uses its text fingerprints only
+to quarantine contamination and never ingests or scores its annotations.
+
+On the audited SkillSpan validation subset, V2 full-alias coverage is **12.69%**.
+Expanding its dictionary from real training spans raises recall but lowers F1;
+see [the measured findings](docs/skill_data/findings.md) and
+[controlled NER experiment plan](docs/skill_data/training_strategy.md).
 
 ## Next work
 

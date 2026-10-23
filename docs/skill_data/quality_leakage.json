@@ -1,0 +1,503 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "catalog_sha256": "f201ec02fe0b2e4ca33fa4beff1ed0aa2d9cfcc25c24cbded42d128e9ecb34f8",
+  "preprocessing_sha256": "8fcdcbd75ef1edc168f25796534da1ed63b40a56bb37b49effb1e07ae4666e6d",
+  "guard_sha256": "49d9c944917a7581e61da6c7ddd803c731855c87160de3c89b8fddb92f177608",
+  "quarantine_reasons": {
+    "duplicate_text_conflicting_annotations": 25628,
+    "exact_cross_role_overlap": 1298,
+    "exact_skillspan_test_text": 2111,
+    "near_cross_role_overlap": 111,
+    "near_skillspan_test_text": 142,
+    "research_only_license_or_task_review": 51029,
+    "within_partition_exact_duplicate": 1648
+  },
+  "cross_partition_overlap": [
+    {
+      "kind": "exact",
+      "left": "green/test.jsonl",
+      "right": "green/train.jsonl",
+      "unique_text_pairs": 17
+    },
+    {
+      "kind": "exact",
+      "left": "ru_titles/unsplit.jsonl",
+      "right": "skillspan/train.jsonl",
+      "unique_text_pairs": 11
+    },
+    {
+      "kind": "exact",
+      "left": "ru_titles/unsplit.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 13
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/test.jsonl",
+      "right": "skill_xl/validation.jsonl",
+      "unique_text_pairs": 174
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/test.jsonl",
+      "right": "skillspan/train.jsonl",
+      "unique_text_pairs": 25
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/test.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 30
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/test.jsonl",
+      "right": "synthetic_esco/train.jsonl",
+      "unique_text_pairs": 1
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/test.jsonl",
+      "right": "tech/validation.jsonl",
+      "unique_text_pairs": 1
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/validation.jsonl",
+      "right": "skillspan/train.jsonl",
+      "unique_text_pairs": 25
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/validation.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 27
+    },
+    {
+      "kind": "exact",
+      "left": "skill_xl/validation.jsonl",
+      "right": "synthetic_esco/train.jsonl",
+      "unique_text_pairs": 1
+    },
+    {
+      "kind": "exact",
+      "left": "skillspan/train.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 159
+    },
+    {
+      "kind": "exact",
+      "left": "skillspan/train.jsonl",
+      "right": "tech/validation.jsonl",
+      "unique_text_pairs": 12
+    },
+    {
+      "kind": "exact",
+      "left": "skillspan/validation.jsonl",
+      "right": "tech/validation.jsonl",
+      "unique_text_pairs": 7
+    },
+    {
+      "kind": "exact",
+      "left": "skillspan/validation.jsonl",
+      "right": "techwolf/test.jsonl",
+      "unique_text_pairs": 1
+    },
+    {
+      "kind": "near",
+      "left": "green/test.jsonl",
+      "right": "green/train.jsonl",
+      "unique_text_pairs": 2
+    },
+    {
+      "kind": "near",
+      "left": "green/train.jsonl",
+      "right": "green/train.jsonl",
+      "unique_text_pairs": 30
+    },
+    {
+      "kind": "near",
+      "left": "ru_titles/unsplit.jsonl",
+      "right": "ru_titles/unsplit.jsonl",
+      "unique_text_pairs": 466
+    },
+    {
+      "kind": "near",
+      "left": "skill_xl/test.jsonl",
+      "right": "skill_xl/test.jsonl",
+      "unique_text_pairs": 4
+    },
+    {
+      "kind": "near",
+      "left": "skill_xl/test.jsonl",
+      "right": "skill_xl/validation.jsonl",
+      "unique_text_pairs": 6
+    },
+    {
+      "kind": "near",
+      "left": "skill_xl/test.jsonl",
+      "right": "skillspan/train.jsonl",
+      "unique_text_pairs": 2
+    },
+    {
+      "kind": "near",
+      "left": "skill_xl/test.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 1
+    },
+    {
+      "kind": "near",
+      "left": "skill_xl/validation.jsonl",
+      "right": "skill_xl/validation.jsonl",
+      "unique_text_pairs": 2
+    },
+    {
+      "kind": "near",
+      "left": "skillspan/train.jsonl",
+      "right": "skillspan/train.jsonl",
+      "unique_text_pairs": 54
+    },
+    {
+      "kind": "near",
+      "left": "skillspan/train.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 68
+    },
+    {
+      "kind": "near",
+      "left": "skillspan/train.jsonl",
+      "right": "tech/validation.jsonl",
+      "unique_text_pairs": 4
+    },
+    {
+      "kind": "near",
+      "left": "skillspan/validation.jsonl",
+      "right": "skillspan/validation.jsonl",
+      "unique_text_pairs": 26
+    },
+    {
+      "kind": "near",
+      "left": "skillspan/validation.jsonl",
+      "right": "tech/validation.jsonl",
+      "unique_text_pairs": 1
+    },
+    {
+      "kind": "near",
+      "left": "synthetic_esco/train.jsonl",
+      "right": "synthetic_esco/train.jsonl",
+      "unique_text_pairs": 8
+    },
+    {
+      "kind": "near",
+      "left": "tech/validation.jsonl",
+      "right": "tech/validation.jsonl",
+      "unique_text_pairs": 3
+    }
+  ],
+  "near_duplicates": {
+    "corpus_unique_text_pairs": 602,
+    "heldout_guard_pairs": 81,
+    "threshold": 0.85,
+    "metric": "3-token shingle Jaccard",
+    "candidate_search": "32 XOR min-hashes; 8 bands of 4; deterministic approximate retrieval",
+    "complete_pairwise_search": false,
+    "truncated": false,
+    "limitations": "Candidate retrieval can miss near-duplicates; semantic paraphrases are not detected. Same-role near duplicates are flagged, not removed. Document identity unavailable except Skill-XL UUIDs."
+  },
+  "heldout_policy": "SkillSpan test labels never ingested; only pinned text fingerprints quarantine overlaps. TECH/HOUSE test annotations remain sealed. External gold is inventoried, never used for fitting or model selection.",
+  "partitions": [
+    {
+      "path": "partitions/skillspan/train.jsonl",
+      "sha256": "68ea719ae162c9243f7b96c06ad7266ac85e9d0b774560984b7cd45b58317261",
+      "dataset": "skillspan",
+      "split": "train",
+      "role": "train",
+      "samples": 3665
+    },
+    {
+      "path": "partitions/skillspan/validation.jsonl",
+      "sha256": "b394d5bee927303417094caa629266432bcabe0d67c0fa642f58bd22d5b24c6f",
+      "dataset": "skillspan",
+      "split": "validation",
+      "role": "validation",
+      "samples": 2402
+    },
+    {
+      "path": "partitions/tech/validation.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dataset": "tech",
+      "split": "validation",
+      "role": "validation",
+      "samples": 0
+    },
+    {
+      "path": "partitions/house/validation.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dataset": "house",
+      "split": "validation",
+      "role": "validation",
+      "samples": 0
+    },
+    {
+      "path": "partitions/techwolf/test.jsonl",
+      "sha256": "a360fb22fac87f71ef1cc1398b5c075cf6d68b9cb46332c083af0ca691c5dfdb",
+      "dataset": "techwolf",
+      "split": "test",
+      "role": "external_evaluation",
+      "samples": 326
+    },
+    {
+      "path": "partitions/synthetic_esco/train.jsonl",
+      "sha256": "fd7a825263671698d19bc71a24817387faa6e1fea7c06736fc45cfb14f51a77a",
+      "dataset": "synthetic_esco",
+      "split": "train",
+      "role": "auxiliary",
+      "samples": 138248
+    },
+    {
+      "path": "partitions/skill_xl/validation.jsonl",
+      "sha256": "aa21b55cf0a32fd21fe25dcc56dbc4ed5a4b3dfa594e238830df4485fb5374ad",
+      "dataset": "skill_xl",
+      "split": "validation",
+      "role": "validation",
+      "samples": 1969
+    },
+    {
+      "path": "partitions/skill_xl/test.jsonl",
+      "sha256": "34e62c6e285c38781f3b53e22d700ce0365ad423d5d44b3991cb1d03fff98d3f",
+      "dataset": "skill_xl",
+      "split": "test",
+      "role": "external_evaluation",
+      "samples": 2493
+    },
+    {
+      "path": "partitions/green/train.jsonl",
+      "sha256": "2d2aa90fba02b1db9b9f350e2136e99a6c329a96a05f18c86376fcef37708bb7",
+      "dataset": "green",
+      "split": "train",
+      "role": "train",
+      "samples": 9608
+    },
+    {
+      "path": "partitions/green/test.jsonl",
+      "sha256": "7c26b560449be52a3af4f201bbba87e872ea7caf652484ec885e0f6dd5ba9521",
+      "dataset": "green",
+      "split": "test",
+      "role": "external_evaluation",
+      "samples": 336
+    },
+    {
+      "path": "partitions/ru_titles/unsplit.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dataset": "ru_titles",
+      "split": "unsplit",
+      "role": "research_only",
+      "samples": 0
+    }
+  ],
+  "outcomes_sha256": "07a5971575c19af52c391e0f0dc40f2af6b229f61399d328aca59d1e7eebb6cf",
+  "near_overlaps_sha256": "fd0c4693887166ef42d3012aae0b547e01491b2b6bb5ec8ae66ae1e9bb1f899c",
+  "quarantine_by_partition": {
+    "green/test.jsonl": {},
+    "green/train.jsonl": {
+      "duplicate_text_conflicting_annotations": 6,
+      "exact_cross_role_overlap": 17,
+      "near_cross_role_overlap": 2,
+      "within_partition_exact_duplicate": 1
+    },
+    "house/validation.jsonl": {
+      "exact_skillspan_test_text": 77
+    },
+    "ru_titles/unsplit.jsonl": {
+      "duplicate_text_conflicting_annotations": 25516,
+      "exact_skillspan_test_text": 164,
+      "research_only_license_or_task_review": 51029,
+      "within_partition_exact_duplicate": 50
+    },
+    "skill_xl/test.jsonl": {
+      "duplicate_text_conflicting_annotations": 50,
+      "exact_skillspan_test_text": 62,
+      "near_skillspan_test_text": 1,
+      "within_partition_exact_duplicate": 75
+    },
+    "skill_xl/validation.jsonl": {
+      "duplicate_text_conflicting_annotations": 31,
+      "exact_cross_role_overlap": 277,
+      "exact_skillspan_test_text": 77,
+      "near_cross_role_overlap": 12,
+      "within_partition_exact_duplicate": 101
+    },
+    "skillspan/train.jsonl": {
+      "duplicate_text_conflicting_annotations": 10,
+      "exact_cross_role_overlap": 885,
+      "exact_skillspan_test_text": 942,
+      "near_cross_role_overlap": 96,
+      "near_skillspan_test_text": 93,
+      "within_partition_exact_duplicate": 850
+    },
+    "skillspan/validation.jsonl": {
+      "duplicate_text_conflicting_annotations": 9,
+      "exact_cross_role_overlap": 117,
+      "exact_skillspan_test_text": 688,
+      "near_cross_role_overlap": 1,
+      "near_skillspan_test_text": 40,
+      "within_partition_exact_duplicate": 569
+    },
+    "synthetic_esco/train.jsonl": {
+      "duplicate_text_conflicting_annotations": 6,
+      "exact_cross_role_overlap": 1,
+      "within_partition_exact_duplicate": 2
+    },
+    "tech/validation.jsonl": {
+      "exact_cross_role_overlap": 1,
+      "exact_skillspan_test_text": 101,
+      "near_skillspan_test_text": 8
+    },
+    "techwolf/test.jsonl": {}
+  },
+  "preprocessing": [
+    {
+      "dataset": "skillspan",
+      "converted": 4800,
+      "rejected": [],
+      "source_units": 4800,
+      "input_rows": 4800,
+      "normalized_sha256": "58f2eff84146fda05d95f8cd5c957ddd640132a2cabb1f0f7e5281e0fcb501cc",
+      "status": "passed",
+      "source_file": "data/json/train.json"
+    },
+    {
+      "dataset": "skillspan",
+      "converted": 3174,
+      "rejected": [],
+      "source_units": 3174,
+      "input_rows": 3174,
+      "normalized_sha256": "68c6fd03fd7b1e7f5167d6d4ccb194c5b7936d0567653174a5280aa4716f9068",
+      "status": "passed",
+      "source_file": "data/json/dev.json"
+    },
+    {
+      "dataset": "skillspan",
+      "converted": 0,
+      "rejected": [],
+      "status": "sealed: bytes verified; annotations not decoded",
+      "source_file": "data/json/test.json"
+    },
+    {
+      "dataset": "tech",
+      "converted": 101,
+      "rejected": [],
+      "source_units": 101,
+      "input_rows": 293,
+      "normalized_sha256": "b5d5a59dc2841409f0a8e221909e48dbdd4216c3e08873a0111dfdefa8aaec66",
+      "status": "passed",
+      "source_file": "validation.csv"
+    },
+    {
+      "dataset": "tech",
+      "converted": 0,
+      "rejected": [],
+      "status": "sealed: bytes verified; annotations not decoded",
+      "source_file": "test.csv"
+    },
+    {
+      "dataset": "house",
+      "converted": 77,
+      "rejected": [],
+      "source_units": 77,
+      "input_rows": 231,
+      "normalized_sha256": "bb724c6b87eab6040c6c0a154383b4a56e6d3924d399c6a9b080ee42f46353b3",
+      "status": "passed",
+      "source_file": "validation.csv"
+    },
+    {
+      "dataset": "house",
+      "converted": 0,
+      "rejected": [],
+      "status": "sealed: bytes verified; annotations not decoded",
+      "source_file": "test.csv"
+    },
+    {
+      "dataset": "techwolf",
+      "converted": 326,
+      "rejected": [],
+      "source_units": 326,
+      "input_rows": 588,
+      "normalized_sha256": "a360fb22fac87f71ef1cc1398b5c075cf6d68b9cb46332c083af0ca691c5dfdb",
+      "status": "passed",
+      "source_file": "test.csv"
+    },
+    {
+      "dataset": "synthetic_esco",
+      "converted": 138257,
+      "rejected": [],
+      "source_units": 138257,
+      "input_rows": 138260,
+      "normalized_sha256": "e3a250bd6fa19b5a12f900fc26e7445d5b24fb032745fcd22b3f8aaaf74a151d",
+      "status": "passed",
+      "source_file": "dataset.csv"
+    },
+    {
+      "dataset": "skill_xl",
+      "converted": 2281,
+      "rejected": [],
+      "source_units": 2281,
+      "input_rows": 5847,
+      "normalized_sha256": "73bad2feca6fd935c4650440c9a258467e3cb66e60cd6bb1f97a77a6fc01c764",
+      "status": "passed",
+      "source_file": "development.csv"
+    },
+    {
+      "dataset": "skill_xl",
+      "converted": 2643,
+      "rejected": [],
+      "source_units": 2643,
+      "input_rows": 6295,
+      "normalized_sha256": "00d823572e38548492e447959117b1aee0b0054cc302c9dda84b1868116d6e07",
+      "status": "passed",
+      "source_file": "test.csv"
+    },
+    {
+      "dataset": "green",
+      "converted": 9634,
+      "rejected": [],
+      "source_units": 9634,
+      "input_rows": 233628,
+      "normalized_sha256": "1306fe9b7d7ba0f61dad29934e8c471cc150838184da1f07306d1ecf299bb138",
+      "status": "passed",
+      "source_file": "preprocessed_data/df_answers.csv"
+    },
+    {
+      "dataset": "green",
+      "converted": 336,
+      "rejected": [],
+      "source_units": 336,
+      "input_rows": 8050,
+      "normalized_sha256": "7c26b560449be52a3af4f201bbba87e872ea7caf652484ec885e0f6dd5ba9521",
+      "status": "passed",
+      "source_file": "preprocessed_data/df_testset.csv"
+    },
+    {
+      "dataset": "ru_titles",
+      "converted": 51029,
+      "rejected": [],
+      "source_units": 51029,
+      "input_rows": 51029,
+      "normalized_sha256": "1d2740444c78eb3811c7b9f3ff82a2cc189cff8e615fd12129ade0591f0fd3dc",
+      "status": "passed",
+      "source_file": "it_title_skills.jsonl"
+    }
+  ],
+  "source_code_sha256": {
+    "__init__.py": "59d82f8773bc56d0146d5962345d891b862a9095cf9e9794d043aa979deff7e3",
+    "__main__.py": "8a24ff4b99791027a6e1a297ad311bc15698524fdc1d737c721a418f047becd3",
+    "audit.py": "63b8dc25fddbbe8f5db2403a091934e3eb9d1e94e1154b97d0476fc3eeea459a",
+    "coverage.py": "0ca9fe588ec4825198295ee738b307558b0cfc7b98e6a5b95f722c27e0df696c",
+    "guard.py": "a99a9e3fea7caa914e25798319dc5f4fe23a00fecc0cd1ac3d44899df79bd875",
+    "preprocess.py": "78a2f05a295f9ff8d8161da9cdd06f317a357eb2c1de9fb44a2a9ba9bd8b7e0b",
+    "reports.py": "31fd4d56bc5a4526a8dbc26aa03f62037c7d5a89c0a599e375791031ff48c8de",
+    "schema.py": "3be43fa449775ddcfda301d567de33dfdb997cce63617449f43326ae2845e6dc",
+    "sources.py": "9ae870d66cc61b2cb875dcd76933e459f073780cc40e53a85429d3337cea8d03"
+  }
+}

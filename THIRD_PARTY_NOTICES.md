@@ -412,3 +412,59 @@ Read [the research matrix](docs/skill_extractor_research.md) and
 excluded candidates. No new software dependencies or third-party source licenses
 were introduced by this extraction update; existing model/data/taxonomy/native
 runtime review items remain in force.
+## Skill dataset research and preprocessing additions — 2026-10-23
+
+The original MIT project license does not relicense external datasets. This
+addition includes independently authored download/preprocessing code and a retained
+license text; dataset payloads and derived phrase artifacts remain outside Git.
+Original upstream README/license files are preserved unchanged in local downloads.
+
+- **Green, Maynard and Lin job-description entity corpus**:
+  https://github.com/acp19tag/skill-extraction-dataset/tree/ca1eadd2885a277853b01f0ec96fc89094adf71e.
+  Thomas AF Green, Diana Maynard and Chenghua Lin, *Development of a Benchmark
+  Corpus to Support Entity Recognition in Job Descriptions*, LREC 2022,
+  https://aclanthology.org/2022.lrec-1.128/. The upstream README credits original
+  job descriptions to Kaggle user `airiddha`, `trainrev1`. Released under
+  **Creative Commons Attribution 4.0 International**. The original full license
+  is retained at [LICENSES/datasets/green-LICENSE.txt](LICENSES/datasets/green-LICENSE.txt),
+  unchanged (SHA-256 `7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661`).
+  Conversions reconstruct tokenized text, retain original labels/POS and provenance,
+  and report duplicate/leakage exclusions; original downloaded files are not edited.
+- **TechWolf TECH, HOUSE, TECHWOLF and Synthetic ESCO Skill Sentences**:
+  publisher dataset cards declare **CC BY 4.0**,
+  https://creativecommons.org/licenses/by/4.0/. Attribution: TechWolf and
+  Jens-Joris Decorte and coauthors, *Design of negative sampling strategies for
+  distantly supervised skill extraction* (2022), https://arxiv.org/abs/2209.05987,
+  and *Extreme multi-label skill extraction training using large language models*
+  (2023), https://arxiv.org/abs/2307.10778, as applicable to each pinned dataset.
+  These sources use **ESCO v1.1.0**, European Commission,
+  https://esco.ec.europa.eu/. The European Commission is not responsible for any
+  use of the information. TECH/HOUSE derive from SkillSpan; preserve SkillSpan's
+  original attribution and notices as well. No standalone license files were
+  listed in these dataset releases; the specific publisher declarations and
+  pinned URLs are retained in [configs/skill_datasets.json](configs/skill_datasets.json).
+  Original advertisement rights and version-specific ESCO terms remain review
+  items before redistribution. Source rows are grouped without inventing offsets;
+  derived metadata identifies these conversions and their sources.
+- **Skill-XL**, TechWolf:
+  https://huggingface.co/datasets/TechWolf/Skill-XL/tree/221cbec139621712633cbc2d27dcd2daa68e48ed.
+  Publisher card declares **CC BY 4.0**, with no separate LICENSE or annotation
+  protocol. Preserve TechWolf attribution, source/revision and the license link in
+  derived metadata. Missing source-rights/annotation information requires review
+  before any redistribution or additional training use.
+- **IT job title to key skills (hh.ru, 2023)**, MrAlexGov:
+  https://huggingface.co/datasets/MrAlexGov/it-job-title-skills-ru/tree/9863ee993040c43305627c72227fc50415e257ad.
+  Publisher declares **CC BY 4.0** and credits Kaggle releases by
+  `etietopabraham` (`jobs-raw-data`) and `ilyazawilsiv`
+  (`it-vacancies-from-headhunter-website`). The original platform is hh.ru.
+  Upstream license claims could not be independently verified; this asset is
+  restricted to local research inventory in the new tooling, without eligible
+  training/evaluation output. No payload is redistributed here.
+
+The existing SkillSpan MIT notice above remains unchanged. Its author's separate
+Hugging Face mirror declares CC BY 4.0; this discrepancy is recorded for manual
+review rather than silently relicensing the pinned GitHub snapshot. New
+train-derived experimental phrase artifacts carry applicable full notices,
+attributions, source hashes and a description of modifications. JobBot,
+unknown-license Sayfullina annotations, unresolved SkillSkape mirror data and new
+model weights were not imported. Model-card research is not model redistribution.

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "design_only_except_measured_rule_and_vocabulary_baselines",
+  "selection_partition": "audited SkillSpan validation",
+  "selection_metric": "micro exact token-span F1, SKILL/KNOWLEDGE union",
+  "forbidden_selection_sources": ["SkillSpan test", "TECH/HOUSE test", "external evaluation gold", "Russian title tags"],
+  "baseline_min_phrase_frequency": 2,
+  "baseline_max_phrase_tokens": 12,
+  "base_model": {
+    "id": "distilbert/distilbert-base-uncased",
+    "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "license": "Apache-2.0",
+    "license_file_sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+  },
+  "ner_grid": {
+    "learning_rate": [0.00003, 0.00005],
+    "epochs": 3,
+    "seeds": [42, 43, 44],
+    "max_tokens": 256,
+    "overflow_stride": 64,
+    "weight_decay": 0.01,
+    "head": "independent BIO SKILL and BIO KNOWLEDGE token classifiers",
+    "subword_policy": "loss on first subtoken only; ignore padding and special tokens",
+    "green_auxiliary": "Skill head only; mask Knowledge head and non-Skill entity targets; do not infer KNOWLEDGE negatives"
+  },
+  "external_evaluation": {
+    "green": "Skill-only span metric after annotation-policy review; evaluation partition never used for selection",
+    "techwolf": "sentence multi-label/ESCO normalization only after explicit taxonomy mapping",
+    "skill_xl": "sentence multi-label/relevance only after annotation completeness and cluster semantics review",
+    "skillspan_test": "frozen; historically exposed; no automatic evaluation in this workflow"
+  },
+  "production_policy": {
+    "default_extractor": "legacy",
+    "downstream_matching_retraining": false,
+    "overwrite_existing_checkpoints": false,
+    "merge_main": false,
+    "pretrained_weight_download_during_data_audit": false
+  }
+}

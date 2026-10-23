@@ -1,0 +1,396 @@
+{
+  "review_date": "2026-10-23",
+  "scope": "Public metadata, cards, licenses, read-only source paper attempts; no unlicensed annotation payloads or model weights downloaded by this review; no SkillSpan test labels accessed. Skill-XL existing local CSVs inspected for counts and annotation structure only.",
+  "datasets": [
+    {
+      "id": "jjzha/skillskape",
+      "source_url": "https://huggingface.co/datasets/jjzha/skillskape",
+      "revision": "d3a3c6e49a08157068b6b258acf4659269ab76cd",
+      "card_sha256": "8e57138d70e059b03b7feb83d8359fb25b456c1fea41bcbf29150d6f6b12b5cb",
+      "license_files": [],
+      "language": "en",
+      "tasks": [
+        "sentence_multilabel",
+        "normalization",
+        "matching"
+      ],
+      "counts": {
+        "reported_viewer_rows": 22340,
+        "reported_viewer_splits": {
+          "train": 16345,
+          "validation": 2751,
+          "test": 3244
+        },
+        "viewer_source_revision": "aa53ffbe45d0a8d4647e416111f633fe7d47dc41",
+        "current_revision_counts_verified": false,
+        "unique_skills": null
+      },
+      "decision": "deferred: no model-card license or standalone license; data-specific provenance unresolved",
+      "limitations": "Synthetic; no spans; current mirror differs from viewer source revision."
+    },
+    {
+      "id": "jjzha/sayfullina",
+      "source_url": "https://huggingface.co/datasets/jjzha/sayfullina",
+      "revision": "624b4f8ff58be7de4c5df1565b998cd8c8fd92f7",
+      "card_sha256": "bc28b8d1be2959bddc59a4924f79734a9862b55f2988dc99083c959b96a033b7",
+      "license_files": [],
+      "language": "en",
+      "tasks": [
+        "soft_skill_span_extraction"
+      ],
+      "counts": {
+        "reported_card_and_viewer_rows": 7411,
+        "reported_splits": {
+          "train": 3705,
+          "validation": 1855,
+          "test": 1851
+        },
+        "skill_mentions": null,
+        "unique_skills": null
+      },
+      "decision": "excluded: card explicitly declares unknown license",
+      "limitations": "User-created splits, no document delimiters; soft-skill-only annotation."
+    },
+    {
+      "id": "sunk999/ner_job_skill",
+      "source_url": "https://huggingface.co/datasets/sunk999/ner_job_skill",
+      "revision": "afdfcdf0fe5d832e64108eef92f348802c59acc2",
+      "card_sha256": "bda9e1bad5e12a6e408eae3850df2f6b731e00edb85ad3c60d64ad9bb189136e",
+      "license_files": [],
+      "language": null,
+      "tasks": [
+        "possible_token_classification"
+      ],
+      "counts": {
+        "reported_card_and_viewer_rows": 843,
+        "reported_splits": {
+          "train": 674,
+          "test": 169
+        },
+        "skill_mentions": null,
+        "unique_skills": null
+      },
+      "decision": "deferred: MIT card only; missing label-id mapping and source provenance",
+      "limitations": "Language undeclared; integer label vectors cannot be safely interpreted as BIO."
+    },
+    {
+      "id": "AlekseyScorpi/vacancies_prompts",
+      "source_url": "https://huggingface.co/datasets/AlekseyScorpi/vacancies_prompts",
+      "revision": "13669ea61b357bd855834f07d80f4b95229dc309",
+      "card_sha256": "7d4d7317c530fd91be174297fd485c0c101cd16fa8c4945ff044ca37d4c686da",
+      "license_files": [],
+      "language": "ru",
+      "tasks": [
+        "text_generation",
+        "possible_weak_supervision"
+      ],
+      "counts": {
+        "reported_card_and_viewer_rows": 48564,
+        "skill_mentions": null,
+        "unique_skills": null
+      },
+      "decision": "deferred: MIT card only; original hh.ru/Kaggle rights unverified",
+      "limitations": "Prompt/description strings are not human span gold."
+    },
+    {
+      "id": "trewwxsav/IT_vacancies_from_hh.ru",
+      "source_url": "https://huggingface.co/datasets/trewwxsav/IT_vacancies_from_hh.ru",
+      "revision": "268402c604e97c9bcc68ce518b4bd12f3f930f22",
+      "card_sha256": "4bcf87ecfbbb8e07a01b21415a970c8b53a5283bf6872b657040d3f45c9241f7",
+      "license_files": [],
+      "language": null,
+      "tasks": [
+        "unverified"
+      ],
+      "counts": {
+        "rows": null,
+        "skill_mentions": null,
+        "unique_skills": null,
+        "viewer_status": "failed to build; displayed 0 is not verified empty dataset"
+      },
+      "decision": "deferred: Apache-2.0 card only; schema, language, annotations and platform rights unresolved",
+      "limitations": "README contains only license YAML; no annotation schema."
+    },
+    {
+      "id": "Dashkins/russian-job-retrieval-dataset",
+      "source_url": "https://huggingface.co/datasets/Dashkins/russian-job-retrieval-dataset",
+      "revision": "de61951ca8fe5f56c6ca9f8c65f91a73349ee0ac",
+      "card_sha256": "a2ca34b588ba54268338412a5bf429dc5196ccd05c37995555a2914db673d9de",
+      "license_files": [],
+      "language": "ru",
+      "tasks": [
+        "matching",
+        "retrieval"
+      ],
+      "counts": {
+        "card_generator_parameters": {
+          "resumes": 250000,
+          "vacancies": 15000,
+          "relevance_pairs": 2500000,
+          "it_directions": 12
+        },
+        "actual_artifact_counts_verified": false,
+        "skill_mentions": null
+      },
+      "decision": "deferred: MIT card only; matching labels not extraction labels",
+      "limitations": "Synthetic relevance; viewer size/info returned HTTP 500."
+    },
+    {
+      "id": "alekseevpavel04/ru-it-vacancies",
+      "source_url": "https://huggingface.co/datasets/alekseevpavel04/ru-it-vacancies",
+      "revision": "c522c3654cdf9dbef49b8095bc5344447dc3234f",
+      "card_sha256": "81467d4f13940b392d3b3bb66825e147a46e54fa32d9f72c0c4003d1d7855970",
+      "license_files": [
+        "LICENSE.md"
+      ],
+      "language": "ru",
+      "tasks": [
+        "weak_multilabel",
+        "aggregate_analysis"
+      ],
+      "counts": {
+        "reported_card_and_viewer_rows": {
+          "trudvsem": 25818,
+          "superjob": 764,
+          "telegram_aggregates": 51170,
+          "habr_aggregates": 426
+        },
+        "card_reported_trudvsem_rows_with_text": 18864,
+        "skill_mentions": null,
+        "unique_skills": null
+      },
+      "decision": "candidate for weak-supervision research after source-text terms review; not human evaluation gold",
+      "limitations": "Model-produced fields; no offsets; three source configurations omit original texts.",
+      "actual_license_sha256": "2a65c9a57b6bd071591779525504fe630c441ef82d65a9c80499eb79997e4dd4",
+      "actual_license_summary": "CC-BY-4.0 for derived fields and aggregates; separate Rostrud portal attribution conditions for source text/fields; no SuperJob, Habr or Telegram source text included."
+    },
+    {
+      "id": "TechWolf/Skill-extraction-SkillSkape-graded",
+      "source_url": "https://huggingface.co/datasets/TechWolf/Skill-extraction-SkillSkape-graded",
+      "revision": "af3632993ede994bb36166f84c914e388fd1a579",
+      "card_sha256": "0586915a57f29d36bc55d8cb23999c98dd0d02700490c4f77284389c06943c15",
+      "license_files": [],
+      "language": "en",
+      "tasks": [
+        "graded_retrieval"
+      ],
+      "counts": {
+        "card_queries": {
+          "validation": 100,
+          "test": 500
+        },
+        "card_taxonomy_skills": 13891,
+        "card_qrels": {
+          "validation": 1389100,
+          "test": 6945500
+        }
+      },
+      "decision": "deferred: CC-BY-4.0 card plus attribution, source mirror grant needs clarification",
+      "limitations": "No spans; low positive scores explicitly permit skills not mentioned; judge provenance not verified as human."
+    },
+    {
+      "id": "TechWolf/Skill-normalisation-ESCO-graded",
+      "source_url": "https://huggingface.co/datasets/TechWolf/Skill-normalisation-ESCO-graded",
+      "revision": "d1de594eb6b6259651b83b5f927b35383018ac12",
+      "card_sha256": "815b1e66bf72effff5729c5dd812b90d55f6f48af0ad374ec30d980ba22ffd3f",
+      "license_files": [],
+      "language": "en",
+      "tasks": [
+        "graded_normalization_retrieval"
+      ],
+      "counts": {
+        "card_queries": {
+          "validation": 50,
+          "test": 450
+        },
+        "card_taxonomy_skills": 13891,
+        "card_qrels": {
+          "validation": 694550,
+          "test": 6250950
+        }
+      },
+      "decision": "deferred: CC-BY-4.0 card, version-specific ESCO source terms still need review",
+      "limitations": "Surface queries with graded qrels, not job-text BIO."
+    },
+    {
+      "id": "SwathyAnand100/JobBot",
+      "source_url": "https://github.com/SwathyAnand100/JobBot",
+      "revision": "e2f38a1a8cf0714e973bf9d4b713cacb5a4cafc1",
+      "readme_sha256": "e4238325a5ee6c1173f8d390c4b210a4bea388d71526009b86612ea20cf889d9",
+      "source_review_evidence": "docs/skill_extractor_evidence.json and prior research snapshot /tmp/skill-v2-research-span-jobbot.json; README independently refreshed",
+      "declared_license": null,
+      "actual_license_files": [],
+      "reported_sentences": 700,
+      "reported_splits": {
+        "train": 490,
+        "validation": 105,
+        "test": 105
+      },
+      "skill_mentions": null,
+      "unique_skills": null,
+      "language": "en",
+      "annotation": "README describes spans and BIO; annotation payload absent from inspected tree",
+      "decision": "excluded: academic-purpose statement is not open-source license; no supplied annotation payload"
+    },
+    {
+      "id": "magantoine/JobSkape",
+      "source_url": "https://github.com/magantoine/JobSkape",
+      "revision": "2dec11084441240edbb69611ee848d3c54aeb02e",
+      "root_license": "MIT",
+      "actual_license_sha256": "25b40790e558de51991f20316826404dd7f3a0b21b82ea71b38e98486e5a6473",
+      "readme_sha256": "a66e0706f71116c955c61a327fe1907932febae95f8489039a54b25fd5c49409",
+      "dataset_specific_grant_separately_verified": false,
+      "decision": "research reference; do not substitute code-repository MIT for an unverified mirror dataset license"
+    }
+  ],
+  "models": [
+    {
+      "id": "distilbert/distilbert-base-uncased",
+      "source_url": "https://huggingface.co/distilbert/distilbert-base-uncased",
+      "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+      "declared_license": "apache-2.0",
+      "actual_license_files": [
+        "LICENSE"
+      ],
+      "inspected_text_sha256": {
+        "README.md": "b925a22d8efd7a29608a0e10d3f2fb33d5d80df7de4ac6e34093853cd8e0274e",
+        "LICENSE": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+      },
+      "safetensors_parameter_metadata": {
+        "parameters": {
+          "F32": 66985530
+        },
+        "total": 66985530
+      },
+      "weights_downloaded": false,
+      "skill_task_performance_measured": false
+    },
+    {
+      "id": "distilbert/distilbert-base-cased",
+      "source_url": "https://huggingface.co/distilbert/distilbert-base-cased",
+      "revision": "6ea81172465e8b0ad3fddeed32b986cdcdcffcf0",
+      "declared_license": "apache-2.0",
+      "actual_license_files": [],
+      "inspected_text_sha256": {
+        "README.md": "23259c202926ad1b506cdf9cb9c82853d9887ed1989810a5445be398d7b681ec"
+      },
+      "safetensors_parameter_metadata": {
+        "parameters": {
+          "F32": 65812036
+        },
+        "total": 65812036
+      },
+      "weights_downloaded": false,
+      "skill_task_performance_measured": false
+    },
+    {
+      "id": "cointegrated/rubert-tiny2",
+      "source_url": "https://huggingface.co/cointegrated/rubert-tiny2",
+      "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+      "declared_license": "mit",
+      "actual_license_files": [],
+      "inspected_text_sha256": {
+        "README.md": "6eec7047e9db76ee30e4c9dd542a25cf0c4f1f93a2119db56cd10f0c393fc00f"
+      },
+      "safetensors_parameter_metadata": {
+        "parameters": {
+          "I64": 2048,
+          "F32": 29376502
+        },
+        "total": 29378550
+      },
+      "weights_downloaded": false,
+      "skill_task_performance_measured": false
+    }
+  ],
+  "viewer_metadata_snapshots_sha256": {
+    "additional/sunk999_ner_job_skill-info.json": "42cc484000817fc76ab44584a078ec2a02f6a7c6e5436f7b2fb633a8f2d9c815",
+    "additional/trewwxsav_IT_vacancies_from_hh.ru-info.json": "6f4abe88428d1e3d18c8532ed25a7abb481e6b304421af4b434530aaf3ceccba",
+    "additional/jjzha_skillskape-info.json": "a03a48d5c00de26aabf7b160ec2eb767951dd25e94da266889b9ddf0f5543099",
+    "additional/alekseevpavel04_ru-it-vacancies-info.json": "b7893411cccfaf1b92f340e1099ee5680b1adb1df5c5fb429fde6db04a07f31f",
+    "additional/AlekseyScorpi_vacancies_prompts-info.json": "4878c6337d0c6fe615995a2f73253e4401466d5d6f704560ea2d1e3fcce34bac",
+    "additional/jjzha_sayfullina-info.json": "12eb25e7d0b123a1fb2b0d820a9557fc8a5d7b46134cce2b614a5b00558595f7",
+    "additional/sunk999_ner_job_skill-size.json": "9c38dd731e73df9fbd8f4f76c2b50fdf646dccd983b7ebcfcb708b22384e9acb",
+    "additional/alekseevpavel04_ru-it-vacancies-size.json": "d0884d3ed69b255b8e1d2aae357680c6d57f94a3fbdb687bd28b51b840d5705b",
+    "additional/AlekseyScorpi_vacancies_prompts-size.json": "e1b94b0bb1e9b33bbbb2473056e2d097881373a50a15ba342bfd5179330e543b",
+    "additional/jjzha_skillskape-size.json": "13bb7c1d90b38092bf85a41b73e3877f1319203561c3506c406ed353dd5132dc",
+    "additional/jjzha_sayfullina-size.json": "55c3ad3d759df4483a8706598614a3c89d1a1e9437575ef3f6804386ea949cd9",
+    "additional/trewwxsav_IT_vacancies_from_hh.ru-size.json": "1085dea283727fd07588de1bf2a1d1f8166e39ae122396948aa6c38cc15e28ab",
+    "additional/TechWolf_skill-extraction-tech-info.json": "4cf13cf0858418d0f716037ec19d8f67403d3f4fcf9d6ee6da3faee3acaf5215",
+    "additional/TechWolf_skill-extraction-tech-size.json": "8139bd2dfab3eaa21948177886f3f731d95b6109b1e09122ace62c5db682e8a3",
+    "additional/TechWolf_skill-extraction-tech-splits.json": "1480a17ab44d3d6d78b2d2709d84e61796a1dd25b8e1336a5ddb0f50f822cf6a",
+    "additional/TechWolf_skill-extraction-house-info.json": "d2769ab647993ce64cc6b4c522b72acf96a4eddf4e004ffe6c459f282bdec09f",
+    "additional/TechWolf_skill-extraction-house-size.json": "dbbaca0488a35dc0e878e3635263fdd8ba37f8dfcb6afe0fb5eff211596a4a11",
+    "additional/TechWolf_skill-extraction-house-splits.json": "bd912099e75ea66a2e9f88ee39bd3da8cdee3c54ef4063a1bd5320c979b76310"
+  },
+  "limits": [
+    {
+      "url": "https://aclanthology.org/2024.nlp4hr-1.4.pdf",
+      "result": "proxy HTTP 403"
+    },
+    {
+      "url": "https://arxiv.org/abs/1807.07731",
+      "result": "proxy HTTP 403; not relied on for original-paper provenance"
+    },
+    {
+      "url": "https://www.kaggle.com/api/v1/datasets/view/etietopabraham/jobs-raw-data",
+      "result": "parent review proxy HTTP 403"
+    },
+    {
+      "url": "https://www.kaggle.com/api/v1/datasets/view/ilyazawilsiv/it-vacancies-from-headhunter-website",
+      "result": "parent review proxy HTTP 403"
+    }
+  ],
+  "sealed_test_split_metadata": [
+    {
+      "id": "TechWolf/skill-extraction-tech",
+      "revision": "5f0cb05df03cd1cd5048ff1d64639bf9bd4cb36f",
+      "info_url": "https://datasets-server.huggingface.co/info?dataset=TechWolf%2Fskill-extraction-tech",
+      "size_url": "https://datasets-server.huggingface.co/size?dataset=TechWolf%2Fskill-extraction-tech",
+      "reported_split_annotation_rows": {
+        "validation": 293,
+        "test": 1164
+      },
+      "download_metadata": {
+        "hf://datasets/TechWolf/skill-extraction-tech@5f0cb05df03cd1cd5048ff1d64639bf9bd4cb36f/validation.csv": {
+          "num_bytes": 44853,
+          "checksum": null
+        },
+        "hf://datasets/TechWolf/skill-extraction-tech@5f0cb05df03cd1cd5048ff1d64639bf9bd4cb36f/test.csv": {
+          "num_bytes": 170210,
+          "checksum": null
+        }
+      },
+      "current_revision_verified_by_source_references": true,
+      "test_annotation_payload_accessed": false,
+      "test_sentence_groups_verified": false,
+      "test_skill_mentions_verified": false,
+      "test_unique_skill_labels_verified": false
+    },
+    {
+      "id": "TechWolf/skill-extraction-house",
+      "revision": "dcb313cad615a8f5148ef5addc01ef090fc9f295",
+      "info_url": "https://datasets-server.huggingface.co/info?dataset=TechWolf%2Fskill-extraction-house",
+      "size_url": "https://datasets-server.huggingface.co/size?dataset=TechWolf%2Fskill-extraction-house",
+      "reported_split_annotation_rows": {
+        "validation": 231,
+        "test": 891
+      },
+      "download_metadata": {
+        "hf://datasets/TechWolf/skill-extraction-house@dcb313cad615a8f5148ef5addc01ef090fc9f295/validation.csv": {
+          "num_bytes": 78684,
+          "checksum": null
+        },
+        "hf://datasets/TechWolf/skill-extraction-house@dcb313cad615a8f5148ef5addc01ef090fc9f295/test.csv": {
+          "num_bytes": 223202,
+          "checksum": null
+        }
+      },
+      "current_revision_verified_by_source_references": true,
+      "test_annotation_payload_accessed": false,
+      "test_sentence_groups_verified": false,
+      "test_skill_mentions_verified": false,
+      "test_unique_skill_labels_verified": false
+    }
+  ]
+}

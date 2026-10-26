@@ -1,0 +1,1328 @@
+{
+  "format_version": 1,
+  "source_hashes": {
+    "train": "36fede4f3bd7f9566b0f712e5613ee8e1500eb4808bd8a20ee4e943fa57f7eab",
+    "validation": "ee2ab2b28171cb4e6c690b79c39d584337664c4f2e75fee2977a9eb325d5aaf7",
+    "test": "0031a76f4a10ea3a15b04fd635a631f807207193a2274f3a01e60762c1748cb2"
+  },
+  "record_counts": {
+    "train": 696,
+    "validation": 150,
+    "test": 148
+  },
+  "label_warning": "Current repository pairs are synthetic resumes/vacancies with heuristic/source labels; metrics do not establish actual hiring relevance.",
+  "methods": {
+    "mlp": {
+      "identity": "mlp:ff7c9269ee733f472a90942be8a2819f962c426bf067de48915ad2c036525098:e5:614241f622f53c4eeff9890bdc4f31cfecc418b3:mean-v1:512:32",
+      "threshold": {
+        "format_version": 1,
+        "method": "mlp",
+        "threshold": 0.575,
+        "source_split": "validation",
+        "source_sha256": "ee2ab2b28171cb4e6c690b79c39d584337664c4f2e75fee2977a9eb325d5aaf7",
+        "validation_scores_sha256": "eb6feb6f34129f704138215f234f98c5e4a6a8b4524eb3b0fabd29ae31ac03b1",
+        "runtime_identity": "mlp:ff7c9269ee733f472a90942be8a2819f962c426bf067de48915ad2c036525098:e5:614241f622f53c4eeff9890bdc4f31cfecc418b3:mean-v1:512:32",
+        "selection": "Existing checkpoint validation-selected threshold retained unchanged",
+        "test_labels_used": false
+      },
+      "initialization_seconds": 3.0222100790124387,
+      "validation_pair_metrics": {
+        "count": 150,
+        "positive_count": 75,
+        "threshold": 0.575,
+        "precision": 1.0,
+        "recall": 0.9866666666666667,
+        "macro_f1": 0.9933330370238678,
+        "roc_auc": 0.9998222222222223,
+        "confusion_matrix": [
+          [
+            75,
+            0
+          ],
+          [
+            1,
+            74
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_pair_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": 0.575,
+        "precision": 0.9733333333333334,
+        "recall": 0.9864864864864865,
+        "macro_f1": 0.9797288042733872,
+        "roc_auc": 0.9996347699050402,
+        "confusion_matrix": [
+          [
+            72,
+            2
+          ],
+          [
+            1,
+            73
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_policy_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": 0.575,
+        "precision": 0.9733333333333334,
+        "recall": 0.9864864864864865,
+        "macro_f1": 0.9797288042733872,
+        "roc_auc": 0.9996347699050402,
+        "confusion_matrix": [
+          [
+            72,
+            2
+          ],
+          [
+            1,
+            73
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "policy_status_counts": null,
+      "latency": {
+        "validation": {
+          "total_seconds": 5.289328292361461,
+          "mean_seconds": 0.03526218861574307,
+          "p50_seconds": 0.032136857975274324,
+          "p95_seconds": 0.055761430197162544,
+          "measurement_batches": 150
+        },
+        "test": {
+          "total_seconds": 5.140724984870758,
+          "mean_seconds": 0.03473462827615377,
+          "p50_seconds": 0.031219484022585675,
+          "p95_seconds": 0.05226678178878501,
+          "measurement_batches": 148
+        },
+        "test_seconds_per_pair": 0.03473462827615377
+      },
+      "process_peak_rss_bytes": 780754944,
+      "runtime": {
+        "torch_threads": 2,
+        "batch_size": 8,
+        "max_length": 512,
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu"
+      },
+      "measurement_scope": "Fresh process per method; initialization excludes source loading and initial imports. One validation-only warmup. Inference latency includes feature/evidence/policy/caching work of this method; Each method starts with a fresh private E5 disk cache and private retrieval memory cache; the validation warmup primes only one validation pair. Original entity-disjoint test inputs are cold on first inference; repeated profiles within the split may reuse embeddings. Group-ranking timing runs afterward and is warm. RSS is process-lifetime high-water including Python/imports/models/source, not standalone model allocation. Cross-encoder-only scores all pairs in one batched call; rerank scores real candidate pools, mostly size one/two; latency protocols therefore differ and do not establish an architecture speedup.",
+      "limitations": "Synthetic/heuristic pair labels, not independent employer relevance. Policy metrics intentionally include conservative evidence/preference gates; raw semantic classifier metrics are separate. No downstream model retraining.",
+      "production_ranking_latency": {},
+      "details": {}
+    },
+    "rule": {
+      "identity": "legacy_rule:e5:614241f622f53c4eeff9890bdc4f31cfecc418b3:mean-v1:512:32:legacy-rules-v1:ee89e4804cc7871da02afe422b21b0a25e71a161726b948cc96bfeb08217000d",
+      "threshold": {
+        "format_version": 1,
+        "method": "rule",
+        "threshold": 0.5,
+        "source_split": "validation",
+        "source_sha256": "ee2ab2b28171cb4e6c690b79c39d584337664c4f2e75fee2977a9eb325d5aaf7",
+        "validation_scores_sha256": "e1d488fcc169cc6168bd6ee31307200823990555290c07b84112368af1b27080",
+        "runtime_identity": "legacy_rule:e5:614241f622f53c4eeff9890bdc4f31cfecc418b3:mean-v1:512:32:legacy-rules-v1:ee89e4804cc7871da02afe422b21b0a25e71a161726b948cc96bfeb08217000d",
+        "selection": "Existing rule-baseline 0.05..0.95 validation grid, same formula and tie-break",
+        "test_labels_used": false
+      },
+      "initialization_seconds": 1.0428033280186355,
+      "validation_pair_metrics": {
+        "count": 150,
+        "positive_count": 75,
+        "threshold": 0.5,
+        "precision": 0.8522727272727273,
+        "recall": 1.0,
+        "macro_f1": 0.9126774439120505,
+        "roc_auc": 0.9838222222222222,
+        "confusion_matrix": [
+          [
+            62,
+            13
+          ],
+          [
+            0,
+            75
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_pair_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": 0.5,
+        "precision": 0.9024390243902439,
+        "recall": 1.0,
+        "macro_f1": 0.9457875457875458,
+        "roc_auc": 0.9956172388604821,
+        "confusion_matrix": [
+          [
+            66,
+            8
+          ],
+          [
+            0,
+            74
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_policy_metrics": null,
+      "policy_status_counts": null,
+      "latency": {
+        "validation": {
+          "total_seconds": 7.751680834742729,
+          "mean_seconds": 0.05167787223161819,
+          "p50_seconds": 0.04994047651416622,
+          "p95_seconds": 0.09884953208093052,
+          "measurement_batches": 150
+        },
+        "test": {
+          "total_seconds": 5.380412028345745,
+          "mean_seconds": 0.03635413532666044,
+          "p50_seconds": 0.03246825298992917,
+          "p95_seconds": 0.056776518718106676,
+          "measurement_batches": 148
+        },
+        "test_seconds_per_pair": 0.03635413532666044
+      },
+      "process_peak_rss_bytes": 782843904,
+      "runtime": {
+        "torch_threads": 2,
+        "batch_size": 8,
+        "max_length": 512,
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu"
+      },
+      "measurement_scope": "Fresh process per method; initialization excludes source loading and initial imports. One validation-only warmup. Inference latency includes feature/evidence/policy/caching work of this method; Each method starts with a fresh private E5 disk cache and private retrieval memory cache; the validation warmup primes only one validation pair. Original entity-disjoint test inputs are cold on first inference; repeated profiles within the split may reuse embeddings. Group-ranking timing runs afterward and is warm. RSS is process-lifetime high-water including Python/imports/models/source, not standalone model allocation. Cross-encoder-only scores all pairs in one batched call; rerank scores real candidate pools, mostly size one/two; latency protocols therefore differ and do not establish an architecture speedup.",
+      "limitations": "Synthetic/heuristic pair labels, not independent employer relevance. Policy metrics intentionally include conservative evidence/preference gates; raw semantic classifier metrics are separate. No downstream model retraining.",
+      "production_ranking_latency": {},
+      "details": {}
+    },
+    "cosine": {
+      "identity": "exact-cosine-v1:706cc16052eb28ae747be589f2428597c0c21b6879d1e0107868b448d72a5fd3",
+      "threshold": {
+        "format_version": 1,
+        "method": "cosine",
+        "threshold": 0.8636943697929382,
+        "source_split": "validation",
+        "source_sha256": "ee2ab2b28171cb4e6c690b79c39d584337664c4f2e75fee2977a9eb325d5aaf7",
+        "validation_scores_sha256": "91958788ba20165a831cd1f10c56af297ef46a810963e3e66cee3cc30a359948",
+        "runtime_identity": "exact-cosine-v1:706cc16052eb28ae747be589f2428597c0c21b6879d1e0107868b448d72a5fd3",
+        "selection": "Observed validation cutoffs; maximize macro-F1, then precision, then cutoff",
+        "test_labels_used": false
+      },
+      "initialization_seconds": 2.574066639004741,
+      "validation_pair_metrics": {
+        "count": 150,
+        "positive_count": 75,
+        "threshold": 0.8636943697929382,
+        "precision": 0.6764705882352942,
+        "recall": 0.6133333333333333,
+        "macro_f1": 0.6592579395127165,
+        "roc_auc": 0.7002666666666667,
+        "confusion_matrix": [
+          [
+            53,
+            22
+          ],
+          [
+            29,
+            46
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_pair_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": 0.8636943697929382,
+        "precision": 0.6888888888888889,
+        "recall": 0.4189189189189189,
+        "macro_f1": 0.5994872525281298,
+        "roc_auc": 0.6568663257852447,
+        "confusion_matrix": [
+          [
+            60,
+            14
+          ],
+          [
+            43,
+            31
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_policy_metrics": null,
+      "policy_status_counts": null,
+      "latency": {
+        "validation": {
+          "total_seconds": 5.061072369979229,
+          "mean_seconds": 0.035641354718163584,
+          "p50_seconds": 0.030881087528541684,
+          "p95_seconds": 0.055741611754638126,
+          "measurement_batches": 142
+        },
+        "test": {
+          "total_seconds": 5.760654991143383,
+          "mean_seconds": 0.04174387674741582,
+          "p50_seconds": 0.03244765452109277,
+          "p95_seconds": 0.08201646305969917,
+          "measurement_batches": 138
+        },
+        "test_seconds_per_pair": 0.03892334453475259
+      },
+      "process_peak_rss_bytes": 782970880,
+      "runtime": {
+        "torch_threads": 2,
+        "batch_size": 8,
+        "max_length": 512,
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu"
+      },
+      "measurement_scope": "Fresh process per method; initialization excludes source loading and initial imports. One validation-only warmup. Inference latency includes feature/evidence/policy/caching work of this method; Each method starts with a fresh private E5 disk cache and private retrieval memory cache; the validation warmup primes only one validation pair. Original entity-disjoint test inputs are cold on first inference; repeated profiles within the split may reuse embeddings. Group-ranking timing runs afterward and is warm. RSS is process-lifetime high-water including Python/imports/models/source, not standalone model allocation. Cross-encoder-only scores all pairs in one batched call; rerank scores real candidate pools, mostly size one/two; latency protocols therefore differ and do not establish an architecture speedup.",
+      "limitations": "Synthetic/heuristic pair labels, not independent employer relevance. Policy metrics intentionally include conservative evidence/preference gates; raw semantic classifier metrics are separate. No downstream model retraining.",
+      "production_ranking_latency": {},
+      "details": {}
+    },
+    "cross_encoder": {
+      "identity": "cross-encoder-pairs:4d8887f182af87f41c38b6f3bcdf1e6e92f14cac1ed977ceb53c12c0af656f21",
+      "threshold": {
+        "format_version": 1,
+        "method": "cross_encoder",
+        "threshold": -0.7245272099971771,
+        "source_split": "validation",
+        "source_sha256": "ee2ab2b28171cb4e6c690b79c39d584337664c4f2e75fee2977a9eb325d5aaf7",
+        "validation_scores_sha256": "61f86d00cab135be67da5e83d14f6bfa841dfd587c520d03b40506fda8efa474",
+        "runtime_identity": "cross-encoder-pairs:4d8887f182af87f41c38b6f3bcdf1e6e92f14cac1ed977ceb53c12c0af656f21",
+        "selection": "Observed validation cutoffs; maximize macro-F1, then precision, then cutoff",
+        "test_labels_used": false
+      },
+      "initialization_seconds": 1.478075760009233,
+      "validation_pair_metrics": {
+        "count": 150,
+        "positive_count": 75,
+        "threshold": -0.7245272099971771,
+        "precision": 0.5543478260869565,
+        "recall": 0.68,
+        "macro_f1": 0.5610283193012471,
+        "roc_auc": 0.5790222222222222,
+        "confusion_matrix": [
+          [
+            34,
+            41
+          ],
+          [
+            24,
+            51
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_pair_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": -0.7245272099971771,
+        "precision": 0.5376344086021505,
+        "recall": 0.6756756756756757,
+        "macro_f1": 0.5397112751241703,
+        "roc_auc": 0.5719503287070854,
+        "confusion_matrix": [
+          [
+            31,
+            43
+          ],
+          [
+            24,
+            50
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_policy_metrics": null,
+      "policy_status_counts": null,
+      "latency": {
+        "validation": {
+          "total_seconds": 6.182415432005655,
+          "mean_seconds": 6.182415432005655,
+          "p50_seconds": 6.182415432005655,
+          "p95_seconds": 6.182415432005655,
+          "measurement_batches": 1
+        },
+        "test": {
+          "total_seconds": 5.399462229048368,
+          "mean_seconds": 5.399462229048368,
+          "p50_seconds": 5.399462229048368,
+          "p95_seconds": 5.399462229048368,
+          "measurement_batches": 1
+        },
+        "test_seconds_per_pair": 0.03648285289897546
+      },
+      "process_peak_rss_bytes": 880152576,
+      "runtime": {
+        "torch_threads": 2,
+        "batch_size": 8,
+        "max_length": 512,
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu"
+      },
+      "measurement_scope": "Fresh process per method; initialization excludes source loading and initial imports. One validation-only warmup. Inference latency includes feature/evidence/policy/caching work of this method; Each method starts with a fresh private E5 disk cache and private retrieval memory cache; the validation warmup primes only one validation pair. Original entity-disjoint test inputs are cold on first inference; repeated profiles within the split may reuse embeddings. Group-ranking timing runs afterward and is warm. RSS is process-lifetime high-water including Python/imports/models/source, not standalone model allocation. Cross-encoder-only scores all pairs in one batched call; rerank scores real candidate pools, mostly size one/two; latency protocols therefore differ and do not establish an architecture speedup.",
+      "limitations": "Synthetic/heuristic pair labels, not independent employer relevance. Policy metrics intentionally include conservative evidence/preference gates; raw semantic classifier metrics are separate. No downstream model retraining.",
+      "production_ranking_latency": {},
+      "details": {}
+    },
+    "retrieve_rerank": {
+      "identity": "retrieval-cross-encoder:ffe790605c1ddcb76bf52fc6c303d9e22bbf2a6a4edbba34fd49260512ff47d5",
+      "threshold": {
+        "format_version": 1,
+        "method": "retrieve_rerank",
+        "threshold": -0.7245289385318756,
+        "source_split": "validation",
+        "source_sha256": "ee2ab2b28171cb4e6c690b79c39d584337664c4f2e75fee2977a9eb325d5aaf7",
+        "validation_scores_sha256": "eab021613c193bba46842cb09ea65927e87e892dc2f053105f269f3a16a27be1",
+        "runtime_identity": "retrieval-cross-encoder:ffe790605c1ddcb76bf52fc6c303d9e22bbf2a6a4edbba34fd49260512ff47d5",
+        "selection": "Observed validation cutoffs; maximize macro-F1, then precision, then cutoff",
+        "test_labels_used": false
+      },
+      "initialization_seconds": 2.8709691409603693,
+      "validation_pair_metrics": {
+        "count": 150,
+        "positive_count": 75,
+        "threshold": -0.7245289385318756,
+        "precision": 0.5543478260869565,
+        "recall": 0.68,
+        "macro_f1": 0.5610283193012471,
+        "roc_auc": 0.5790222222222222,
+        "confusion_matrix": [
+          [
+            34,
+            41
+          ],
+          [
+            24,
+            51
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_pair_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": -0.7245289385318756,
+        "precision": 0.5376344086021505,
+        "recall": 0.6756756756756757,
+        "macro_f1": 0.5397112751241703,
+        "roc_auc": 0.5719503287070854,
+        "confusion_matrix": [
+          [
+            31,
+            43
+          ],
+          [
+            24,
+            50
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "test_policy_metrics": {
+        "count": 148,
+        "positive_count": 74,
+        "threshold": -0.7245289385318756,
+        "precision": 1.0,
+        "recall": 0.13513513513513514,
+        "macro_f1": 0.4681042228212039,
+        "roc_auc": 0.5719503287070854,
+        "confusion_matrix": [
+          [
+            74,
+            0
+          ],
+          [
+            64,
+            10
+          ]
+        ],
+        "score_semantics": "Ranking/uncalibrated relevance score, never a validated job-fit probability"
+      },
+      "policy_status_counts": {
+        "needs_review": 97,
+        "blocked": 39,
+        "eligible": 12
+      },
+      "latency": {
+        "validation": {
+          "total_seconds": 13.775933469936717,
+          "mean_seconds": 0.09183955646624478,
+          "p50_seconds": 0.08635580149712041,
+          "p95_seconds": 0.12207455388270315,
+          "measurement_batches": 150
+        },
+        "test": {
+          "total_seconds": 14.360569122014567,
+          "mean_seconds": 0.09703087244604437,
+          "p50_seconds": 0.08707521599717438,
+          "p95_seconds": 0.1658431157673477,
+          "measurement_batches": 148
+        },
+        "test_seconds_per_pair": 0.09703087244604437
+      },
+      "process_peak_rss_bytes": 1251278848,
+      "runtime": {
+        "torch_threads": 2,
+        "batch_size": 8,
+        "max_length": 512,
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu"
+      },
+      "measurement_scope": "Fresh process per method; initialization excludes source loading and initial imports. One validation-only warmup. Inference latency includes feature/evidence/policy/caching work of this method; Each method starts with a fresh private E5 disk cache and private retrieval memory cache; the validation warmup primes only one validation pair. Original entity-disjoint test inputs are cold on first inference; repeated profiles within the split may reuse embeddings. Group-ranking timing runs afterward and is warm. RSS is process-lifetime high-water including Python/imports/models/source, not standalone model allocation. Cross-encoder-only scores all pairs in one batched call; rerank scores real candidate pools, mostly size one/two; latency protocols therefore differ and do not establish an architecture speedup.",
+      "limitations": "Synthetic/heuristic pair labels, not independent employer relevance. Policy metrics intentionally include conservative evidence/preference gates; raw semantic classifier metrics are separate. No downstream model retraining.",
+      "production_ranking_latency": {
+        "1": {
+          "total_seconds": 0.5245816789101809,
+          "mean_seconds": 0.05245816789101809,
+          "p50_seconds": 0.05196535351569764,
+          "p95_seconds": 0.056623978659627025,
+          "measurement_batches": 10
+        },
+        "2": {
+          "total_seconds": 0.9052214279072359,
+          "mean_seconds": 0.0905221427907236,
+          "p50_seconds": 0.09014605151605792,
+          "p95_seconds": 0.09599465015926398,
+          "measurement_batches": 10
+        },
+        "5": {
+          "total_seconds": 0.8785094539634883,
+          "mean_seconds": 0.08785094539634883,
+          "p50_seconds": 0.08798510298947804,
+          "p95_seconds": 0.09155059116892517,
+          "measurement_batches": 10
+        },
+        "10": {
+          "total_seconds": 0.8994216419523582,
+          "mean_seconds": 0.08994216419523582,
+          "p50_seconds": 0.08937844599131495,
+          "p95_seconds": 0.09555221633345354,
+          "measurement_batches": 10
+        },
+        "20": {
+          "total_seconds": 0.9983615570235997,
+          "mean_seconds": 0.09983615570235997,
+          "p50_seconds": 0.0924176529806573,
+          "p95_seconds": 0.1467476606194395,
+          "measurement_batches": 10
+        }
+      },
+      "details": {
+        "selected_policy_identity": "retrieve-rerank-v1:92444d895f55427d94d0fbeeadc161f6bf512eaad0cbd16d81a01d2b4ad78535"
+      }
+    }
+  },
+  "ranking": {
+    "mlp": {
+      "status": "measured_on_existing_judged_pools",
+      "queries": 10,
+      "pool_size_distribution": {
+        "2": 10
+      },
+      "singleton_candidates_excluded": 128,
+      "means": {
+        "1": {
+          "precision_at_k": 0.7,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 0.8571428571428571,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        },
+        "2": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        },
+        "5": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        },
+        "10": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        }
+      },
+      "preselect_k": null,
+      "preselect_recall": null,
+      "positive_queries": 7,
+      "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+    },
+    "rule": {
+      "status": "measured_on_existing_judged_pools",
+      "queries": 10,
+      "pool_size_distribution": {
+        "2": 10
+      },
+      "singleton_candidates_excluded": 128,
+      "means": {
+        "1": {
+          "precision_at_k": 0.7,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 0.8571428571428571,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        },
+        "2": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        },
+        "5": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        },
+        "10": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 1.0,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 1.0,
+          "mrr_at_k_queries": 7
+        }
+      },
+      "preselect_k": null,
+      "preselect_recall": null,
+      "positive_queries": 7,
+      "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+    },
+    "cosine": {
+      "status": "measured_on_existing_judged_pools",
+      "queries": 10,
+      "pool_size_distribution": {
+        "2": 10
+      },
+      "singleton_candidates_excluded": 128,
+      "means": {
+        "1": {
+          "precision_at_k": 0.5,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 0.5714285714285714,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.7142857142857143,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.7142857142857143,
+          "mrr_at_k_queries": 7
+        },
+        "2": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.8945513581632736,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.8571428571428571,
+          "mrr_at_k_queries": 7
+        },
+        "5": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.8945513581632736,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.8571428571428571,
+          "mrr_at_k_queries": 7
+        },
+        "10": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.8945513581632736,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.8571428571428571,
+          "mrr_at_k_queries": 7
+        }
+      },
+      "preselect_k": null,
+      "preselect_recall": null,
+      "positive_queries": 7,
+      "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+    },
+    "cross_encoder": {
+      "status": "measured_on_existing_judged_pools",
+      "queries": 10,
+      "pool_size_distribution": {
+        "2": 10
+      },
+      "singleton_candidates_excluded": 128,
+      "means": {
+        "1": {
+          "precision_at_k": 0.4,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 0.42857142857142855,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.5714285714285714,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.5714285714285714,
+          "mrr_at_k_queries": 7
+        },
+        "2": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.8418270372449104,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.7857142857142857,
+          "mrr_at_k_queries": 7
+        },
+        "5": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.8418270372449104,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.7857142857142857,
+          "mrr_at_k_queries": 7
+        },
+        "10": {
+          "precision_at_k": 0.45,
+          "precision_at_k_queries": 10,
+          "recall_at_k": 1.0,
+          "recall_at_k_queries": 7,
+          "ndcg_at_k": 0.8418270372449104,
+          "ndcg_at_k_queries": 7,
+          "mrr_at_k": 0.7857142857142857,
+          "mrr_at_k_queries": 7
+        }
+      },
+      "preselect_k": null,
+      "preselect_recall": null,
+      "positive_queries": 7,
+      "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+    }
+  },
+  "preselect_sensitivity": {
+    "1": {
+      "semantic": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.5,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5714285714285714,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7142857142857143,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.25,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5714285714285714,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.603756340790131,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.25,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5714285714285714,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.603756340790131,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.25,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5714285714285714,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.603756340790131,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": 1,
+        "preselect_recall": 0.5714285714285714,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      },
+      "with_structured_policy": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.2,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5161638846807798,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.2,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5161638846807798,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.2,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5161638846807798,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": null,
+        "preselect_recall": null,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      }
+    },
+    "2": {
+      "semantic": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.42857142857142855,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": 2,
+        "preselect_recall": 1.0,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      },
+      "with_structured_policy": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": null,
+        "preselect_recall": null,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      }
+    },
+    "5": {
+      "semantic": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.42857142857142855,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": 5,
+        "preselect_recall": 1.0,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      },
+      "with_structured_policy": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": null,
+        "preselect_recall": null,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      }
+    },
+    "10": {
+      "semantic": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.42857142857142855,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": 10,
+        "preselect_recall": 1.0,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      },
+      "with_structured_policy": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": null,
+        "preselect_recall": null,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      }
+    },
+    "20": {
+      "semantic": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.42857142857142855,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.45,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 1.0,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.8418270372449104,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7857142857142857,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": 20,
+        "preselect_recall": 1.0,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      },
+      "with_structured_policy": {
+        "status": "measured_on_existing_judged_pools",
+        "queries": 10,
+        "pool_size_distribution": {
+          "2": 10
+        },
+        "singleton_candidates_excluded": 128,
+        "means": {
+          "1": {
+            "precision_at_k": 0.4,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.5,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.5714285714285714,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.5714285714285714,
+            "mrr_at_k_queries": 7
+          },
+          "2": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "5": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          },
+          "10": {
+            "precision_at_k": 0.35,
+            "precision_at_k_queries": 10,
+            "recall_at_k": 0.8571428571428571,
+            "recall_at_k_queries": 7,
+            "ndcg_at_k": 0.7516942153061307,
+            "ndcg_at_k_queries": 7,
+            "mrr_at_k": 0.7142857142857143,
+            "mrr_at_k_queries": 7
+          }
+        },
+        "preselect_k": null,
+        "preselect_recall": null,
+        "positive_queries": 7,
+        "limitations": "Metrics cover only the supplied judged vacancies for each candidate, not the full vacancy catalog. Unjudged cross-product pairs are never assumed negative. Singleton pools are excluded. Null all-negative-query recall/NDCG/MRR do not enter those macro averages; precision includes them."
+      }
+    }
+  },
+  "claims": "Exploratory synthetic-label measurements only. Natural judged pools are small and cannot validate catalog-scale retrieval or hiring relevance. No unknown pair was invented as a negative, and no final test label selected a threshold or model.",
+  "publication": {
+    "review_date": "2026-10-26",
+    "report_sources": {
+      "mlp": {
+        "path": "artifacts/rerank-benchmark-release/mlp/report.json",
+        "sha256": "616be425b761c6ec66813241cef782cd5a19096fb50253c3092fef40d53619ed",
+        "measurement_origin": "artifacts/rerank-benchmark-release"
+      },
+      "rule": {
+        "path": "artifacts/rerank-benchmark-release/rule/report.json",
+        "sha256": "13c07b3864d7fc4832dd36a4f24aab5588528d91750c5be3f74355ba5fdc197b",
+        "measurement_origin": "artifacts/rerank-benchmark-release"
+      },
+      "cosine": {
+        "path": "artifacts/rerank-benchmark-release/cosine/report.json",
+        "sha256": "892aaaefb7626c2889adbcebb2df10728669a119e6595f5ab4142a185ab1728f",
+        "measurement_origin": "artifacts/rerank-benchmark-release"
+      },
+      "cross_encoder": {
+        "path": "artifacts/rerank-benchmark-release/cross_encoder/report.json",
+        "sha256": "ae973812230f1653358b16819f3e97957755f13231e20e7186803e3499bd5f7e",
+        "measurement_origin": "artifacts/rerank-benchmark-release"
+      },
+      "retrieve_rerank": {
+        "path": "artifacts/rerank-benchmark-release/retrieve_rerank/report.json",
+        "sha256": "a136590508605a033175f577e73c744868cbb37d84516712006e5119f7eb1ccd",
+        "measurement_origin": "artifacts/rerank-benchmark-release"
+      }
+    },
+    "notes": "All five methods were rerun with fresh private caches after the final runtime identity safeguards. No model or threshold was selected on test labels. Timing is a single run per method on a shared execution environment; architecture speedups are not established."
+  }
+}

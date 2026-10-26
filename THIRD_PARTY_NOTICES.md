@@ -468,3 +468,32 @@ train-derived experimental phrase artifacts carry applicable full notices,
 attributions, source hashes and a description of modifications. JobBot,
 unknown-license Sayfullina annotations, unresolved SkillSkape mirror data and new
 model weights were not imported. Model-card research is not model redistribution.
+
+## Optional multilingual cross-encoder (Retrieve → Re-rank experiment)
+
+The explicit `download-reranker` command downloads
+**cross-encoder/mmarco-mMiniLMv2-L12-H384-v1**, published by the
+Sentence-Transformers / cross-encoder project, at revision
+`1427fd652930e4ba29e8149678df786c240d8825`:
+https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/tree/1427fd652930e4ba29e8149678df786c240d8825.
+The pinned publisher model card explicitly declares **Apache License 2.0**.
+The upstream tree has no standalone LICENSE or NOTICE file. Its unchanged card
+is retained in [LICENSES/references/reranker-model-card.txt](LICENSES/references/reranker-model-card.txt).
+The complete Apache license, including the original copyright text of the
+reference Sentence-Transformers project, is retained in
+[LICENSES/references/reranker-Apache-LICENSE.txt](LICENSES/references/reranker-Apache-LICENSE.txt).
+That reference license is not represented as an additional file in the model tree.
+
+The checkpoint is used unchanged. Model weights are excluded from Git and software
+packages. If distributing a model bundle, retain the upstream attribution and
+license, identify any modifications and comply with Apache-2.0 section 4.
+ResumeAnalysis's MIT license covers its original code and does not replace those
+terms. This implementation does not copy Sentence-Transformers implementation code.
+
+The publisher identifies an mMiniLMv2 model distilled from XLM-R Large and
+Google-translated mMARCO / MS MARCO passage-ranking data as provenance. The final
+publisher grant does not resolve every base-model or training-data rights question.
+No mMARCO data is downloaded or redistributed here. See the pinned sources and
+concrete manual-review limits in [docs/rerank_model_selection.md](docs/rerank_model_selection.md).
+Independent relevance datasets reviewed for this experiment were not imported;
+the authored annotation templates contain no ground-truth hiring judgments.

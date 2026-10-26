@@ -1,0 +1,361 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/nyaxiom/resumeanalysis/evaluation/rerank/grouped_annotations.schema.json",
+  "title": "Adjudicated profile-query vacancy relevance pool",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "query_id",
+    "profile_id",
+    "split",
+    "language",
+    "profile",
+    "provenance",
+    "label_origin",
+    "judged_pool_complete",
+    "candidates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "split": {
+      "enum": [
+        "train",
+        "validation",
+        "test"
+      ]
+    },
+    "language": {
+      "enum": [
+        "en",
+        "ru",
+        "mixed",
+        "other"
+      ]
+    },
+    "profile": {
+      "$ref": "#/$defs/Profile"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Source"
+    },
+    "label_origin": {
+      "enum": [
+        "independent_human",
+        "synthetic_diagnostic",
+        "unjudged_template"
+      ]
+    },
+    "judged_pool_complete": {
+      "type": "boolean"
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      }
+    }
+  },
+  "$defs": {
+    "Profile": {
+      "additionalProperties": false,
+      "properties": {
+        "resume_text": {
+          "default": "",
+          "title": "Resume Text",
+          "type": "string"
+        },
+        "skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Skills",
+          "type": "array"
+        },
+        "denied_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Denied Skills",
+          "type": "array"
+        },
+        "experience_years": {
+          "anyOf": [
+            {
+              "maximum": 80,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Experience Years"
+        },
+        "projects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Projects",
+          "type": "array"
+        },
+        "education": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Education",
+          "type": "array"
+        },
+        "seniority": {
+          "anyOf": [
+            {
+              "enum": [
+                "intern",
+                "junior",
+                "middle",
+                "senior",
+                "lead"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seniority"
+        },
+        "remote_only": {
+          "default": false,
+          "title": "Remote Only",
+          "type": "boolean"
+        },
+        "allowed_locations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Locations",
+          "type": "array"
+        }
+      },
+      "title": "Profile",
+      "type": "object"
+    },
+    "Vacancy": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "required_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Skills",
+          "type": "array"
+        },
+        "optional_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional Skills",
+          "type": "array"
+        },
+        "min_experience_years": {
+          "anyOf": [
+            {
+              "maximum": 80,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Experience Years"
+        },
+        "seniority": {
+          "anyOf": [
+            {
+              "enum": [
+                "intern",
+                "junior",
+                "middle",
+                "senior",
+                "lead"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seniority"
+        },
+        "remote": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
+        }
+      },
+      "title": "Vacancy",
+      "type": "object"
+    },
+    "Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "data_origin",
+        "source_url",
+        "license",
+        "permission_basis",
+        "source_document_id"
+      ],
+      "properties": {
+        "data_origin": {
+          "enum": [
+            "consented_real",
+            "licensed_public_real",
+            "synthetic",
+            "authored_fixture",
+            "unknown"
+          ]
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permission_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_document_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "Judgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grade",
+        "abstain_reason",
+        "assessor_ids",
+        "adjudicated"
+      ],
+      "properties": {
+        "grade": {
+          "enum": [
+            0,
+            1,
+            2,
+            null
+          ]
+        },
+        "abstain_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assessor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "adjudicated": {
+          "type": "boolean"
+        },
+        "evidence_notes": {
+          "type": "string"
+        },
+        "preference_status": {
+          "enum": [
+            "compatible",
+            "conflict",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "Candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vacancy_id",
+        "vacancy",
+        "judgment",
+        "provenance"
+      ],
+      "properties": {
+        "vacancy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vacancy": {
+          "$ref": "#/$defs/Vacancy"
+        },
+        "judgment": {
+          "$ref": "#/$defs/Judgment"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Source"
+        }
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ from resumeanalysis.schemas import Profile, Vacancy, VacancyAnalysis
 
 
 class MatchingProfile(Profile):
-    """Explicit extension for Qwen; canonical training PairRecord stays unchanged."""
+    """Explicit extension for experimental backends; training PairRecord stays unchanged."""
 
     preferred_roles: list[str] = Field(default_factory=list)
 
@@ -18,6 +18,10 @@ class MatchingBackend(Protocol):
 
 
 def create_predictor(backend: str = "mlp", **kwargs) -> MatchingBackend:
+    if backend == "rerank":
+        from resumeanalysis.rerank.predictor import RerankPredictor
+
+        return RerankPredictor(**kwargs)
     if backend == "qwen":
         from resumeanalysis.qwen.predictor import QwenPredictor
 
@@ -26,4 +30,4 @@ def create_predictor(backend: str = "mlp", **kwargs) -> MatchingBackend:
         from resumeanalysis.inference.predictor import Predictor
 
         return Predictor(**kwargs)
-    raise ValueError("Backend must be mlp or qwen")
+    raise ValueError("Backend must be mlp, qwen or rerank")

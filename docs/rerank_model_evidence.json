@@ -1,0 +1,184 @@
+{
+  "review_date": "2026-10-23",
+  "selected_model": {
+    "format_version": 1,
+    "model_id": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+    "license": "Apache-2.0",
+    "license_evidence": "https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/blob/1427fd652930e4ba29e8149678df786c240d8825/README.md",
+    "files": {
+      "README.md": {
+        "bytes": 2278,
+        "sha256": "474736a65d6393a060119a8dc304563af67af4d8d86ccfee4a05dd0df107fc11"
+      },
+      "config.json": {
+        "bytes": 891,
+        "sha256": "cc2cfe51aa3fd759d21d21acf5dfd6994aa67a3c9210636d22e143699d336c77"
+      },
+      "model.safetensors": {
+        "bytes": 470592698,
+        "sha256": "5daeca2481a76b5976a2bdc32f0a78532b6716da4f8cd3ff59460ef8d2f359b4"
+      },
+      "sentencepiece.bpe.model": {
+        "bytes": 5069051,
+        "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+      },
+      "special_tokens_map.json": {
+        "bytes": 239,
+        "sha256": "378eb3bf733eb16e65792d7e3fda5b8a4631387ca04d2015199c4d4f22ae554d"
+      },
+      "tokenizer.json": {
+        "bytes": 17082660,
+        "sha256": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626"
+      },
+      "tokenizer_config.json": {
+        "bytes": 435,
+        "sha256": "e7fbfbfa6347b4e414c1cee50d142e2c2f9a895dad68b068ae83a8b564c3837e"
+      }
+    },
+    "license_text": {
+      "file": "APACHE-2.0.txt",
+      "sha256": "624b030fd62b8b989dd502d5bb6322cbc0dbb524ab9c9708f32efe33d7275735",
+      "source": "https://raw.githubusercontent.com/UKPLab/sentence-transformers/33f9bd81610560e48ff5eac80e910496b49ae193/LICENSE"
+    },
+    "score_interpretation": "Raw document-relevance logit, not a calibrated job-fit probability"
+  },
+  "architecture": {
+    "name": "XLMRobertaForSequenceClassification",
+    "num_hidden_layers": 12,
+    "hidden_size": 384,
+    "num_labels": 1,
+    "vocab_size": 250002,
+    "max_position_embeddings": 514
+  },
+  "language_evidence": {
+    "publisher_languages": [
+      "en",
+      "ar",
+      "zh",
+      "nl",
+      "fr",
+      "de",
+      "hi",
+      "in",
+      "it",
+      "ja",
+      "pt",
+      "ru",
+      "es",
+      "vi"
+    ],
+    "scope": "Machine-translated mMARCO retrieval task, not job relevance or independently validated English/Russian hiring quality"
+  },
+  "source_provenance": {
+    "base_model": {
+      "id": "nreimers/mMiniLMv2-L12-H384-distilled-from-XLMR-Large",
+      "revision": "d828558d1a570cbbb5e62a8dbf85c8f18bf7982a",
+      "license_evidence": "Inspected card points to Microsoft MiniLM/unilm but has no explicit model-specific license. Final cross-encoder publisher independently declares Apache-2.0."
+    },
+    "dataset": {
+      "id": "unicamp-dl/mmarco",
+      "revision": "6d039c4638c0ba3e46a9cb7b498b145e7edc6230",
+      "description": "MS MARCO passage ranking translated into 14 languages, including Russian; model card says Google Translate. No dataset payload downloaded.",
+      "license_status": "Inspected dataset card does not establish an explicit license. Original Microsoft dataset README requires agreement to separate terms; terms site HTTP403. Original repository MIT is for software and not silently substituted as data terms."
+    },
+    "original_dataset_repository": {
+      "id": "microsoft/MSMARCO-Passage-Ranking",
+      "revision": "28b369395881cdc50eb69173dcf2f94eb247395e",
+      "software_license": "MIT, Copyright (c) Microsoft Corporation. All rights reserved.",
+      "dataset_terms_urls": [
+        "https://microsoft.github.io/msmarco/",
+        "https://microsoft.github.io/msmarco/terms/"
+      ],
+      "terms_http_status": 403
+    }
+  },
+  "license_findings": {
+    "publisher_grant": "Explicit Apache-2.0 model-card declaration",
+    "standalone_model_license": null,
+    "standalone_model_notice": null,
+    "retained_files": {
+      "LICENSES/references/reranker-model-card.txt": "474736a65d6393a060119a8dc304563af67af4d8d86ccfee4a05dd0df107fc11",
+      "LICENSES/references/reranker-Apache-LICENSE.txt": "624b030fd62b8b989dd502d5bb6322cbc0dbb524ab9c9708f32efe33d7275735"
+    },
+    "scope": "Apache terms copied unchanged from the pinned sentence-transformers repository, with its original Copyright 2019 Nils Reimers retained. This is not falsely described as a standalone LICENSE from the model tree. Source training data/translation and base-weight provenance need manual production/redistribution review."
+  },
+  "alternatives": [
+    {
+      "id": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "publisher_license": "Apache-2.0 card declaration; no standalone LICENSE/NOTICE",
+      "architecture": {
+        "name": "XLMRobertaForSequenceClassification",
+        "num_hidden_layers": 24,
+        "hidden_size": 1024,
+        "max_position_embeddings": 8194
+      },
+      "safetensors_bytes": 2271071852,
+      "safetensors_sha256": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+      "language": "Publisher declares multilingual; resume-vacancy Russian accuracy unmeasured",
+      "decision": "Not selected: approximately 4.83 times larger weight download and substantially larger architecture; larger context alone does not establish CPU or hiring quality superiority. Metadata inspected, weights not downloaded."
+    },
+    {
+      "id": "cross-encoder/mmarco-mMiniLMv2-L6-H384-v1",
+      "metadata_http_status": 401,
+      "decision": "Identifier unavailable/private/notverified; no asset assumed to exist and no quality or license claim made."
+    }
+  ],
+  "actual_authored_smoke": {
+    "identity": "cross-encoder-v1:39eff905debd3b7d07738343cdfb5cb5ee88ebaf45c57f58acd7d83f0cd6c33e",
+    "initialization_seconds": 1.9246480670117307,
+    "inference_seconds": 0.05342880100943148,
+    "raw_logits": [
+      9.488911628723145,
+      4.167840480804443,
+      -7.994703769683838
+    ],
+    "pair_diagnostics": [
+      {
+        "resume_tokens": 6,
+        "vacancy_tokens": 9,
+        "resume_tokens_retained": 6,
+        "vacancy_tokens_retained": 9,
+        "resume_tokens_discarded": 0,
+        "vacancy_tokens_discarded": 0,
+        "truncated": false,
+        "windows": 1,
+        "policy": "window",
+        "aggregation": "single"
+      },
+      {
+        "resume_tokens": 8,
+        "vacancy_tokens": 11,
+        "resume_tokens_retained": 8,
+        "vacancy_tokens_retained": 11,
+        "resume_tokens_discarded": 0,
+        "vacancy_tokens_discarded": 0,
+        "truncated": false,
+        "windows": 1,
+        "policy": "window",
+        "aggregation": "single"
+      },
+      {
+        "resume_tokens": 6,
+        "vacancy_tokens": 8,
+        "resume_tokens_retained": 6,
+        "vacancy_tokens_retained": 8,
+        "resume_tokens_discarded": 0,
+        "vacancy_tokens_discarded": 0,
+        "truncated": false,
+        "windows": 1,
+        "policy": "window",
+        "aggregation": "single"
+      }
+    ],
+    "model_frozen": true
+  },
+  "claims_not_established": [
+    "Real resume-vacancy ranking quality",
+    "Calibrated fit probabilities",
+    "Broad English/Russian job-domain accuracy",
+    "Production redistribution rights in every upstream training asset",
+    "Alternative model runtime performance"
+  ]
+}

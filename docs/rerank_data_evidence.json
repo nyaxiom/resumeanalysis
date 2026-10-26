@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-23",
+  "scope": "Bounded independent relevance benchmark research; not a complete survey or a legal opinion. No author contact and no third-party resume payload/code import.",
+  "suitable_independent_real_en_ru_benchmark_admitted": false,
+  "sources": [
+    {
+      "source": "ApplyU-ai/ResumeBench",
+      "source_url": "https://github.com/ApplyU-ai/ResumeBench",
+      "revision": "819d0e4991ca284db8b79d93a96713669502e7cd",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [
+        "LICENSE"
+      ],
+      "card_and_notice_sha256": {
+        "README.md": "36c780764342f749dcfadfc3576a0a2e33ce4d4615a33d12f2d371c0eca0f117",
+        "LICENSE": "aca7c404352df2169e8aabc86948cfeddf32a044568c19f1f2d1dcd44785e2f3"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "Avature/jobresqa-benchmark",
+      "source_url": "https://github.com/Avature/jobresqa-benchmark",
+      "revision": "1dbe6ffcf82cb06ec00f29bb0e4aeebde556addf",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [
+        "LICENSE"
+      ],
+      "card_and_notice_sha256": {
+        "README.md": "1c0795df37ce329356b2f898141de156a2c94513ae71b49c5b7f36f897ca578a",
+        "LICENSE": "9a4078397b325ea95127505d9a8d7d0b0b0b15eb5f12a65eb39d87e4be642bc2"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "Youseff1987/resume-matching-dataset-v2",
+      "source_url": "https://huggingface.co/datasets/Youseff1987/resume-matching-dataset-v2",
+      "revision": "028e8b056cf060c17572121e709cf2e24f454355",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "6d74036952f690c62df1a1b611b265c4de8b073f5749f07d832feec98b873c14"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "batuhanmtl/job_resume_fit",
+      "source_url": "https://huggingface.co/datasets/batuhanmtl/job_resume_fit",
+      "revision": "fd536486a5e99db00716b6fbe58e6368d2d038ef",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "9fe49e42156bfda21a039d627699bfa10c9c6b48b6ec5b18b229884b6e95a752"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "cnamuangtoun/resume-job-description-fit",
+      "source_url": "https://huggingface.co/datasets/cnamuangtoun/resume-job-description-fit",
+      "revision": "08978e21714984bb417547d2c0f9b477f5298163",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {},
+      "payload_used": false
+    },
+    {
+      "source": "hetbhagatji09/job-resume-triplets",
+      "source_url": "https://huggingface.co/datasets/hetbhagatji09/job-resume-triplets",
+      "revision": "e045bee7d43badca15e9e557dced9c0511177232",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "f35ac7b30195da3b9b01d156fe7f0626e0ae4ac7f6d5757eb0b6ee3b8f31dcab"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "holistic-ai/job-fair-resume",
+      "source_url": "https://huggingface.co/datasets/holistic-ai/job-fair-resume",
+      "revision": "fe595d31e957f1141d399b8700e5a5f2f6313c23",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "d8d7a46d41a1a37fe4f0a5f637bf55c649310185329127d8a2204632e480be17"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "jasonyux/ConFit",
+      "source_url": "https://github.com/jasonyux/ConFit",
+      "revision": "1187bf4273aa27f2c562a43ec4bb5316876b7198",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "5aa72280e79279b1b32745505066ead8b3e75829309a50278c6e655a75c1e274"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "jasonyux/ConFit-v2",
+      "source_url": "https://github.com/jasonyux/ConFit-v2",
+      "revision": "8022a9ee372664b35acad313abb4422de6d123f0",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [
+        "LICENSE"
+      ],
+      "card_and_notice_sha256": {
+        "LICENSE": "962c53f756b8a6206292e7047362da8e0d8b08661543816c0530b9bd3c60cda9",
+        "README.md": "9296173e99caf4ee693d48a68303a0fcf9c002bf8851f0aacce8493c656d306e"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "med2425/resume-job-fit-merged-v1",
+      "source_url": "https://huggingface.co/datasets/med2425/resume-job-fit-merged-v1",
+      "revision": "f46f355acddab1368a7386cbe94d42fd42767d88",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "7cdfd35538a73ccebc4377502d0f5774262aa6f255adb32a82f6a218d95ec862"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "nonameee12233/job-resume-matching",
+      "source_url": "https://huggingface.co/datasets/nonameee12233/job-resume-matching",
+      "revision": "6186dded39f983b96a1a2eb4d1ecf365a90a46f9",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "5f0bece48a666e722f9780d349de60a6242297c46a2e78c83e4206dfc3852a2f"
+      },
+      "payload_used": false
+    },
+    {
+      "source": "renhehuang/resume-job-fairness-eval",
+      "source_url": "https://huggingface.co/datasets/renhehuang/resume-job-fairness-eval",
+      "revision": "848c76e7be9e22f8163bb49faab7a6e8d8fb9ef3",
+      "inspection": "repository/dataset metadata plus README and license text only; no dataset payload downloaded",
+      "standalone_license_files": [],
+      "card_and_notice_sha256": {
+        "README.md": "d0826c12f9929fa89fd00e853aed083c5450b6e6c4e1e8bd97bf16abe7b4af4a"
+      },
+      "payload_used": false
+    }
+  ],
+  "decisions": {
+    "ConFit": "README says real text replaced with privacy placeholders; no LICENSE; access requires author contact.",
+    "ConFit-v2": "Root source-code MIT verified; source-specific data permissions, original/augmented text and human-label independence not established; v1 placeholder statement is commented out in v2.",
+    "ResumeBench": "Actual CC-BY-NC-4.0 access-restricted parsing benchmark; synthetic/human-in-the-loop does not establish pair qrels.",
+    "JobResQA": "Actual CC-BY-SA-2.0 notice, Copyright 2025 Avature; synthetic multilingual QA, not hiring relevance.",
+    "nonameee12233/job-resume-matching": "Contradictory unfinished MIT/card license text and positive-only composite compatibility labels; no human annotation protocol.",
+    "med2425/resume-job-fit-merged-v1": "Missing grant and explicitly Qwen2.5-32B labels, not independent humans.",
+    "batuhanmtl/job_resume_fit": "Unspecified other license; AI/string/fuzzy scores not human labels.",
+    "renhehuang/resume-job-fairness-eval": "Synthetic fairness texts, explicitly no binary match ground truth.",
+    "holistic-ai/job-fair-resume": "Card-only MIT, annotation provenance unavailable.",
+    "hetbhagatji09/job-resume-triplets": "Card-only CC-BY-SA-4.0, source/label lineage unknown.",
+    "Youseff1987/resume-matching-dataset-v2": "Korean numeric scores with no verified annotator process or source permissions."
+  },
+  "claims_remaining_unverified": [
+    "real-world resume-vacancy ranking accuracy",
+    "English-to-Russian task transfer",
+    "job-fit probability calibration",
+    "prospective fairness and hiring outcomes"
+  ],
+  "human_template": "evaluation/rerank/annotation_template.jsonl",
+  "template_label_origin": "unjudged_template; null grades are not gold"
+}

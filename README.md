@@ -1,5 +1,12 @@
 # ResumeAnalysis
 
+An opt-in [Retrieve → Re-rank backend](docs/retrieve_rerank.md) adds multilingual
+E5 retrieval, a pinned multilingual cross-encoder and explicit requirement checks.
+It supports `create_predictor("rerank")`, single-pair predictions and batch
+ranking. See [actual benchmark results](docs/rerank_benchmarks.md) and the
+[independent evaluation protocol](evaluation/README.md); document relevance
+scores are not calibrated hiring probabilities. E5 + MLP remains the default.
+
 Skill extraction has a selectable [v2 implementation and comparison workflow](docs/skill_extractor_v2.md).
 The original extractor remains the default. Using v2 with the MLP requires a matching
 separately trained checkpoint; the original saved model is preserved. See the

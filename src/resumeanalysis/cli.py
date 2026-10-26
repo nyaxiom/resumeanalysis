@@ -1,10 +1,67 @@
 import argparse
 import json
+import math
 from pathlib import Path
 
 import torch
 
 from resumeanalysis.embeddings.encoder import LexicalSmokeEncoder, TextEncoder
+
+
+def _run_rerank(args, parser):
+    """Validate new backend inputs before loading any local model assets."""
+    from resumeanalysis.extraction.registry import create_extractor
+    from resumeanalysis.inference.backends import MatchingProfile, create_predictor
+    from resumeanalysis.jsonio import loads
+    from resumeanalysis.rerank.config import RerankConfig
+    from resumeanalysis.schemas import Vacancy
+
+    if not math.isfinite(args.decision_logit_threshold):
+        parser.error("--decision-logit-threshold must be finite")
+    if args.command == "rank" and (args.preselect_k < 1 or args.top_k < 1):
+        parser.error("--preselect-k and --top-k must be positive")
+    try:
+        config = RerankConfig.model_validate(
+            loads(Path(args.rerank_config).read_text()), strict=True
+        )
+    except (OSError, ValueError, TypeError):
+        parser.error("Cannot read a valid reranker configuration; inspect --rerank-config")
+    try:
+        document = loads(Path(args.input).read_text())
+        expected = {"profile", "vacancies" if args.command == "rank" else "vacancy"}
+        if not isinstance(document, dict) or set(document) != expected:
+            raise ValueError("Unexpected input fields")
+        profile = MatchingProfile.model_validate(document["profile"], strict=True)
+        if args.command == "rank":
+            if not isinstance(document["vacancies"], list):
+                raise ValueError("Vacancies must be an array")
+            vacancies = [Vacancy.model_validate(v, strict=True) for v in document["vacancies"]]
+        else:
+            vacancy = Vacancy.model_validate(document["vacancy"], strict=True)
+    except (OSError, ValueError, TypeError):
+        parser.error(
+            "Invalid reranker input; expected profile and "
+            + ("a vacancies array" if args.command == "rank" else "one vacancy object")
+        )
+    extractor = create_extractor(args.extractor, lexicon_path=args.lexicon_path)
+    if args.command == "rank" and not vacancies:
+        return []
+    encoder = LexicalSmokeEncoder() if args.smoke_lexical else TextEncoder(args.e5_path)
+    predictor = create_predictor(
+        "rerank",
+        encoder=encoder,
+        config=config,
+        extractor=extractor,
+        decision_logit_threshold=args.decision_logit_threshold,
+    )
+    if args.command == "rank":
+        return [
+            item.model_dump()
+            for item in predictor.rank(
+                profile, vacancies, preselect_k=args.preselect_k, top_k=args.top_k
+            )
+        ]
+    return predictor.predict(profile, vacancy).model_dump()
 
 
 def main():
@@ -23,6 +80,7 @@ def main():
     for name, default in [
         ("download-e5", "artifacts/e5"),
         ("download-data", "data/raw/candidate-matching-synthetic"),
+        ("download-reranker", "artifacts/reranker"),
     ]:
         p = sub.add_parser(name)
         p.add_argument("--output", default=default)
@@ -50,8 +108,10 @@ def main():
             help="Diagnostic hashing encoder, explicitly not E5",
         )
         if name == "predict":
-            p.add_argument("--backend", choices=["mlp", "qwen"], default="mlp")
+            p.add_argument("--backend", choices=["mlp", "qwen", "rerank"], default="mlp")
             p.add_argument("--qwen-config", default="configs/qwen.json")
+            p.add_argument("--rerank-config", default="configs/rerank.json")
+            p.add_argument("--decision-logit-threshold", type=float, default=0.0)
             p.add_argument("--checkpoint", default="artifacts/run/model.pt")
             p.add_argument("--input", required=True)
         else:
@@ -59,6 +119,18 @@ def main():
             p.add_argument("--output", default="artifacts/run")
         if name == "train":
             p.add_argument("--config", default="configs/cpu.json")
+    p = sub.add_parser("rank", help="Opt-in exact E5 retrieval and offline cross-encoder ranking")
+    p.add_argument("--input", required=True, help="JSON object with profile and vacancies array")
+    p.add_argument("--preselect-k", type=int, default=20)
+    p.add_argument("--top-k", type=int, default=10)
+    p.add_argument("--e5-path", default="artifacts/e5")
+    p.add_argument("--rerank-config", default="configs/rerank.json")
+    p.add_argument("--decision-logit-threshold", type=float, default=0.0)
+    p.add_argument("--extractor", choices=["legacy", "v2"], default="v2")
+    p.add_argument("--lexicon-path", help="Optional pinned train-only v2 phrase artifact")
+    p.add_argument(
+        "--smoke-lexical", action="store_true", help="Explicit hashing diagnostic, not E5"
+    )
     p = sub.add_parser("skillspan")
     p.add_argument("--input", required=True, help="Upstream SkillSpan test.json (JSONL)")
     p.add_argument("--output", default="artifacts/skillspan_metrics.json")
@@ -81,6 +153,11 @@ def main():
 
         download_candidates(args.output)
         return
+    if args.command == "download-reranker":
+        from resumeanalysis.rerank.assets import download_reranker
+
+        download_reranker(args.output)
+        return
     if args.command == "prepare":
         from resumeanalysis.data.prepare import prepare_candidates
 
@@ -102,6 +179,8 @@ def main():
         result = evaluate_skillspan(args.input)
         Path(args.output).parent.mkdir(parents=True, exist_ok=True)
         Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    elif args.command == "rank" or (args.command == "predict" and args.backend == "rerank"):
+        result = _run_rerank(args, parser)
     elif args.command == "predict" and args.backend == "qwen":
         from resumeanalysis.extraction.registry import create_extractor
         from resumeanalysis.jsonio import loads

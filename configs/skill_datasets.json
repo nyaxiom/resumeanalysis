@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-23",
+  "datasets": [
+    {
+      "id": "skillspan",
+      "repository": "https://github.com/kris927b/SkillSpan",
+      "revision": "2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b",
+      "base_url": "https://raw.githubusercontent.com/kris927b/SkillSpan/2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b/",
+      "license": "MIT",
+      "license_evidence_url": "https://github.com/kris927b/SkillSpan/blob/2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b/LICENSE",
+      "license_evidence_kind": "actual root LICENSE and README releasing data; HF mirror separately declares CC-BY-4.0",
+      "license_text_file": "LICENSES/references/skillspan-LICENSE.txt",
+      "attribution": "Copyright (c) 2023 Mike Zhang. Zhang, Jensen, Sonniks and Plank (NAACL 2022), SkillSpan: Hard and Soft Skill Extraction from English Job Postings. https://aclanthology.org/2022.naacl-main.366/",
+      "risks": [
+        "GitHub MIT versus author HF CC-BY-4.0 data terms: preserve both attribution records; clarify before redistribution.",
+        "Underlying advertisements rights and historical test exposure require review."
+      ],
+      "language": "en",
+      "annotation_type": "span",
+      "quality": "Expert BIO SKILL and KNOWLEDGE. Tokenized text only; document ids scoped by source and split. Official splits contain repeated sentences.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "cc5300c6f3eef6e478f186c5452866f05c9d75f603df4981d5314f11cbad7e0f",
+          "bytes": 6866,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c7843d7998182d06cfe6d0cf4b215d487595527dfcd3ddce6584a9fdb8f61416",
+          "bytes": 1067,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "data/json/train.json",
+          "sha256": "5e884c3426087d14fc437d328eb72132082edbfe1e776292ae0e6e9b36c1e1f6",
+          "bytes": 2207996,
+          "split": "train",
+          "role": "train",
+          "format": "skillspan"
+        },
+        {
+          "path": "data/json/dev.json",
+          "sha256": "3732937c6869fe191c749b4efe7ffd597ce84eea1192f09b7fe3bd1eb459e2b4",
+          "bytes": 1036099,
+          "split": "validation",
+          "role": "validation",
+          "format": "skillspan"
+        },
+        {
+          "path": "data/json/test.json",
+          "sha256": "8438eda34939a5877b984ea5daf9e6ff39b2d5c7e3d73cca0499d3de3784d24a",
+          "bytes": 1116219,
+          "split": "test",
+          "role": "sealed_test",
+          "format": "skillspan"
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "repository": "https://huggingface.co/datasets/TechWolf/skill-extraction-tech",
+      "revision": "5f0cb05df03cd1cd5048ff1d64639bf9bd4cb36f",
+      "base_url": "https://huggingface.co/datasets/TechWolf/skill-extraction-tech/resolve/5f0cb05df03cd1cd5048ff1d64639bf9bd4cb36f/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/TechWolf/skill-extraction-tech/blob/5f0cb05df03cd1cd5048ff1d64639bf9bd4cb36f/README.md",
+      "license_evidence_kind": "publisher dataset-card declaration; no standalone LICENSE",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "TechWolf; Jens-Joris Decorte et al., Design of negative sampling strategies for distantly supervised skill extraction (2022). https://arxiv.org/abs/2209.05987",
+      "risks": [
+        "SkillSpan-derived test files are sealed; no annotation ingestion.",
+        "European Commission ESCO v1.1.0; underlying job advertisement rights."
+      ],
+      "language": "en",
+      "annotation_type": "surface_normalization",
+      "quality": "Human ESCO v1.1.0 normalization of SkillSpan-derived surface mentions, without offsets. LABEL NOT PRESENT is an explicit unmapped outcome. Not an independent corpus.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "04cd728ad5048c693330aa998442a1dbe84357ac4ee24e6a956ae114881656f1",
+          "bytes": 1991,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "validation.csv",
+          "sha256": "7efcc66c2759fe5381152f36d1d1ff473378aa10744d5763b0542776a4c624a6",
+          "bytes": 44853,
+          "split": "validation",
+          "role": "validation",
+          "format": "surface"
+        },
+        {
+          "path": "test.csv",
+          "sha256": "9c9fe96da61d730a29d410ff3a534d5a6bb4bfafe1ecb17c9ad49d1ba31b401d",
+          "bytes": 170210,
+          "split": "test",
+          "role": "sealed_test",
+          "format": "surface"
+        }
+      ]
+    },
+    {
+      "id": "house",
+      "repository": "https://huggingface.co/datasets/TechWolf/skill-extraction-house",
+      "revision": "dcb313cad615a8f5148ef5addc01ef090fc9f295",
+      "base_url": "https://huggingface.co/datasets/TechWolf/skill-extraction-house/resolve/dcb313cad615a8f5148ef5addc01ef090fc9f295/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/TechWolf/skill-extraction-house/blob/dcb313cad615a8f5148ef5addc01ef090fc9f295/README.md",
+      "license_evidence_kind": "publisher dataset-card declaration; no standalone LICENSE",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "TechWolf; Jens-Joris Decorte et al., Design of negative sampling strategies for distantly supervised skill extraction (2022). https://arxiv.org/abs/2209.05987",
+      "risks": [
+        "SkillSpan-derived test files are sealed; no annotation ingestion.",
+        "European Commission ESCO v1.1.0; underlying job advertisement rights."
+      ],
+      "language": "en",
+      "annotation_type": "surface_normalization",
+      "quality": "Human ESCO v1.1.0 normalization of SkillSpan-derived surface mentions, without offsets. LABEL NOT PRESENT is an explicit unmapped outcome. Not an independent corpus.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "9a7fb319fea413549508388099fbc617120845bee4a70a5b18aacbd489bc961d",
+          "bytes": 1994,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "validation.csv",
+          "sha256": "e84104698af544e433364fc07f319f403bce74d21195e090f0671c28634b816f",
+          "bytes": 78684,
+          "split": "validation",
+          "role": "validation",
+          "format": "surface"
+        },
+        {
+          "path": "test.csv",
+          "sha256": "2daa75ce244fe9401c8c3e5f3a7d196547a17a2dcb0f5829b82e4cf67c44bdfb",
+          "bytes": 223202,
+          "split": "test",
+          "role": "sealed_test",
+          "format": "surface"
+        }
+      ]
+    },
+    {
+      "id": "techwolf",
+      "repository": "https://huggingface.co/datasets/TechWolf/skill-extraction-techwolf",
+      "revision": "ed83e50ff6bc7e44008e98a82f6143ddaf59a255",
+      "base_url": "https://huggingface.co/datasets/TechWolf/skill-extraction-techwolf/resolve/ed83e50ff6bc7e44008e98a82f6143ddaf59a255/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/TechWolf/skill-extraction-techwolf/blob/ed83e50ff6bc7e44008e98a82f6143ddaf59a255/README.md",
+      "license_evidence_kind": "publisher dataset-card declaration; no standalone LICENSE",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "TechWolf; Decorte et al., Extreme multi-label skill extraction training using large language models (2023). https://arxiv.org/abs/2307.10778",
+      "risks": [
+        "European Commission ESCO v1.1.0; underlying job advertisement rights."
+      ],
+      "language": "en",
+      "annotation_type": "sentence_multilabel",
+      "quality": "Human sentence-level ESCO labels; no spans. Reserved for external normalization/classification evaluation.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "dab2c593a2bae8b6097be7621ed7326a3b384aa0947eafdfcf1ebd08ef56ac65",
+          "bytes": 1493,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "test.csv",
+          "sha256": "f98805f9c18bae6be7f4f8af16737eb2b1e3a48b65132aebf951d44b221e3f49",
+          "bytes": 97098,
+          "split": "test",
+          "role": "external_evaluation",
+          "format": "sentence_labels"
+        }
+      ]
+    },
+    {
+      "id": "synthetic_esco",
+      "repository": "https://huggingface.co/datasets/TechWolf/Synthetic-ESCO-skill-sentences",
+      "revision": "09fc487d1394c1fdfd224cb621a89b14af925716",
+      "base_url": "https://huggingface.co/datasets/TechWolf/Synthetic-ESCO-skill-sentences/resolve/09fc487d1394c1fdfd224cb621a89b14af925716/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/TechWolf/Synthetic-ESCO-skill-sentences/blob/09fc487d1394c1fdfd224cb621a89b14af925716/README.md",
+      "license_evidence_kind": "publisher dataset-card declaration; no standalone LICENSE",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "TechWolf; Decorte et al., Extreme multi-label skill extraction training using large language models (2023). https://arxiv.org/abs/2307.10778",
+      "risks": [
+        "European Commission ESCO v1.1.0; generation provenance and incomplete incidental skills."
+      ],
+      "language": "en",
+      "annotation_type": "sentence_multilabel",
+      "quality": "Synthetic single-skill prompts, ten sentences per target, not exhaustive annotations; auxiliary normalization only. Never turn target labels into BIO offsets.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "9c79b3e4c04c1c7107d453b41de18f9917960ec8a100747f14776b51df5f3007",
+          "bytes": 1139,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "dataset.csv",
+          "sha256": "3217976eeb08e196cc740868a1a2b03e7cfc5897adcf8c9262e1a40a73144393",
+          "bytes": 18852517,
+          "split": "train",
+          "role": "auxiliary",
+          "format": "sentence_labels"
+        }
+      ]
+    },
+    {
+      "id": "skill_xl",
+      "repository": "https://huggingface.co/datasets/TechWolf/Skill-XL",
+      "revision": "221cbec139621712633cbc2d27dcd2daa68e48ed",
+      "base_url": "https://huggingface.co/datasets/TechWolf/Skill-XL/resolve/221cbec139621712633cbc2d27dcd2daa68e48ed/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/TechWolf/Skill-XL/blob/221cbec139621712633cbc2d27dcd2daa68e48ed/README.md",
+      "license_evidence_kind": "publisher dataset-card declaration; no standalone LICENSE",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "TechWolf, Skill-XL, pinned Hugging Face dataset. https://huggingface.co/datasets/TechWolf/Skill-XL",
+      "risks": [
+        "Sparse documentation; annotator method, collection rights, cluster semantics unverified."
+      ],
+      "language": "en",
+      "annotation_type": "sentence_multilabel",
+      "quality": "Sparse card. CSV contains job ID, title, sentence, relevance, cluster and skill labels. Annotation protocol and completeness unverified; clusters are not spans.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "8f0c7e5b67cd5f155f6570a713fd5f75ed8202614734e37df3566efa045460d2",
+          "bytes": 30,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "development.csv",
+          "sha256": "35c83bfda2e1051980402da98413a57f295aaa3bce2b514329797d4125e976f4",
+          "bytes": 1247774,
+          "split": "validation",
+          "role": "validation",
+          "format": "skill_xl"
+        },
+        {
+          "path": "test.csv",
+          "sha256": "3fe4798ee0710106d0414dded573a1bec5959c0a6089fa12e97c587ce3b2d90a",
+          "bytes": 1379269,
+          "split": "test",
+          "role": "external_evaluation",
+          "format": "skill_xl"
+        }
+      ]
+    },
+    {
+      "id": "green",
+      "repository": "https://github.com/acp19tag/skill-extraction-dataset",
+      "revision": "ca1eadd2885a277853b01f0ec96fc89094adf71e",
+      "base_url": "https://raw.githubusercontent.com/acp19tag/skill-extraction-dataset/ca1eadd2885a277853b01f0ec96fc89094adf71e/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://github.com/acp19tag/skill-extraction-dataset/blob/ca1eadd2885a277853b01f0ec96fc89094adf71e/LICENSE",
+      "license_evidence_kind": "actual standalone LICENSE and explicit README data grant",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "Thomas AF Green, Diana Maynard and Chenghua Lin (LREC 2022), Development of a Benchmark Corpus to Support Entity Recognition in Job Descriptions. https://aclanthology.org/2022.lrec-1.128/ Original job descriptions credited upstream to Kaggle user airiddha (trainrev1).",
+      "risks": [
+        "Original advertisement and Kaggle-source rights; raw data may contain recruiter email addresses.",
+        "Processed counts differ from raw datasheet; sentence IDs are not original document IDs."
+      ],
+      "language": "en",
+      "annotation_type": "span",
+      "quality": "Crowdsourced BIO Skill, Qualification, Experience, Occupation, Domain. Workers passed >70% qualification. Use Skill only in skill metric; retain all labels and POS.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "1a5a86a9ce1f3d951d67c52bf1e3193d9464e3c1eeec8d9a7ab1cf814b95231d",
+          "bytes": 3049,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661",
+          "bytes": 18650,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "Datasheet.pdf",
+          "sha256": "8361e0ed85a9d9d9c92231810b809b472cd019c92d82efe21228d64119214361",
+          "bytes": 99286,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "preprocessed_data/df_answers.csv",
+          "sha256": "4125491f9b05911520d7f0fef5c5963d33521b995d3ea55689baaccb571bb32c",
+          "bytes": 4346664,
+          "split": "train",
+          "role": "train",
+          "format": "green"
+        },
+        {
+          "path": "preprocessed_data/df_testset.csv",
+          "sha256": "ff69bff0202fda1f4d244fb5d8248fdea364ddbcf6e7217d989cc072b3f49201",
+          "bytes": 139889,
+          "split": "test",
+          "role": "external_evaluation",
+          "format": "green"
+        }
+      ]
+    },
+    {
+      "id": "ru_titles",
+      "repository": "https://huggingface.co/datasets/MrAlexGov/it-job-title-skills-ru",
+      "revision": "9863ee993040c43305627c72227fc50415e257ad",
+      "base_url": "https://huggingface.co/datasets/MrAlexGov/it-job-title-skills-ru/resolve/9863ee993040c43305627c72227fc50415e257ad/",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/MrAlexGov/it-job-title-skills-ru/blob/9863ee993040c43305627c72227fc50415e257ad/README.md",
+      "license_evidence_kind": "publisher dataset-card declaration; no standalone LICENSE",
+      "license_text_file": "LICENSES/datasets/green-LICENSE.txt",
+      "attribution": "MrAlexGov, IT job title to key skills (hh.ru, 2023). Sources credited upstream: etietopabraham/jobs-raw-data and ilyazawilsiv/it-vacancies-from-headhunter-website on Kaggle.",
+      "risks": [
+        "Publisher declares CC-BY-4.0; upstream Kaggle licenses claimed CC-BY-4.0/Apache-2.0 could not be independently verified (HTTP 403).",
+        "No Russian span gold; no inference from job titles in the production extractor."
+      ],
+      "language": "ru",
+      "annotation_type": "title_multilabel",
+      "quality": "Real hh.ru vacancy titles and normalized key-skill lists, not full descriptions or spans. Rare and soft skills removed upstream; English technical tags in Russian job titles. Research inventory only until upstream terms reviewed.",
+      "assets": [
+        {
+          "path": "README.md",
+          "sha256": "3b09402a85d8e743d07a30c488230b68036b427b5e80e6a36ac39bf3eacb348d",
+          "bytes": 1404,
+          "split": "metadata",
+          "role": "metadata",
+          "format": "notice"
+        },
+        {
+          "path": "it_title_skills.jsonl",
+          "sha256": "22ccbe63dc2d288a142548b65924018da836605dcfbacc744d1cec2be17a1fe3",
+          "bytes": 14607822,
+          "split": "unsplit",
+          "role": "research_only",
+          "format": "ru_titles"
+        }
+      ]
+    }
+  ]
+}

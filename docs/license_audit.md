@@ -171,3 +171,47 @@ Notable conditions that an MIT-only reading misses:
 
 No legal clearance, rightsholder warranty, full patent/trademark assessment, or analysis
 of jurisdiction-specific AI training/output rights is established by this technical audit.
+
+## Optional Qwen extension — 2026-10-23
+
+This addendum covers the feature-branch extension from
+`f682c2427bdb2e1ea7ccb8a778b5d92caaa4c2f8`. The original audit and manual-review
+register above remain historical findings; the lockfile now adds five optional
+package/version entries without changing any of the original 48 versions.
+[Qwen evidence](qwen_license_evidence.json) records actual license files, hashes,
+model revision and inspected software artifacts. The current complete dependency
+index has 53 external package/version entries; its baseline hash is retained too.
+
+Qwen2.5-7B-Instruct supplies a real Apache-2.0 LICENSE at the pinned revision,
+retained in the notice collection. Its weights are not committed or executed here.
+No new source code, dataset or taxonomy was copied from ResuMatch, Nesta or
+SkillAlign. The optional model and dependencies do not require changing the root
+MIT for original code; they do require preserving their own terms and notices.
+The notices for accelerate (Apache-2.0), bitsandbytes, lm-format-enforcer and
+interegular (MIT), and psutil (BSD-3-Clause) are retained without changing originals.
+
+Additional manual review: the GPU installation deliberately lives outside the
+CPU lock. Check the exact CUDA-enabled PyTorch, NVIDIA libraries/driver and compiled
+bitsandbytes components before distributing an installed GPU environment. No
+platform-complete binary SBOM or upstream model training-data/output clearance is
+claimed. Existing E5/data/ESCO and native-library risks R1–R7 still apply. The new
+adapter's snapshots/diagnostics also require the custodian's dataset license and
+privacy retention policy; conversion success is not a grant of data rights.
+
+## Skill extractor v2 extension — 2026-10-24
+
+The extension from `ad45d07eb220dfa3e68083910d6aa0c47750fd21` introduces original
+curated matching/context code, not copied SkillNER/JobBot code or EMSI dictionaries.
+It adds no dependencies and downloads no pretrained NER weights. The optional
+train-only phrase artifact is a derivative of the already reviewed MIT SkillSpan
+training annotations; it stays outside Git and embeds the actual original MIT
+notice and provenance. Its measured precision is poor; licensing does not imply
+quality suitability. Exact source pins, actual-license evidence and excluded assets
+are documented in `skill_extractor_research.md` and `skill_extractor_evidence.json`.
+
+The actual MIT code licenses for both SkillNER forks do not establish rights in
+their default separately sourced dictionary. JobBot and inspected JobBERT weight
+repositories lack a verified applicable grant and were excluded. The existing
+SkillSpan attribution/citation and R6 underlying-advertisement rights review remain
+applicable to local derivatives or any later redistribution. The root MIT and all
+original copyright notices are preserved; no broader legal clearance is claimed.

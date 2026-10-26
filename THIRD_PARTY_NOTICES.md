@@ -10,6 +10,11 @@ license compatibility, unresolved rights and the manual-review register. Exact
 sources, revisions and hashes are in [license_evidence.json](docs/license_evidence.json)
 and [dependency_licenses.json](docs/dependency_licenses.json).
 
+The optional Qwen extension was reviewed on 2026-10-23. Its model and five additional
+package notices are listed in the Qwen addendum at the end of this file and in
+[qwen_license_evidence.json](docs/qwen_license_evidence.json). Original notices below
+remain intact; this addendum does not clear the separate CUDA runtime for distribution.
+
 The following original copyright and permission notices are retained. No upstream
 copyright holder is replaced with the ResumeAnalysis contributors' name.
 
@@ -336,3 +341,130 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ```
+
+## Qwen backend addendum — 2026-10-23
+
+The optional inference model is `Qwen/Qwen2.5-7B-Instruct`, revision
+`a09a35458c702b33eeacc393d103063234e8bc28`.
+The actual pinned [upstream LICENSE](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/blob/a09a35458c702b33eeacc393d103063234e8bc28/LICENSE)
+is Apache-2.0 and is retained in full at
+[LICENSES/references/qwen-instruct-7b-LICENSE.txt](LICENSES/references/qwen-instruct-7b-LICENSE.txt).
+No separate NOTICE was listed in this model repository at the reviewed revision.
+Do not invent an asset-specific copyright line from the publisher's name. Preserve
+actual supplied copyright/license/NOTICE material, identify modifications, retain
+Apache patent and trademark conditions, and review training/output provenance before
+redistributing weights or making rights assurances. Weights/tokenizers are downloaded
+separately, not committed. Inference retains and verifies their source manifest.
+
+Five additional locked packages are optional. The linked bundles preserve their
+original complete notices, including the named copyright holders, byte-for-byte
+between file boundaries. Their original names are not replaced by this project's name.
+
+| Package/version | Actual license | Original full notice |
+|---|---|---|
+| accelerate 1.15.0 | Apache-2.0 | [LICENSE](LICENSES/dependencies/accelerate-1.15.0.txt) |
+| bitsandbytes 0.50.2 | MIT; copyright (c) Facebook, Inc. and its affiliates | [LICENSE](LICENSES/dependencies/bitsandbytes-0.50.2.txt) |
+| lm-format-enforcer 0.11.3 | MIT; copyright (c) 2023 Noam Gat | [LICENSE](LICENSES/dependencies/lm-format-enforcer-0.11.3.txt) |
+| interegular 0.3.3 | MIT; copyright (c) 2019 @MegaIng and @qntm | [LICENSE](LICENSES/dependencies/interegular-0.3.3.txt) |
+| psutil 7.2.2 | BSD-3-Clause; original multiple copyright holders retained | [LICENSE](LICENSES/dependencies/psutil-7.2.2.txt) |
+
+The first audit's 48 package/version entries remain unchanged; the complete current
+index has 53. Four additions were inspected from installed wheel metadata/notices;
+the exact locked Linux x86-64 bitsandbytes wheel was downloaded, hash-verified and
+inspected without installation. This is not an exhaustive inventory of compiled
+CUDA kernels, every platform wheel or external NVIDIA driver/runtime components.
+A separate CUDA-enabled PyTorch installation can introduce additional NVIDIA and
+native licenses that the CPU lock does not represent. Review the exact GPU release
+artifact and its source/notice obligations before distributing a bundled runtime.
+
+## Skill extractor v2 addendum — 2026-10-24
+
+The reviewed references are markovml/skill-ner
+(`c23846c19a084d48571b1e4a88f4095cba1094c0`), AnasAito/SkillNER
+(`e8cdbb6f591211bf5d0fe2c8a61ddb95526a78b3`), SkillSpan
+(`2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b`), and JobBot
+(`e2f38a1a8cf0714e973bf9d4b713cacb5a4cafc1`).
+No implementation source, EMSI/Lightcast skill dictionary or pretrained NER weights
+from these references were copied or imported. The new curated vocabulary and
+requirement rules are original project code under the root MIT. Research is not
+an assertion that all referenced assets are MIT or cleared for reuse.
+
+The optional phrase matcher derives a separately generated local vocabulary from
+**SkillSpan's training annotations only**. SkillSpan's actual original MIT notice,
+**Copyright (c) 2023 Mike Zhang**, is already retained above and in
+[LICENSES/references/skillspan-LICENSE.txt](LICENSES/references/skillspan-LICENSE.txt).
+Its full notice is also embedded in the generated derivative artifact with the
+source revision/hash and declared transformations (exact phrase counting, frequency,
+length and ambiguity/disjunction filters). The corpus and generated vocabulary
+are excluded from Git. The SkillSpan scholarly citation above still applies.
+Underlying advertisement rights and intended redistribution remain review items.
+
+The two SkillNER repositories supply MIT code notices naming **Copyright (c) 2021,
+Anas AIT AOMAR & Badr MOUFAD. All rights reserved.** No code is included here, so this
+is provenance research rather than an incorporated-code notice. Their separate
+default EMSI dictionary terms remain unresolved. JobBot has no verified license
+grant; do not copy its code/assets based on public access or its academic statement.
+The inspected JobBERT skill/knowledge weight repositories have no verified
+asset-specific license declaration/file and were not downloaded or executed.
+
+Read [the research matrix](docs/skill_extractor_research.md) and
+[evidence index](docs/skill_extractor_evidence.json) for exact scope, terms and
+excluded candidates. No new software dependencies or third-party source licenses
+were introduced by this extraction update; existing model/data/taxonomy/native
+runtime review items remain in force.
+## Skill dataset research and preprocessing additions — 2026-10-23
+
+The original MIT project license does not relicense external datasets. This
+addition includes independently authored download/preprocessing code and a retained
+license text; dataset payloads and derived phrase artifacts remain outside Git.
+Original upstream README/license files are preserved unchanged in local downloads.
+
+- **Green, Maynard and Lin job-description entity corpus**:
+  https://github.com/acp19tag/skill-extraction-dataset/tree/ca1eadd2885a277853b01f0ec96fc89094adf71e.
+  Thomas AF Green, Diana Maynard and Chenghua Lin, *Development of a Benchmark
+  Corpus to Support Entity Recognition in Job Descriptions*, LREC 2022,
+  https://aclanthology.org/2022.lrec-1.128/. The upstream README credits original
+  job descriptions to Kaggle user `airiddha`, `trainrev1`. Released under
+  **Creative Commons Attribution 4.0 International**. The original full license
+  is retained at [LICENSES/datasets/green-LICENSE.txt](LICENSES/datasets/green-LICENSE.txt),
+  unchanged (SHA-256 `7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661`).
+  Conversions reconstruct tokenized text, retain original labels/POS and provenance,
+  and report duplicate/leakage exclusions; original downloaded files are not edited.
+- **TechWolf TECH, HOUSE, TECHWOLF and Synthetic ESCO Skill Sentences**:
+  publisher dataset cards declare **CC BY 4.0**,
+  https://creativecommons.org/licenses/by/4.0/. Attribution: TechWolf and
+  Jens-Joris Decorte and coauthors, *Design of negative sampling strategies for
+  distantly supervised skill extraction* (2022), https://arxiv.org/abs/2209.05987,
+  and *Extreme multi-label skill extraction training using large language models*
+  (2023), https://arxiv.org/abs/2307.10778, as applicable to each pinned dataset.
+  These sources use **ESCO v1.1.0**, European Commission,
+  https://esco.ec.europa.eu/. The European Commission is not responsible for any
+  use of the information. TECH/HOUSE derive from SkillSpan; preserve SkillSpan's
+  original attribution and notices as well. No standalone license files were
+  listed in these dataset releases; the specific publisher declarations and
+  pinned URLs are retained in [configs/skill_datasets.json](configs/skill_datasets.json).
+  Original advertisement rights and version-specific ESCO terms remain review
+  items before redistribution. Source rows are grouped without inventing offsets;
+  derived metadata identifies these conversions and their sources.
+- **Skill-XL**, TechWolf:
+  https://huggingface.co/datasets/TechWolf/Skill-XL/tree/221cbec139621712633cbc2d27dcd2daa68e48ed.
+  Publisher card declares **CC BY 4.0**, with no separate LICENSE or annotation
+  protocol. Preserve TechWolf attribution, source/revision and the license link in
+  derived metadata. Missing source-rights/annotation information requires review
+  before any redistribution or additional training use.
+- **IT job title to key skills (hh.ru, 2023)**, MrAlexGov:
+  https://huggingface.co/datasets/MrAlexGov/it-job-title-skills-ru/tree/9863ee993040c43305627c72227fc50415e257ad.
+  Publisher declares **CC BY 4.0** and credits Kaggle releases by
+  `etietopabraham` (`jobs-raw-data`) and `ilyazawilsiv`
+  (`it-vacancies-from-headhunter-website`). The original platform is hh.ru.
+  Upstream license claims could not be independently verified; this asset is
+  restricted to local research inventory in the new tooling, without eligible
+  training/evaluation output. No payload is redistributed here.
+
+The existing SkillSpan MIT notice above remains unchanged. Its author's separate
+Hugging Face mirror declares CC BY 4.0; this discrepancy is recorded for manual
+review rather than silently relicensing the pinned GitHub snapshot. New
+train-derived experimental phrase artifacts carry applicable full notices,
+attributions, source hashes and a description of modifications. JobBot,
+unknown-license Sayfullina annotations, unresolved SkillSkape mirror data and new
+model weights were not imported. Model-card research is not model redistribution.

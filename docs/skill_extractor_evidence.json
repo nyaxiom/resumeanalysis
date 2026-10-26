@@ -1,0 +1,453 @@
+{
+  "review_date": "2026-10-24",
+  "base_branch": "feature/qwen-instruct",
+  "base_commit": "ad45d07eb220dfa3e68083910d6aa0c47750fd21",
+  "research": [
+    {
+      "review_date": "2026-10-24",
+      "scope": "Read-only upstream code/metadata/license inspection; source retained only under /tmp for research. No repo implementation/assets copied or imported; no new dependencies installed; external CPU latency/RAM/accuracy unmeasured.",
+      "projects": [
+        {
+          "repository": "https://github.com/markovml/skill-ner",
+          "commit": "c23846c19a084d48571b1e4a88f4095cba1094c0",
+          "is_fork": true,
+          "parent": "AnasAito/SkillNER",
+          "last_commit_date": "2023-01-21T02:13:15Z",
+          "last_push": "2023-08-22T07:52:01Z",
+          "archived": false,
+          "source_license": {
+            "spdx": "MIT",
+            "copyright": "Copyright (c) 2021, Anas AIT AOMAR & Badr MOUFAD. All rights reserved.",
+            "actual_license_url": "https://raw.githubusercontent.com/markovml/skill-ner/c23846c19a084d48571b1e4a88f4095cba1094c0/LICENSE",
+            "sha256": "fcbc977a426cf5b00ccc331749791daa745b4f60e2629fe398e4aeeb8c4b2da9"
+          },
+          "approach": "spaCy PhraseMatcher passes for exact phrases, abbreviations, unigrams, lower-surface forms and partial token matches; Porter stemming/lemmatization, heuristic token-overlap weighting and spaCy word-vector/Jaro similarity resolve partial candidates. EMSI-derived skill IDs provide dictionary linking. Not a trained skill-specific NER model.",
+          "requirement_classification": "No explicit required/optional/negated/alternative classification in annotate output. Returned text is normalized/transformed; doc_node_id identifies transformed tokens rather than original source character spans.",
+          "dictionary_terms": "README identifies EMSI database. Root source MIT exists, but no separate source-database license/attribution/version is supplied in inspected repository files. The processing script uses EMSI skills API; source asset permissions/attributions are not proved by code MIT. Official current EMSI/Lightcast endpoints were inaccessible (proxy HTTP403), so no current provider-license claim is made.",
+          "remote_behavior": "Importing general_params reads CWD skill_db_relax_20.json/token_dist.json or downloads from mutable AnasAito/SkillNER first_release branch and writes CWD. No content-hash/revision pin in default path.",
+          "download_sizes_bytes": {
+            "buckets/skill_db_relax_20.json": 7061932,
+            "buckets/skills_processed.json": 11545963,
+            "buckets/token_dist.json": 184417
+          },
+          "languages": {
+            "English": "Default en_core_web_lg pipeline, English EMSI-derived dictionary and English Porter stemmer",
+            "Russian": "No Russian skill benchmark or model. Optional user-supplied translator callback translates to English; not native RU support and cannot preserve original offsets automatically."
+          },
+          "dependencies": {
+            "runtime_setup": [
+              "numpy",
+              "pandas",
+              "nltk",
+              "spacy",
+              "jellyfish",
+              "ipython"
+            ],
+            "torch": "No mandatory PyTorch dependency; spaCy/Thinc CPU approach",
+            "python": "Only generic Python3 classifier; historical dev environment pins Python3.8; Python3.11/3.12 compatibility not executed",
+            "package": "skillNer==1.0.3, latest PyPI release observed 2021-11-07; unbounded runtime dependencies and no requires_python metadata",
+            "compatibility_risk": "Current dependency compatibility not established. Upstream fallback uses jellyfish.jaro_distance; fork changes this to jaro_similarity and modifies scoring. Do not treat fork and upstream as independent algorithms or equal runtime behavior."
+          },
+          "benchmark_evidence": "Inspected README/source provides examples/demos, not a reproducible SkillSpan precision/recall/F1 or independent Russian evaluation. No external extractor was installed or run in ResumeAnalysis.",
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "resource_notes": "No mandatory CUDA. README claims en_core_web_lg download about800MB, an upstream historical statement, not RAM or an observed measurement. Separate pinned spaCy model metadata records actual artifact size below. Python object/dictionary and spaCy vector runtime RAM are unmeasured.",
+          "files_examined": [
+            {
+              "path": "README.md",
+              "sha256": "61b945c7cec5658d8b5d65ec4b33174e08f9b3e4067dcfaefc537c73d6f8f13b"
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "fcbc977a426cf5b00ccc331749791daa745b4f60e2629fe398e4aeeb8c4b2da9"
+            },
+            {
+              "path": "setup.py",
+              "sha256": "bdfce59fde3c31995c46b9130b7543b9d654fd544d31b5eafc18c0f65aebc228"
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "c55f73a338fb29c14919e08d09d3b88aa4f367694a675308f574bd73d2b7e045"
+            },
+            {
+              "path": "skillNer/skill_extractor_class.py",
+              "sha256": "5ca7906b79688b951ba54e3e682ee50da2a132cc37ec8962fdad24bb484087c4"
+            },
+            {
+              "path": "skillNer/general_params.py",
+              "sha256": "ddbcdd41ff736c9107318b6919e39e09e8fc72318045bcd53a1b74fe15614881"
+            },
+            {
+              "path": "skillNer/network/remote_db.py",
+              "sha256": "abe6355dd931bb3590cd3232b1710cab61008cab1281365a4203d8f00371754d"
+            },
+            {
+              "path": "skillNer/matcher_class.py",
+              "sha256": "a1d261693ad5fa41c0a5e29768bd2f58dc524ee37412225c1ea70e47a2dacd15"
+            },
+            {
+              "path": "skillNer/text_class.py",
+              "sha256": "922fe27955bd8790e84c487b1a1e5db1e404f1492ef7688c362b4de58e71fc82"
+            },
+            {
+              "path": "skillNer/utils.py",
+              "sha256": "ce914ad769b0805eea83afdc4d45aaac679dc21e9a4e9b10d3eca80394315475"
+            },
+            {
+              "path": "skillNer/cleaner.py",
+              "sha256": "9f06b5a5cb84e6b59cd3694a88875cea2c079f342590cc235965a78672ad4fb7"
+            }
+          ],
+          "recommendation": "Reference-only. No third-party implementation/dictionary/weight copied or imported. Independently authored context-aware rules retain exact source spans and requirement semantics without implicit downloads or heavy dependencies; optional NER needs separate reviewed local assets."
+        },
+        {
+          "repository": "https://github.com/AnasAito/SkillNER",
+          "commit": "e8cdbb6f591211bf5d0fe2c8a61ddb95526a78b3",
+          "is_fork": false,
+          "parent": null,
+          "last_commit_date": "2023-08-22T07:51:58Z",
+          "last_push": "2024-01-28T20:41:40Z",
+          "archived": false,
+          "source_license": {
+            "spdx": "MIT",
+            "copyright": "Copyright (c) 2021, Anas AIT AOMAR & Badr MOUFAD. All rights reserved.",
+            "actual_license_url": "https://raw.githubusercontent.com/AnasAito/SkillNER/e8cdbb6f591211bf5d0fe2c8a61ddb95526a78b3/LICENSE",
+            "sha256": "87fa75ef8857bbdc38cff22dde87929a47e497e90973fd76076bddf1bdfe08e5"
+          },
+          "approach": "spaCy PhraseMatcher passes for exact phrases, abbreviations, unigrams, lower-surface forms and partial token matches; Porter stemming/lemmatization, heuristic token-overlap weighting and spaCy word-vector/Jaro similarity resolve partial candidates. EMSI-derived skill IDs provide dictionary linking. Not a trained skill-specific NER model.",
+          "requirement_classification": "No explicit required/optional/negated/alternative classification in annotate output. Returned text is normalized/transformed; doc_node_id identifies transformed tokens rather than original source character spans.",
+          "dictionary_terms": "README identifies EMSI database. Root source MIT exists, but no separate source-database license/attribution/version is supplied in inspected repository files. The processing script uses EMSI skills API; source asset permissions/attributions are not proved by code MIT. Official current EMSI/Lightcast endpoints were inaccessible (proxy HTTP403), so no current provider-license claim is made.",
+          "remote_behavior": "Importing general_params reads CWD skill_db_relax_20.json/token_dist.json or downloads from mutable AnasAito/SkillNER first_release branch and writes CWD. No content-hash/revision pin in default path.",
+          "download_sizes_bytes": {
+            "buckets/skill_db_relax_20.json": 7061931,
+            "buckets/skills_processed.json": 11545962,
+            "buckets/token_dist.json": 184416
+          },
+          "languages": {
+            "English": "Default en_core_web_lg pipeline, English EMSI-derived dictionary and English Porter stemmer",
+            "Russian": "No Russian skill benchmark or model. Optional user-supplied translator callback translates to English; not native RU support and cannot preserve original offsets automatically."
+          },
+          "dependencies": {
+            "runtime_setup": [
+              "numpy",
+              "pandas",
+              "nltk",
+              "spacy",
+              "jellyfish",
+              "ipython",
+              "scipy"
+            ],
+            "torch": "No mandatory PyTorch dependency; spaCy/Thinc CPU approach",
+            "python": "Only generic Python3 classifier; historical dev environment pins Python3.8; Python3.11/3.12 compatibility not executed",
+            "package": "skillNer==1.0.3, latest PyPI release observed 2021-11-07; unbounded runtime dependencies and no requires_python metadata",
+            "compatibility_risk": "Current dependency compatibility not established. Upstream fallback uses jellyfish.jaro_distance; fork changes this to jaro_similarity and modifies scoring. Do not treat fork and upstream as independent algorithms or equal runtime behavior."
+          },
+          "benchmark_evidence": "Inspected README/source provides examples/demos, not a reproducible SkillSpan precision/recall/F1 or independent Russian evaluation. No external extractor was installed or run in ResumeAnalysis.",
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "resource_notes": "No mandatory CUDA. README claims en_core_web_lg download about800MB, an upstream historical statement, not RAM or an observed measurement. Separate pinned spaCy model metadata records actual artifact size below. Python object/dictionary and spaCy vector runtime RAM are unmeasured.",
+          "files_examined": [
+            {
+              "path": "README.md",
+              "sha256": "fc904952b36bff6bb5343155f67e1c90da1bb52a4904081f4db68c902546aa87"
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "87fa75ef8857bbdc38cff22dde87929a47e497e90973fd76076bddf1bdfe08e5"
+            },
+            {
+              "path": "setup.py",
+              "sha256": "a7158eb91c72b5f3b59acc5067caff9cbaa9d1aae858391c20bd76d76f3233b7"
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "b7166b81bdb6b708e15ca38c1abec33ad299cda45d8e566856e9922f9c71425c"
+            },
+            {
+              "path": "skillNer/skill_extractor_class.py",
+              "sha256": "43db38b1c268528e517de4551ecb9a0e7d4dd7c50152d459270fc6bd7a1d4db5"
+            },
+            {
+              "path": "skillNer/general_params.py",
+              "sha256": "ddbcdd41ff736c9107318b6919e39e09e8fc72318045bcd53a1b74fe15614881"
+            },
+            {
+              "path": "skillNer/network/remote_db.py",
+              "sha256": "abe6355dd931bb3590cd3232b1710cab61008cab1281365a4203d8f00371754d"
+            },
+            {
+              "path": "skillNer/matcher_class.py",
+              "sha256": "a1d261693ad5fa41c0a5e29768bd2f58dc524ee37412225c1ea70e47a2dacd15"
+            },
+            {
+              "path": "skillNer/text_class.py",
+              "sha256": "90218159194e904d7c92fafcad500799bf175d4225c76be7ff999b40e150da7c"
+            },
+            {
+              "path": "skillNer/utils.py",
+              "sha256": "91e9d3bf08c61fc0fdf3f41b9c8f9326aa2f0bfcd970161f179baee7736da565"
+            },
+            {
+              "path": "skillNer/cleaner.py",
+              "sha256": "86d2a571c6c18d6e1731208021cf0c374bcd0e772daca18d1edbb4bec3d4e07f"
+            }
+          ],
+          "recommendation": "Reference-only. No third-party implementation/dictionary/weight copied or imported. Independently authored context-aware rules retain exact source spans and requirement semantics without implicit downloads or heavy dependencies; optional NER needs separate reviewed local assets."
+        }
+      ],
+      "model_candidates": [
+        {
+          "model_id": "spacy/en_core_web_lg",
+          "revision": "557bf758b8b070251eef3a62dd5442e72e72e2ce",
+          "version": "3.7.1",
+          "language": "en",
+          "spacy_version": ">=3.7.2,<3.8.0",
+          "license": "MIT",
+          "actual_license_url": "https://huggingface.co/spacy/en_core_web_lg/resolve/557bf758b8b070251eef3a62dd5442e72e72e2ce/LICENSE",
+          "license_sha256": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "source_notices_url": "https://huggingface.co/spacy/en_core_web_lg/resolve/557bf758b8b070251eef3a62dd5442e72e72e2ce/LICENSES_SOURCES",
+          "sources": [
+            {
+              "name": "OntoNotes 5",
+              "url": "https://catalog.ldc.upenn.edu/LDC2013T19",
+              "license": "commercial (licensed by Explosion)",
+              "author": "Ralph Weischedel, Martha Palmer, Mitchell Marcus, Eduard Hovy, Sameer Pradhan, Lance Ramshaw, Nianwen Xue, Ann Taylor, Jeff Kaufman, Michelle Franchini, Mohammed El-Bachouti, Robert Belvin, Ann Houston"
+            },
+            {
+              "name": "ClearNLP Constituent-to-Dependency Conversion",
+              "url": "https://github.com/clir/clearnlp-guidelines/blob/master/md/components/dependency_conversion.md",
+              "license": "Citation provided for reference, no code packaged with model",
+              "author": "Emory University"
+            },
+            {
+              "name": "WordNet 3.0",
+              "url": "https://wordnet.princeton.edu/",
+              "author": "Princeton University",
+              "license": "WordNet 3.0 License"
+            },
+            {
+              "name": "Explosion Vectors (OSCAR 2109 + Wikipedia + OpenSubtitles + WMT News Crawl)",
+              "url": "https://github.com/explosion/spacy-vectors-builder",
+              "license": "CC0",
+              "author": "Explosion"
+            }
+          ],
+          "files": [
+            {
+              "path": "en_core_web_lg-any-py3-none-any.whl",
+              "bytes": 587689537
+            },
+            {
+              "path": "vocab/vectors",
+              "bytes": 616988528
+            }
+          ],
+          "status": "Metadata/license only; not downloaded as weights or executed. Wheel and unpacked vectors are alternative encodings, do not sum them as runtime RAM."
+        }
+      ],
+      "unavailable_sources": [
+        {
+          "url": "https://skills.emsidata.com/",
+          "error": "Proxy HTTP403 / tunnel forbidden; provider license not verified"
+        },
+        {
+          "url": "https://lightcast.io/open-skills",
+          "error": "Proxy HTTP403 / tunnel forbidden; provider license not verified"
+        },
+        {
+          "url": "https://lightcast.io/open-skills/terms-of-use",
+          "error": "Proxy HTTP403 / tunnel forbidden; provider license not verified"
+        }
+      ]
+    },
+    {
+      "review_date": "2026-10-24",
+      "scope": "Read-only upstream source/metadata research. No third-party implementation, NER weights or new datasets copied into the repository; no dependencies installed; no CPU latency/RAM measured for external projects.",
+      "projects": [
+        {
+          "repository": "https://github.com/kris927b/SkillSpan",
+          "commit": "2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b",
+          "last_push": "2025-02-13T22:32:18Z",
+          "archived": false,
+          "approach": "BIO sequence labeling for SKILL and KNOWLEDGE; BERT, SpanBERT and job-domain-adapted JobBERT/JobSpanBERT; separate or multitask models. MaChAmp training scripts/configs, not a maintained lightweight extractor package.",
+          "source_license": {
+            "spdx": "MIT",
+            "copyright": "Copyright (c) 2023 Mike Zhang",
+            "actual_license_url": "https://raw.githubusercontent.com/kris927b/SkillSpan/2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b/LICENSE",
+            "sha256": "c7843d7998182d06cfe6d0cf4b215d487595527dfcd3ddce6584a9fdb8f61416"
+          },
+          "dataset_terms": "Repository releases code/data and contains MIT LICENSE; README releases two of three de-identified subsets and requests the SkillSpan paper citation. No separate data license file. Rights in original job advertisements still need review before redistribution.",
+          "weight_terms": "HF JobBERT skill/knowledge repositories inspected separately; no license declaration or LICENSE file there. The source-repository MIT should not silently be asserted as an asset-specific model grant.",
+          "languages": {
+            "English": "Dataset and models explicitly English job-posting task",
+            "Russian": "No Russian validation or support claim in examined material"
+          },
+          "compatibility": "README retains historical Python 3.6/PyTorch 1.7.0 instructions, notes migration to new MaChAmp (without AllenNLP) in February 2024. Actual modern Python 3.11/3.12 compatibility of upstream experiment runner not tested. Exported BERT token classifier uses standard Transformers BertForTokenClassification (config says 4.26.1).",
+          "download_sizes_bytes": {
+            "data/json/train.json": 2207996,
+            "data/json/dev.json": 1036099,
+            "data/json/test.json": 1116219
+          },
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "benchmark_evidence": "Paper/README reports domain-adapted models outperform non-adapted and single-task outperforms multitask; no checkpoint-level exact figures verified from paper in this environment. ACL PDF fetch blocked by host allowlist. These are published task claims, not new ResumeAnalysis results.",
+          "files_examined": [
+            "README.md",
+            "LICENSE",
+            ".gitmodules",
+            "configs/jobbert.json",
+            "configs/skills.json",
+            "repository tree"
+          ],
+          "references": [
+            "https://aclanthology.org/2022.naacl-main.366/",
+            "https://github.com/kris927b/SkillSpan/tree/2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b"
+          ],
+          "recommendation": "Keep existing pinned SkillSpan benchmark and retained MIT/citation. Do not copy training stack just for CPU extraction; do not infer model asset terms."
+        },
+        {
+          "repository": "https://github.com/SwathyAnand100/JobBot",
+          "commit": "e2f38a1a8cf0714e973bf9d4b713cacb5a4cafc1",
+          "last_push": "2026-02-16T23:46:39Z",
+          "archived": false,
+          "approach": "Academic Colab notebooks: spaCy LOWER PhraseMatcher dictionary baseline, fine-tuned distilbert-base-uncased token classifier; normalization uses BM25 + semantic matching. README calls cross-encoder reranking, but examined normalization notebook imports SentenceTransformer(all-MiniLM-L6-v2), so README and actual notebook deserve separate validation.",
+          "source_license": {
+            "spdx": null,
+            "actual_license_file": null,
+            "finding": "No LICENSE/NOTICE in complete repository tree. README License section says academic purposes as part of CS685 at UMass Amherst; this is not an open-source redistribution grant."
+          },
+          "dataset_terms": "LinkedIn Kaggle source and ESCO official source linked, but no explicit separate grant for notebook-generated annotations or model weights. Tree lacks linkedin/ annotations and fine-tuned model files described in README; ESCO exports are present and keep separate EU terms.",
+          "languages": {
+            "English": "distilbert-base-uncased, English ESCO and LinkedIn jobs",
+            "Russian": "No supplied Russian model/benchmark or fallback"
+          },
+          "compatibility": "README Python 3.8+ / Colab. Training notebook explicitly installs transformers==4.57.3, accelerate, datasets, seqeval; baseline adds pandas numpy spacy tqdm; normalization adds rank-bm25 and sentence-transformers. Imports google.colab.drive and local Google Drive paths prevent direct drop-in library use. PyTorch version/RAM/CPU throughput unspecified.",
+          "benchmarks_claimed": {
+            "dataset": "README: 700 manually annotated sentences, 490/105/105 train/dev/test; underlying annotation/model payloads not included",
+            "dictionary_strict_f1": 0.175,
+            "dictionary_lenient_f1": 0.405,
+            "distilbert_strict_f1": 0.619,
+            "distilbert_lenient_f1": 0.797,
+            "end_to_end_strict_f1": 0.366,
+            "end_to_end_lenient_f1": 0.54,
+            "status": "Upstream README claims only, not independently reproduced and not SkillSpan-comparable"
+          },
+          "download_sizes_bytes": {
+            "JobBot_Report.pdf": 1004708,
+            "esco/skills_en.csv": 9281785,
+            "esco/occupationSkillRelations_en.csv": 22008250,
+            "fine_tuned_model": null
+          },
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "files_examined": [
+            "README.md",
+            "complete repository tree",
+            "colab notebooks/02_baseline_extraction_and_evaluation.ipynb",
+            "colab notebooks/04_distilbert_extraction_and_evaluation.ipynb",
+            "colab notebooks/05_normalization.ipynb"
+          ],
+          "recommendation": "Reference-only research; do not copy code/data/checkpoints without a proper grant. Do not adopt its published F1 as measured performance here."
+        }
+      ],
+      "model_candidates": [
+        {
+          "model_id": "jjzha/jobbert_skill_extraction",
+          "revision": "a6211b675e287f3a07ffd4834b8182a2b519589b",
+          "last_modified": "2023-10-26T10:25:11.000Z",
+          "declared_license": null,
+          "actual_license_files": [],
+          "safetensors_bytes": 430915468,
+          "architecture": "BertForTokenClassification, 12 layers/768 hidden",
+          "languages": "English trained SkillSpan; no Russian quality evidence",
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "status": "not downloaded/executed; model-specific license missing"
+        },
+        {
+          "model_id": "jjzha/jobbert_knowledge_extraction",
+          "revision": "9dea9759b7e290413cb4d92e8cae338affab9be4",
+          "last_modified": "2023-10-26T10:25:41.000Z",
+          "declared_license": null,
+          "actual_license_files": [],
+          "safetensors_bytes": 430915468,
+          "architecture": "BertForTokenClassification, 12 layers/768 hidden",
+          "languages": "English trained SkillSpan; no Russian quality evidence",
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "status": "not downloaded/executed; model-specific license missing"
+        },
+        {
+          "model_id": "jjzha/escoxlmr_knowledge_extraction",
+          "revision": "11ff79181beba00102094005d0408a2d894e3092",
+          "last_modified": "2024-10-29T15:38:02.000Z",
+          "declared_license": "apache-2.0",
+          "actual_license_files": [],
+          "safetensors_bytes": 2235428364,
+          "architecture": "XLM-R-large token classifier",
+          "languages": "Multilingual pretraining, task adaptation to English SkillSpan; Russian quality unverified",
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "status": "not downloaded/executed; model-card Apache-2.0, no standalone LICENSE, ~2.24GB weight"
+        },
+        {
+          "model_id": "jjzha/escoxlmr_skill_extraction",
+          "revision": "180ca84c8be549e5f6564f61afef452cc0333032",
+          "declared_license": "apache-2.0",
+          "actual_license_files": [],
+          "safetensors_bytes": 2235428364,
+          "architecture": "XLM-R-large",
+          "status": "Not downloaded/executed; too heavy for a default without benchmark justification; card grant only; Russian task quality unverified"
+        },
+        {
+          "model_id": "nestauk/en_skillner",
+          "revision": "2610a6de4a5764a167c2eceff7cfd0a3e89e7c40",
+          "declared_license": "mit",
+          "actual_license_files": [],
+          "wheel_bytes": 587689424,
+          "vectors_bytes": 616988528,
+          "dependency": "spaCy >=3.7.4,<3.8.0",
+          "languages": [
+            "en"
+          ],
+          "maintenance": "Model card explicitly: future development/maintenance stopped May 2025",
+          "published_metrics": {
+            "all_entities_f1": 0.5837751856,
+            "skill_f1": 0.724,
+            "status": "Card-reported, not rerun on SkillSpan here"
+          },
+          "cpu_latency_ms": null,
+          "peak_ram_bytes": null,
+          "status": "Not downloaded/executed; heavy static vectors, English-only, frozen spaCy compatibility and maintenance stopped"
+        },
+        {
+          "model_id": "TechWolf/ConTeXT-Skill-Extraction-base",
+          "revision": "039a63443fa9b82b1f97d138de11646ec966016f",
+          "declared_license": null,
+          "actual_license_files": [],
+          "safetensors_bytes": 437967672,
+          "architecture": "MPNet sentence transformer; embeddings, not a BIO span extractor",
+          "status": "Not downloaded/executed; no model license, generic generated card, not direct NER"
+        }
+      ],
+      "decision": "Prefer an independently authored lightweight rules/phrase recognizer + context/requirements layer with preserved baseline. Optional NER should be gated behind an explicit asset license/provenance manifest. None of the inspected small JobBERT assets has a verified asset license; the one explicitly licensed multilingual model is large and unsuitable as an unmeasured default."
+    }
+  ],
+  "implementation_reuse": {
+    "third_party_code_copied": false,
+    "external_skill_dictionary_copied": false,
+    "pretrained_ner_executed": false,
+    "selected_default": "Original curated rule v2; legacy remains application default",
+    "optional_phrase_artifact": {
+      "source": "kris927b/SkillSpan",
+      "revision": "2ccf3de5b5af7a5409b8dd814fb1315dd6e0ae1b",
+      "source_split": "train",
+      "source_sha256": "5e884c3426087d14fc437d328eb72132082edbfe1e776292ae0e6e9b36c1e1f6",
+      "license": "MIT",
+      "copyright": "Copyright (c) 2023 Mike Zhang",
+      "notice": "LICENSES/references/skillspan-LICENSE.txt",
+      "distribution": "Generated separately under ignored artifacts; includes actual upstream notice; no raw corpus or phrase vocabulary committed",
+      "risk": "Severe measured precision loss; exact sentences overlap official splits; not a production default"
+    }
+  }
+}

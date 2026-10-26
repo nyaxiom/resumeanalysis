@@ -5,10 +5,9 @@ from pathlib import Path
 import torch
 
 from resumeanalysis.embeddings.encoder import Encoder, TextEncoder
-from resumeanalysis.extraction.skill_extractor import SkillExtractor
+from resumeanalysis.extraction.registry import Extractor, is_legacy
 from resumeanalysis.features.feature_builder import (
     FEATURE_NAMES,
-    PIPELINE_VERSION,
     FeatureEngineering,
 )
 from resumeanalysis.models.resume_analysis_net import ResumeAnalysisNet
@@ -22,22 +21,38 @@ class Predictor:
         checkpoint: str | Path,
         encoder: Encoder,
         threshold: float | None = None,
-        extractor: SkillExtractor | None = None,
+        extractor: Extractor | None = None,
     ):
         data = torch.load(checkpoint, map_location="cpu", weights_only=True)
-        if data["format_version"] != 1 or data["feature_names"] != FEATURE_NAMES:
+        if (
+            type(data.get("format_version")) is not int
+            or data.get("format_version") not in {1, 2}
+            or data.get("feature_names") != FEATURE_NAMES
+        ):
             raise ValueError("Incompatible checkpoint feature schema")
-        if data["encoder_identity"] != encoder.identity:
+        if data.get("encoder_identity") != encoder.identity:
             raise ValueError("Checkpoint encoder does not match runtime encoder")
+        self.builder = FeatureEngineering(encoder, extractor)
+        legacy = is_legacy(self.builder.extractor)
+        if data["format_version"] == 1 and not legacy:
+            raise ValueError(
+                "Legacy checkpoint requires the original SkillExtractor; retrain for changed extraction"
+            )
+        if data["format_version"] == 2 and (
+            legacy or data.get("extractor_identity") != self.builder.extractor_identity
+        ):
+            raise ValueError(
+                "Checkpoint extractor identity mismatch; retrain for changed extraction"
+            )
+        if (
+            type(data.get("pipeline_version")) is not int
+            or data.get("pipeline_version") != self.builder.pipeline_version
+            or data.get("taxonomy_identity") != self.builder.extractor.normalizer.taxonomy.identity
+        ):
+            raise ValueError("Checkpoint extraction/taxonomy pipeline mismatch")
         self.model = ResumeAnalysisNet(**data["network_config"])
         self.model.load_state_dict(data["state_dict"])
         self.model.eval()
-        self.builder = FeatureEngineering(encoder, extractor)
-        if (
-            data["pipeline_version"] != PIPELINE_VERSION
-            or data["taxonomy_identity"] != self.builder.extractor.normalizer.taxonomy.identity
-        ):
-            raise ValueError("Checkpoint extraction/taxonomy pipeline mismatch")
         self.postprocessor = Postprocessor(data["threshold"] if threshold is None else threshold)
 
     def predict(self, profile: Profile | dict, vacancy: Vacancy | dict) -> VacancyAnalysis:

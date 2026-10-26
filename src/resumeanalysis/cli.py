@@ -8,9 +8,18 @@ from resumeanalysis.embeddings.encoder import LexicalSmokeEncoder, TextEncoder
 
 
 def main():
+    from resumeanalysis.data.adapter_cli import configure_parser
+    from resumeanalysis.data.adapter_cli import run as datasets_run
+    from resumeanalysis.extraction.cli import configure_parser as configure_extractors
+    from resumeanalysis.extraction.cli import run as extractors_run
+
     parser = argparse.ArgumentParser(description="ResumeAnalysis: local matching and CPU training")
     parser.add_argument("--threads", type=int, default=2)
     sub = parser.add_subparsers(dest="command", required=True)
+    configure_parser(sub.add_parser("datasets", help="Inspect, convert and audit JSONL datasets"))
+    configure_extractors(
+        sub.add_parser("extractors", help="Compare versioned local skill extractors")
+    )
     for name, default in [
         ("download-e5", "artifacts/e5"),
         ("download-data", "data/raw/candidate-matching-synthetic"),
@@ -32,6 +41,8 @@ def main():
     )
     for name in ["train", "evaluate", "predict"]:
         p = sub.add_parser(name)
+        p.add_argument("--extractor", choices=["legacy", "v2"], default="legacy")
+        p.add_argument("--lexicon-path", help="Optional pinned train-only v2 phrase artifact")
         p.add_argument("--e5-path", default="artifacts/e5")
         p.add_argument(
             "--smoke-lexical",
@@ -39,6 +50,8 @@ def main():
             help="Diagnostic hashing encoder, explicitly not E5",
         )
         if name == "predict":
+            p.add_argument("--backend", choices=["mlp", "qwen"], default="mlp")
+            p.add_argument("--qwen-config", default="configs/qwen.json")
             p.add_argument("--checkpoint", default="artifacts/run/model.pt")
             p.add_argument("--input", required=True)
         else:
@@ -53,6 +66,11 @@ def main():
     if args.threads < 1:
         parser.error("--threads must be positive")
     torch.set_num_threads(args.threads)
+    if args.command == "datasets":
+        return datasets_run(args, parser)
+    if args.command == "extractors":
+        extractors_run(args, parser)
+        return
     if args.command == "download-e5":
         from resumeanalysis.data.download import download_e5
 
@@ -84,24 +102,49 @@ def main():
         result = evaluate_skillspan(args.input)
         Path(args.output).parent.mkdir(parents=True, exist_ok=True)
         Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    elif args.command == "predict" and args.backend == "qwen":
+        from resumeanalysis.extraction.registry import create_extractor
+        from resumeanalysis.jsonio import loads
+        from resumeanalysis.qwen.cli import read_config
+        from resumeanalysis.qwen.predictor import QwenPredictor
+
+        pair = loads(Path(args.input).read_text())
+        result = (
+            QwenPredictor(
+                read_config(args.qwen_config),
+                extractor=create_extractor(args.extractor, lexicon_path=args.lexicon_path),
+            )
+            .predict(pair["profile"], pair["vacancy"])
+            .model_dump()
+        )
     else:
+        from resumeanalysis.extraction.registry import create_extractor
+
+        extractor = create_extractor(args.extractor, lexicon_path=args.lexicon_path)
         encoder = LexicalSmokeEncoder() if args.smoke_lexical else TextEncoder(args.e5_path)
         if args.command == "train":
             from resumeanalysis.training.train import TrainingConfig, train
 
             config = TrainingConfig(**json.loads(Path(args.config).read_text()))
-            result = train(args.data, args.output, encoder, config)
+            if (
+                args.extractor != "legacy"
+                and Path(args.output).resolve() == Path("artifacts/run").resolve()
+            ):
+                parser.error(
+                    "V2 training requires a separate --output, such as artifacts/skill-extractor-v2/run"
+                )
+            result = train(args.data, args.output, encoder, config, extractor=extractor)
             result = {k: v for k, v in result.items() if k != "history"}
         elif args.command == "evaluate":
             from resumeanalysis.training.train import evaluate_saved
 
-            result = evaluate_saved(args.data, args.output, encoder)
+            result = evaluate_saved(args.data, args.output, encoder, extractor=extractor)
         else:
             from resumeanalysis.inference.predictor import Predictor
 
             pair = json.loads(Path(args.input).read_text())
             result = (
-                Predictor(args.checkpoint, encoder)
+                Predictor(args.checkpoint, encoder, extractor=extractor)
                 .predict(pair["profile"], pair["vacancy"])
                 .model_dump()
             )

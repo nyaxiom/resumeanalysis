@@ -45,7 +45,26 @@ class Postprocessor:
             )
         else:
             parts.append("The stated experience-duration requirement is met.")
-        if not detail.required:
+        for group in detail.alternative_groups:
+            qualifier = (
+                "no option is required"
+                if group["requirement"] == "negated"
+                else "one option suffices"
+            )
+            parts.append(
+                "Alternative "
+                + group["requirement"]
+                + " requirement ("
+                + qualifier
+                + "): "
+                + " or ".join(group["skills"])
+                + "; evidence status: "
+                + group["status"]
+                + "."
+            )
+        if not detail.required and not any(
+            g["requirement"] == "required" for g in detail.alternative_groups
+        ):
             parts.append("Mandatory skills have not been explicitly identified.")
         parts.extend(conflicts + unknowns)
         return VacancyAnalysis(

@@ -1,5 +1,11 @@
 # ResumeAnalysis
 
+The [local cover-letter workflow](docs/cover_letters.md) combines the existing
+relevance model, resume selection and a licensed upstream generator adapted to
+Qwen Instruct. Use `resumeanalysis analyze` for a plain-text draft; the original
+matching commands remain available. See the [source audit](docs/cover_letter_audit.md)
+and [measured comparison](docs/cover_letter_benchmarks.md) for quality limits.
+
 An opt-in [Retrieve → Re-rank backend](docs/retrieve_rerank.md) adds multilingual
 E5 retrieval, a pinned multilingual cross-encoder and explicit requirement checks.
 It supports `create_predictor("rerank")`, single-pair predictions and batch

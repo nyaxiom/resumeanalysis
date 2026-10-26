@@ -497,3 +497,50 @@ No mMARCO data is downloaded or redistributed here. See the pinned sources and
 concrete manual-review limits in [docs/rerank_model_selection.md](docs/rerank_model_selection.md).
 Independent relevance datasets reviewed for this experiment were not imported;
 the authored annotation templates contain no ground-truth hiring judgments.
+
+## Cover-letter generation components
+
+**ApplyKit**, `wihlarkop/applykit`, revision
+`002360a6d5af14f9eeedae29934291fc95b22f97`, is MIT licensed:
+https://github.com/wihlarkop/applykit/tree/002360a6d5af14f9eeedae29934291fc95b22f97.
+Copyright (c) 2026 ApplyKit Contributors. The complete original copyright and
+permission notice is preserved in [LICENSES/cover_letters/applykit-LICENSE.txt](LICENSES/cover_letters/applykit-LICENSE.txt).
+The cover-letter system prompt, JSON input-boundary helpers and prompt-builder
+logic originate in `backend/app/services/prompts.py` and
+`backend/app/routes/generate.py`. Source headers identify their origin.
+Adaptations add project-native input schemas, explicit English/Russian output,
+bounded length and data-only candidate context; database, PDF, UI and cloud
+provider code are omitted. The final adaptation shortens the evidence paragraph,
+removes the mandatory STAR/result instruction and adds source-grounding constraints.
+
+**Resume-Matcher**, `srbhr/Resume-Matcher`, revision
+`f6296a5e6a31c9d616620143688cc909623c542f`, is Apache-2.0 licensed:
+https://github.com/srbhr/Resume-Matcher/tree/f6296a5e6a31c9d616620143688cc909623c542f.
+The cover-letter prompt from `apps/backend/app/prompts/templates.py` is retained
+for the reproducible comparison. Its complete upstream license is preserved
+unchanged in [LICENSES/cover_letters/resume-matcher-LICENSE.txt](LICENSES/cover_letters/resume-matcher-LICENSE.txt).
+No standalone NOTICE was found. The benchmark supplies an explicit Russian
+language name and a common word limit, and uses the existing local Qwen runtime
+instead of the upstream application/provider stack. These modifications do not
+relicense the original material under the project's MIT license.
+
+**Qwen2.5-1.5B-Instruct**, Qwen Team, Alibaba Cloud, revision
+`989aa7980e4cf806f80c7fef2b1adb7bc71aa306`:
+https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306.
+The publisher grants Apache-2.0; the complete original model license is retained
+in [LICENSES/cover_letters/qwen-1.5b-LICENSE.txt](LICENSES/cover_letters/qwen-1.5b-LICENSE.txt).
+Model weights are not modified or committed. The explicit downloader retains the
+upstream card, license and all artifact checksums. This smaller CPU benchmark
+does not establish quality for the separately configured Qwen2.5-7B backend.
+
+The stronger local comparison uses **Qwen3-4B-Instruct-2507**, Qwen Team,
+revision `cdbee75f17c01a7cc42f958dc650907174af0554`:
+https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507/tree/cdbee75f17c01a7cc42f958dc650907174af0554.
+Its original Apache-2.0 license is preserved byte-for-byte in
+[LICENSES/cover_letters/qwen-4b-LICENSE.txt](LICENSES/cover_letters/qwen-4b-LICENSE.txt).
+Downloaded safetensors are unchanged and excluded from Git. Explicit CPU bfloat16
+loading changes in-memory numeric representation, not the distributed weight files.
+
+No code from the three candidates with incomplete license evidence was imported.
+See [the source audit](docs/cover_letter_audit.md) and pinned evidence for the
+scope of reuse and remaining quality/license limits. Original notices remain intact.

@@ -77,6 +77,11 @@ def main():
     configure_extractors(
         sub.add_parser("extractors", help="Compare versioned local skill extractors")
     )
+    from resumeanalysis.cover_letters.cli import configure as configure_letters
+
+    configure_letters(
+        sub.add_parser("analyze", help="Score resumes and draft a local cover letter")
+    )
     for name, default in [
         ("download-e5", "artifacts/e5"),
         ("download-data", "data/raw/candidate-matching-synthetic"),
@@ -138,6 +143,11 @@ def main():
     if args.threads < 1:
         parser.error("--threads must be positive")
     torch.set_num_threads(args.threads)
+    if args.command == "analyze":
+        from resumeanalysis.cover_letters.cli import run as run_letters
+
+        run_letters(args)
+        return
     if args.command == "datasets":
         return datasets_run(args, parser)
     if args.command == "extractors":

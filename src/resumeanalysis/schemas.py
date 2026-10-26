@@ -43,6 +43,6 @@ class VacancyAnalysis(BaseModel):
     explanation: str
     preference_conflicts: list[str] = Field(default_factory=list)
     preference_unknowns: list[str] = Field(default_factory=list)
-    summary: None = None
-    resume_id: None = None
-    cover_letter: None = None
+    summary: str | None = None
+    resume_id: int | None = Field(default=None, ge=1)
+    cover_letter: str | None = None

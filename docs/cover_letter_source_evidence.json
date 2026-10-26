@@ -1,0 +1,149 @@
+{
+  "review_date": "2026-10-26",
+  "repositories": [
+    {
+      "repository": "0xrsydn/coverletter",
+      "revision": "a3533a8b3648d63c6f4e6db0e1a094efd3a78bd3",
+      "source_url": "https://github.com/0xrsydn/coverletter/tree/a3533a8b3648d63c6f4e6db0e1a094efd3a78bd3",
+      "license_file_present": false,
+      "files": {
+        "src/modules/cover_letter/cover_letter.py": {
+          "sha256": "c0635b28a52c7911550ae4925611adfc3e0768f27ee6781a6e2123c0f595cef9",
+          "url": "https://github.com/0xrsydn/coverletter/blob/a3533a8b3648d63c6f4e6db0e1a094efd3a78bd3/src/modules/cover_letter/cover_letter.py"
+        },
+        "README.md": {
+          "sha256": "6a53ce39d0f7839c9b35d66b8ab1254b96ff7ddbc9fa169e3e89aad9dad7b5b4",
+          "url": "https://github.com/0xrsydn/coverletter/blob/a3533a8b3648d63c6f4e6db0e1a094efd3a78bd3/README.md"
+        }
+      }
+    },
+    {
+      "repository": "kennedyraju55/cover-letter-generator",
+      "revision": "b08adac7743156d357fe9c1cadf0a1dbf3d0f2e8",
+      "source_url": "https://github.com/kennedyraju55/cover-letter-generator/tree/b08adac7743156d357fe9c1cadf0a1dbf3d0f2e8",
+      "license_file_present": false,
+      "files": {
+        "src/cover_letter_gen/core.py": {
+          "sha256": "90c3d615a5f8f1a05034a39bd71e3f590e9c2544560c7e53c6ec8bfb63f7df8a",
+          "url": "https://github.com/kennedyraju55/cover-letter-generator/blob/b08adac7743156d357fe9c1cadf0a1dbf3d0f2e8/src/cover_letter_gen/core.py"
+        },
+        "common/llm_client.py": {
+          "sha256": "e57c040bb79a00adb729a40f1259f0ae79fa27833cf398483b2ad89fbc062df7",
+          "url": "https://github.com/kennedyraju55/cover-letter-generator/blob/b08adac7743156d357fe9c1cadf0a1dbf3d0f2e8/common/llm_client.py"
+        },
+        "tests/test_core.py": {
+          "sha256": "8e34a2dff3594dbb00f4e9a9c994d7c2d014a2b0fea5dd30b8d82ff45d363eb3",
+          "url": "https://github.com/kennedyraju55/cover-letter-generator/blob/b08adac7743156d357fe9c1cadf0a1dbf3d0f2e8/tests/test_core.py"
+        },
+        "README.md": {
+          "sha256": "a4c91c3654c9998851e08900b61abc6839f3f7708443685639a4f2a8017e16c3",
+          "url": "https://github.com/kennedyraju55/cover-letter-generator/blob/b08adac7743156d357fe9c1cadf0a1dbf3d0f2e8/README.md"
+        }
+      }
+    },
+    {
+      "repository": "cxumol/CoverPilot",
+      "revision": "8a2cd54efc4db99eb13d6b0f8c9ff515b3649dd4",
+      "source_url": "https://github.com/cxumol/CoverPilot/tree/8a2cd54efc4db99eb13d6b0f8c9ff515b3649dd4",
+      "license_file_present": true,
+      "files": {
+        "app/taskAI.py": {
+          "sha256": "b2d482e1d0641d899665a17dfc7762b05376858d9b3fe7e156b758c62123f383",
+          "url": "https://github.com/cxumol/CoverPilot/blob/8a2cd54efc4db99eb13d6b0f8c9ff515b3649dd4/app/taskAI.py"
+        },
+        "app/config.py": {
+          "sha256": "4141bcb43560c45f614b55de00e8e3d60072f81a78187d45bb75ac846d6d367e",
+          "url": "https://github.com/cxumol/CoverPilot/blob/8a2cd54efc4db99eb13d6b0f8c9ff515b3649dd4/app/config.py"
+        },
+        "requirements.txt": {
+          "sha256": "2aaa09efde059666187f20e601e76cfadb958ff7f8ff247f14baf9e6b211d743",
+          "url": "https://github.com/cxumol/CoverPilot/blob/8a2cd54efc4db99eb13d6b0f8c9ff515b3649dd4/requirements.txt"
+        },
+        "LICENSE": {
+          "sha256": "5e751bb835c2b284bc611847d2222b83cb2dd7118c3a786106ee20b1b0ca08ea",
+          "url": "https://github.com/cxumol/CoverPilot/blob/8a2cd54efc4db99eb13d6b0f8c9ff515b3649dd4/LICENSE"
+        }
+      }
+    },
+    {
+      "repository": "Waaangjl/resume-tailor",
+      "revision": "975f7229e1cbc7c3ea8cee92e1e15a173f3ddf74",
+      "source_url": "https://github.com/Waaangjl/resume-tailor/tree/975f7229e1cbc7c3ea8cee92e1e15a173f3ddf74",
+      "license_file_present": false,
+      "files": {
+        "prompts.py": {
+          "sha256": "09194a7fc153a1f4e4c7bab71ea721c49723567b92344614cff8a59efb47bfc7",
+          "url": "https://github.com/Waaangjl/resume-tailor/blob/975f7229e1cbc7c3ea8cee92e1e15a173f3ddf74/prompts.py"
+        },
+        "llm.py": {
+          "sha256": "0eb6da068ae2f5503b3c83e458a88042076470345a6cbc4592fbb9c2c08b945f",
+          "url": "https://github.com/Waaangjl/resume-tailor/blob/975f7229e1cbc7c3ea8cee92e1e15a173f3ddf74/llm.py"
+        },
+        "tests/test_tailor.py": {
+          "sha256": "4e4795d6501ddc13049eb451daad717a1c4ba527c61db0690ad1d3f414d747cf",
+          "url": "https://github.com/Waaangjl/resume-tailor/blob/975f7229e1cbc7c3ea8cee92e1e15a173f3ddf74/tests/test_tailor.py"
+        },
+        "README.md": {
+          "sha256": "3334e25a92c426f4f4614e89bc92d3cfe5955a744c15e5876e5952bdc077a278",
+          "url": "https://github.com/Waaangjl/resume-tailor/blob/975f7229e1cbc7c3ea8cee92e1e15a173f3ddf74/README.md"
+        }
+      }
+    },
+    {
+      "repository": "wihlarkop/applykit",
+      "revision": "002360a6d5af14f9eeedae29934291fc95b22f97",
+      "source_url": "https://github.com/wihlarkop/applykit/tree/002360a6d5af14f9eeedae29934291fc95b22f97",
+      "license_file_present": true,
+      "files": {
+        "backend/app/services/prompts.py": {
+          "sha256": "117b08fb0a65bba498447e227b01512b8a8b7787730aa2b845427147fa52fcfe",
+          "url": "https://github.com/wihlarkop/applykit/blob/002360a6d5af14f9eeedae29934291fc95b22f97/backend/app/services/prompts.py"
+        },
+        "backend/app/routes/generate.py": {
+          "sha256": "07e82c99998e69ecec909bda5d3eadb0a5cb38748e6ee8d6e3ff91361b1983ca",
+          "url": "https://github.com/wihlarkop/applykit/blob/002360a6d5af14f9eeedae29934291fc95b22f97/backend/app/routes/generate.py"
+        },
+        "backend/tests/test_prompt_boundaries.py": {
+          "sha256": "f9cf6b3e4cf4c99d37df64a687618b7dc4742f308eddf81c101396141fefc22c",
+          "url": "https://github.com/wihlarkop/applykit/blob/002360a6d5af14f9eeedae29934291fc95b22f97/backend/tests/test_prompt_boundaries.py"
+        },
+        "backend/app/llm/catalog.yaml": {
+          "sha256": "c7506b5f755863183c20b647d23e4124b2b07597c275993a95412a55fa275a28",
+          "url": "https://github.com/wihlarkop/applykit/blob/002360a6d5af14f9eeedae29934291fc95b22f97/backend/app/llm/catalog.yaml"
+        },
+        "LICENSE": {
+          "sha256": "5027d7b6d674a42eb6af8b8e237041615f290f25c0b40b4aff7cd326741b1fae",
+          "url": "https://github.com/wihlarkop/applykit/blob/002360a6d5af14f9eeedae29934291fc95b22f97/LICENSE"
+        }
+      }
+    },
+    {
+      "repository": "srbhr/Resume-Matcher",
+      "revision": "f6296a5e6a31c9d616620143688cc909623c542f",
+      "source_url": "https://github.com/srbhr/Resume-Matcher/tree/f6296a5e6a31c9d616620143688cc909623c542f",
+      "license_file_present": true,
+      "files": {
+        "apps/backend/app/services/cover_letter.py": {
+          "sha256": "ade30518bc8d05e7b83468fb16ab27e68c411e792339f39bf3e504c77fe719e2",
+          "url": "https://github.com/srbhr/Resume-Matcher/blob/f6296a5e6a31c9d616620143688cc909623c542f/apps/backend/app/services/cover_letter.py"
+        },
+        "apps/backend/app/prompts/templates.py": {
+          "sha256": "4389e957519b278df99900b0719441c973b1ef687fad67d92e859e5a97831cd9",
+          "url": "https://github.com/srbhr/Resume-Matcher/blob/f6296a5e6a31c9d616620143688cc909623c542f/apps/backend/app/prompts/templates.py"
+        },
+        "apps/backend/app/llm.py": {
+          "sha256": "fa74f35cb49f4878a3a184f98d051492d81f555cef12ea00bc18164f33004fbe",
+          "url": "https://github.com/srbhr/Resume-Matcher/blob/f6296a5e6a31c9d616620143688cc909623c542f/apps/backend/app/llm.py"
+        },
+        "apps/backend/tests/unit/test_prompt_guardrails.py": {
+          "sha256": "a64aa62d201234442a95d4ee5143c62d447177710cef9db3bca4a104f9a49a3e",
+          "url": "https://github.com/srbhr/Resume-Matcher/blob/f6296a5e6a31c9d616620143688cc909623c542f/apps/backend/tests/unit/test_prompt_guardrails.py"
+        },
+        "LICENSE": {
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "url": "https://github.com/srbhr/Resume-Matcher/blob/f6296a5e6a31c9d616620143688cc909623c542f/LICENSE"
+        }
+      }
+    }
+  ]
+}

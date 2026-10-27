@@ -544,3 +544,42 @@ loading changes in-memory numeric representation, not the distributed weight fil
 No code from the three candidates with incomplete license evidence was imported.
 See [the source audit](docs/cover_letter_audit.md) and pinned evidence for the
 scope of reuse and remaining quality/license limits. Original notices remain intact.
+
+## Online recommendation and profile ingestion dependencies
+
+The online recommendation path imports maintained library APIs. It does not copy
+River, Instructor, Unstructured or ApplyPilot implementation code. Exact locked
+versions, source links, license-file hashes and the 32 newly resolved dependency
+releases are recorded in [docs/online_dependency_licenses.json](docs/online_dependency_licenses.json).
+Complete notices from their distributions are preserved byte-for-byte in
+[LICENSES/online_recommender](LICENSES/online_recommender), including bundled
+third-party notices provided by OpenAI, lxml and other distributions. Existing
+dependency, model, dataset and taxonomy notices above remain applicable.
+
+| Direct library | Version | Actual license and use |
+|---|---|---|
+| [River](https://github.com/online-ml/river) | 0.26.1 | BSD-3-Clause; Copyright (c) 2020, the river developers. LogisticRegression, SGD, StandardScaler and online metrics; no modifications to the library. |
+| [Instructor](https://github.com/567-labs/instructor) | 1.17.0 | MIT; Copyright (c) 2023 Jason Liu. Optional structured extraction through a configured local compatible provider. |
+| [pypdf](https://github.com/py-pdf/pypdf) | 6.21.2 | BSD-3-Clause. Optional text-bearing PDF extraction; original authors' copyright notices remain in the complete distributed license. |
+| [python-docx](https://github.com/python-openxml/python-docx) | 1.2.0 | MIT; Copyright (c) 2013 Steve Canny. Optional DOCX paragraph/table extraction. |
+
+The Instructor dependency graph includes OpenAI SDK 3.3.0 (Apache-2.0); its API
+client is configured for a local endpoint and is not a requirement to buy or call
+OpenAI's service. Library licenses do not grant rights to a separately selected
+LLM's weights. The existing E5 model and its model license are unchanged. No new
+LLM weights were downloaded for profile extraction; deployments must retain the
+license and exact model identity of their chosen local model.
+
+MIT/BSD notices must be retained with redistributed copies; BSD non-endorsement
+terms also apply. Apache-2.0 dependencies retain their complete licenses and any
+distributed NOTICE material. PSF-2.0, ISC and dual MIT/Apache dependencies retain
+their respective full terms. The project MIT file covers original ResumeAnalysis
+code and does not replace these grants. The conditional `httpx2-jsfetch` wheel's
+BSD-3-Clause license was verified separately; that WebAssembly dependency was not
+installed or executed in the local CPU implementation.
+
+Unstructured's Apache-2.0 source and dependency list were reviewed, but the library
+was not installed or copied. The inspected ApplyPilot repository has no declared
+license; only independently implemented adapters to its public data shapes are
+included. See [source evidence](docs/online_source_evidence.json). A future import
+of ApplyPilot implementation code would require license clarification.

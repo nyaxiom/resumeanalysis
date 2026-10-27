@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-27",
+  "sources": [
+    {
+      "repository": "zvictor12/pet_proj",
+      "revision": "65d400cd4a1851e98f3c19dc44b391c444147447",
+      "files": [
+        {
+          "path": "app/models/mail.py",
+          "sha256": "a55e9ec975f262a5fb462383fbc12edafd418e1b69e5b3bba4fa0efab2727456",
+          "url": "https://github.com/zvictor12/pet_proj/blob/65d400cd4a1851e98f3c19dc44b391c444147447/app/models/mail.py"
+        },
+        {
+          "path": "app/parsers/vacancy_link_parser.py",
+          "sha256": "899c6a0f097961b6c477b8a4a8ee0551009997dd6888e8efdc4e82505255a871",
+          "url": "https://github.com/zvictor12/pet_proj/blob/65d400cd4a1851e98f3c19dc44b391c444147447/app/parsers/vacancy_link_parser.py"
+        },
+        {
+          "path": "app/api/v1/router.py",
+          "sha256": "65dbfa559221fe5eb2e1c8cb7fb1d591626c422220ff27085571735e9e3281b0",
+          "url": "https://github.com/zvictor12/pet_proj/blob/65d400cd4a1851e98f3c19dc44b391c444147447/app/api/v1/router.py"
+        },
+        {
+          "path": "migrations/versions/9d5d52f32e4f_create_mail_tables.py",
+          "sha256": "8f490338cfe49f00b5dbfb5892e76110568bc000e371eaf38e41262a6e5a6ce0",
+          "url": "https://github.com/zvictor12/pet_proj/blob/65d400cd4a1851e98f3c19dc44b391c444147447/migrations/versions/9d5d52f32e4f_create_mail_tables.py"
+        }
+      ]
+    },
+    {
+      "repository": "online-ml/river",
+      "revision": "950984786649806bfdc446062fcc830235f8131b",
+      "files": [
+        {
+          "path": "river/linear_model/log_reg.py",
+          "sha256": "5aa8aa00e453bede4190b6c15a33c3e6e40d3ac2da7fe0498f2635c1755d7c8a",
+          "url": "https://github.com/online-ml/river/blob/950984786649806bfdc446062fcc830235f8131b/river/linear_model/log_reg.py"
+        },
+        {
+          "path": "river/linear_model/base.py",
+          "sha256": "726e6a51deecc41bf025038f284414373a14988520f55cf5d382d8ddad968e5b",
+          "url": "https://github.com/online-ml/river/blob/950984786649806bfdc446062fcc830235f8131b/river/linear_model/base.py"
+        },
+        {
+          "path": "river/preprocessing/scale.py",
+          "sha256": "61ec7fa3c90305f8377f600bc064f66df4ae2b5a4e813448b864aebf074c650b",
+          "url": "https://github.com/online-ml/river/blob/950984786649806bfdc446062fcc830235f8131b/river/preprocessing/scale.py"
+        },
+        {
+          "path": "river/compose/pipeline.py",
+          "sha256": "22370d8d319c3c109a8e0ee38cf989f0bd7598cb2a2b5334334c71725905e1f0",
+          "url": "https://github.com/online-ml/river/blob/950984786649806bfdc446062fcc830235f8131b/river/compose/pipeline.py"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "e87f2c8f1ba611702af10cba745e6ceb773d32310135ed55aa2722c55dd0d077",
+          "url": "https://github.com/online-ml/river/blob/950984786649806bfdc446062fcc830235f8131b/LICENSE"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "9a88bbdf6004de909d9de9139ecdd0567b7f9a78b9917238ba5690d587e309ca",
+          "url": "https://github.com/online-ml/river/blob/950984786649806bfdc446062fcc830235f8131b/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "repository": "567-labs/instructor",
+      "revision": "6cd771c5254a69f6a6cf9cdf357fb2f9523f0b85",
+      "files": [
+        {
+          "path": "instructor/v2/providers/openai/client.py",
+          "sha256": "aa593630268539b44de9bb1c36fbaa4161dc2aaead8c032698356443a6d7ba2e",
+          "url": "https://github.com/567-labs/instructor/blob/6cd771c5254a69f6a6cf9cdf357fb2f9523f0b85/instructor/v2/providers/openai/client.py"
+        },
+        {
+          "path": "instructor/v2/core/retry.py",
+          "sha256": "fd7b7545ffdc280f238bfcd690e9b3e136b8758341223852283b1515c9e68163",
+          "url": "https://github.com/567-labs/instructor/blob/6cd771c5254a69f6a6cf9cdf357fb2f9523f0b85/instructor/v2/core/retry.py"
+        },
+        {
+          "path": "docs/integrations/ollama.md",
+          "sha256": "f009b372b51039e1cc5d46c5857b48b153ef38cfd591245fdb9578ffaac5a53d",
+          "url": "https://github.com/567-labs/instructor/blob/6cd771c5254a69f6a6cf9cdf357fb2f9523f0b85/docs/integrations/ollama.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1fdd867197ab4d56e3c00ee835e4ea53aac5d54f6e6ac6d247bf866bcf3a9352",
+          "url": "https://github.com/567-labs/instructor/blob/6cd771c5254a69f6a6cf9cdf357fb2f9523f0b85/LICENSE"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "ebbece9384f8a5e3099b040bb175b5f56312d02e502de9a286c3ad6688fbf7b3",
+          "url": "https://github.com/567-labs/instructor/blob/6cd771c5254a69f6a6cf9cdf357fb2f9523f0b85/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "repository": "Unstructured-IO/unstructured",
+      "revision": "53a56a0aa18f721d902817f13779cb57b0251944",
+      "files": [
+        {
+          "path": "unstructured/partition/pdf.py",
+          "sha256": "80b08b31c37bb87546492acd31b682cd51258b2ff218ad72fbd1be43da3d26f4",
+          "url": "https://github.com/Unstructured-IO/unstructured/blob/53a56a0aa18f721d902817f13779cb57b0251944/unstructured/partition/pdf.py"
+        },
+        {
+          "path": "unstructured/partition/docx.py",
+          "sha256": "33aaf9e9b9ab98a3d72d8bc1e53274f86e4f2b61ea2c1ab8c0d6234355e2d0be",
+          "url": "https://github.com/Unstructured-IO/unstructured/blob/53a56a0aa18f721d902817f13779cb57b0251944/unstructured/partition/docx.py"
+        },
+        {
+          "path": "unstructured/partition/text.py",
+          "sha256": "dc1ec9c0899333e44f20516725c85074d5321d6cce953111461068e1222cb84f",
+          "url": "https://github.com/Unstructured-IO/unstructured/blob/53a56a0aa18f721d902817f13779cb57b0251944/unstructured/partition/text.py"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "7613c657a953269e52962c850a64f4815a33c99ea03b398f3b63759b2899dd49",
+          "url": "https://github.com/Unstructured-IO/unstructured/blob/53a56a0aa18f721d902817f13779cb57b0251944/pyproject.toml"
+        },
+        {
+          "path": "LICENSE.md",
+          "sha256": "4b190a3ffeb6b8800a6fd99bd5e1fb147e0a9f66984f4f5f8232a926de4fc939",
+          "url": "https://github.com/Unstructured-IO/unstructured/blob/53a56a0aa18f721d902817f13779cb57b0251944/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "repository": "zvictor12/pet_proj",
+      "branch": "mail-repo/ingestion-service",
+      "revision": "1c464cf3784a2835c332098729a66895df013c30",
+      "files": [
+        {
+          "path": "app/dto/dto.py",
+          "sha256": "6ce8f9d8d64d1808bf3bf2cf7b6555cde11c12c35761b55b2de7e4a44ae697d2",
+          "url": "https://github.com/zvictor12/pet_proj/blob/1c464cf3784a2835c332098729a66895df013c30/app/dto/dto.py"
+        },
+        {
+          "path": "app/models/vacancies.py",
+          "sha256": "67b39331cc83106ee2e0fc0c494b3532c83aac6ffdfd77b9a303c8cca65ab8c8",
+          "url": "https://github.com/zvictor12/pet_proj/blob/1c464cf3784a2835c332098729a66895df013c30/app/models/vacancies.py"
+        },
+        {
+          "path": "app/repositories/vacancy_repository.py",
+          "sha256": "9a36fa0255e35738bd9596bb4b4435d58d79db3b39d001cf55551df99baff2e4",
+          "url": "https://github.com/zvictor12/pet_proj/blob/1c464cf3784a2835c332098729a66895df013c30/app/repositories/vacancy_repository.py"
+        },
+        {
+          "path": "app/api/v1/router.py",
+          "sha256": "b188c3eec58dbc97734623da0df36615f55391e0be0db2e7f5202ac3141deb44",
+          "url": "https://github.com/zvictor12/pet_proj/blob/1c464cf3784a2835c332098729a66895df013c30/app/api/v1/router.py"
+        }
+      ]
+    }
+  ]
+}

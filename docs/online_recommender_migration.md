@@ -43,6 +43,15 @@ route is registered. There is no structured vacancy content, candidate profile,
 feedback table, recommendation route or implemented InferenceClient in this
 revision. README architecture claims are not an implemented integration.
 
+The additional public branch `mail-repo/ingestion-service` at
+`1c464cf3784a2835c332098729a66895df013c30` has a `VacancyDescDTO`, a `Vacancy` ORM
+model and a repository, with plain/HTML descriptions, location, free-text salary
+and untyped enrichment. Its migrations do not create the declared vacancies table.
+It still has no profile or feedback implementation. A second adapter will consume
+this DTO's plain text while leaving salary, remote and inferred enrichment unknown
+unless supplied through an explicit verified contract. This branch was inspected
+after the initial main-branch plan; it does not establish a deployed endpoint.
+
 Use `(domain, vacancy_id)` as the external identity, with an explicit host-supplied
 content resolver. Define profile/vacancy providers and a local recommendation
 adapter, plus an explicit conversion to the existing cover-letter request. Do not

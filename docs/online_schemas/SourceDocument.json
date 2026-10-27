@@ -1,0 +1,51 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "text",
+        "structured",
+        "txt",
+        "pdf",
+        "docx",
+        "user_edit"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "text": {
+      "maxLength": 200000,
+      "title": "Text",
+      "type": "string"
+    },
+    "original_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Original Sha256",
+      "type": "string"
+    },
+    "pages": {
+      "items": {
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "type": "object"
+      },
+      "title": "Pages",
+      "type": "array"
+    }
+  },
+  "required": [
+    "source_id",
+    "kind",
+    "text",
+    "original_sha256"
+  ],
+  "title": "SourceDocument",
+  "type": "object"
+}

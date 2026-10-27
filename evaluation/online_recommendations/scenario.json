@@ -1,0 +1,145 @@
+{
+  "provenance": "Authored synthetic functionality and preference-drift scenario; not historical user feedback. Each round reveals only the observed item label to learners. Pool labels are used only by the evaluator.",
+  "profiles": [
+    {
+      "user_id": "synthetic-alice",
+      "facts": {
+        "resume_text": "I build Python imports and SQL reports.",
+        "skills": [
+          "Python",
+          "SQL"
+        ],
+        "experience_years": 3
+      }
+    },
+    {
+      "user_id": "synthetic-boris",
+      "facts": {
+        "resume_text": "Я создаю отчеты на SQL и веду таблицы Excel.",
+        "skills": [
+          "SQL",
+          "Excel"
+        ],
+        "experience_years": 2
+      }
+    }
+  ],
+  "vacancies": [
+    {
+      "vacancy_id": "data-remote",
+      "facts": {
+        "title": "Data engineer",
+        "description": "Maintain Python imports and SQL reports.",
+        "required_skills": [
+          "Python",
+          "SQL"
+        ],
+        "remote": true,
+        "location": "London"
+      }
+    },
+    {
+      "vacancy_id": "data-office",
+      "facts": {
+        "title": "Data engineer",
+        "description": "Maintain Python imports and SQL reports.",
+        "required_skills": [
+          "Python",
+          "SQL"
+        ],
+        "remote": false,
+        "location": "London"
+      }
+    },
+    {
+      "vacancy_id": "reporting-remote",
+      "facts": {
+        "title": "Аналитик отчетности",
+        "description": "Готовить отчеты на SQL и вести таблицы Excel.",
+        "required_skills": [
+          "SQL",
+          "Excel"
+        ],
+        "remote": true,
+        "location": "London"
+      }
+    },
+    {
+      "vacancy_id": "reporting-office",
+      "facts": {
+        "title": "Аналитик отчетности",
+        "description": "Готовить отчеты на SQL и вести таблицы Excel.",
+        "required_skills": [
+          "SQL",
+          "Excel"
+        ],
+        "remote": false,
+        "location": "London"
+      }
+    },
+    {
+      "vacancy_id": "frontend-remote",
+      "facts": {
+        "title": "Frontend developer",
+        "description": "Develop web pages with JavaScript.",
+        "required_skills": [
+          "JavaScript"
+        ],
+        "remote": true,
+        "location": "London"
+      }
+    },
+    {
+      "vacancy_id": "frontend-office",
+      "facts": {
+        "title": "Frontend developer",
+        "description": "Develop web pages with JavaScript.",
+        "required_skills": [
+          "JavaScript"
+        ],
+        "remote": false,
+        "location": "London"
+      }
+    }
+  ],
+  "rounds_per_phase": 32,
+  "learner_config": {
+    "learning_rate": 0.05,
+    "l2": 0.001,
+    "history_window": 32,
+    "warmup_feedback": 10,
+    "preference_weight": 0.7
+  },
+  "phases": [
+    {
+      "name": "initial",
+      "likes": {
+        "synthetic-alice": [
+          "data-remote",
+          "reporting-remote",
+          "frontend-remote"
+        ],
+        "synthetic-boris": [
+          "data-office",
+          "reporting-office",
+          "frontend-office"
+        ]
+      }
+    },
+    {
+      "name": "changed",
+      "likes": {
+        "synthetic-alice": [
+          "data-office",
+          "reporting-office",
+          "frontend-office"
+        ],
+        "synthetic-boris": [
+          "data-remote",
+          "reporting-remote",
+          "frontend-remote"
+        ]
+      }
+    }
+  ]
+}

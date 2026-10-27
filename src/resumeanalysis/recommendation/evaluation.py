@@ -20,14 +20,23 @@ class FeedbackRound:
     phase: str
 
 
-def ndcg(labels, scores, k=3):
+def ndcg(labels, scores, k=3, identifiers=None):
     def dcg(order):
         return sum(
             float(labels[index]) / math.log2(rank + 2) for rank, index in enumerate(order[:k])
         )
 
     ideal = dcg(sorted(range(len(labels)), key=lambda i: -labels[i]))
-    return dcg(sorted(range(len(scores)), key=lambda i: (-scores[i], i))) / ideal if ideal else None
+    return (
+        dcg(
+            sorted(
+                range(len(scores)), key=lambda i: (-scores[i], identifiers[i] if identifiers else i)
+            )
+        )
+        / ideal
+        if ideal
+        else None
+    )
 
 
 def prequential_evaluate(rounds, builders, *, config=None):
@@ -48,6 +57,7 @@ def prequential_evaluate(rounds, builders, *, config=None):
     }
     traces = []
     previous = None
+    observed_pairs = set()
     for step, row in enumerate(rounds):
         if row.timestamp.tzinfo is None or (previous is not None and row.timestamp <= previous):
             raise ValueError(
@@ -60,6 +70,12 @@ def prequential_evaluate(rounds, builders, *, config=None):
             type(x) is not bool for x in row.interested
         ):
             raise ValueError("Feedback rounds need explicit labels and a valid observed index")
+        pair = (row.user_id, row.vacancies[row.observed_index].vacancy_id)
+        if pair in observed_pairs:
+            raise ValueError(
+                "Duplicate user/vacancy feedback in evaluation; resolve corrections explicitly"
+            )
+        observed_pairs.add(pair)
         features = {
             name: [builder.build(row.profile, vacancy) for vacancy in row.vacancies]
             for name, builder in builders.items()
@@ -93,7 +109,10 @@ def prequential_evaluate(rounds, builders, *, config=None):
             "observed_label": label,
             "scores_before_update": {name: s[observed] for name, s in scores.items()},
             "raw_preference_before_update": {name: s[observed] for name, s in raw.items()},
-            "ndcg_at_3": {name: ndcg(row.interested, s) for name, s in scores.items()},
+            "ndcg_at_3": {
+                name: ndcg(row.interested, s, identifiers=[v.vacancy_id for v in row.vacancies])
+                for name, s in scores.items()
+            },
         }
         traces.append(trace)
         for name, values in scores.items():

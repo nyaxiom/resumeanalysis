@@ -194,6 +194,17 @@ def test_prequential_evaluation_uses_independent_user_models():
     assert result["trace"][1]["raw_preference_before_update"]["river"] == 0.5
 
 
+def test_evaluation_does_not_silently_train_twice_on_duplicate_feedback():
+    p, jobs = inputs()
+    now = datetime.now(timezone.utc)
+    rounds = [
+        FeedbackRound(now, "alice", p, jobs, [True] * 4, 0, "initial"),
+        FeedbackRound(now + timedelta(seconds=1), "alice", p, jobs, [False] * 4, 0, "initial"),
+    ]
+    with pytest.raises(ValueError, match="Duplicate user/vacancy"):
+        prequential_evaluate(rounds, {"river": PreferenceFeatureBuilder(LexicalSmokeEncoder())})
+
+
 def invoke(monkeypatch, capsys, args):
     monkeypatch.setattr(sys, "argv", ["resumeanalysis", *args])
     assert cli.main() is None

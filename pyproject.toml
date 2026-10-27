@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "resumeanalysis"
 version = "0.1.0"
-description = "Local, evidence-aware resume and vacancy matching for ApplyPilot"
+description = "Local online job recommendations with evidence-aware qualification matching"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -13,6 +13,7 @@ license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "LICENSES/**/*.txt"]
 dependencies = [
   "numpy>=1.26,<3", "torch>=2.6,<3", "scikit-learn>=1.5,<2",
   "transformers>=4.45,<5", "huggingface-hub>=0.28,<1", "pydantic>=2.9,<3",
+  "river==0.26.1",
 ]
 
 [project.optional-dependencies]
@@ -20,6 +21,8 @@ dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1.2,<2"]
 data = ["pyarrow>=17,<24"]
 qwen = ["accelerate>=1.2,<2", "lm-format-enforcer>=0.11,<0.12"]
 qwen-cuda = ["resumeanalysis[qwen]", "bitsandbytes>=0.45,<0.51"]
+profile-llm = ["instructor==1.17.0"]
+documents = ["pypdf==6.21.2", "python-docx==1.2.0"]
 
 [project.scripts]
 resumeanalysis = "resumeanalysis.cli:main"

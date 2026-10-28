@@ -1,0 +1,16 @@
+[
+  {
+    "vacancy_id": "authored:data-remote",
+    "facts": {"title": "Data engineer", "description": "Maintain Python data imports and SQL reports.", "required_skills": ["Python", "SQL"], "remote": true, "min_experience_years": 2},
+    "salary": {"minimum": 65000, "maximum": 80000, "currency": "USD", "period": "year", "gross": true}
+  },
+  {
+    "vacancy_id": "authored:data-office",
+    "facts": {"title": "Data engineer", "description": "Build Python data pipelines and SQL reports.", "required_skills": ["Python", "SQL"], "remote": false, "location": "Boston"},
+    "salary": {"minimum": 80000, "maximum": 95000, "currency": "USD", "period": "year", "gross": true}
+  },
+  {
+    "vacancy_id": "authored:frontend",
+    "facts": {"title": "Frontend developer", "description": "Develop accessible web pages with JavaScript.", "required_skills": ["JavaScript"], "remote": true}
+  }
+]

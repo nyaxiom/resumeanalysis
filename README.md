@@ -1,5 +1,17 @@
 # ResumeAnalysis
 
+ResumeAnalysis now provides a [local online job recommendation engine](docs/online_recommender.md)
+that learns each user's interests from explicit likes and dislikes using River.
+Use `resumeanalysis recommend` and `resumeanalysis feedback`; personalized state
+persists in SQLite and starts without labeled training data or a personalized
+checkpoint. Frozen multilingual E5 and existing qualification evidence are reused.
+See the [ApplyPilot contract](docs/online_recommender_integration.md) and
+[measured synthetic evaluation](docs/online_recommender_benchmarks.md).
+
+Existing matching and generation tools below remain available as legacy baselines
+and separate optional capabilities. The saved MLP is a qualification model, not a
+validated preference-learning model.
+
 The [local cover-letter workflow](docs/cover_letters.md) combines the existing
 relevance model, resume selection and a licensed upstream generator adapted to
 Qwen Instruct. Use `resumeanalysis analyze` for a plain-text draft; the original
@@ -11,7 +23,8 @@ E5 retrieval, a pinned multilingual cross-encoder and explicit requirement check
 It supports `create_predictor("rerank")`, single-pair predictions and batch
 ranking. See [actual benchmark results](docs/rerank_benchmarks.md) and the
 [independent evaluation protocol](evaluation/README.md); document relevance
-scores are not calibrated hiring probabilities. E5 + MLP remains the default.
+scores are not calibrated hiring probabilities. E5 + MLP remains the default for
+the legacy matching API.
 
 Skill extraction has a selectable [v2 implementation and comparison workflow](docs/skill_extractor_v2.md).
 The original extractor remains the default. Using v2 with the MLP requires a matching
@@ -22,7 +35,7 @@ CPU costs, split-overlap findings and downstream limitations.
 An optional local Qwen Instruct backend and strict dataset adapters are available
 on this feature branch. See [Qwen setup and experiments](docs/qwen.md) and
 [loss-aware dataset conversion](docs/dataset_adapters.md). The E5 + MLP workflow
-below remains the default.
+below remains the default for legacy matching, separate from online recommendations.
 See the [implementation and validation record](docs/qwen_validation.md) for safeguards,
 executed checks and remaining limitations.
 

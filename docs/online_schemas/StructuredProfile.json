@@ -1,0 +1,455 @@
+{
+  "$defs": {
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "quote": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        }
+      },
+      "required": [
+        "source_id",
+        "quote"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "HardConstraints": {
+      "additionalProperties": false,
+      "properties": {
+        "remote_only": {
+          "default": false,
+          "title": "Remote Only",
+          "type": "boolean"
+        },
+        "locations": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Locations",
+          "type": "array"
+        },
+        "salary": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Salary"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "HardConstraints",
+      "type": "object"
+    },
+    "Preferences": {
+      "additionalProperties": false,
+      "properties": {
+        "preferred_roles": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Preferred Roles",
+          "type": "array"
+        },
+        "remote": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote"
+        },
+        "locations": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Locations",
+          "type": "array"
+        },
+        "salary": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Salary"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hard": {
+          "$ref": "#/$defs/HardConstraints"
+        }
+      },
+      "title": "Preferences",
+      "type": "object"
+    },
+    "Profile": {
+      "additionalProperties": false,
+      "properties": {
+        "resume_text": {
+          "default": "",
+          "title": "Resume Text",
+          "type": "string"
+        },
+        "skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Skills",
+          "type": "array"
+        },
+        "denied_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Denied Skills",
+          "type": "array"
+        },
+        "experience_years": {
+          "anyOf": [
+            {
+              "maximum": 80,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Experience Years"
+        },
+        "projects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Projects",
+          "type": "array"
+        },
+        "education": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Education",
+          "type": "array"
+        },
+        "seniority": {
+          "anyOf": [
+            {
+              "enum": [
+                "intern",
+                "junior",
+                "middle",
+                "senior",
+                "lead"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seniority"
+        },
+        "remote_only": {
+          "default": false,
+          "title": "Remote Only",
+          "type": "boolean"
+        },
+        "allowed_locations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Locations",
+          "type": "array"
+        }
+      },
+      "title": "Profile",
+      "type": "object"
+    },
+    "Salary": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "period": {
+          "anyOf": [
+            {
+              "enum": [
+                "hour",
+                "month",
+                "year"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Period"
+        },
+        "gross": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gross"
+        }
+      },
+      "title": "Salary",
+      "type": "object"
+    },
+    "SkillExperience": {
+      "additionalProperties": false,
+      "properties": {
+        "skill": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Skill",
+          "type": "string"
+        },
+        "years": {
+          "anyOf": [
+            {
+              "maximum": 80,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Years"
+        }
+      },
+      "required": [
+        "skill"
+      ],
+      "title": "SkillExperience",
+      "type": "object"
+    },
+    "SourceDocument": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "text",
+            "structured",
+            "txt",
+            "pdf",
+            "docx",
+            "user_edit"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 200000,
+          "title": "Text",
+          "type": "string"
+        },
+        "original_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Original Sha256",
+          "type": "string"
+        },
+        "pages": {
+          "items": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          "title": "Pages",
+          "type": "array"
+        }
+      },
+      "required": [
+        "source_id",
+        "kind",
+        "text",
+        "original_sha256"
+      ],
+      "title": "SourceDocument",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "facts": {
+      "$ref": "#/$defs/Profile"
+    },
+    "skill_experience": {
+      "items": {
+        "$ref": "#/$defs/SkillExperience"
+      },
+      "maxItems": 200,
+      "title": "Skill Experience",
+      "type": "array"
+    },
+    "preferences": {
+      "$ref": "#/$defs/Preferences"
+    },
+    "schema_version": {
+      "const": "profile-v1",
+      "default": "profile-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "user_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "User Id",
+      "type": "string"
+    },
+    "profile_id": {
+      "default": "primary",
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Profile Id",
+      "type": "string"
+    },
+    "version": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    },
+    "review_status": {
+      "default": "user_supplied",
+      "enum": [
+        "user_supplied",
+        "needs_review",
+        "confirmed"
+      ],
+      "title": "Review Status",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceDocument"
+      },
+      "maxItems": 100,
+      "title": "Sources",
+      "type": "array"
+    },
+    "evidence": {
+      "additionalProperties": {
+        "items": {
+          "$ref": "#/$defs/EvidenceReference"
+        },
+        "type": "array"
+      },
+      "title": "Evidence",
+      "type": "object"
+    }
+  },
+  "required": [
+    "user_id"
+  ],
+  "title": "StructuredProfile",
+  "type": "object"
+}

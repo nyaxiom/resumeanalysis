@@ -1,0 +1,228 @@
+{
+  "$defs": {
+    "Salary": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "period": {
+          "anyOf": [
+            {
+              "enum": [
+                "hour",
+                "month",
+                "year"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Period"
+        },
+        "gross": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gross"
+        }
+      },
+      "title": "Salary",
+      "type": "object"
+    },
+    "Vacancy": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "required_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Skills",
+          "type": "array"
+        },
+        "optional_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional Skills",
+          "type": "array"
+        },
+        "min_experience_years": {
+          "anyOf": [
+            {
+              "maximum": 80,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Experience Years"
+        },
+        "seniority": {
+          "anyOf": [
+            {
+              "enum": [
+                "intern",
+                "junior",
+                "middle",
+                "senior",
+                "lead"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seniority"
+        },
+        "remote": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
+        }
+      },
+      "title": "Vacancy",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "vacancy-v1",
+      "default": "vacancy-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "vacancy_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Vacancy Id",
+      "type": "string"
+    },
+    "facts": {
+      "$ref": "#/$defs/Vacancy"
+    },
+    "salary": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Salary"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "source_url": {
+      "anyOf": [
+        {
+          "maxLength": 4000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Url"
+    },
+    "source_domain": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Domain"
+    }
+  },
+  "required": [
+    "vacancy_id"
+  ],
+  "title": "StructuredVacancy",
+  "type": "object"
+}

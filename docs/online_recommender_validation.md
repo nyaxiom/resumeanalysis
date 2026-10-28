@@ -29,7 +29,7 @@ structured schemas, source evidence, versioned edits and private error handling.
 Instructor's actual client is exercised with mocked provider responses, including
 invalid outputs. This is not a live local-LLM extraction-quality evaluation.
 
-The [benchmark script](../scripts/benchmark_online_recommender.py) ran with actual
+The [benchmark script](../legacy/scripts/benchmark_online_recommender.py) ran with actual
 local E5 and River. Its archived trace contains 128 chronological labels from an
 explicitly synthetic scenario. The [CLI demonstration](../evaluation/online_recommendations/cli_demo.json)
 ran recommendation, feedback and restored recommendation in separate processes.

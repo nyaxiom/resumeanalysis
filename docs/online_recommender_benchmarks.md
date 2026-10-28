@@ -9,11 +9,11 @@ customer outcomes or evidence of calibrated interest probabilities.
 ## Reproduce and inspect
 
 ```bash
-uv sync --frozen --extra dev --extra data --extra qwen --extra profile-llm --extra documents
+uv sync --frozen --group research --extra dev --extra qwen --extra profile-llm --extra documents
 source .venv/bin/activate
 resumeanalysis download-e5 --output artifacts/e5
 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
-  python scripts/benchmark_online_recommender.py \
+  python legacy/scripts/benchmark_online_recommender.py \
   --output artifacts/online-recommender-new-run
 ```
 

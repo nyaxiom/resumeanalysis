@@ -583,3 +583,14 @@ was not installed or copied. The inspected ApplyPilot repository has no declared
 license; only independently implemented adapters to its public data shapes are
 included. See [source evidence](docs/online_source_evidence.json). A future import
 of ApplyPilot implementation code would require license clarification.
+
+## Runtime and research package separation (0.2.0)
+
+The runtime reorganization introduces no new third-party libraries, models or
+datasets. Existing library versions and full notices remain unchanged. Historical
+training, matching and research modules now live in the optional
+`resumeanalysis-legacy` distribution, which depends on the runtime distribution.
+Both contain original ResumeAnalysis code under the existing MIT license. The
+runtime continues to include all retained third-party notices and the unchanged
+licensed cover-letter prompt adapter; moving original code does not replace or
+remove any upstream copyright or license terms.

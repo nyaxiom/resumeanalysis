@@ -6,10 +6,10 @@ import threading
 from typing import Protocol
 
 from resumeanalysis.cover_letters.prompts import build_messages, prompt_fields
+from resumeanalysis.cover_letters.qwen_config import GenerationConfig as QwenConfig
+from resumeanalysis.cover_letters.qwen_runtime import Generator, TransformersGenerator
 from resumeanalysis.cover_letters.schema import Resume
 from resumeanalysis.extraction.registry import create_extractor
-from resumeanalysis.qwen.config import QwenConfig
-from resumeanalysis.qwen.runtime import Generator, TransformersGenerator
 from resumeanalysis.schemas import Vacancy
 
 

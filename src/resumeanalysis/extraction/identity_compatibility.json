@@ -1,0 +1,17 @@
+{
+  "source_commit": "52bd68f",
+  "reason": "Move train-only lexicon construction outside runtime without changing inference; exact source-set compatibility only.",
+  "previous_sources": {
+    "improved.py": "5b2c78acad4ca2f2f42a6d8386235a17fc00f35dba4ef0e1f9d0eb72f31c6061",
+    "vocabulary.py": "116b76e36bbf5539edf01e921d8d78a9bfe1d6d5cedeb507d707338a46d823ab",
+    "phrase_lexicon.py": "0eb133d11ddd559b2f3d2db88d6c814c6d810ee94a8bc4810368fa61038f4eb2",
+    "skill_extractor.py": "ee89e4804cc7871da02afe422b21b0a25e71a161726b948cc96bfeb08217000d"
+  },
+  "refactored_sources": {
+    "improved.py": "c4c2741fc5bb188406b3ecc9c923875484c9c3f69e9e76f39f4e2b1cfd39a262",
+    "vocabulary.py": "116b76e36bbf5539edf01e921d8d78a9bfe1d6d5cedeb507d707338a46d823ab",
+    "phrase_lexicon.py": "aed1946783f860407f88abbaf04aceb7d964a1fb2af738c8e48956ab900a03e4",
+    "skill_extractor.py": "ee89e4804cc7871da02afe422b21b0a25e71a161726b948cc96bfeb08217000d",
+    "compatibility.py": "0f0d7ee9964de59ff49c36045abeaa376ff1b1427c8489520ee9134e45c39566"
+  }
+}

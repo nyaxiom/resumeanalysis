@@ -26,13 +26,17 @@ database migrations remain outside this repository's scope.
   as a new version; do not change content under an already recorded version.
 - `RecommendationVacancyProvider.list_vacancies(user_id) -> list[StructuredVacancy]`
   supplies deduplicated candidate content, with stable source-qualified IDs.
-- `LocalRecommendationClient.recommend(user_id, limit=20)` returns recommendations,
+- `ApplyPilotClient.recommend(user_id, limit=20)` returns recommendations,
   their IDs, qualification evidence, interest scores and independent hard-constraint
   status. The new path uses River; it does not load the legacy MLP.
-- `LocalRecommendationClient.record_feedback(...)` forwards explicit labels and
+- `ApplyPilotClient.record_feedback(...)` forwards explicit labels and
   client event IDs. Pass `recommendation_id` for the exact shown snapshot and
   `corrects_event_id` for an intentional correction.
-- `LocalRecommendationClient.cover_letter_input(...)` returns the existing
+- `await ApplyPilotClient.draft_cover_letter(user_id, vacancy_id, language="en")`
+  drafts a letter only when explicitly requested. Supply `letters=CoverLetterService(...)`
+  when constructing the client. Profile ownership, vacancy visibility and review
+  status are checked before generation. No matching backend is selected.
+- `ApplyPilotClient.cover_letter_input(...)` returns the existing
   `AnalysisRequest` with a selected resume ID, confirmed facts and skill-specific
   experience context. Interest is not converted into qualification evidence or
   candidate experience. Cover-letter generation remains a separate explicit step.
@@ -42,6 +46,38 @@ application is asynchronous. No Kafka, Redis, Kubernetes or cloud service is add
 The host controls database lifecycle, authentication, candidate visibility, profile
 storage and any external page fetching. No user is inferred from an email address
 or mailbox by this library.
+
+```python
+from resumeanalysis.integration import ApplyPilotClient
+from resumeanalysis.cover_letters.generator import LocalCoverLetterGenerator
+from resumeanalysis.cover_letters.qwen_config import read_config
+from resumeanalysis.cover_letters.service import CoverLetterService
+
+# engine, profiles and vacancies are supplied by the local host application.
+client = ApplyPilotClient(
+    engine,
+    profiles,
+    vacancies,
+    letters=CoverLetterService(
+        LocalCoverLetterGenerator(read_config("configs/cover_letter_qwen_cpu.json"))
+    ),
+)
+recommendations = client.recommend("alice", limit=20)
+shown = recommendations[0]
+client.record_feedback(
+    "alice",
+    shown.vacancy_id,
+    "like",
+    event_id="host-event-123",
+    recommendation_id=shown.recommendation_id,
+)
+# In an async host handler, after the user's explicit request:
+# draft = await client.draft_cover_letter("alice", shown.vacancy_id)
+```
+
+Imports have moved from `integration.recommendations.LocalRecommendationClient`
+to `integration.ApplyPilotClient`. Historical inference/Kafka adapters are in
+the optional `resumeanalysis_legacy` package; the runtime has no transport worker.
 
 ## Vacancy mapping
 
@@ -63,9 +99,9 @@ remain host metadata; this MVP does not silently treat them as preference eviden
 
 `from_legacy_profile` preserves qualification fields and moves legacy remote/location
 constraints into the new explicit preferences object. `from_legacy_vacancy` wraps
-existing vacancy fields with a stable ID. These are additive replacements; old
+existing vacancy fields with a stable ID. These are additive replacements; historical
 `InferenceClient.process(vacancy) -> VacancyAnalysis`, checkpoint loading and
-cover-letter interfaces remain available.
+scoring interfaces remain available through the optional `resumeanalysis_legacy` package.
 
 The feedback repository owns its SQLite schema (`user_version=1`) and does not
 alter ApplyPilot's PostgreSQL tables. To use the host database later, implement

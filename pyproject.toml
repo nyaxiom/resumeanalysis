@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resumeanalysis"
-version = "0.1.0"
+version = "0.2.0"
 description = "Local online job recommendations with evidence-aware qualification matching"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -18,18 +18,23 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1.2,<2"]
-data = ["pyarrow>=17,<24"]
-qwen = ["accelerate>=1.2,<2", "lm-format-enforcer>=0.11,<0.12"]
+qwen = ["accelerate>=1.2,<2"]
 qwen-cuda = ["resumeanalysis[qwen]", "bitsandbytes>=0.45,<0.51"]
 profile-llm = ["instructor==1.17.0"]
 documents = ["pypdf==6.21.2", "python-docx==1.2.0"]
 
 [project.scripts]
 resumeanalysis = "resumeanalysis.cli:main"
-resumeanalysis-qwen = "resumeanalysis.qwen.cli:main"
+
+[dependency-groups]
+research = ["resumeanalysis-legacy"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+namespaces = false
+
+[tool.setuptools.package-data]
+"resumeanalysis.extraction" = ["identity_compatibility.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -48,3 +53,7 @@ explicit = true
 
 [tool.uv.sources]
 torch = { index = "pytorch-cpu" }
+resumeanalysis-legacy = { workspace = true }
+
+[tool.uv.workspace]
+members = ["legacy"]

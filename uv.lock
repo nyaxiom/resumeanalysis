@@ -8,6 +8,12 @@ resolution-markers = [
     "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 
+[manifest]
+members = [
+    "resumeanalysis",
+    "resumeanalysis-legacy",
+]
+
 [[package]]
 name = "accelerate"
 version = "1.15.0"
@@ -2161,7 +2167,7 @@ wheels = [
 
 [[package]]
 name = "resumeanalysis"
-version = "0.1.0"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "huggingface-hub" },
@@ -2176,9 +2182,6 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-data = [
-    { name = "pyarrow" },
-]
 dev = [
     { name = "build" },
     { name = "pytest" },
@@ -2193,12 +2196,15 @@ profile-llm = [
 ]
 qwen = [
     { name = "accelerate" },
-    { name = "lm-format-enforcer" },
 ]
 qwen-cuda = [
     { name = "accelerate" },
     { name = "bitsandbytes" },
-    { name = "lm-format-enforcer" },
+]
+
+[package.dev-dependencies]
+research = [
+    { name = "resumeanalysis-legacy" },
 ]
 
 [package.metadata]
@@ -2208,9 +2214,7 @@ requires-dist = [
     { name = "build", marker = "extra == 'dev'", specifier = ">=1.2,<2" },
     { name = "huggingface-hub", specifier = ">=0.28,<1" },
     { name = "instructor", marker = "extra == 'profile-llm'", specifier = "==1.17.0" },
-    { name = "lm-format-enforcer", marker = "extra == 'qwen'", specifier = ">=0.11,<0.12" },
     { name = "numpy", specifier = ">=1.26,<3" },
-    { name = "pyarrow", marker = "extra == 'data'", specifier = ">=17,<24" },
     { name = "pydantic", specifier = ">=2.9,<3" },
     { name = "pypdf", marker = "extra == 'documents'", specifier = "==6.21.2" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8,<10" },
@@ -2222,7 +2226,27 @@ requires-dist = [
     { name = "torch", specifier = ">=2.6,<3", index = "https://download.pytorch.org/whl/cpu" },
     { name = "transformers", specifier = ">=4.45,<5" },
 ]
-provides-extras = ["dev", "data", "qwen", "qwen-cuda", "profile-llm", "documents"]
+provides-extras = ["dev", "qwen", "qwen-cuda", "profile-llm", "documents"]
+
+[package.metadata.requires-dev]
+research = [{ name = "resumeanalysis-legacy", editable = "legacy" }]
+
+[[package]]
+name = "resumeanalysis-legacy"
+version = "0.1.0"
+source = { editable = "legacy" }
+dependencies = [
+    { name = "lm-format-enforcer" },
+    { name = "pyarrow" },
+    { name = "resumeanalysis" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "lm-format-enforcer", specifier = ">=0.11,<0.12" },
+    { name = "pyarrow", specifier = ">=17,<24" },
+    { name = "resumeanalysis", editable = "." },
+]
 
 [[package]]
 name = "rich"

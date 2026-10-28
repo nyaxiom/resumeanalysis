@@ -1,41 +1,34 @@
-"""One explicit local command for scoring, resume selection and letter drafts."""
+"""Draft from one confirmed profile and a host/user-selected vacancy."""
 
 import asyncio
 import json
 from pathlib import Path
 
 from resumeanalysis.cover_letters.generator import LocalCoverLetterGenerator
-from resumeanalysis.cover_letters.schema import AnalysisRequest
-from resumeanalysis.cover_letters.service import AnalysisService
-from resumeanalysis.embeddings.encoder import TextEncoder
-from resumeanalysis.inference.backends import create_predictor
-from resumeanalysis.jsonio import loads
-from resumeanalysis.qwen.cli import read_config
+from resumeanalysis.cover_letters.qwen_config import read_config
+from resumeanalysis.cover_letters.service import CoverLetterService
+from resumeanalysis.recommendation.schema import StructuredProfile, StructuredVacancy
 
 
 def configure(parser):
-    parser.add_argument("--input", required=True)
+    parser.add_argument("--profile", required=True)
+    parser.add_argument("--vacancy", required=True)
+    parser.add_argument("--language", choices=["en", "ru"], default="en")
     parser.add_argument("--qwen-config", default="configs/cover_letter_qwen_cpu.json")
     parser.add_argument("--max-words", type=int, default=180)
-    parser.add_argument("--relevance-backend", choices=["mlp", "rerank"], default="mlp")
-    parser.add_argument("--checkpoint", default="artifacts/run/model.pt")
-    parser.add_argument("--e5-path", default="artifacts/e5")
-    parser.add_argument("--rerank-config", default="configs/rerank.json")
 
 
 def run(args):
-    request = AnalysisRequest.model_validate(loads(Path(args.input).read_text()), strict=True)
-    config = read_config(args.qwen_config)
-    generator = LocalCoverLetterGenerator(config, max_words=args.max_words)
-    encoder = TextEncoder(args.e5_path)
-    if args.relevance_backend == "mlp":
-        relevance = create_predictor("mlp", encoder=encoder, checkpoint=args.checkpoint)
-    else:
-        from resumeanalysis.rerank.config import RerankConfig
-
-        rerank = RerankConfig.model_validate(
-            loads(Path(args.rerank_config).read_text()), strict=True
+    profile = StructuredProfile.model_validate_json(Path(args.profile).read_text(), strict=True)
+    vacancy = StructuredVacancy.model_validate_json(Path(args.vacancy).read_text(), strict=True)
+    generator = LocalCoverLetterGenerator(read_config(args.qwen_config), max_words=args.max_words)
+    letter = asyncio.run(
+        CoverLetterService(generator).draft(profile, vacancy, language=args.language)
+    )
+    print(
+        json.dumps(
+            {"vacancy_id": vacancy.vacancy_id, "cover_letter": letter, "needs_review": True},
+            ensure_ascii=False,
+            indent=2,
         )
-        relevance = create_predictor("rerank", encoder=encoder, config=rerank)
-    result = asyncio.run(AnalysisService(relevance, generator).analyze(request))
-    print(json.dumps(result.model_dump(), ensure_ascii=False, indent=2))
+    )

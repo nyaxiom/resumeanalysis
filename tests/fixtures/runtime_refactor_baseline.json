@@ -1,0 +1,1517 @@
+{
+  "source_commit": "52bd68f",
+  "provenance": "Authored examples evaluated before the runtime/package refactor; diagnostic lexical encoder, no real-quality claim.",
+  "cases": [
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "I develop Python data imports and maintain SQL reports.",
+          "skills": [
+            "Python",
+            "SQL"
+          ],
+          "denied_skills": [],
+          "experience_years": 2.0,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [
+            "Data engineer"
+          ],
+          "remote": true,
+          "locations": [],
+          "salary": {
+            "minimum": 60000.0,
+            "maximum": null,
+            "currency": "USD",
+            "period": "year",
+            "gross": true
+          },
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "demo-user",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "authored:data-remote",
+        "facts": {
+          "title": "Data engineer",
+          "description": "Maintain Python data imports and SQL reports.",
+          "required_skills": [
+            "Python",
+            "SQL"
+          ],
+          "optional_skills": [],
+          "min_experience_years": 2.0,
+          "seniority": null,
+          "remote": true,
+          "location": null
+        },
+        "salary": {
+          "minimum": 65000.0,
+          "maximum": 80000.0,
+          "currency": "USD",
+          "period": "year",
+          "gross": true
+        },
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 0,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp0",
+        "identity": "a39c2edb1bac7fd3c6b7fc5ea015ac5b60da78e7746567dd97e1106b39471940",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 1.0,
+          "experience_match": 1.0,
+          "experience_match_known": 1.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 1.0,
+          "remote_match": 1.0,
+          "remote_match_known": 1.0,
+          "required_coverage": 1.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 1.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 1.0,
+          "role_similarity_known": 1.0,
+          "salary_match": 1.0,
+          "salary_match_known": 1.0,
+          "semantic_similarity": 0.73817324680086,
+          "semantic_similarity_known": 1.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 1.0,
+          "vacancy_remote_known": 1.0,
+          "vacancy_role_known": 1.0
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+        "vacancy_sha256": "5f279b1a6c5f2ccf7845939b5143c7c8647abf995e205b46c841e169b8cdb380",
+        "content_score": 0.9610907611344931
+      },
+      "qualification": {
+        "score": 0.9383937051296141,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": 0.0,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "I develop Python data imports and maintain SQL reports.",
+          "skills": [
+            "Python",
+            "SQL"
+          ],
+          "denied_skills": [],
+          "experience_years": 2.0,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [
+            "Data engineer"
+          ],
+          "remote": true,
+          "locations": [],
+          "salary": {
+            "minimum": 60000.0,
+            "maximum": null,
+            "currency": "USD",
+            "period": "year",
+            "gross": true
+          },
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "demo-user",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "authored:data-office",
+        "facts": {
+          "title": "Data engineer",
+          "description": "Build Python data pipelines and SQL reports.",
+          "required_skills": [
+            "Python",
+            "SQL"
+          ],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": false,
+          "location": "Boston"
+        },
+        "salary": {
+          "minimum": 80000.0,
+          "maximum": 95000.0,
+          "currency": "USD",
+          "period": "year",
+          "gross": true
+        },
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 0,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp0",
+        "identity": "a39c2edb1bac7fd3c6b7fc5ea015ac5b60da78e7746567dd97e1106b39471940",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": -1.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 1.0,
+          "remote_match": 0.0,
+          "remote_match_known": 1.0,
+          "required_coverage": 1.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 1.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 1.0,
+          "role_similarity_known": 1.0,
+          "salary_match": 1.0,
+          "salary_match_known": 1.0,
+          "semantic_similarity": 0.6200655285973597,
+          "semantic_similarity_known": 1.0,
+          "vacancy_location_known": 1.0,
+          "vacancy_remote": 0.0,
+          "vacancy_remote_known": 1.0,
+          "vacancy_role_known": 1.0
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+        "vacancy_sha256": "eb2daa967284be55f43269a7a3d3936c0e932dbdc369bced744043040565572f",
+        "content_score": 0.8833794574479765
+      },
+      "qualification": {
+        "score": 0.898684140959296,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "I develop Python data imports and maintain SQL reports.",
+          "skills": [
+            "Python",
+            "SQL"
+          ],
+          "denied_skills": [],
+          "experience_years": 2.0,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [
+            "Data engineer"
+          ],
+          "remote": true,
+          "locations": [],
+          "salary": {
+            "minimum": 60000.0,
+            "maximum": null,
+            "currency": "USD",
+            "period": "year",
+            "gross": true
+          },
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "demo-user",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "authored:frontend",
+        "facts": {
+          "title": "Frontend developer",
+          "description": "Develop accessible web pages with JavaScript.",
+          "required_skills": [
+            "JavaScript"
+          ],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": true,
+          "location": null
+        },
+        "salary": null,
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 0,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp0",
+        "identity": "a39c2edb1bac7fd3c6b7fc5ea015ac5b60da78e7746567dd97e1106b39471940",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 1.0,
+          "remote_match": 1.0,
+          "remote_match_known": 1.0,
+          "required_coverage": 0.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 1.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 0.0,
+          "role_hash_2": 1.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 0.0,
+          "role_similarity_known": 1.0,
+          "salary_match": 0.0,
+          "salary_match_known": 0.0,
+          "semantic_similarity": 0.03771571404305509,
+          "semantic_similarity_known": 1.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 1.0,
+          "vacancy_remote_known": 1.0,
+          "vacancy_role_known": 1.0
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+        "vacancy_sha256": "ab38ebcc3cd40bd6473916b83dd2e5b416bd65913680266ed7de96ed80f6f006",
+        "content_score": 0.06592295793751625
+      },
+      "qualification": {
+        "score": 0.010057523744814691,
+        "matched_skills": [],
+        "missing_skills": [
+          "javascript"
+        ],
+        "unknown_skills": [
+          "javascript"
+        ],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. Mandatory skill evidence is unknown, not proof of absence: javascript.",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "",
+          "skills": [],
+          "denied_skills": [],
+          "experience_years": null,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [],
+          "remote": null,
+          "locations": [],
+          "salary": null,
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "unknown",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "unknown",
+        "facts": {
+          "title": "",
+          "description": "",
+          "required_skills": [],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": null,
+          "location": null
+        },
+        "salary": null,
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 0,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp0",
+        "identity": "a39c2edb1bac7fd3c6b7fc5ea015ac5b60da78e7746567dd97e1106b39471940",
+        "values": {
+          "candidate_skills_known": 0.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 0.0,
+          "remote_match": 0.0,
+          "remote_match_known": 0.0,
+          "required_coverage": 0.0,
+          "required_coverage_known": 0.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 0.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 0.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 0.0,
+          "role_similarity_known": 0.0,
+          "salary_match": 0.0,
+          "salary_match_known": 0.0,
+          "semantic_similarity": 0.0,
+          "semantic_similarity_known": 0.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 0.0,
+          "vacancy_remote_known": 0.0,
+          "vacancy_role_known": 0.0
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "aae6987b10e3bf86878baa5856f128d5b6abdf46a5b7d89f6e8b22710dbf910d",
+        "vacancy_sha256": "441bcf71f62afa1f11201ac41fa28df25261f24f1b6bd18ad195dc1f843cc5e4",
+        "content_score": 0.5
+      },
+      "qualification": {
+        "score": null,
+        "matched_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. Positive candidate evidence is empty; a semantic decision is unavailable. Vacancy competency content is empty; a job title alone is insufficient.",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "",
+          "skills": [
+            "Python"
+          ],
+          "denied_skills": [
+            "Java"
+          ],
+          "experience_years": null,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [],
+          "remote": null,
+          "locations": [],
+          "salary": null,
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "alternatives",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "alternatives",
+        "facts": {
+          "title": "",
+          "description": "Required: Python or Java. Optional: SQL.",
+          "required_skills": [],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": null,
+          "location": null
+        },
+        "salary": null,
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 0,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp0",
+        "identity": "a39c2edb1bac7fd3c6b7fc5ea015ac5b60da78e7746567dd97e1106b39471940",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 1.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 1.0,
+          "optional_unknown": 1.0,
+          "related_support": 0.0,
+          "related_support_known": 0.0,
+          "remote_match": 0.0,
+          "remote_match_known": 0.0,
+          "required_coverage": 1.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 0.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 0.0,
+          "role_similarity_known": 0.0,
+          "salary_match": 0.0,
+          "salary_match_known": 0.0,
+          "semantic_similarity": 0.2075143391598224,
+          "semantic_similarity_known": 1.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 0.0,
+          "vacancy_remote_known": 0.0,
+          "vacancy_role_known": 0.0
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "0a6b6f96c4b28e5ebe36bee8766e20fdc1d2a0ce81279511855707680634d70c",
+        "vacancy_sha256": "345377c54fc2caf2556b89f7916f8ce8d5e3b575c7ad158be84e9427de1696a1",
+        "content_score": 0.6572254087021827
+      },
+      "qualification": {
+        "score": 0.6572254087021827,
+        "matched_skills": [
+          "python"
+        ],
+        "missing_skills": [
+          "sql"
+        ],
+        "unknown_skills": [
+          "sql"
+        ],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": [
+          {
+            "skills": [
+              "python",
+              "java"
+            ],
+            "requirement": "required",
+            "start": 10,
+            "end": 24,
+            "text": "Python or Java",
+            "status": "matched",
+            "matched_skills": [
+              "python"
+            ]
+          }
+        ]
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "I develop Python data imports and maintain SQL reports.",
+          "skills": [
+            "Python",
+            "SQL"
+          ],
+          "denied_skills": [],
+          "experience_years": 2.0,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [
+            "Data engineer"
+          ],
+          "remote": true,
+          "locations": [],
+          "salary": {
+            "minimum": 60000.0,
+            "maximum": null,
+            "currency": "USD",
+            "period": "year",
+            "gross": true
+          },
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "demo-user",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "authored:data-remote",
+        "facts": {
+          "title": "Data engineer",
+          "description": "Maintain Python data imports and SQL reports.",
+          "required_skills": [
+            "Python",
+            "SQL"
+          ],
+          "optional_skills": [],
+          "min_experience_years": 2.0,
+          "seniority": null,
+          "remote": true,
+          "location": null
+        },
+        "salary": {
+          "minimum": 65000.0,
+          "maximum": 80000.0,
+          "currency": "USD",
+          "period": "year",
+          "gross": true
+        },
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 16,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp16",
+        "identity": "8d75ca756b354d9372f1e35003d7ad5f9bba9c834bfd3b9d60815997fbc81807",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 1.0,
+          "experience_match": 1.0,
+          "experience_match_known": 1.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 1.0,
+          "remote_match": 1.0,
+          "remote_match_known": 1.0,
+          "required_coverage": 1.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 1.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 1.0,
+          "role_similarity_known": 1.0,
+          "salary_match": 1.0,
+          "salary_match_known": 1.0,
+          "semantic_similarity": 0.73817324680086,
+          "semantic_similarity_known": 1.0,
+          "vacancy_embedding_known": 1.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 1.0,
+          "vacancy_remote_known": 1.0,
+          "vacancy_role_known": 1.0,
+          "vacancy_rp_00": -0.23506027308700866,
+          "vacancy_rp_01": 0.009819705624961705,
+          "vacancy_rp_02": 0.32383365157492516,
+          "vacancy_rp_03": -0.20452221299123347,
+          "vacancy_rp_04": -0.12085043497583402,
+          "vacancy_rp_05": -0.05959492314130844,
+          "vacancy_rp_06": -0.18262836017008552,
+          "vacancy_rp_07": -0.0198605020219123,
+          "vacancy_rp_08": -0.17922842804012645,
+          "vacancy_rp_09": -0.29257938588005494,
+          "vacancy_rp_10": -0.2643737641664693,
+          "vacancy_rp_11": -0.10731646939083979,
+          "vacancy_rp_12": -0.013862983750685981,
+          "vacancy_rp_13": 0.39550993495501974,
+          "vacancy_rp_14": -0.39431885657665167,
+          "vacancy_rp_15": -0.05480315822655735
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+        "vacancy_sha256": "5f279b1a6c5f2ccf7845939b5143c7c8647abf995e205b46c841e169b8cdb380",
+        "content_score": 0.9610907611344931
+      },
+      "qualification": {
+        "score": 0.9383937051296141,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": 0.0,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "I develop Python data imports and maintain SQL reports.",
+          "skills": [
+            "Python",
+            "SQL"
+          ],
+          "denied_skills": [],
+          "experience_years": 2.0,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [
+            "Data engineer"
+          ],
+          "remote": true,
+          "locations": [],
+          "salary": {
+            "minimum": 60000.0,
+            "maximum": null,
+            "currency": "USD",
+            "period": "year",
+            "gross": true
+          },
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "demo-user",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "authored:data-office",
+        "facts": {
+          "title": "Data engineer",
+          "description": "Build Python data pipelines and SQL reports.",
+          "required_skills": [
+            "Python",
+            "SQL"
+          ],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": false,
+          "location": "Boston"
+        },
+        "salary": {
+          "minimum": 80000.0,
+          "maximum": 95000.0,
+          "currency": "USD",
+          "period": "year",
+          "gross": true
+        },
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 16,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp16",
+        "identity": "8d75ca756b354d9372f1e35003d7ad5f9bba9c834bfd3b9d60815997fbc81807",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": -1.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 1.0,
+          "remote_match": 0.0,
+          "remote_match_known": 1.0,
+          "required_coverage": 1.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 1.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 1.0,
+          "role_similarity_known": 1.0,
+          "salary_match": 1.0,
+          "salary_match_known": 1.0,
+          "semantic_similarity": 0.6200655285973597,
+          "semantic_similarity_known": 1.0,
+          "vacancy_embedding_known": 1.0,
+          "vacancy_location_known": 1.0,
+          "vacancy_remote": 0.0,
+          "vacancy_remote_known": 1.0,
+          "vacancy_role_known": 1.0,
+          "vacancy_rp_00": -0.13729718915195163,
+          "vacancy_rp_01": -0.12994672903217913,
+          "vacancy_rp_02": 0.13472036603841964,
+          "vacancy_rp_03": -0.05172073662233751,
+          "vacancy_rp_04": -0.09323183746794866,
+          "vacancy_rp_05": -0.18383024544803556,
+          "vacancy_rp_06": -0.06720695503488738,
+          "vacancy_rp_07": -0.010430177496790233,
+          "vacancy_rp_08": -0.29662251382740984,
+          "vacancy_rp_09": -0.3487592322746487,
+          "vacancy_rp_10": -0.3410408871046343,
+          "vacancy_rp_11": -0.36449049557180657,
+          "vacancy_rp_12": 0.1542844754748601,
+          "vacancy_rp_13": 0.35347777399735103,
+          "vacancy_rp_14": -0.23623749991950554,
+          "vacancy_rp_15": -0.19447830423846665
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+        "vacancy_sha256": "eb2daa967284be55f43269a7a3d3936c0e932dbdc369bced744043040565572f",
+        "content_score": 0.8833794574479765
+      },
+      "qualification": {
+        "score": 0.898684140959296,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "I develop Python data imports and maintain SQL reports.",
+          "skills": [
+            "Python",
+            "SQL"
+          ],
+          "denied_skills": [],
+          "experience_years": 2.0,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [
+            "Data engineer"
+          ],
+          "remote": true,
+          "locations": [],
+          "salary": {
+            "minimum": 60000.0,
+            "maximum": null,
+            "currency": "USD",
+            "period": "year",
+            "gross": true
+          },
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "demo-user",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "authored:frontend",
+        "facts": {
+          "title": "Frontend developer",
+          "description": "Develop accessible web pages with JavaScript.",
+          "required_skills": [
+            "JavaScript"
+          ],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": true,
+          "location": null
+        },
+        "salary": null,
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 16,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp16",
+        "identity": "8d75ca756b354d9372f1e35003d7ad5f9bba9c834bfd3b9d60815997fbc81807",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 1.0,
+          "remote_match": 1.0,
+          "remote_match_known": 1.0,
+          "required_coverage": 0.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 1.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 0.0,
+          "role_hash_2": 1.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 0.0,
+          "role_similarity_known": 1.0,
+          "salary_match": 0.0,
+          "salary_match_known": 0.0,
+          "semantic_similarity": 0.03771571404305509,
+          "semantic_similarity_known": 1.0,
+          "vacancy_embedding_known": 1.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 1.0,
+          "vacancy_remote_known": 1.0,
+          "vacancy_role_known": 1.0,
+          "vacancy_rp_00": 0.07858818065776904,
+          "vacancy_rp_01": -0.13102701278918716,
+          "vacancy_rp_02": 0.2976125724950841,
+          "vacancy_rp_03": 0.5412385991525536,
+          "vacancy_rp_04": 0.4557658611130903,
+          "vacancy_rp_05": 0.08216170758560115,
+          "vacancy_rp_06": 0.206881752134989,
+          "vacancy_rp_07": -0.020896364043282416,
+          "vacancy_rp_08": 0.08913127661564911,
+          "vacancy_rp_09": -0.3437814557134526,
+          "vacancy_rp_10": -0.02940296238454193,
+          "vacancy_rp_11": -0.034948721230902674,
+          "vacancy_rp_12": 0.08998089168503842,
+          "vacancy_rp_13": 0.3400955315096774,
+          "vacancy_rp_14": -0.1741533644857572,
+          "vacancy_rp_15": -0.18083069163555193
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+        "vacancy_sha256": "ab38ebcc3cd40bd6473916b83dd2e5b416bd65913680266ed7de96ed80f6f006",
+        "content_score": 0.06592295793751625
+      },
+      "qualification": {
+        "score": 0.010057523744814691,
+        "matched_skills": [],
+        "missing_skills": [
+          "javascript"
+        ],
+        "unknown_skills": [
+          "javascript"
+        ],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. Mandatory skill evidence is unknown, not proof of absence: javascript.",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "",
+          "skills": [],
+          "denied_skills": [],
+          "experience_years": null,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [],
+          "remote": null,
+          "locations": [],
+          "salary": null,
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "unknown",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "unknown",
+        "facts": {
+          "title": "",
+          "description": "",
+          "required_skills": [],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": null,
+          "location": null
+        },
+        "salary": null,
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 16,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp16",
+        "identity": "8d75ca756b354d9372f1e35003d7ad5f9bba9c834bfd3b9d60815997fbc81807",
+        "values": {
+          "candidate_skills_known": 0.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 0.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 0.0,
+          "optional_unknown": 0.0,
+          "related_support": 0.0,
+          "related_support_known": 0.0,
+          "remote_match": 0.0,
+          "remote_match_known": 0.0,
+          "required_coverage": 0.0,
+          "required_coverage_known": 0.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 0.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 0.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 0.0,
+          "role_similarity_known": 0.0,
+          "salary_match": 0.0,
+          "salary_match_known": 0.0,
+          "semantic_similarity": 0.0,
+          "semantic_similarity_known": 0.0,
+          "vacancy_embedding_known": 0.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 0.0,
+          "vacancy_remote_known": 0.0,
+          "vacancy_role_known": 0.0,
+          "vacancy_rp_00": 0.0,
+          "vacancy_rp_01": 0.0,
+          "vacancy_rp_02": 0.0,
+          "vacancy_rp_03": 0.0,
+          "vacancy_rp_04": 0.0,
+          "vacancy_rp_05": 0.0,
+          "vacancy_rp_06": 0.0,
+          "vacancy_rp_07": 0.0,
+          "vacancy_rp_08": 0.0,
+          "vacancy_rp_09": 0.0,
+          "vacancy_rp_10": 0.0,
+          "vacancy_rp_11": 0.0,
+          "vacancy_rp_12": 0.0,
+          "vacancy_rp_13": 0.0,
+          "vacancy_rp_14": 0.0,
+          "vacancy_rp_15": 0.0
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "aae6987b10e3bf86878baa5856f128d5b6abdf46a5b7d89f6e8b22710dbf910d",
+        "vacancy_sha256": "441bcf71f62afa1f11201ac41fa28df25261f24f1b6bd18ad195dc1f843cc5e4",
+        "content_score": 0.5
+      },
+      "qualification": {
+        "score": null,
+        "matched_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. Positive candidate evidence is empty; a semantic decision is unavailable. Vacancy competency content is empty; a job title alone is insufficient.",
+        "alternative_requirements": []
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    },
+    {
+      "profile": {
+        "facts": {
+          "resume_text": "",
+          "skills": [
+            "Python"
+          ],
+          "denied_skills": [
+            "Java"
+          ],
+          "experience_years": null,
+          "projects": [],
+          "education": [],
+          "seniority": null,
+          "remote_only": false,
+          "allowed_locations": []
+        },
+        "skill_experience": [],
+        "preferences": {
+          "preferred_roles": [],
+          "remote": null,
+          "locations": [],
+          "salary": null,
+          "hard": {
+            "remote_only": false,
+            "locations": [],
+            "salary": null
+          }
+        },
+        "schema_version": "profile-v1",
+        "user_id": "alternatives",
+        "profile_id": "primary",
+        "version": 1,
+        "review_status": "user_supplied",
+        "sources": [],
+        "evidence": {}
+      },
+      "vacancy": {
+        "schema_version": "vacancy-v1",
+        "vacancy_id": "alternatives",
+        "facts": {
+          "title": "",
+          "description": "Required: Python or Java. Optional: SQL.",
+          "required_skills": [],
+          "optional_skills": [],
+          "min_experience_years": null,
+          "seniority": null,
+          "remote": null,
+          "location": null
+        },
+        "salary": null,
+        "source_url": null,
+        "source_domain": null
+      },
+      "components": 16,
+      "snapshot": {
+        "schema_version": "preference-features-v1-rp16",
+        "identity": "8d75ca756b354d9372f1e35003d7ad5f9bba9c834bfd3b9d60815997fbc81807",
+        "values": {
+          "candidate_skills_known": 1.0,
+          "experience_gap": 0.0,
+          "experience_gap_known": 0.0,
+          "experience_match": 0.0,
+          "experience_match_known": 0.0,
+          "location_hash_0": 0.0,
+          "location_hash_1": 0.0,
+          "location_hash_2": 0.0,
+          "location_hash_3": 0.0,
+          "location_hash_4": 0.0,
+          "location_hash_5": 0.0,
+          "location_hash_6": 0.0,
+          "location_hash_7": 0.0,
+          "location_match": 0.0,
+          "location_match_known": 0.0,
+          "optional_coverage": 0.0,
+          "optional_coverage_known": 1.0,
+          "optional_denied": 0.0,
+          "optional_requirements_known": 1.0,
+          "optional_unknown": 1.0,
+          "related_support": 0.0,
+          "related_support_known": 0.0,
+          "remote_match": 0.0,
+          "remote_match_known": 0.0,
+          "required_coverage": 1.0,
+          "required_coverage_known": 1.0,
+          "required_denied": 0.0,
+          "required_requirements_known": 1.0,
+          "required_unknown": 0.0,
+          "role_hash_0": 0.0,
+          "role_hash_1": 0.0,
+          "role_hash_2": 0.0,
+          "role_hash_3": 0.0,
+          "role_hash_4": 0.0,
+          "role_hash_5": 0.0,
+          "role_hash_6": 0.0,
+          "role_hash_7": 0.0,
+          "role_similarity": 0.0,
+          "role_similarity_known": 0.0,
+          "salary_match": 0.0,
+          "salary_match_known": 0.0,
+          "semantic_similarity": 0.2075143391598224,
+          "semantic_similarity_known": 1.0,
+          "vacancy_embedding_known": 1.0,
+          "vacancy_location_known": 0.0,
+          "vacancy_remote": 0.0,
+          "vacancy_remote_known": 0.0,
+          "vacancy_role_known": 0.0,
+          "vacancy_rp_00": -0.12705860012028103,
+          "vacancy_rp_01": -0.0009186545346909908,
+          "vacancy_rp_02": 0.17831751631531115,
+          "vacancy_rp_03": -0.012331042385481106,
+          "vacancy_rp_04": -0.27079034433766735,
+          "vacancy_rp_05": -0.11523751418768502,
+          "vacancy_rp_06": 0.08904069493615976,
+          "vacancy_rp_07": 0.3228511008798693,
+          "vacancy_rp_08": -0.4577423323902067,
+          "vacancy_rp_09": -0.5142347294654954,
+          "vacancy_rp_10": 0.03299473098831665,
+          "vacancy_rp_11": -0.20512383324297023,
+          "vacancy_rp_12": -0.23253152901407986,
+          "vacancy_rp_13": 0.3037782847825255,
+          "vacancy_rp_14": -0.1629908658102509,
+          "vacancy_rp_15": -0.3874385149891285
+        },
+        "profile_id": "primary",
+        "profile_version": 1,
+        "profile_sha256": "0a6b6f96c4b28e5ebe36bee8766e20fdc1d2a0ce81279511855707680634d70c",
+        "vacancy_sha256": "345377c54fc2caf2556b89f7916f8ce8d5e3b575c7ad158be84e9427de1696a1",
+        "content_score": 0.6572254087021827
+      },
+      "qualification": {
+        "score": 0.6572254087021827,
+        "matched_skills": [
+          "python"
+        ],
+        "missing_skills": [
+          "sql"
+        ],
+        "unknown_skills": [
+          "sql"
+        ],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": [
+          {
+            "skills": [
+              "python",
+              "java"
+            ],
+            "requirement": "required",
+            "start": 10,
+            "end": 24,
+            "text": "Python or Java",
+            "status": "matched",
+            "matched_skills": [
+              "python"
+            ]
+          }
+        ]
+      },
+      "constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      }
+    }
+  ]
+}

@@ -3,8 +3,8 @@
 ResumeAnalysis now has a recommendation API that starts with no personalized
 training data and learns from explicit likes/dislikes through River. Frozen E5
 and existing qualification evidence are reused. The new `recommend` command does
-not load an MLP checkpoint. Existing `predict`, `rank` and cover-letter `analyze`
-commands remain available as separate legacy/experimental functions.
+not load an MLP checkpoint. Historical `predict`, `rank` and multi-resume `analyze` commands are available
+only through the optional `resumeanalysis-legacy` entry point.
 
 ```mermaid
 flowchart TD
@@ -32,7 +32,7 @@ been demonstrated.
 ## Setup and a persistent CLI example
 
 ```bash
-uv sync --frozen --extra dev --extra data --extra qwen --extra profile-llm --extra documents
+uv sync --frozen --extra dev --extra qwen --extra profile-llm --extra documents
 source .venv/bin/activate
 resumeanalysis download-e5 --output artifacts/e5
 

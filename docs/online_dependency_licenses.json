@@ -1,0 +1,493 @@
+{
+  "audit_date": "2026-10-27",
+  "baseline_commit": "f31f48a",
+  "method": "Compare exact lockfile package versions with the pre-migration lockfile; inspect installed distribution metadata/license files. The conditional WebAssembly dependency was verified from its published wheel without installation or execution. Existing dependency notices remain in LICENSES/dependencies.",
+  "dependencies": [
+    {
+      "name": "aiohappyeyeballs",
+      "locked_version": "2.7.1",
+      "source_url": "https://pypi.org/project/aiohappyeyeballs/2.7.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/aiohappyeyeballs-aiohappyeyeballs-2.7.1.dist-info_licenses_LICENSE.txt",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "installed_version": "2.7.1",
+      "license": "PSF-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "aiohttp",
+      "locked_version": "3.14.5",
+      "source_url": "https://pypi.org/project/aiohttp/3.14.5/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/aiohttp-aiohttp-3.14.5.dist-info_licenses_LICENSE.txt.txt",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        },
+        {
+          "path": "LICENSES/online_recommender/aiohttp-aiohttp-3.14.5.dist-info_licenses_vendor_llhttp_LICENSE.txt",
+          "sha256": "628168d68bb5a8a17e0bbefb3bd74e326e1edc20583d76f52f457c82c921867d"
+        }
+      ],
+      "installed_version": "3.14.5",
+      "license": "Apache-2.0 AND MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "aiosignal",
+      "locked_version": "1.4.0",
+      "source_url": "https://pypi.org/project/aiosignal/1.4.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/aiosignal-aiosignal-1.4.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "installed_version": "1.4.0",
+      "license": "Apache 2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "annotated-doc",
+      "locked_version": "0.0.5",
+      "source_url": "https://pypi.org/project/annotated-doc/0.0.5/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/annotated-doc-annotated_doc-0.0.5.dist-info_licenses_LICENSE.txt",
+          "sha256": "fff170779a6acbf65abdb405c087f1cee1786691e4a96a4034517e4a504a0cdf"
+        }
+      ],
+      "installed_version": "0.0.5",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "anyio",
+      "locked_version": "4.15.1",
+      "source_url": "https://pypi.org/project/anyio/4.15.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/anyio-anyio-4.15.1.dist-info_licenses_LICENSE.txt",
+          "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0"
+        }
+      ],
+      "installed_version": "4.15.1",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "attrs",
+      "locked_version": "26.1.0",
+      "source_url": "https://pypi.org/project/attrs/26.1.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/attrs-attrs-26.1.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+        }
+      ],
+      "installed_version": "26.1.0",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "click",
+      "locked_version": "8.5.0",
+      "source_url": "https://pypi.org/project/click/8.5.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/click-click-8.5.0.dist-info_licenses_LICENSE.txt.txt",
+          "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d"
+        }
+      ],
+      "installed_version": "8.5.0",
+      "license": "BSD-3-Clause",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "distro",
+      "locked_version": "1.9.0",
+      "source_url": "https://pypi.org/project/distro/1.9.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/distro-distro-1.9.0.dist-info_LICENSE.txt",
+          "sha256": "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14"
+        }
+      ],
+      "installed_version": "1.9.0",
+      "license": "Apache License, Version 2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "docstring-parser",
+      "locked_version": "0.18.0",
+      "source_url": "https://pypi.org/project/docstring-parser/0.18.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/docstring-parser-docstring_parser-0.18.0.dist-info_licenses_LICENSE.md.txt",
+          "sha256": "dfe514a337ae8417abd31a8af707bbd6172b03e5430bb083e145899ea97a3eea"
+        }
+      ],
+      "installed_version": "0.18.0",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "frozenlist",
+      "locked_version": "1.8.0",
+      "source_url": "https://pypi.org/project/frozenlist/1.8.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/frozenlist-frozenlist-1.8.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "installed_version": "1.8.0",
+      "license": "Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "h11",
+      "locked_version": "0.16.0",
+      "source_url": "https://pypi.org/project/h11/0.16.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/h11-h11-0.16.0.dist-info_licenses_LICENSE.txt.txt",
+          "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361"
+        }
+      ],
+      "installed_version": "0.16.0",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "httpcore2",
+      "locked_version": "2.16.0",
+      "source_url": "https://pypi.org/project/httpcore2/2.16.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/httpcore2-httpcore2-2.16.0.dist-info_licenses_LICENSE.md.txt",
+          "sha256": "c4df125c807b0613501e943a5c92496dd11d2c16604ce396097a8dde396304d9"
+        }
+      ],
+      "installed_version": "2.16.0",
+      "license": "BSD-3-Clause",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "httpx2",
+      "locked_version": "2.16.0",
+      "source_url": "https://pypi.org/project/httpx2/2.16.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/httpx2-httpx2-2.16.0.dist-info_licenses_LICENSE.md.txt",
+          "sha256": "7e7d6dbaf7fe160d39fd6e84fd02c33cab96bcbea34d36998d545bceb4a19c30"
+        }
+      ],
+      "installed_version": "2.16.0",
+      "license": "BSD-3-Clause",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "httpx2-jsfetch",
+      "locked_version": "1.0",
+      "source_url": "https://pypi.org/project/httpx2-jsfetch/1.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/httpx2-jsfetch-httpx2_jsfetch-1.0.dist-info_licenses_LICENSE.md.txt",
+          "sha256": "7e7d6dbaf7fe160d39fd6e84fd02c33cab96bcbea34d36998d545bceb4a19c30"
+        }
+      ],
+      "license": "BSD-3-Clause",
+      "verification": "PyPI release metadata and SHA-256-verified wheel license; conditional WebAssembly component not installed or executed",
+      "requires_python": ">=3.12",
+      "wheel_url": "https://files.pythonhosted.org/packages/9b/43/832f631d32e4f1211caa2ba368317739fe71f0b8530e4c9d15dc454bac2a/httpx2_jsfetch-1.0-py3-none-any.whl",
+      "wheel_sha256": "cb916b707601e69a07721aabc8f3f6659be3a6893bc1ff5c6f9e02241df2da32"
+    },
+    {
+      "name": "instructor",
+      "locked_version": "1.17.0",
+      "source_url": "https://pypi.org/project/instructor/1.17.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/instructor-instructor-1.17.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "1fdd867197ab4d56e3c00ee835e4ea53aac5d54f6e6ac6d247bf866bcf3a9352"
+        }
+      ],
+      "installed_version": "1.17.0",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "jiter",
+      "locked_version": "0.14.0",
+      "source_url": "https://pypi.org/project/jiter/0.14.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/jiter-jiter-0.14.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "7c7134b9f7b978c03fca875517cf398db91f19bbb8109b6685e742aa3f57468e"
+        }
+      ],
+      "installed_version": "0.14.0",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "lxml",
+      "locked_version": "6.1.3",
+      "source_url": "https://pypi.org/project/lxml/6.1.3/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/lxml-lxml-6.1.3.dist-info_licenses_LICENSE.txt.txt",
+          "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855"
+        },
+        {
+          "path": "LICENSES/online_recommender/lxml-lxml-6.1.3.dist-info_licenses_LICENSES.txt.txt",
+          "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c"
+        }
+      ],
+      "installed_version": "6.1.3",
+      "license": "BSD-3-Clause",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "markdown-it-py",
+      "locked_version": "4.2.0",
+      "source_url": "https://pypi.org/project/markdown-it-py/4.2.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/markdown-it-py-markdown_it_py-4.2.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484"
+        },
+        {
+          "path": "LICENSES/online_recommender/markdown-it-py-markdown_it_py-4.2.0.dist-info_licenses_LICENSE.markdown-it.txt",
+          "sha256": "792c48c5a849a15fdf9e37e8bcf9e6d1dd13b32b46c642a748a0a46a9919d473"
+        }
+      ],
+      "installed_version": "4.2.0",
+      "license": "MIT",
+      "verification": "Full distributed MIT license inspected; metadata license field absent"
+    },
+    {
+      "name": "mdurl",
+      "locked_version": "0.1.2",
+      "source_url": "https://pypi.org/project/mdurl/0.1.2/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/mdurl-mdurl-0.1.2.dist-info_LICENSE.txt",
+          "sha256": "7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955"
+        }
+      ],
+      "installed_version": "0.1.2",
+      "license": "MIT",
+      "verification": "Full distributed MIT license inspected; metadata license field absent"
+    },
+    {
+      "name": "multidict",
+      "locked_version": "7.2.1",
+      "source_url": "https://pypi.org/project/multidict/7.2.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/multidict-multidict-7.2.1.dist-info_licenses_LICENSE.txt",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        }
+      ],
+      "installed_version": "7.2.1",
+      "license": "Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "openai",
+      "locked_version": "3.3.0",
+      "source_url": "https://pypi.org/project/openai/3.3.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/openai-openai-3.3.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "636eb7d79da9bb6d515a4b3fd417aa26679eb3cf16396ddab4bc55fa74e616e4"
+        },
+        {
+          "path": "LICENSES/online_recommender/openai-openai__vendor_httpx_aiohttp_LICENSE.txt",
+          "sha256": "154759c1e9eb58e42643ee43ec59d556def4d1d702d911a484c469e02f85dd5d"
+        }
+      ],
+      "installed_version": "3.3.0",
+      "license": "Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "propcache",
+      "locked_version": "0.5.4",
+      "source_url": "https://pypi.org/project/propcache/0.5.4/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/propcache-propcache-0.5.4.dist-info_licenses_LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "LICENSES/online_recommender/propcache-propcache-0.5.4.dist-info_licenses_NOTICE.txt",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "installed_version": "0.5.4",
+      "license": "Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "pypdf",
+      "locked_version": "6.21.2",
+      "source_url": "https://pypi.org/project/pypdf/6.21.2/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/pypdf-pypdf-6.21.2.dist-info_licenses_LICENSE.txt",
+          "sha256": "a97ac230e5f33ef10a5367a850eb01f91f1a0b064e34742c7794d2294557f524"
+        }
+      ],
+      "installed_version": "6.21.2",
+      "license": "BSD-3-Clause",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "python-docx",
+      "locked_version": "1.2.0",
+      "source_url": "https://pypi.org/project/python-docx/1.2.0/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/python-docx-python_docx-1.2.0.dist-info_licenses_LICENSE.txt",
+          "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132"
+        }
+      ],
+      "installed_version": "1.2.0",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "rich",
+      "locked_version": "14.3.4",
+      "source_url": "https://pypi.org/project/rich/14.3.4/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/rich-rich-14.3.4.dist-info_licenses_LICENSE.txt",
+          "sha256": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15"
+        }
+      ],
+      "installed_version": "14.3.4",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "river",
+      "locked_version": "0.26.1",
+      "source_url": "https://pypi.org/project/river/0.26.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/river-river-0.26.1.dist-info_licenses_LICENSE.txt",
+          "sha256": "e87f2c8f1ba611702af10cba745e6ceb773d32310135ed55aa2722c55dd0d077"
+        }
+      ],
+      "installed_version": "0.26.1",
+      "license": "BSD-3-Clause",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "shellingham",
+      "locked_version": "1.5.4",
+      "source_url": "https://pypi.org/project/shellingham/1.5.4/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/shellingham-shellingham-1.5.4.dist-info_LICENSE.txt",
+          "sha256": "f388fd38cad13112c1dc0f669bbe80e7f84541edbafb72f3030d2ca7642c3c9d"
+        }
+      ],
+      "installed_version": "1.5.4",
+      "license": "ISC License",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "sniffio",
+      "locked_version": "1.3.1",
+      "source_url": "https://pypi.org/project/sniffio/1.3.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/sniffio-sniffio-1.3.1.dist-info_LICENSE.txt",
+          "sha256": "652c878488d1456361e08c3f8607fd7ba59892a14103d15cce4ff93c85b5cc8b"
+        },
+        {
+          "path": "LICENSES/online_recommender/sniffio-sniffio-1.3.1.dist-info_LICENSE.APACHE2.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "LICENSES/online_recommender/sniffio-sniffio-1.3.1.dist-info_LICENSE.MIT.txt",
+          "sha256": "3e6dae555eb92787fc82d1d48355677f454c7f65aeb38d3f9e72bf9a3daf034b"
+        }
+      ],
+      "installed_version": "1.3.1",
+      "license": "MIT OR Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "tenacity",
+      "locked_version": "9.2.1",
+      "source_url": "https://pypi.org/project/tenacity/9.2.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/tenacity-tenacity-9.2.1.dist-info_licenses_LICENSE.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        }
+      ],
+      "installed_version": "9.2.1",
+      "license": "Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "truststore",
+      "locked_version": "0.10.5",
+      "source_url": "https://pypi.org/project/truststore/0.10.5/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/truststore-truststore-0.10.5.dist-info_licenses_LICENSE.txt",
+          "sha256": "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca"
+        }
+      ],
+      "installed_version": "0.10.5",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "typer",
+      "locked_version": "0.27.3",
+      "source_url": "https://pypi.org/project/typer/0.27.3/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/typer-typer-0.27.3.dist-info_licenses_LICENSE.txt",
+          "sha256": "58992cebcf8dfb6e40c4e2112ed12126c243666dca3912a3d78b7ecac4859d49"
+        },
+        {
+          "path": "LICENSES/online_recommender/typer-typer__click_LICENSE.txt.txt",
+          "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d"
+        }
+      ],
+      "installed_version": "0.27.3",
+      "license": "MIT",
+      "verification": "Installed distribution metadata and full license files"
+    },
+    {
+      "name": "yarl",
+      "locked_version": "1.25.1",
+      "source_url": "https://pypi.org/project/yarl/1.25.1/",
+      "notices": [
+        {
+          "path": "LICENSES/online_recommender/yarl-yarl-1.25.1.dist-info_licenses_LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "LICENSES/online_recommender/yarl-yarl-1.25.1.dist-info_licenses_NOTICE.txt",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "installed_version": "1.25.1",
+      "license": "Apache-2.0",
+      "verification": "Installed distribution metadata and full license files"
+    }
+  ]
+}

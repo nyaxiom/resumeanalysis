@@ -66,8 +66,13 @@ token budgets, threshold and validation retries are in `configs/qwen.json`.
 For an explicitly selected CPU smoke model, Qwen2.5-0.5B-Instruct revision
 `7ae557604adf67be50417f59c2c2f167def9a775` has Apache-2.0 terms; set a separate model
 directory, `device=cpu`, `quantization=none`, and `dtype=float32`. No pretrained
-Qwen model, including this smaller option, was executed during this implementation.
+Qwen model, including this smaller option, was executed during the original relevance-backend implementation.
 Model substitutions require model/license review; they are not automatic fallbacks.
+
+The later [cover-letter implementation](cover_letters.md) runs separate local
+Qwen Instruct benchmarks and reuses this runtime. CPU `bfloat16` is now an explicit
+option alongside the existing `float32`; CPU `float16` and CPU `bnb4` remain rejected.
+The original relevance configuration and its decoding behavior remain unchanged.
 
 Generation is greedy, frozen and bounded. The seed is recorded in the configuration;
 greedy generation does not consume it. Bitwise equality across CUDA builds is not

@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-27",
+  "base_commit": "f31f48a07c2940bbbc78d75c188aea206bb2183e",
+  "pytest": {
+    "passed": 600,
+    "seconds": 64.02,
+    "e5_optional_tests": true,
+    "rerank_optional_tests": true,
+    "command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RESUMEANALYSIS_RUN_E5_TESTS=1 RESUMEANALYSIS_RUN_RERANK_TESTS=1 .venv/bin/pytest -q"
+  },
+  "ruff_check": "passed",
+  "ruff_format_check": "165 files formatted",
+  "git_diff_check": "passed",
+  "package_build": {
+    "wheel": "resumeanalysis-0.1.0-py3-none-any.whl",
+    "license_files": 120,
+    "new_license_files": 41,
+    "new_modules_verified": 15,
+    "forbidden_artifacts": []
+  },
+  "preservation": {
+    "pre_migration_files_checked": 101,
+    "changed": [
+      "src/resumeanalysis/cli.py"
+    ],
+    "earlier_baseline_files_checked": 16,
+    "earlier_baseline_changed": [],
+    "original_notices_preserved": true
+  },
+  "artifact_sha256": {
+    "evaluation/online_recommendations/cli_demo.json": "776847e2f3638ec9082a3f92a3be7ecec54d1d241a8afa1b9d237fc9f8903a7b",
+    "evaluation/online_recommendations/prequential.json": "8d1084391a135a49a318e53725b1a2047b89980483af79fad5312604f0c18c45",
+    "evaluation/online_recommendations/report.json": "102aa9f3c6ba1168369905d2d1fd9e92caacc1b6ba0073c2e62c440f4663fd12",
+    "evaluation/online_recommendations/scenario.json": "e0d9c89e1dfbc2044808e69b78318d4a38b9369ae30334f6556961e695ec5728",
+    "scripts/benchmark_online_recommender.py": "7013f84842f24aa047e53e8324f6dcb4cc796ef8801fa3044130d30ffb05ce11",
+    "src/resumeanalysis/recommendation/evaluation.py": "77aa6ae1a91267805f86ced61b74c71e9e8e6d6e17fe91693c4e087d59f5eba3",
+    "uv.lock": "3da98e20d90a83768b1261aed09724670364b802f739db7e054e4b8f8ddc6992"
+  },
+  "limitations": [
+    "Synthetic preferences do not establish real-user quality or calibration",
+    "No live Ollama extraction",
+    "No deployed ApplyPilot endpoint/database integration",
+    "CPU measurements use small pools and histories"
+  ]
+}

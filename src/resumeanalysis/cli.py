@@ -70,12 +70,22 @@ def main():
     from resumeanalysis.extraction.cli import configure_parser as configure_extractors
     from resumeanalysis.extraction.cli import run as extractors_run
 
-    parser = argparse.ArgumentParser(description="ResumeAnalysis: local matching and CPU training")
+    parser = argparse.ArgumentParser(
+        description="ResumeAnalysis: local online recommendations and legacy matching"
+    )
     parser.add_argument("--threads", type=int, default=2)
     sub = parser.add_subparsers(dest="command", required=True)
+    from resumeanalysis.recommendation.cli import configure as configure_recommendations
+
+    configure_recommendations(sub)
     configure_parser(sub.add_parser("datasets", help="Inspect, convert and audit JSONL datasets"))
     configure_extractors(
         sub.add_parser("extractors", help="Compare versioned local skill extractors")
+    )
+    from resumeanalysis.cover_letters.cli import configure as configure_letters
+
+    configure_letters(
+        sub.add_parser("analyze", help="Score resumes and draft a local cover letter")
     )
     for name, default in [
         ("download-e5", "artifacts/e5"),
@@ -138,6 +148,21 @@ def main():
     if args.threads < 1:
         parser.error("--threads must be positive")
     torch.set_num_threads(args.threads)
+    if args.command in {"recommend", "feedback", "preferences", "profile"}:
+        from resumeanalysis.recommendation.cli import run as run_recommendations
+
+        try:
+            run_recommendations(args)
+        except (OSError, ValueError, TypeError):
+            parser.error(
+                "Recommendation/profile request failed; check schema, versions, local assets and configuration"
+            )
+        return
+    if args.command == "analyze":
+        from resumeanalysis.cover_letters.cli import run as run_letters
+
+        run_letters(args)
+        return
     if args.command == "datasets":
         return datasets_run(args, parser)
     if args.command == "extractors":

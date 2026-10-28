@@ -1,0 +1,13 @@
+{
+  "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "model_path": "artifacts/qwen-cover-letter-4b",
+  "device": "cpu",
+  "quantization": "none",
+  "dtype": "bfloat16",
+  "max_input_tokens": 4096,
+  "max_new_tokens": 512,
+  "retries": 0,
+  "seed": 42,
+  "structured_generation": false
+}

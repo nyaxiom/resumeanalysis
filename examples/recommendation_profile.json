@@ -1,0 +1,15 @@
+{
+  "user_id": "demo-user",
+  "profile_id": "primary",
+  "version": 1,
+  "facts": {
+    "resume_text": "I develop Python data imports and maintain SQL reports.",
+    "skills": ["Python", "SQL"],
+    "experience_years": 2
+  },
+  "preferences": {
+    "preferred_roles": ["Data engineer"],
+    "remote": true,
+    "salary": {"minimum": 60000, "currency": "USD", "period": "year", "gross": true}
+  }
+}

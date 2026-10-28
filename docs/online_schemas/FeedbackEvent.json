@@ -1,0 +1,183 @@
+{
+  "$defs": {
+    "FeatureSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "identity": {
+          "title": "Identity",
+          "type": "string"
+        },
+        "values": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Values",
+          "type": "object"
+        },
+        "profile_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Profile Id",
+          "type": "string"
+        },
+        "profile_version": {
+          "minimum": 1,
+          "title": "Profile Version",
+          "type": "integer"
+        },
+        "profile_sha256": {
+          "title": "Profile Sha256",
+          "type": "string"
+        },
+        "vacancy_sha256": {
+          "title": "Vacancy Sha256",
+          "type": "string"
+        },
+        "content_score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Content Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "schema_version",
+        "identity",
+        "values",
+        "profile_id",
+        "profile_version",
+        "profile_sha256",
+        "vacancy_sha256",
+        "content_score"
+      ],
+      "title": "FeatureSnapshot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "feedback-v1",
+      "default": "feedback-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "user_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "User Id",
+      "type": "string"
+    },
+    "vacancy_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Vacancy Id",
+      "type": "string"
+    },
+    "event_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "action": {
+      "enum": [
+        "like",
+        "dislike"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "maxLength": 2000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "recommendation_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Recommendation Id",
+      "type": "string"
+    },
+    "corrects_event_id": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Corrects Event Id"
+    },
+    "profile_version": {
+      "title": "Profile Version",
+      "type": "integer"
+    },
+    "feature_schema_version": {
+      "title": "Feature Schema Version",
+      "type": "string"
+    },
+    "model_version": {
+      "title": "Model Version",
+      "type": "string"
+    },
+    "feature_snapshot": {
+      "$ref": "#/$defs/FeatureSnapshot"
+    },
+    "prediction_before_update": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Prediction Before Update",
+      "type": "number"
+    },
+    "prediction_at_recommendation": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Prediction At Recommendation",
+      "type": "number"
+    }
+  },
+  "required": [
+    "user_id",
+    "vacancy_id",
+    "event_id",
+    "action",
+    "timestamp",
+    "recommendation_id",
+    "profile_version",
+    "feature_schema_version",
+    "model_version",
+    "feature_snapshot",
+    "prediction_before_update",
+    "prediction_at_recommendation"
+  ],
+  "title": "FeedbackEvent",
+  "type": "object"
+}

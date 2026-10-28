@@ -9,6 +9,7 @@ claim. The feature branch is `feature/runtime-cleanup`.
 | Check | Result |
 |---|---|
 | Runtime suite in a clean environment without the legacy distribution | **236 passed**, 14.79 seconds |
+| Runtime suite in a clean Python 3.11 environment | **236 passed**, 14.92 seconds |
 | Archived regression suite, including cached E5/cross-encoder checks | **385 passed**, 50.14 seconds |
 | Ten captured pre-refactor compact/projected cases | Identical feature values, feature identities, qualification evidence and constraints |
 | Existing SQLite feedback database opened by old and new code using actual E5 | Identical recommendations and preference scores; rejected vacancy remains suppressed |
@@ -64,6 +65,12 @@ cover-letter configuration was retained there while its runtime copy removes the
 unused classification retry option. Original third-party notice bytes remain
 intact, followed by a short note about package separation. No third-party package
 version changed in the lockfile.
+
+The captured numeric regression fixtures allow an absolute tolerance of `1e-12`
+for cross-Python floating-point rounding. This addresses a reproduced Python 3.11
+difference of `1e-16`; identities, categorical evidence and constraints remain
+exact comparisons. The actual old/new comparisons on the same environment were
+identical. This test adjustment does not change recommendation calculations.
 
 The exact source-set compatibility map preserves existing extractor/feature
 identities only for the reviewed refactor. A test modifies a copied source file

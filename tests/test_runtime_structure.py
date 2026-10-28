@@ -33,8 +33,26 @@ def test_features_and_identities_match_the_captured_pre_refactor_outputs(row):
         StructuredProfile.model_validate(row["profile"]),
         StructuredVacancy.model_validate(row["vacancy"]),
     )
-    for field in ("snapshot", "qualification", "constraints"):
-        assert getattr(result, field).model_dump(mode="json") == row[field]
+    snapshot = result.snapshot.model_dump(mode="json")
+    expected_snapshot = dict(row["snapshot"])
+    # Python/NumPy builds can differ by one floating-point rounding unit. Keep
+    # identities and categorical evidence exact; tolerate only numeric roundoff.
+    assert snapshot.pop("values") == pytest.approx(
+        expected_snapshot.pop("values"), rel=0, abs=1e-12
+    )
+    assert snapshot.pop("content_score") == pytest.approx(
+        expected_snapshot.pop("content_score"), rel=0, abs=1e-12
+    )
+    assert snapshot == expected_snapshot
+    qualification = result.qualification.model_dump(mode="json")
+    expected_qualification = dict(row["qualification"])
+    score, expected_score = qualification.pop("score"), expected_qualification.pop("score")
+    if expected_score is None:
+        assert score is None
+    else:
+        assert score == pytest.approx(expected_score, rel=0, abs=1e-12)
+    assert qualification == expected_qualification
+    assert result.constraints.model_dump(mode="json") == row["constraints"]
 
 
 def test_all_runtime_modules_import_without_legacy_available():

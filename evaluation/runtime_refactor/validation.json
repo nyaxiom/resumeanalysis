@@ -339,5 +339,18 @@
       "verification": "Byte-for-byte unchanged"
     }
   ],
-  "scope": "Structural compatibility validation only; no new quality benchmark, no retraining of saved models, no live Ollama/ApplyPilot deployment test"
+  "scope": "Structural compatibility validation only; no new quality benchmark, no retraining of saved models, no live Ollama/ApplyPilot deployment test",
+  "python_311_runtime_tests": {
+    "passed": 236,
+    "seconds": 14.92,
+    "clean_environment": true,
+    "cached_e5_tests_enabled": true
+  },
+  "numeric_fixture_comparison": {
+    "absolute_tolerance": 1e-12,
+    "relative_tolerance": 0,
+    "observed_python_311_rounding_difference": 1e-16,
+    "identities_and_categorical_fields": "exact",
+    "production_calculations_changed": false
+  }
 }

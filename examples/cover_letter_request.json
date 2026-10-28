@@ -1,0 +1,31 @@
+{
+  "vacancy": {
+    "title": "Junior Data Engineer",
+    "description": "Required: Python and SQL. Help maintain data imports and document data quality checks.",
+    "required_skills": ["Python", "SQL"],
+    "min_experience_years": 2,
+    "remote": true
+  },
+  "resumes": [
+    {
+      "id": 1,
+      "profile": {
+        "resume_text": "I developed data import scripts in Python and SQL and documented their data quality checks.",
+        "skills": ["Python", "SQL"],
+        "experience_years": 2,
+        "remote_only": true
+      }
+    },
+    {
+      "id": 2,
+      "profile": {
+        "resume_text": "I design web pages using HTML and CSS.",
+        "skills": ["HTML", "CSS"],
+        "experience_years": 1,
+        "remote_only": true
+      }
+    }
+  ],
+  "language": "en",
+  "candidate_context": []
+}

@@ -1,0 +1,18 @@
+{
+  "relevant": true,
+  "relevance": 1.0,
+  "matched_skills": [
+    "python",
+    "sql"
+  ],
+  "missing_skills": [],
+  "unknown_skills": [],
+  "contradicted_skills": [],
+  "experience_gap_years": 0.0,
+  "explanation": "Confirmed skills: python, sql. The stated experience-duration requirement is met. The cover letter is a draft and requires factual review before use.",
+  "preference_conflicts": [],
+  "preference_unknowns": [],
+  "summary": null,
+  "resume_id": 1,
+  "cover_letter": "I’m excited to apply for the Junior Data Engineer role at your company. Your focus on reliable data imports and clear documentation aligns with my experience in building and maintaining data import scripts. I’ve developed Python and SQL scripts to automate data ingestion and implemented data quality checks within those workflows.\n\nI’ve written Python and SQL scripts to handle data imports and included documentation for the data quality checks embedded in those scripts. This work ensured that data integrity was tracked during the import process, and the checks were clearly defined for future reference.\n\nI’m confident I can help maintain existing imports and support clear documentation of data quality checks. I’d welcome the opportunity to contribute to your team’s data reliability efforts."
+}

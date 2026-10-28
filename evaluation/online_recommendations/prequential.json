@@ -1,0 +1,3147 @@
+{
+  "methods": {
+    "non_learning": {
+      "count": 128,
+      "log_loss": 0.6931471805599453,
+      "accuracy_at_0_5": 0.5,
+      "brier": 0.25,
+      "ndcg_at_3": 0.49999999999999994,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        }
+      }
+    },
+    "content": {
+      "count": 128,
+      "log_loss": 1.1550241805080381,
+      "accuracy_at_0_5": 0.5,
+      "brier": 0.35480238329979874,
+      "ndcg_at_3": 0.49999999999999994,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        }
+      }
+    },
+    "river_compact": {
+      "count": 128,
+      "log_loss": 0.7069703019206779,
+      "accuracy_at_0_5": 0.5546875,
+      "brier": 0.2519190762910616,
+      "ndcg_at_3": 0.631591581388057,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.532996160423475,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.7301870023526392,
+          "evaluated_pools": 64
+        }
+      }
+    },
+    "river_projected": {
+      "count": 128,
+      "log_loss": 0.7660018908854673,
+      "accuracy_at_0_5": 0.484375,
+      "brier": 0.2784349691416018,
+      "ndcg_at_3": 0.6476966012939516,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.532996160423475,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.762397042164428,
+          "evaluated_pools": 64
+        }
+      }
+    }
+  },
+  "trace": [
+    {
+      "step": 0,
+      "timestamp": "2026-01-01T00:00:00+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-0",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.9720346965011478,
+        "river_projected": 0.9720346965011478
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5,
+        "river_projected": 0.5
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 1,
+      "timestamp": "2026-01-01T00:00:01+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-1",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5960457351566267,
+        "river_projected": 0.5960457351566267
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5,
+        "river_projected": 0.5
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 2,
+      "timestamp": "2026-01-01T00:00:02+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-2",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.9394297449610333,
+        "river_projected": 0.9394297449610333
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5062496744995104,
+        "river_projected": 0.5062496744995104
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 3,
+      "timestamp": "2026-01-01T00:00:03+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-3",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5888850564806971,
+        "river_projected": 0.5888850564806971
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.49375032550048964,
+        "river_projected": 0.49375032550048964
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 4,
+      "timestamp": "2026-01-01T00:00:04+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-4",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5825397697387551,
+        "river_projected": 0.5825397697387551
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5062496744995104,
+        "river_projected": 0.5062496744995104
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 5,
+      "timestamp": "2026-01-01T00:00:05+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-5",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.9096180935070617,
+        "river_projected": 0.9096180935070617
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.49375032550048964,
+        "river_projected": 0.49375032550048964
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 6,
+      "timestamp": "2026-01-01T00:00:06+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-6",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5860902855592837,
+        "river_projected": 0.623732159712307
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5527266970487994,
+        "river_projected": 0.7319737168251012
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 7,
+      "timestamp": "2026-01-01T00:00:07+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-7",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.8660082167246643,
+        "river_projected": 0.828366342571641
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4472733029512006,
+        "river_projected": 0.2680262831748989
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 8,
+      "timestamp": "2026-01-01T00:00:08+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-8",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.3070987306282429,
+        "river_projected": 0.30526454217755705
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5346872422639273,
+        "river_projected": 0.5281365692257637
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 9,
+      "timestamp": "2026-01-01T00:00:09+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-9",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.30086695848466,
+        "river_projected": 0.2949805977337813
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.49884980395882894,
+        "river_projected": 0.47782708699140514
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 10,
+      "timestamp": "2026-01-01T00:00:10+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-10",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.3396788845178844,
+        "river_projected": 0.40544491123724163
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5645543652244193,
+        "river_projected": 0.752457298708297
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 11,
+      "timestamp": "2026-01-01T00:00:11+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-11",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.30538860868962303,
+        "river_projected": 0.23402628402817127
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4567735696905018,
+        "river_projected": 0.2528812135149252
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 12,
+      "timestamp": "2026-01-01T00:00:12+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-12",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.7780412321520895,
+        "river_projected": 0.7885322270627559
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5101454956700565,
+        "river_projected": 0.5351240549811671
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 13,
+      "timestamp": "2026-01-01T00:00:13+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-13",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5468690336019256,
+        "river_projected": 0.5426932414393081
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.47895835050257635,
+        "river_projected": 0.4690159882106299
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 14,
+      "timestamp": "2026-01-01T00:00:14+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-14",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.7322748932333876,
+        "river_projected": 0.7672476855919605
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.48272897554653504,
+        "river_projected": 0.5541020211762758
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 15,
+      "timestamp": "2026-01-01T00:00:15+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-15",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5623390492876184,
+        "river_projected": 0.5327408674168075
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5272565803219157,
+        "river_projected": 0.4668521275243426
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 16,
+      "timestamp": "2026-01-01T00:00:16+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-16",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.566390788696566,
+        "river_projected": 0.5700162100212991
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.543944268154411,
+        "river_projected": 0.55041823480572
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 17,
+      "timestamp": "2026-01-01T00:00:17+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-17",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.685624767490987,
+        "river_projected": 0.6796512322123167
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4564376224044265,
+        "river_projected": 0.44577059512108674
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 18,
+      "timestamp": "2026-01-01T00:00:18+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-18",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5204907020010096,
+        "river_projected": 0.5648312716873027
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.47675530095349467,
+        "river_projected": 0.5471371575984044
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 19,
+      "timestamp": "2026-01-01T00:00:19+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-19",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6748832425323772,
+        "river_projected": 0.6291610027040984
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.49726312447611104,
+        "river_projected": 0.42468814062170035
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 20,
+      "timestamp": "2026-01-01T00:00:20+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-20",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.4600350770862496,
+        "river_projected": 0.43798661348624646
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5635106441741998,
+        "river_projected": 0.5320128390313382
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 21,
+      "timestamp": "2026-01-01T00:00:21+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-21",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.3808777935085642,
+        "river_projected": 0.3919304467514198
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4481652922883132,
+        "river_projected": 0.4639547969209641
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 22,
+      "timestamp": "2026-01-01T00:00:22+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-22",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.41953310391292553,
+        "river_projected": 0.5027978528960966
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5056506824980226,
+        "river_projected": 0.6246003239025527
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 23,
+      "timestamp": "2026-01-01T00:00:23+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-23",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.4221138548235941,
+        "river_projected": 0.3312081351058591
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5070739513097845,
+        "river_projected": 0.3772086374273059
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 24,
+      "timestamp": "2026-01-01T00:00:24+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-24",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.6748124140995914,
+        "river_projected": 0.701399456055351
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5474314359274957,
+        "river_projected": 0.5854129244357238
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 25,
+      "timestamp": "2026-01-01T00:00:25+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-25",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.49036811608058617,
+        "river_projected": 0.47090835108994955
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.44507770790514023,
+        "river_projected": 0.41727804363280224
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 26,
+      "timestamp": "2026-01-01T00:00:26+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-26",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.6088705842678579,
+        "river_projected": 0.6659086261389713
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.45322882188216207,
+        "river_projected": 0.5347117388408956
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 27,
+      "timestamp": "2026-01-01T00:00:27+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-27",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5713300016454997,
+        "river_projected": 0.5193842436581113
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5607375444264453,
+        "river_projected": 0.48652931873017613
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 28,
+      "timestamp": "2026-01-01T00:00:28+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-28",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5811321169892236,
+        "river_projected": 0.5917812730664742
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.575206272455291,
+        "river_projected": 0.590419352565649
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 29,
+      "timestamp": "2026-01-01T00:00:29+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-29",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.5907292409324749,
+        "river_projected": 0.5802799626068863
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.42504855950304066,
+        "river_projected": 0.4101210190379141
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 30,
+      "timestamp": "2026-01-01T00:00:30+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-30",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.48597584050254505,
+        "river_projected": 0.5314081243581334
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.43926873461717886,
+        "river_projected": 0.5041719972680194
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 31,
+      "timestamp": "2026-01-01T00:00:31+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-31",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6681351248272381,
+        "river_projected": 0.6231878222661403
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5356283936384167,
+        "river_projected": 0.471417961408277
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 32,
+      "timestamp": "2026-01-01T00:00:32+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-32",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.4783164544487235,
+        "river_projected": 0.45381344261366985
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5896268975491625,
+        "river_projected": 0.5546225949276574
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 33,
+      "timestamp": "2026-01-01T00:00:33+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-33",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.35843068428814095,
+        "river_projected": 0.3770033810935909
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.41609799340199427,
+        "river_projected": 0.4426304174097799
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 34,
+      "timestamp": "2026-01-01T00:00:34+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-34",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.38799987115998125,
+        "river_projected": 0.45164020276265626
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.46060320713667363,
+        "river_projected": 0.5515179665690666
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 35,
+      "timestamp": "2026-01-01T00:00:35+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-35",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.45028655824021296,
+        "river_projected": 0.38234325552063897
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5473206704763829,
+        "river_projected": 0.45025880944842
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 36,
+      "timestamp": "2026-01-01T00:00:36+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-36",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.6988839586679254,
+        "river_projected": 0.7229113173478822
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5818193567394015,
+        "river_projected": 0.6161441548536254
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 37,
+      "timestamp": "2026-01-01T00:00:37+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-37",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.4678979525703617,
+        "river_projected": 0.44580254001947206
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.41297747431910525,
+        "river_projected": 0.3814125992464058
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 38,
+      "timestamp": "2026-01-01T00:00:38+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-38",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5876946830317482,
+        "river_projected": 0.6389161497888642
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4229775344020056,
+        "river_projected": 0.4961510583407427
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 39,
+      "timestamp": "2026-01-01T00:00:39+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-39",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5933781813000191,
+        "river_projected": 0.5433738544974033
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5922349439329015,
+        "river_projected": 0.520800191357736
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 40,
+      "timestamp": "2026-01-01T00:00:40+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-40",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.6019527879134711,
+        "river_projected": 0.6137638053604404
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6049500880613587,
+        "river_projected": 0.6218229701284578
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 41,
+      "timestamp": "2026-01-01T00:00:41+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-41",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.570426012392155,
+        "river_projected": 0.5616636573853467
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3960439473025837,
+        "river_projected": 0.3835262972928576
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 42,
+      "timestamp": "2026-01-01T00:00:42+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-42",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.4629068554629062,
+        "river_projected": 0.5022884921176728
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.40631304170340904,
+        "river_projected": 0.4625725226387899
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 43,
+      "timestamp": "2026-01-01T00:00:43+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-43",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6929839763406282,
+        "river_projected": 0.6560148082443424
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5711267529432598,
+        "river_projected": 0.5183136556628515
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 44,
+      "timestamp": "2026-01-01T00:00:44+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-44",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.49606831697433984,
+        "river_projected": 0.4752088933289198
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.614986701157186,
+        "river_projected": 0.5851875245208715
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 45,
+      "timestamp": "2026-01-01T00:00:45+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-45",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.33834036555518476,
+        "river_projected": 0.35655583793606604
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.38739753806919974,
+        "river_projected": 0.4134196414704587
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 46,
+      "timestamp": "2026-01-01T00:00:46+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-46",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.360882465918282,
+        "river_projected": 0.41313041111423765
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.42186405679138905,
+        "river_projected": 0.4965039784998971
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 47,
+      "timestamp": "2026-01-01T00:00:47+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-47",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.4752258928172013,
+        "river_projected": 0.4210990649362847
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.582948291300652,
+        "river_projected": 0.5056242514707711
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 48,
+      "timestamp": "2026-01-01T00:00:48+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-48",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.7204163299742838,
+        "river_projected": 0.7392937814754406
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6125798871770564,
+        "river_projected": 0.6395476750358517
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 49,
+      "timestamp": "2026-01-01T00:00:49+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-49",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.44726272229445185,
+        "river_projected": 0.4267706881775182
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3834985739249483,
+        "river_projected": 0.3542242394721859
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 50,
+      "timestamp": "2026-01-01T00:00:50+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-50",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5673212771351523,
+        "river_projected": 0.6095892833539867
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3938726688354399,
+        "river_projected": 0.4542555348623462
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 51,
+      "timestamp": "2026-01-01T00:00:51+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-51",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.6136312256466268,
+        "river_projected": 0.5699119912844595
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6211678644280553,
+        "river_projected": 0.558711815339245
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 52,
+      "timestamp": "2026-01-01T00:00:52+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-52",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.6211276461704546,
+        "river_projected": 0.6323030459957962
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6323427427141923,
+        "river_projected": 0.6483075996075376
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 53,
+      "timestamp": "2026-01-01T00:00:53+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-remote:round-53",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.5518604202766167,
+        "river_projected": 0.5452169881707367
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.36952167285181475,
+        "river_projected": 0.3600310555577004
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 54,
+      "timestamp": "2026-01-01T00:00:54+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-54",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.4421965830122656,
+        "river_projected": 0.4748788720921442
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.37672693820249387,
+        "river_projected": 0.4234159226023204
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 55,
+      "timestamp": "2026-01-01T00:00:55+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "reporting-office:round-55",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.7156752631307401,
+        "river_projected": 0.6864519796251061
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6035428769291338,
+        "river_projected": 0.5617953290639423
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 1.0,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 56,
+      "timestamp": "2026-01-01T00:00:56+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-56",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.5129281894381169,
+        "river_projected": 0.4958085532186487
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6390722332482961,
+        "river_projected": 0.6146156100776272
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 57,
+      "timestamp": "2026-01-01T00:00:57+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-remote:round-57",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.3201014629968857,
+        "river_projected": 0.33638180509130056
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3613419629859153,
+        "river_projected": 0.38459959454936515
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 58,
+      "timestamp": "2026-01-01T00:00:58+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-58",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.33720041524609157,
+        "river_projected": 0.3806866483547159
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.388032555831117,
+        "river_projected": 0.4501557459862946
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 1.0,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 59,
+      "timestamp": "2026-01-01T00:00:59+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "frontend-office:round-59",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.4974989876834964,
+        "river_projected": 0.4535736510199667
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.614766998252502,
+        "river_projected": 0.5520165173046025
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 60,
+      "timestamp": "2026-01-01T00:01:00+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-60",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.7395986902371454,
+        "river_projected": 0.7536956497569762
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6399832589811443,
+        "river_projected": 0.6601217725809028
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 61,
+      "timestamp": "2026-01-01T00:01:01+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-remote:round-61",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.4285246509156121,
+        "river_projected": 0.41099017650452085
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3567299005266058,
+        "river_projected": 0.3316806513679041
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 62,
+      "timestamp": "2026-01-01T00:01:02+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-62",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5482673696502229,
+        "river_projected": 0.5817690234718763
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3666528009998265,
+        "river_projected": 0.4145123064593313
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 63,
+      "timestamp": "2026-01-01T00:01:03+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "initial",
+      "vacancy_id": "data-office:round-63",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.6320514655473898,
+        "river_projected": 0.5957359137148134
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6474824928577168,
+        "river_projected": 0.5956031330968934
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 64,
+      "timestamp": "2026-01-01T00:01:04+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-64",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.7459208358555942,
+        "river_projected": 0.7494560650079503
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6490148955789284,
+        "river_projected": 0.6540652229394369
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 65,
+      "timestamp": "2026-01-01T00:01:05+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-65",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.42245621951779677,
+        "river_projected": 0.4138935446938429
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.34806071281544104,
+        "river_projected": 0.33582832020979264
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.0
+      }
+    },
+    {
+      "step": 66,
+      "timestamp": "2026-01-01T00:01:06+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-66",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.49513859770293844,
+        "river_projected": 0.4310584903595568
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.29075455536084865,
+        "river_projected": 0.19921154487030346
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.0,
+        "river_projected": 0.0
+      }
+    },
+    {
+      "step": 67,
+      "timestamp": "2026-01-01T00:01:07+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-67",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.6548732540506021,
+        "river_projected": 0.7205742455880165
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.680085047862306,
+        "river_projected": 0.7739436072014693
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 68,
+      "timestamp": "2026-01-01T00:01:08+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-68",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.6183759328881525,
+        "river_projected": 0.6316839033588965
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6284117237394752,
+        "river_projected": 0.6474231101262522
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 69,
+      "timestamp": "2026-01-01T00:01:09+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-69",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.5558976041127665,
+        "river_projected": 0.5451531809896546
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.37528907833202857,
+        "river_projected": 0.35993990244186874
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.0
+      }
+    },
+    {
+      "step": 70,
+      "timestamp": "2026-01-01T00:01:10+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-70",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.41569505686375,
+        "river_projected": 0.3490263938071907
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.33886761513318586,
+        "river_projected": 0.24362666790952972
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 71,
+      "timestamp": "2026-01-01T00:01:11+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-71",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.7828796112638539,
+        "river_projected": 0.845823867763191
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6995490885478678,
+        "river_projected": 0.7894694549754923
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 72,
+      "timestamp": "2026-01-01T00:01:12+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-72",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.48597096611542867,
+        "river_projected": 0.4575219048512915
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6005619142158843,
+        "river_projected": 0.5599203981242598
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 73,
+      "timestamp": "2026-01-01T00:01:13+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-73",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.3479742052173426,
+        "river_projected": 0.37871977632678944
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.40116016615799666,
+        "river_projected": 0.44508241060006354
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 74,
+      "timestamp": "2026-01-01T00:01:14+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-74",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.2934008667274865,
+        "river_projected": 0.184586450994079
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.32546177223310974,
+        "river_projected": 0.1700126068996704
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 75,
+      "timestamp": "2026-01-01T00:01:15+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-75",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.5370993697634733,
+        "river_projected": 0.647632186415827
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.671338972652469,
+        "river_projected": 0.8292429964415458
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.0
+      }
+    },
+    {
+      "step": 76,
+      "timestamp": "2026-01-01T00:01:16+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-76",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.6972167932943468,
+        "river_projected": 0.6745414385395918
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5794376919200035,
+        "river_projected": 0.5470443279846392
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 77,
+      "timestamp": "2026-01-01T00:01:17+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-77",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.4713119740403694,
+        "river_projected": 0.4871244643269662
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4178546478476876,
+        "river_projected": 0.4404439196856831
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 78,
+      "timestamp": "2026-01-01T00:01:18+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-78",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5451007232478657,
+        "river_projected": 0.4697752913746874
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3621290204250305,
+        "river_projected": 0.2545212606062043
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.0
+      }
+    },
+    {
+      "step": 79,
+      "timestamp": "2026-01-01T00:01:19+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-79",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.6053312769449789,
+        "river_projected": 0.6813765736668039
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6093107948542726,
+        "river_projected": 0.7179469330283085
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.23463936301137822,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 80,
+      "timestamp": "2026-01-01T00:01:20+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-80",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5698136109338725,
+        "river_projected": 0.565770548453576
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5590369780905037,
+        "river_projected": 0.553261174547223
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 81,
+      "timestamp": "2026-01-01T00:01:21+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-81",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6028853189037167,
+        "river_projected": 0.6100850826903625
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.44241438517624315,
+        "river_projected": 0.45269976201430867
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 82,
+      "timestamp": "2026-01-01T00:01:22+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-82",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.4654957408055834,
+        "river_projected": 0.3955261085775235
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.410011449335805,
+        "river_projected": 0.310054831867148
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 83,
+      "timestamp": "2026-01-01T00:01:23+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-83",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.7306609612954982,
+        "river_projected": 0.7980821757730557
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6249510171645025,
+        "river_projected": 0.7212670378467275
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 84,
+      "timestamp": "2026-01-01T00:01:24+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-84",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.4403723019779149,
+        "river_projected": 0.43555265359062967
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5354209654480074,
+        "river_projected": 0.5285357534661714
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 85,
+      "timestamp": "2026-01-01T00:01:25+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-85",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.39455051132656366,
+        "river_projected": 0.4010226790928784
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4676977463140267,
+        "river_projected": 0.47694370026590494
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 86,
+      "timestamp": "2026-01-01T00:01:26+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-86",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.34667452438807445,
+        "river_projected": 0.25063126555905624
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.40156699746252106,
+        "river_projected": 0.2643623419924951
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 87,
+      "timestamp": "2026-01-01T00:01:27+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-87",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.4847803455897827,
+        "river_projected": 0.5815328238572187
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5965975095471968,
+        "river_projected": 0.7348153356435339
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 88,
+      "timestamp": "2026-01-01T00:01:28+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-88",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.650459702377556,
+        "river_projected": 0.6198454914945417
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5126418477531596,
+        "river_projected": 0.46890726077742484
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 89,
+      "timestamp": "2026-01-01T00:01:29+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-89",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5186863798145656,
+        "river_projected": 0.5469052756478535
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.48553237038225366,
+        "river_projected": 0.5258450787155221
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.2960819109658652
+      }
+    },
+    {
+      "step": 90,
+      "timestamp": "2026-01-01T00:01:30+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-90",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5960991638602142,
+        "river_projected": 0.5233675408438205
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.43498393558552845,
+        "river_projected": 0.3310816169906801
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 91,
+      "timestamp": "2026-01-01T00:01:31+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-91",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5561198991694676,
+        "river_projected": 0.6308786776202505
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5390088266035422,
+        "river_projected": 0.6458070815332322
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.2960819109658652,
+        "river_projected": 0.23463936301137822
+      }
+    },
+    {
+      "step": 92,
+      "timestamp": "2026-01-01T00:01:32+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-92",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5234063947230582,
+        "river_projected": 0.5116980024804794
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.49274095493219755,
+        "river_projected": 0.47601468029994215
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 93,
+      "timestamp": "2026-01-01T00:01:33+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-93",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6477169001242981,
+        "river_projected": 0.658991583701802
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5064595012056452,
+        "river_projected": 0.5225661920306508
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 94,
+      "timestamp": "2026-01-01T00:01:34+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-94",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5141124268625176,
+        "river_projected": 0.45134034850607774
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.47946385798856817,
+        "river_projected": 0.3897894603365112
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 95,
+      "timestamp": "2026-01-01T00:01:35+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-95",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6783241032460623,
+        "river_projected": 0.7382728921173085
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5501840770938798,
+        "river_projected": 0.635825204052803
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 96,
+      "timestamp": "2026-01-01T00:01:36+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-96",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.3972947411738349,
+        "river_projected": 0.40253243421000195
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4738815928707503,
+        "river_projected": 0.48136401149384606
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 97,
+      "timestamp": "2026-01-01T00:01:37+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-97",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.4380347986315714,
+        "river_projected": 0.4327493480945878
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5298181567497521,
+        "river_projected": 0.5222675131254898
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 98,
+      "timestamp": "2026-01-01T00:01:38+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-98",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.3987773766584213,
+        "river_projected": 0.31909341749166553
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4759996435630166,
+        "river_projected": 0.362165416181937
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 99,
+      "timestamp": "2026-01-01T00:01:39+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-99",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.43331415799173145,
+        "river_projected": 0.5122109286884725
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5230743844071236,
+        "river_projected": 0.6357840568310393
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 100,
+      "timestamp": "2026-01-01T00:01:40+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-100",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.6075171512860886,
+        "river_projected": 0.5794659738883279
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.45129534619392025,
+        "river_projected": 0.41122223562569066
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 101,
+      "timestamp": "2026-01-01T00:01:41+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-101",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.5624627819817752,
+        "river_projected": 0.5926376859880824
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5480700877639818,
+        "river_projected": 0.5911770934872778
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 102,
+      "timestamp": "2026-01-01T00:01:42+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-102",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.6451606974469715,
+        "river_projected": 0.5846846093748945
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5050718407094672,
+        "river_projected": 0.4186774291779287
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 103,
+      "timestamp": "2026-01-01T00:01:43+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-103",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.509621588565766,
+        "river_projected": 0.5738769003780285
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4725826685982542,
+        "river_projected": 0.5643759711872007
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 104,
+      "timestamp": "2026-01-01T00:01:44+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-104",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.48086484019854103,
+        "river_projected": 0.46841765757327725
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.43196730561145874,
+        "river_projected": 0.4141856161467962
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 105,
+      "timestamp": "2026-01-01T00:01:45+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-105",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.689024308609099,
+        "river_projected": 0.6978512044075653
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5654700847553609,
+        "river_projected": 0.578079935896027
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 106,
+      "timestamp": "2026-01-01T00:01:46+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-106",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5591701729951449,
+        "river_projected": 0.5098740979768401
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5438320667494643,
+        "river_projected": 0.4734091024376003
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 107,
+      "timestamp": "2026-01-01T00:01:47+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-107",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.6291869836963393,
+        "river_projected": 0.6751570677319065
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.47998819202284687,
+        "river_projected": 0.5456597406450859
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 108,
+      "timestamp": "2026-01-01T00:01:48+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-108",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.3580193896375926,
+        "river_projected": 0.36663799152811927
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.41777394781897564,
+        "river_projected": 0.43008623623401376
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 109,
+      "timestamp": "2026-01-01T00:01:49+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-109",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.47729459106078526,
+        "river_projected": 0.4672782553804093
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5859035745057719,
+        "river_projected": 0.5715945235338062
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 110,
+      "timestamp": "2026-01-01T00:01:50+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-110",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.44678310769933893,
+        "river_projected": 0.3843973071362018
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.544579259335756,
+        "river_projected": 0.45545668710270304
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7039180890341347,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 111,
+      "timestamp": "2026-01-01T00:01:51+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-111",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.3855969533490493,
+        "river_projected": 0.4459566423645839
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.45490694920329194,
+        "river_projected": 0.5411350763683414
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 112,
+      "timestamp": "2026-01-01T00:01:52+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-112",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5696668119952293,
+        "river_projected": 0.5468911580554314
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.39722343292126405,
+        "river_projected": 0.3646867844358385
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 113,
+      "timestamp": "2026-01-01T00:01:53+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-113",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.6010093057022685,
+        "river_projected": 0.6281642716298811
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6031365502218292,
+        "river_projected": 0.6419293586898472
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 114,
+      "timestamp": "2026-01-01T00:01:54+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-114",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.690133860811296,
+        "river_projected": 0.6450284235144335
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.5693192169442166,
+        "river_projected": 0.5048828779486986
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 115,
+      "timestamp": "2026-01-01T00:01:55+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-115",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.4672816200344112,
+        "river_projected": 0.5171686635897909
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.4120969992677474,
+        "river_projected": 0.4833642043468612
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 116,
+      "timestamp": "2026-01-01T00:01:56+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-116",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.4433516355581435,
+        "river_projected": 0.4328928309332999
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.37837701326803375,
+        "river_projected": 0.36343586380397136
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 117,
+      "timestamp": "2026-01-01T00:01:57+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-remote:round-117",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.7258461714560399,
+        "river_projected": 0.7314524732812921
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6180727459652764,
+        "river_projected": 0.6260817485727797
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 118,
+      "timestamp": "2026-01-01T00:01:58+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-118",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5949590875683997,
+        "river_compact": 0.5986608152976463,
+        "river_projected": 0.56409363053288
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.600247270038752,
+        "river_projected": 0.5508655775176572
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 119,
+      "timestamp": "2026-01-01T00:01:59+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "reporting-office:round-119",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9773174976011547,
+        "river_compact": 0.5859859724616773,
+        "river_projected": 0.6172447491504012
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.41827246168761545,
+        "river_projected": 0.46292785695722116
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7039180890341347
+      }
+    },
+    {
+      "step": 120,
+      "timestamp": "2026-01-01T00:02:00+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-120",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.3247576460089281,
+        "river_projected": 0.33242510845106243
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.37025717120659773,
+        "river_projected": 0.3812106889810754
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 121,
+      "timestamp": "2026-01-01T00:02:01+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-remote:round-121",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.5106362217151245,
+        "river_projected": 0.5009671665697711
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6335344754405422,
+        "river_projected": 0.6197215395186089
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 122,
+      "timestamp": "2026-01-01T00:02:02+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-122",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.21859208721436565,
+        "river_compact": 0.48891304191989526,
+        "river_projected": 0.4424787299067562
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6047648796508365,
+        "river_projected": 0.538430148203495
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 123,
+      "timestamp": "2026-01-01T00:02:03+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "frontend-office:round-123",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.2238736296891499,
+        "river_compact": 0.3436242100060424,
+        "river_projected": 0.38741237445250765
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.39494588728471064,
+        "river_projected": 0.45750040792251817
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 1.0,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 124,
+      "timestamp": "2026-01-01T00:02:04+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-124",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.5431459631085942,
+        "river_projected": 0.519463432329079
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.3593365059403568,
+        "river_projected": 0.32550431911247807
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 125,
+      "timestamp": "2026-01-01T00:02:05+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-remote:round-125",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.6285428494671791,
+        "river_projected": 0.6559751218379782
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6424701841717015,
+        "river_projected": 0.6816591447014145
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    },
+    {
+      "step": 126,
+      "timestamp": "2026-01-01T00:02:06+00:00",
+      "user_id": "synthetic-alice",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-126",
+      "observed_label": true,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.9720346965011478,
+        "river_compact": 0.7328994461372438,
+        "river_projected": 0.6986824227283293
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.6304129102669992,
+        "river_projected": 0.5815314482542642
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.7039180890341347,
+        "content": 0.7039180890341347,
+        "river_compact": 1.0,
+        "river_projected": 1.0
+      }
+    },
+    {
+      "step": 127,
+      "timestamp": "2026-01-01T00:02:07+00:00",
+      "user_id": "synthetic-boris",
+      "phase": "changed",
+      "vacancy_id": "data-office:round-127",
+      "observed_label": false,
+      "scores_before_update": {
+        "non_learning": 0.5,
+        "content": 0.5960457351566267,
+        "river_compact": 0.42759063540117415,
+        "river_projected": 0.4658073156165473
+      },
+      "raw_preference_before_update": {
+        "river_compact": 0.35539559264883736,
+        "river_projected": 0.4099908500993705
+      },
+      "ndcg_at_3": {
+        "non_learning": 0.2960819109658652,
+        "content": 0.2960819109658652,
+        "river_compact": 0.7653606369886217,
+        "river_projected": 0.7653606369886217
+      }
+    }
+  ],
+  "interpretation": "Prequential metrics on the supplied stream; scores are uncalibrated. Only the observed explicit label updates each user's learner."
+}

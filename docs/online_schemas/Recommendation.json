@@ -1,0 +1,193 @@
+{
+  "$defs": {
+    "ConstraintStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "eligible",
+            "unknown",
+            "blocked"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "conflicts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Conflicts",
+          "type": "array"
+        },
+        "unknowns": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unknowns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "ConstraintStatus",
+      "type": "object"
+    },
+    "QualificationEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "matched_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Matched Skills",
+          "type": "array"
+        },
+        "missing_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Skills",
+          "type": "array"
+        },
+        "unknown_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unknown Skills",
+          "type": "array"
+        },
+        "contradicted_skills": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Contradicted Skills",
+          "type": "array"
+        },
+        "experience_gap_years": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Experience Gap Years"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "alternative_requirements": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Alternative Requirements",
+          "type": "array"
+        }
+      },
+      "required": [
+        "explanation"
+      ],
+      "title": "QualificationEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "recommendation-v1",
+      "default": "recommendation-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "recommendation_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Recommendation Id",
+      "type": "string"
+    },
+    "vacancy_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Vacancy Id",
+      "type": "string"
+    },
+    "qualification": {
+      "$ref": "#/$defs/QualificationEvidence"
+    },
+    "preference_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Preference Score",
+      "type": "number"
+    },
+    "hard_constraints": {
+      "$ref": "#/$defs/ConstraintStatus"
+    },
+    "ranking_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Ranking Score",
+      "type": "number"
+    },
+    "rank": {
+      "minimum": 1,
+      "title": "Rank",
+      "type": "integer"
+    },
+    "exploration": {
+      "default": false,
+      "title": "Exploration",
+      "type": "boolean"
+    },
+    "explanation": {
+      "title": "Explanation",
+      "type": "string"
+    },
+    "profile_version": {
+      "title": "Profile Version",
+      "type": "integer"
+    },
+    "feature_schema_version": {
+      "title": "Feature Schema Version",
+      "type": "string"
+    },
+    "model_version": {
+      "title": "Model Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "recommendation_id",
+    "vacancy_id",
+    "qualification",
+    "preference_score",
+    "hard_constraints",
+    "ranking_score",
+    "rank",
+    "explanation",
+    "profile_version",
+    "feature_schema_version",
+    "model_version"
+  ],
+  "title": "Recommendation",
+  "type": "object"
+}

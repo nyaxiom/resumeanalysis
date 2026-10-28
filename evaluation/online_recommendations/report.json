@@ -1,0 +1,173 @@
+{
+  "scenario": "evaluation/online_recommendations/scenario.json",
+  "scenario_sha256": "7608403cbd4952bf9b42ffa9b5252346b3e8f3f983d58be245f0a58067158e33",
+  "provenance": "Authored fictional profiles, jobs and changing interest labels; no historical users or real quality evidence",
+  "encoder_identity": "e5:614241f622f53c4eeff9890bdc4f31cfecc418b3:mean-v1:512:32",
+  "learner_config": {
+    "learning_rate": 0.05,
+    "l2": 0.001,
+    "history_window": 32,
+    "warmup_feedback": 10,
+    "preference_weight": 0.7
+  },
+  "model_version": "river-logreg-v1:1bf9c363b2ee128f0c80e165",
+  "model_initialization_seconds": 1.152137484983541,
+  "feature_timing": {
+    "river_compact": {
+      "first_pass": {
+        "count": 12,
+        "mean_ms": 12.753971081110649,
+        "p95_ms": 75.27045399183407
+      },
+      "cached_pass": {
+        "count": 12,
+        "mean_ms": 1.0814641670246299,
+        "p95_ms": 1.298595976550132
+      },
+      "feature_count": 47,
+      "feature_identity": "d219575b491257c6a2bd11e12cb4df34f1de3dfc5c995ccf85467e8d65b91895"
+    },
+    "river_projected": {
+      "first_pass": {
+        "count": 12,
+        "mean_ms": 2.340817508714584,
+        "p95_ms": 10.698177036829293
+      },
+      "cached_pass": {
+        "count": 12,
+        "mean_ms": 1.5964345899798598,
+        "p95_ms": 1.9092329894192517
+      },
+      "feature_count": 64,
+      "feature_identity": "097d15a70c57473df4fd5db15290d632c3945249018733f2528b6d91e7885cd6"
+    }
+  },
+  "performance": {
+    "river_compact": {
+      "recommend_one_cached": {
+        "count": 20,
+        "mean_ms": 3.1507322535617277,
+        "p95_ms": 3.4310839837417006
+      },
+      "record_feedback_transaction": {
+        "count": 20,
+        "mean_ms": 2.559592149918899,
+        "p95_ms": 4.916211997624487
+      },
+      "predict_one": {
+        "count": 200,
+        "mean_ms": 0.006434359529521316,
+        "p95_ms": 0.006354006472975016
+      },
+      "learn_one_with_prequential_metrics": {
+        "count": 200,
+        "mean_ms": 0.03809696761891246,
+        "p95_ms": 0.05645898636430502
+      },
+      "restore_replay_and_recommend_ms": 7.427386997733265,
+      "sqlite_bytes_after_20_events": 172032,
+      "projection_matrix_bytes": 0
+    },
+    "river_projected": {
+      "recommend_one_cached": {
+        "count": 20,
+        "mean_ms": 3.47039440239314,
+        "p95_ms": 4.450651991646737
+      },
+      "record_feedback_transaction": {
+        "count": 20,
+        "mean_ms": 2.8067794017260894,
+        "p95_ms": 4.812113998923451
+      },
+      "predict_one": {
+        "count": 200,
+        "mean_ms": 0.007844363572075963,
+        "p95_ms": 0.007470953278243542
+      },
+      "learn_one_with_prequential_metrics": {
+        "count": 200,
+        "mean_ms": 0.046652939927298576,
+        "p95_ms": 0.06508996011689305
+      },
+      "restore_replay_and_recommend_ms": 7.391335035208613,
+      "sqlite_bytes_after_20_events": 212992,
+      "projection_matrix_bytes": 49152
+    }
+  },
+  "peak_process_rss_bytes": 786292736,
+  "vram_bytes": 0,
+  "device": "cpu",
+  "threads": 2,
+  "torch_version": "2.14.1+cpu",
+  "prequential": {
+    "non_learning": {
+      "count": 128,
+      "log_loss": 0.6931471805599453,
+      "accuracy_at_0_5": 0.5,
+      "brier": 0.25,
+      "ndcg_at_3": 0.49999999999999994,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        }
+      }
+    },
+    "content": {
+      "count": 128,
+      "log_loss": 1.1550241805080381,
+      "accuracy_at_0_5": 0.5,
+      "brier": 0.35480238329979874,
+      "ndcg_at_3": 0.49999999999999994,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.49999999999999994,
+          "evaluated_pools": 64
+        }
+      }
+    },
+    "river_compact": {
+      "count": 128,
+      "log_loss": 0.7069703019206779,
+      "accuracy_at_0_5": 0.5546875,
+      "brier": 0.2519190762910616,
+      "ndcg_at_3": 0.631591581388057,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.532996160423475,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.7301870023526392,
+          "evaluated_pools": 64
+        }
+      }
+    },
+    "river_projected": {
+      "count": 128,
+      "log_loss": 0.7660018908854673,
+      "accuracy_at_0_5": 0.484375,
+      "brier": 0.2784349691416018,
+      "ndcg_at_3": 0.6476966012939516,
+      "phases": {
+        "changed": {
+          "ndcg_at_3": 0.532996160423475,
+          "evaluated_pools": 64
+        },
+        "initial": {
+          "ndcg_at_3": 0.762397042164428,
+          "evaluated_pools": 64
+        }
+      }
+    }
+  },
+  "timing_note": "Projected first pass reuses E5 cache from compact first pass. Single execution; process RSS includes E5/Python and both learners, not isolated per-user model memory."
+}

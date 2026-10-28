@@ -1,0 +1,239 @@
+{
+  "description": "Actual local E5/River CLI demonstration in separate processes; authored inputs only.",
+  "before": [
+    {
+      "schema_version": "recommendation-v1",
+      "recommendation_id": "fc82ba6a-cd66-41c5-9578-b8edf08873ac",
+      "vacancy_id": "authored:data-remote",
+      "qualification": {
+        "score": 0.9745993044250314,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": 0.0,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "preference_score": 0.5,
+      "hard_constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      },
+      "ranking_score": 0.9746278450197552,
+      "rank": 1,
+      "exploration": false,
+      "explanation": "Cold-start ranking from explicit preferences and qualification evidence. Preference is an uncalibrated interest score, not a qualification verdict.",
+      "profile_version": 1,
+      "feature_schema_version": "preference-features-v1-rp0",
+      "model_version": "river-logreg-v1:558ad79c552edf2ece1805c3"
+    },
+    {
+      "schema_version": "recommendation-v1",
+      "recommendation_id": "5d2f985d-2e7b-45a9-9654-7dd56ef8bd3d",
+      "vacancy_id": "authored:data-office",
+      "qualification": {
+        "score": 0.9695542407205654,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "preference_score": 0.5,
+      "hard_constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      },
+      "ranking_score": 0.9188099100485136,
+      "rank": 2,
+      "exploration": false,
+      "explanation": "Cold-start ranking from explicit preferences and qualification evidence. Preference is an uncalibrated interest score, not a qualification verdict.",
+      "profile_version": 1,
+      "feature_schema_version": "preference-features-v1-rp0",
+      "model_version": "river-logreg-v1:558ad79c552edf2ece1805c3"
+    },
+    {
+      "schema_version": "recommendation-v1",
+      "recommendation_id": "eb24aab9-bf98-4929-8ea9-7e1e9c93402d",
+      "vacancy_id": "authored:frontend",
+      "qualification": {
+        "score": 0.22117089726456385,
+        "matched_skills": [],
+        "missing_skills": [
+          "javascript"
+        ],
+        "unknown_skills": [
+          "javascript"
+        ],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. Mandatory skill evidence is unknown, not proof of absence: javascript.",
+        "alternative_requirements": []
+      },
+      "preference_score": 0.5,
+      "hard_constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      },
+      "ranking_score": 0.4181333175519103,
+      "rank": 3,
+      "exploration": false,
+      "explanation": "Cold-start ranking from explicit preferences and qualification evidence. Preference is an uncalibrated interest score, not a qualification verdict.",
+      "profile_version": 1,
+      "feature_schema_version": "preference-features-v1-rp0",
+      "model_version": "river-logreg-v1:558ad79c552edf2ece1805c3"
+    }
+  ],
+  "feedback": {
+    "schema_version": "feedback-v1",
+    "sequence": 1,
+    "user_id": "demo-user",
+    "vacancy_id": "authored:data-remote",
+    "event_id": "demo-dislike-1",
+    "action": "dislike",
+    "reason": null,
+    "timestamp": "2026-10-27T12:05:39.546697Z",
+    "recommendation_id": "fc82ba6a-cd66-41c5-9578-b8edf08873ac",
+    "corrects_event_id": null,
+    "profile_version": 1,
+    "feature_schema_version": "preference-features-v1-rp0",
+    "model_version": "river-logreg-v1:558ad79c552edf2ece1805c3",
+    "feature_snapshot": {
+      "schema_version": "preference-features-v1-rp0",
+      "identity": "d219575b491257c6a2bd11e12cb4df34f1de3dfc5c995ccf85467e8d65b91895",
+      "values": {
+        "candidate_skills_known": 1.0,
+        "experience_gap": 0.0,
+        "experience_gap_known": 1.0,
+        "experience_match": 1.0,
+        "experience_match_known": 1.0,
+        "location_hash_0": 0.0,
+        "location_hash_1": 0.0,
+        "location_hash_2": 0.0,
+        "location_hash_3": 0.0,
+        "location_hash_4": 0.0,
+        "location_hash_5": 0.0,
+        "location_hash_6": 0.0,
+        "location_hash_7": 0.0,
+        "location_match": 0.0,
+        "location_match_known": 0.0,
+        "optional_coverage": 0.0,
+        "optional_coverage_known": 0.0,
+        "optional_denied": 0.0,
+        "optional_requirements_known": 0.0,
+        "optional_unknown": 0.0,
+        "related_support": 0.0,
+        "related_support_known": 1.0,
+        "remote_match": 1.0,
+        "remote_match_known": 1.0,
+        "required_coverage": 1.0,
+        "required_coverage_known": 1.0,
+        "required_denied": 0.0,
+        "required_requirements_known": 1.0,
+        "required_unknown": 0.0,
+        "role_hash_0": 0.0,
+        "role_hash_1": 1.0,
+        "role_hash_2": 0.0,
+        "role_hash_3": 0.0,
+        "role_hash_4": 0.0,
+        "role_hash_5": 0.0,
+        "role_hash_6": 0.0,
+        "role_hash_7": 0.0,
+        "role_similarity": 0.9556843505687431,
+        "role_similarity_known": 1.0,
+        "salary_match": 1.0,
+        "salary_match_known": 1.0,
+        "semantic_similarity": 0.8920470438063834,
+        "semantic_similarity_known": 1.0,
+        "vacancy_location_known": 0.0,
+        "vacancy_remote": 1.0,
+        "vacancy_remote_known": 1.0,
+        "vacancy_role_known": 1.0
+      },
+      "profile_id": "primary",
+      "profile_version": 1,
+      "profile_sha256": "3e8f9a2ba895b1f1e5f368b0928667ce86ee2e79061e62ecb63767b3da86f749",
+      "vacancy_sha256": "5f279b1a6c5f2ccf7845939b5143c7c8647abf995e205b46c841e169b8cdb380",
+      "content_score": 0.9746278450197552
+    },
+    "prediction_before_update": 0.5,
+    "prediction_at_recommendation": 0.5
+  },
+  "after_restart": [
+    {
+      "schema_version": "recommendation-v1",
+      "recommendation_id": "7642a30f-0fa8-443a-9df3-6f20e2b433dd",
+      "vacancy_id": "authored:data-office",
+      "qualification": {
+        "score": 0.9695542407205654,
+        "matched_skills": [
+          "python",
+          "sql"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. ",
+        "alternative_requirements": []
+      },
+      "preference_score": 0.49375032550048964,
+      "hard_constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      },
+      "ranking_score": 0.889055739130152,
+      "rank": 1,
+      "exploration": false,
+      "explanation": "Ranking combines content evidence with 1 recent explicit feedback labels. Preference is an uncalibrated interest score, not a qualification verdict.",
+      "profile_version": 1,
+      "feature_schema_version": "preference-features-v1-rp0",
+      "model_version": "river-logreg-v1:558ad79c552edf2ece1805c3"
+    },
+    {
+      "schema_version": "recommendation-v1",
+      "recommendation_id": "25d32967-03c1-44df-8e8d-0abb290cb4d4",
+      "vacancy_id": "authored:frontend",
+      "qualification": {
+        "score": 0.22117089726456385,
+        "matched_skills": [],
+        "missing_skills": [
+          "javascript"
+        ],
+        "unknown_skills": [
+          "javascript"
+        ],
+        "contradicted_skills": [],
+        "experience_gap_years": null,
+        "explanation": "Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. Mandatory skill evidence is unknown, not proof of absence: javascript.",
+        "alternative_requirements": []
+      },
+      "preference_score": 0.49375032550048964,
+      "hard_constraints": {
+        "status": "eligible",
+        "conflicts": [],
+        "unknowns": []
+      },
+      "ranking_score": 0.42342650810831084,
+      "rank": 2,
+      "exploration": false,
+      "explanation": "Ranking combines content evidence with 1 recent explicit feedback labels. Preference is an uncalibrated interest score, not a qualification verdict.",
+      "profile_version": 1,
+      "feature_schema_version": "preference-features-v1-rp0",
+      "model_version": "river-logreg-v1:558ad79c552edf2ece1805c3"
+    }
+  ]
+}

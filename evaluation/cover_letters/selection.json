@@ -1,0 +1,48 @@
+{
+  "candidate": "applykit",
+  "signature": {
+    "model_config": {
+      "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "model_path": "artifacts/qwen-cover-letter-4b",
+      "device": "cpu",
+      "quantization": "none",
+      "dtype": "bfloat16",
+      "max_input_tokens": 4096,
+      "max_new_tokens": 512,
+      "threshold": 0.5,
+      "retries": 0,
+      "seed": 42,
+      "structured_generation": false
+    },
+    "prompt_files": {
+      "src/resumeanalysis/cover_letters/prompts.py": "2186e90e12c96059eacf8a9bf9494923876afe7a02c32b2089ba5c530d3d7d73",
+      "src/resumeanalysis/cover_letters/vendor/applykit.py": "04782640a29b0e476bfe224f1ca71000f2dc2d07b813c709f02d7546a86938a8",
+      "src/resumeanalysis/cover_letters/generator.py": "183c7f5c1f41bc8a4fc141f2eeeb7b77ce61ab4f8674dc1ae131be9a2213cd52",
+      "evaluation/cover_letters/resume_matcher_prompt.txt": "e126747c8369616805d78c9785a11fe317d355b96ad74c790583b5cf9e66dc25"
+    },
+    "cases_sha256": "26242c82d9c2c4bbe3e7d7ff5bdeadc7e0075549a527c503cb8cbffdf306ea1f"
+  },
+  "selection_rule": "Validation screen passes, then fewer lexical flags/placeholders; final tie favors the smaller MIT adapter",
+  "validation_case_ids": [
+    "validation-en-backend",
+    "validation-ru-data",
+    "validation-en-student",
+    "validation-ru-coordinator"
+  ],
+  "selection_metrics": {
+    "applykit": [
+      4,
+      0,
+      0,
+      true
+    ]
+  },
+  "test_used": false,
+  "validation_replay": {
+    "exact_prompt_hashes_match": true,
+    "output_screen_results_match": true,
+    "reason": "Canonical input serialization and source fingerprint update; no new generation or test observation used."
+  },
+  "validation_report_sha256": "610278e2c5c965cbdcdd237df9ab377a30905ffcb4a2cf6dd08113cd41c1608d"
+}

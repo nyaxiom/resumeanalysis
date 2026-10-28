@@ -26,6 +26,6 @@ class QwenConfig(InputModel):
     def compatible(self):
         if self.quantization == "bnb4" and self.device == "cpu":
             raise ValueError("bnb4 requires CUDA; select quantization=none for CPU")
-        if self.device == "cpu" and self.dtype != "float32":
-            raise ValueError("Use float32 for the supported CPU configuration")
+        if self.device == "cpu" and self.dtype not in {"float32", "bfloat16"}:
+            raise ValueError("CPU requires explicit float32 or bfloat16")
         return self

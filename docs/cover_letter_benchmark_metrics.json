@@ -1,0 +1,233 @@
+{
+  "date": "2026-10-26",
+  "measurement_note": "Automatic screening is not factuality accuracy. No independent human or LLM-as-judge scores.",
+  "reports": [
+    {
+      "path": "evaluation/cover_letters/initial_1_5b_validation.json",
+      "sha256": "a21cba291213472c2260e8d91596419bcef4b5d56141dbe7eb6e0fa3418716b9",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "dtype": "float32",
+      "initialization_seconds": 7.798676538048312,
+      "peak_rss_bytes": 9677967360,
+      "vram_bytes": 0,
+      "candidates": [
+        {
+          "candidate": "applykit",
+          "count": 4,
+          "screen_passes": null,
+          "mean_seconds": 111.64048861125775,
+          "min_seconds": 64.22476494603325,
+          "max_seconds": 168.9766047759913,
+          "length_passes": 2,
+          "lexical_number_flags": 1,
+          "lexical_skill_flags": 8,
+          "repeated_exact_sentences": 0
+        },
+        {
+          "candidate": "resume_matcher",
+          "count": 4,
+          "screen_passes": null,
+          "mean_seconds": 80.50248042223393,
+          "min_seconds": 68.602987708,
+          "max_seconds": 93.75638623000123,
+          "length_passes": 2,
+          "lexical_number_flags": 0,
+          "lexical_skill_flags": 4,
+          "repeated_exact_sentences": 0
+        }
+      ]
+    },
+    {
+      "path": "evaluation/cover_letters/initial_4b_validation.json",
+      "sha256": "bc8030f7503b8d35b9324ad67937a3df17e978d9480d528139963308ebc30616",
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "dtype": "bfloat16",
+      "initialization_seconds": 9.307063412969,
+      "peak_rss_bytes": 8766930944,
+      "vram_bytes": 0,
+      "candidates": [
+        {
+          "candidate": "applykit",
+          "count": 4,
+          "screen_passes": 3,
+          "mean_seconds": 244.56578187276318,
+          "min_seconds": 174.87142613902688,
+          "max_seconds": 299.3960724020144,
+          "length_passes": 4,
+          "lexical_number_flags": 1,
+          "lexical_skill_flags": 1,
+          "repeated_exact_sentences": 0
+        },
+        {
+          "candidate": "resume_matcher",
+          "count": 4,
+          "screen_passes": 1,
+          "mean_seconds": 212.5278606237698,
+          "min_seconds": 158.7963403740432,
+          "max_seconds": 262.3521428120439,
+          "length_passes": 4,
+          "lexical_number_flags": 2,
+          "lexical_skill_flags": 1,
+          "repeated_exact_sentences": 0
+        }
+      ]
+    },
+    {
+      "path": "evaluation/cover_letters/final_validation.json",
+      "sha256": "610278e2c5c965cbdcdd237df9ab377a30905ffcb4a2cf6dd08113cd41c1608d",
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "dtype": "bfloat16",
+      "initialization_seconds": 8.807038597995415,
+      "peak_rss_bytes": 8746663936,
+      "vram_bytes": 0,
+      "candidates": [
+        {
+          "candidate": "applykit",
+          "count": 4,
+          "screen_passes": 4,
+          "mean_seconds": 178.72054656899127,
+          "min_seconds": 140.7342393550207,
+          "max_seconds": 207.9716409179964,
+          "length_passes": 4,
+          "lexical_number_flags": 0,
+          "lexical_skill_flags": 0,
+          "repeated_exact_sentences": 0
+        }
+      ]
+    },
+    {
+      "path": "evaluation/cover_letters/held_out_test.json",
+      "sha256": "b0052055711e3e91597b7846875569749f9a9edd9c4818a991c06ec5d1e73314",
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "dtype": "bfloat16",
+      "initialization_seconds": 7.419898938969709,
+      "peak_rss_bytes": 8751955968,
+      "vram_bytes": 0,
+      "candidates": [
+        {
+          "candidate": "applykit",
+          "count": 4,
+          "screen_passes": 4,
+          "mean_seconds": 156.30551068324712,
+          "min_seconds": 107.25603118597064,
+          "max_seconds": 206.16253474802943,
+          "length_passes": 4,
+          "lexical_number_flags": 0,
+          "lexical_skill_flags": 0,
+          "repeated_exact_sentences": 0
+        }
+      ]
+    }
+  ],
+  "held_out_repeatability": [
+    {
+      "candidate": "applykit",
+      "case_id": "test-en-support",
+      "repeat": 1,
+      "exact_text_match": true,
+      "seconds": 148.62468938797247
+    }
+  ],
+  "same_language_final_letter_overlap": [
+    {
+      "language": "en",
+      "pair_count": 6,
+      "mean_five_token_jaccard": 0.023605121746153583,
+      "max_five_token_jaccard": 0.05652173913043478,
+      "pairs": [
+        {
+          "case_ids": [
+            "validation-en-backend",
+            "validation-en-student"
+          ],
+          "five_token_jaccard": 0.011811023622047244
+        },
+        {
+          "case_ids": [
+            "validation-en-backend",
+            "test-en-support"
+          ],
+          "five_token_jaccard": 0.029411764705882353
+        },
+        {
+          "case_ids": [
+            "validation-en-backend",
+            "test-en-data"
+          ],
+          "five_token_jaccard": 0.05652173913043478
+        },
+        {
+          "case_ids": [
+            "validation-en-student",
+            "test-en-support"
+          ],
+          "five_token_jaccard": 0.004310344827586207
+        },
+        {
+          "case_ids": [
+            "validation-en-student",
+            "test-en-data"
+          ],
+          "five_token_jaccard": 0.011406844106463879
+        },
+        {
+          "case_ids": [
+            "test-en-support",
+            "test-en-data"
+          ],
+          "five_token_jaccard": 0.028169014084507043
+        }
+      ]
+    },
+    {
+      "language": "ru",
+      "pair_count": 6,
+      "mean_five_token_jaccard": 0.0016025641025641027,
+      "max_five_token_jaccard": 0.009615384615384616,
+      "pairs": [
+        {
+          "case_ids": [
+            "validation-ru-data",
+            "validation-ru-coordinator"
+          ],
+          "five_token_jaccard": 0.009615384615384616
+        },
+        {
+          "case_ids": [
+            "validation-ru-data",
+            "test-ru-junior"
+          ],
+          "five_token_jaccard": 0.0
+        },
+        {
+          "case_ids": [
+            "validation-ru-data",
+            "test-ru-project"
+          ],
+          "five_token_jaccard": 0.0
+        },
+        {
+          "case_ids": [
+            "validation-ru-coordinator",
+            "test-ru-junior"
+          ],
+          "five_token_jaccard": 0.0
+        },
+        {
+          "case_ids": [
+            "validation-ru-coordinator",
+            "test-ru-project"
+          ],
+          "five_token_jaccard": 0.0
+        },
+        {
+          "case_ids": [
+            "test-ru-junior",
+            "test-ru-project"
+          ],
+          "five_token_jaccard": 0.0
+        }
+      ]
+    }
+  ]
+}

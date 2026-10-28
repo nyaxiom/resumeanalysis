@@ -44,8 +44,10 @@ class TransformersGenerator:
             device = "cuda" if torch.cuda.is_available() else "cpu"
         if device == "cuda" and not torch.cuda.is_available():
             raise RuntimeError("CUDA is unavailable; no automatic model or quantization fallback")
-        if device == "cpu" and (config.quantization != "none" or config.dtype != "float32"):
-            raise ValueError("CPU requires quantization=none and dtype=float32")
+        if device == "cpu" and (
+            config.quantization != "none" or config.dtype not in {"float32", "bfloat16"}
+        ):
+            raise ValueError("CPU requires quantization=none and explicit float32 or bfloat16")
         if config.structured_generation:
             try:
                 from lmformatenforcer import JsonSchemaParser

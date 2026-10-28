@@ -1,0 +1,33 @@
+{
+  "profile": {
+    "resume_text": "I build Python services and SQL data pipelines. Я работаю с Python и SQL.",
+    "skills": ["Python", "SQL"],
+    "experience_years": 3,
+    "seniority": "middle",
+    "remote_only": true
+  },
+  "vacancies": [
+    {
+      "title": "Backend developer",
+      "description": "Required: Python and SQL. Optional: Docker.",
+      "required_skills": ["Python", "SQL"],
+      "min_experience_years": 2,
+      "remote": true
+    },
+    {
+      "title": "Разработчик",
+      "description": "Требования: Python или Java. Желательно: Docker.",
+      "remote": true
+    },
+    {
+      "title": "Office developer",
+      "required_skills": ["Python"],
+      "remote": false
+    },
+    {
+      "title": "Data platform developer",
+      "required_skills": ["Python", "Kubernetes"],
+      "remote": true
+    }
+  ]
+}

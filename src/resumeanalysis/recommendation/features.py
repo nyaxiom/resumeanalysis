@@ -7,16 +7,16 @@ from sklearn.feature_extraction import FeatureHasher
 from sklearn.random_projection import GaussianRandomProjection
 
 from resumeanalysis.extraction.registry import create_extractor, extractor_identity
-from resumeanalysis.features.feature_builder import profile_text, vacancy_text
+from resumeanalysis.matching.constraints import assess_constraints, salary_compatibility
+from resumeanalysis.matching.evidence import build_evidence
+from resumeanalysis.matching.text import profile_text, vacancy_text
 from resumeanalysis.recommendation.adapters import matching_facts
-from resumeanalysis.recommendation.constraints import assess_constraints, salary_compatibility
 from resumeanalysis.recommendation.schema import (
     ConstraintStatus,
     FeatureSnapshot,
     QualificationEvidence,
     fingerprint,
 )
-from resumeanalysis.rerank.evidence import build_evidence
 
 
 @dataclass
@@ -218,5 +218,5 @@ class PreferenceFeatureBuilder:
                 explanation="Qualification evidence is independent of likes/dislikes. Missing or unknown skills are unconfirmed, not proof of incapacity. "
                 + " ".join(evidence.blocked_reasons + evidence.review_reasons),
             ),
-            assess_constraints(profile, vacancy, detail),
+            assess_constraints(profile, vacancy),
         )

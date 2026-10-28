@@ -9,7 +9,7 @@ build/
 dist/
 artifacts/
 data/
-!src/resumeanalysis/data/
+!legacy/src/resumeanalysis_legacy/data/
 .cache/
 *.npy
 *.npz

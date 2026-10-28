@@ -1,0 +1,20 @@
+{
+  "vacancy_id": "authored:data-remote",
+  "facts": {
+    "title": "Data engineer",
+    "description": "Maintain Python data imports and SQL reports.",
+    "required_skills": [
+      "Python",
+      "SQL"
+    ],
+    "remote": true,
+    "min_experience_years": 2
+  },
+  "salary": {
+    "minimum": 65000,
+    "maximum": 80000,
+    "currency": "USD",
+    "period": "year",
+    "gross": true
+  }
+}

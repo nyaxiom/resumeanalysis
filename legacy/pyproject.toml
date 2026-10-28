@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resumeanalysis-legacy"
+version = "0.1.0"
+description = "Optional historical ResumeAnalysis matching, training and experiments"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["resumeanalysis>=0.2,<0.3", "pyarrow>=17,<24", "lm-format-enforcer>=0.11,<0.12"]
+
+[project.scripts]
+resumeanalysis-legacy = "resumeanalysis_legacy.cli:main"
+resumeanalysis-legacy-qwen = "resumeanalysis_legacy.qwen.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[tool.uv.sources]
+resumeanalysis = { workspace = true }

@@ -10,6 +10,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from resumeanalysis.extraction.compatibility import identity_source_hashes
 from resumeanalysis.extraction.skill_extractor import Extraction, SkillExtractor, SkillMention
 from resumeanalysis.extraction.vocabulary import make_normalizer, phrase_aliases
 from resumeanalysis.normalization.skill_normalizer import SkillNormalizer, clean
@@ -133,17 +134,7 @@ class ImprovedRuleBasedExtractor:
             + hashlib.sha256(
                 json.dumps(
                     [
-                        {
-                            name: hashlib.sha256(
-                                (Path(__file__).parent / name).read_bytes()
-                            ).hexdigest()
-                            for name in (
-                                "improved.py",
-                                "vocabulary.py",
-                                "phrase_lexicon.py",
-                                "skill_extractor.py",
-                            )
-                        },
+                        identity_source_hashes(Path(__file__).parent),
                         hashlib.sha256(
                             Path(__file__)
                             .parent.parent.joinpath("normalization/skill_normalizer.py")

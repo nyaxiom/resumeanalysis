@@ -12,8 +12,12 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
           enable-cache: true
-      - run: uv sync --frozen --extra dev --extra data --extra qwen --extra profile-llm --extra documents
+      - run: uv sync --frozen --extra dev --extra qwen --extra profile-llm --extra documents
       - run: uv run --frozen ruff check .
       - run: uv run --frozen ruff format --check .
       - run: uv run --frozen pytest -q
       - run: uv build
+      - run: uv run --frozen python scripts/check_runtime_wheel.py dist/resumeanalysis-*.whl
+      - run: uv sync --frozen --group research --extra dev --extra qwen --extra profile-llm --extra documents
+      - run: uv run --frozen --group research pytest -q legacy/tests
+      - run: uv build --package resumeanalysis-legacy

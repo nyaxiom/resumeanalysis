@@ -1,4 +1,12 @@
-from .inference.predictor import Predictor, predict
-from .schemas import Profile, Vacancy, VacancyAnalysis
+"""Local job recommendations that learn from explicit user feedback."""
 
-__all__ = ["Predictor", "Profile", "Vacancy", "VacancyAnalysis", "predict"]
+from .recommendation.engine import RecommendationEngine
+from .recommendation.repository import SQLiteFeedbackRepository
+from .recommendation.schema import StructuredProfile, StructuredVacancy
+
+__all__ = [
+    "RecommendationEngine",
+    "SQLiteFeedbackRepository",
+    "StructuredProfile",
+    "StructuredVacancy",
+]

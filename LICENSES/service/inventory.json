@@ -1,0 +1,74 @@
+[
+  {
+    "name": "fastapi",
+    "version": "0.165.0",
+    "license": "MIT",
+    "notices": [
+      {
+        "path": "LICENSES/service/fastapi-0.165.0-LICENSE.txt",
+        "source": "fastapi-0.165.0.dist-info/licenses/LICENSE",
+        "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e"
+      }
+    ]
+  },
+  {
+    "name": "starlette",
+    "version": "1.10.0",
+    "license": "BSD-3-Clause",
+    "notices": [
+      {
+        "path": "LICENSES/service/starlette-1.10.0-LICENSE.md.txt",
+        "source": "starlette-1.10.0.dist-info/licenses/LICENSE.md",
+        "sha256": "dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf"
+      }
+    ]
+  },
+  {
+    "name": "uvicorn",
+    "version": "0.54.0",
+    "license": "BSD-3-Clause",
+    "notices": [
+      {
+        "path": "LICENSES/service/uvicorn-0.54.0-LICENSE.md.txt",
+        "source": "uvicorn-0.54.0.dist-info/licenses/LICENSE.md",
+        "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371"
+      }
+    ]
+  },
+  {
+    "name": "httpx",
+    "version": "0.28.1",
+    "license": "BSD-3-Clause",
+    "notices": [
+      {
+        "path": "LICENSES/service/httpx-0.28.1-LICENSE.md.txt",
+        "source": "httpx-0.28.1.dist-info/licenses/LICENSE.md",
+        "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d"
+      }
+    ]
+  },
+  {
+    "name": "httpcore",
+    "version": "1.0.9",
+    "license": "BSD-3-Clause",
+    "notices": [
+      {
+        "path": "LICENSES/service/httpcore-1.0.9-LICENSE.md.txt",
+        "source": "httpcore-1.0.9.dist-info/licenses/LICENSE.md",
+        "sha256": "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5"
+      }
+    ]
+  },
+  {
+    "name": "opentelemetry-api",
+    "version": "1.45.2",
+    "license": "Apache-2.0",
+    "notices": [
+      {
+        "path": "LICENSES/service/opentelemetry-api-1.45.2-LICENSE.txt",
+        "source": "opentelemetry_api-1.45.2.dist-info/licenses/LICENSE",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    ]
+  }
+]

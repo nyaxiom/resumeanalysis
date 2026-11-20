@@ -1,4 +1,5 @@
 .venv/
+.venv-service/
 .venv-qwen/
 __pycache__/
 *.py[cod]
@@ -9,10 +10,14 @@ build/
 dist/
 artifacts/
 data/
-!legacy/src/resumeanalysis_legacy/data/
 .cache/
 *.npy
 *.npz
 *.pt
 *.safetensors
 .env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite3
+*.sqlite3-*

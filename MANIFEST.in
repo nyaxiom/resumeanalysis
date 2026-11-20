@@ -1,0 +1,4 @@
+include .env.example
+include uv.lock
+recursive-include tests *.py
+recursive-include LICENSES *.json

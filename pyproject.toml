@@ -4,37 +4,23 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resumeanalysis"
-version = "0.2.0"
-description = "Local online job recommendations with evidence-aware qualification matching"
+version = "0.3.0"
+description = "Minimal personal job ranking and Qwen cover-letter service"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "LICENSES/**/*.txt"]
 dependencies = [
-  "numpy>=1.26,<3", "torch>=2.6,<3", "scikit-learn>=1.5,<2",
-  "transformers>=4.45,<5", "huggingface-hub>=0.28,<1", "pydantic>=2.9,<3",
-  "river==0.26.1",
+  "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "pydantic>=2.9,<3",
+  "numpy>=1.26,<3", "torch>=2.6,<3", "transformers>=4.45,<5", "river==0.26.1",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1.2,<2"]
-qwen = ["accelerate>=1.2,<2"]
-qwen-cuda = ["resumeanalysis[qwen]", "bitsandbytes>=0.45,<0.51"]
-profile-llm = ["instructor==1.17.0"]
-documents = ["pypdf==6.21.2", "python-docx==1.2.0"]
-
-[project.scripts]
-resumeanalysis = "resumeanalysis.cli:main"
-
-[dependency-groups]
-research = ["resumeanalysis-legacy"]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "ruff>=0.11,<1", "build>=1.2,<2"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 namespaces = false
-
-[tool.setuptools.package-data]
-"resumeanalysis.extraction" = ["identity_compatibility.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -53,7 +39,3 @@ explicit = true
 
 [tool.uv.sources]
 torch = { index = "pytorch-cpu" }
-resumeanalysis-legacy = { workspace = true }
-
-[tool.uv.workspace]
-members = ["legacy"]

@@ -1,48 +1,79 @@
-"""Public, JSON-compatible schemas. None means unknown, never zero or false."""
+"""The three HTTP contracts. Scores are uncalibrated interest scores."""
 
-from typing import Literal
+from typing import Annotated
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
-
-class InputModel(BaseModel):
-    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
-
-
-class Profile(InputModel):
-    resume_text: str = ""
-    skills: list[str] = Field(default_factory=list)
-    denied_skills: list[str] = Field(default_factory=list)
-    experience_years: float | None = Field(default=None, ge=0, le=80)
-    projects: list[str] = Field(default_factory=list)
-    education: list[str] = Field(default_factory=list)
-    seniority: Literal["intern", "junior", "middle", "senior", "lead"] | None = None
-    remote_only: bool = False
-    allowed_locations: list[str] = Field(default_factory=list)
+Identifier = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=200)]
+Title = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
+Description = Annotated[
+    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=20000)
+]
 
 
-class Vacancy(InputModel):
-    title: str = ""
-    description: str = ""
-    required_skills: list[str] = Field(default_factory=list)
-    optional_skills: list[str] = Field(default_factory=list)
-    min_experience_years: float | None = Field(default=None, ge=0, le=80)
-    seniority: Literal["intern", "junior", "middle", "senior", "lead"] | None = None
-    remote: bool | None = None
-    location: str | None = None
+class Input(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True, allow_inf_nan=False)
 
 
-class VacancyAnalysis(BaseModel):
-    relevant: bool
-    relevance: float = Field(ge=0, le=1)
-    matched_skills: list[str]
-    missing_skills: list[str]
-    unknown_skills: list[str]
-    contradicted_skills: list[str]
-    experience_gap_years: float | None
-    explanation: str
-    preference_conflicts: list[str] = Field(default_factory=list)
-    preference_unknowns: list[str] = Field(default_factory=list)
-    summary: str | None = None
-    resume_id: int | None = Field(default=None, ge=1)
-    cover_letter: str | None = None
+class VacancyText(Input):
+    title: Title
+    description: Description
+
+    @property
+    def text(self) -> str:
+        # One shared representation for both training and ranking.
+        return f"{self.title}\n\n{self.description}"
+
+
+class Vacancy(VacancyText):
+    vacancy_id: Identifier
+
+
+class RankRequest(Input):
+    user_id: Identifier
+    vacancies: list[Vacancy] = Field(min_length=1, max_length=100)
+
+    @model_validator(mode="after")
+    def unique_ids(self):
+        if len({v.vacancy_id for v in self.vacancies}) != len(self.vacancies):
+            raise ValueError("Vacancy IDs must be unique within a rank request")
+        return self
+
+
+class RankedVacancy(Vacancy):
+    score: float = Field(ge=0, le=1, description="Uncalibrated interest score, not a probability")
+
+
+class RankResponse(BaseModel):
+    personalized: bool
+    vacancies: list[RankedVacancy]
+
+
+class FeedbackRequest(Input):
+    user_id: Identifier
+    vacancy_id: Identifier
+    vacancy: VacancyText | None = None
+    liked: bool
+
+
+class FeedbackResponse(BaseModel):
+    updated: bool
+    revision: int
+    feedback_count: int
+    personalized: bool
+
+
+class CoverLetterRequest(Input):
+    resume_text: Annotated[
+        str, StringConstraints(strip_whitespace=True, min_length=1, max_length=30000)
+    ]
+    vacancy_title: Title
+    vacancy_description: Description
+    instructions: Annotated[str, StringConstraints(max_length=2000)] | None = None
+    language: (
+        Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=50)] | None
+    ) = None
+
+
+class CoverLetterResponse(BaseModel):
+    cover_letter: str

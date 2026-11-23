@@ -4,10 +4,19 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
-Identifier = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=200)]
-Title = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
+# Keep IDs opaque: ApplyPilot supplies a stable internal ID or domain:source-ID.
+# PostgreSQL text cannot store NUL, so reject it at the request boundary.
+Identifier = Annotated[
+    str,
+    StringConstraints(strip_whitespace=True, min_length=1, max_length=200, pattern=r"^[^\x00]+$"),
+]
+Title = Annotated[
+    str,
+    StringConstraints(strip_whitespace=True, min_length=1, max_length=500, pattern=r"^[^\x00]+$"),
+]
 Description = Annotated[
-    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=20000)
+    str,
+    StringConstraints(strip_whitespace=True, min_length=1, max_length=20000, pattern=r"^[^\x00]+$"),
 ]
 
 

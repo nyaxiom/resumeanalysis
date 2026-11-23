@@ -1,0 +1,6 @@
+{
+  "component": "postgres (PostgreSQL) 16.16 (Debian 16.16-1.pgdg13+1)",
+  "source": "postgres:16 /usr/share/doc/postgresql-16/copyright",
+  "image_digest": "sha256:3950ad7c3148ca2175ef1b6c36c9efbf78957ae8fbe8b3a5d7c35af50500382f",
+  "sha256": "afcc052a946b4117667527211b4ca303f07044f5585222f4c8f577e0764b2123"
+}

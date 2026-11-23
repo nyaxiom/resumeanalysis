@@ -1,0 +1,72 @@
+[
+  {
+    "name": "sqlalchemy",
+    "version": "2.0.58",
+    "license": "MIT",
+    "notices": [
+      {
+        "path": "LICENSES/postgres/sqlalchemy-2.0.58-AUTHORS.txt",
+        "source": "sqlalchemy-2.0.58.dist-info/licenses/AUTHORS",
+        "sha256": "dc1db0b5d17455adc37b693ff8e409c9a80f603e441695825518c36f786c963e"
+      },
+      {
+        "path": "LICENSES/postgres/sqlalchemy-2.0.58-LICENSE.txt",
+        "source": "sqlalchemy-2.0.58.dist-info/licenses/LICENSE",
+        "sha256": "e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9"
+      }
+    ]
+  },
+  {
+    "name": "asyncpg",
+    "version": "0.32.0",
+    "license": "Apache-2.0",
+    "notices": [
+      {
+        "path": "LICENSES/postgres/asyncpg-0.32.0-LICENSE.txt",
+        "source": "asyncpg-0.32.0.dist-info/licenses/LICENSE",
+        "sha256": "d9222d73fdac50992174076efa04f44f6fbcd9d56155a7c7092e98757042a6f6"
+      }
+    ]
+  },
+  {
+    "name": "alembic",
+    "version": "1.20.1",
+    "license": "MIT",
+    "notices": [
+      {
+        "path": "LICENSES/postgres/alembic-1.20.1-LICENSE.txt",
+        "source": "alembic-1.20.1.dist-info/licenses/LICENSE",
+        "sha256": "6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc"
+      }
+    ]
+  },
+  {
+    "name": "greenlet",
+    "version": "3.5.6",
+    "license": "MIT AND PSF-2.0",
+    "notices": [
+      {
+        "path": "LICENSES/postgres/greenlet-3.5.6-LICENSE.txt",
+        "source": "greenlet-3.5.6.dist-info/licenses/LICENSE",
+        "sha256": "769831d6e5dfaf2c20802faccff1fafb4c2025dd8f6253dfa47fcad59d4d0979"
+      },
+      {
+        "path": "LICENSES/postgres/greenlet-3.5.6-LICENSE.PSF.txt",
+        "source": "greenlet-3.5.6.dist-info/licenses/LICENSE.PSF",
+        "sha256": "e5ff3c23c110e494cd7d736c10fd96d462457bafeca310840db6527298c7d46b"
+      }
+    ]
+  },
+  {
+    "name": "mako",
+    "version": "1.4.3",
+    "license": "MIT",
+    "notices": [
+      {
+        "path": "LICENSES/postgres/mako-1.4.3-LICENSE.txt",
+        "source": "mako-1.4.3.dist-info/licenses/LICENSE",
+        "sha256": "8c1d171bc5d341ad9cd33d5e2c39b96a82c7bd49b3ae89a470c37e5822232054"
+      }
+    ]
+  }
+]

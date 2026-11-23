@@ -2,26 +2,53 @@
 
 A small ML service for ApplyPilot: rank vacancies using each user's own likes and
 dislikes, and draft a cover letter from supplied resume text. One FastAPI process,
-one frozen multilingual E5 encoder, River logistic regression, SQLite, and one
+one frozen multilingual E5 encoder, River logistic regression, PostgreSQL 16, and one
 Qwen Instruct inference backend. Neither pretrained model is fine-tuned.
 
 ## Install and run
 
-Python 3.11 or 3.12 and [uv](https://docs.astral.sh/uv/) are supported.
+Python 3.11 or 3.12 and [uv](https://docs.astral.sh/uv/) are supported. A PostgreSQL
+16 database is required. For a fresh local development database:
+
+```bash
+read -r -s -p 'Local PostgreSQL password: ' POSTGRES_PASSWORD
+export POSTGRES_PASSWORD
+docker run --detach --name resumeanalysis-postgres \
+  --publish 127.0.0.1:5432:5432 \
+  --env POSTGRES_USER=resumeanalysis --env POSTGRES_DB=resumeanalysis \
+  --env POSTGRES_PASSWORD --volume resumeanalysis-pg-data:/var/lib/postgresql/data \
+  postgres:16
+docker exec resumeanalysis-postgres pg_isready -U resumeanalysis -d resumeanalysis
+```
+
+Wait for `accepting connections`. This example creates a new named volume and
+leaves existing databases alone. If port 5432 is already occupied, change the
+published host port and the URL accordingly. Reuse an existing PostgreSQL 16
+instance if available; a separate ML database on that instance is recommended.
+Copy `.env.example` only when no `.env` exists, then edit it. Set
+`RESUMEANALYSIS_DATABASE_URL` to the database you created, including its username
+and password. Percent-encode special characters in URL credentials. Never commit
+credentials; production should use your existing secret-delivery mechanism.
 
 ```bash
 uv sync --frozen --extra dev
-cp .env.example .env
+test -e .env || cp .env.example .env
 # Edit .env as needed; load it into the shell explicitly.
 set -a
 . ./.env
 set +a
+uv run --frozen alembic upgrade head
+uv run --frozen alembic current
 uv run --frozen uvicorn resumeanalysis.main:app --host 127.0.0.1 --port 8000 --workers 1
 ```
 
 `.env` is a local shell configuration file and is not read automatically. Do not
 commit it. Interactive API documentation is at `http://127.0.0.1:8000/docs`.
-Starting the application creates its SQLite database but does not load E5 or Qwen.
+Apply migrations once before starting application workers. FastAPI never creates
+tables or applies migrations; it initializes an async SQLAlchemy pool and disposes
+it on shutdown. The initial migration creates only `ml_users`, `ml_vacancies`, and
+`ml_feedback`, with a separate `ml_alembic_version` revision table. Repeating
+`alembic upgrade head` is safe. No pretrained model is loaded at startup.
 The first request that needs a model loads it. With default settings, Transformers
 downloads the pinned revision from Hugging Face into its cache. Subsequent starts
 reuse that cache. Weights are never included in Git or the Python package.
@@ -45,14 +72,19 @@ included. Float32 is the conservative CPU default; bfloat16 is configurable.
 ### `POST /rank`
 
 Each vacancy needs a unique `vacancy_id`, a nonempty `title`, and a nonempty
-`description`. Up to 100 vacancies are accepted per request.
+`description`. Up to 100 vacancies are accepted per request. Use a stable opaque
+string `user_id` supplied by the trusted backend. For source IDs, namespace each
+`vacancy_id`, for example `hh.ru:12345678`; existing globally unique ApplyPilot
+string IDs remain valid and are not rewritten. Both IDs are limited to 200
+characters. Text fields cannot contain NUL characters, which PostgreSQL rejects.
+Send complete extracted descriptions, not just URLs or email subjects.
 
 ```bash
 curl -s http://127.0.0.1:8000/rank -H 'Content-Type: application/json' -d '{
   "user_id": "user-1",
   "vacancies": [
-    {"vacancy_id": "sales-1", "title": "Sales specialist", "description": "Develop customer accounts."},
-    {"vacancy_id": "dev-1", "title": "Python developer", "description": "Build and maintain Python APIs."}
+    {"vacancy_id": "hh.ru:12345678", "title": "Sales specialist", "description": "Develop customer accounts."},
+    {"vacancy_id": "career.habr.com:87654321", "title": "Python developer", "description": "Build and maintain Python APIs."}
   ]
 }'
 ```
@@ -71,10 +103,10 @@ A vacancy previously ranked for this user can be referenced by ID:
 
 ```bash
 curl -s http://127.0.0.1:8000/feedback -H 'Content-Type: application/json' -d '{
-  "user_id": "user-1", "vacancy_id": "dev-1", "liked": true
+  "user_id": "user-1", "vacancy_id": "career.habr.com:87654321", "liked": true
 }'
 curl -s http://127.0.0.1:8000/feedback -H 'Content-Type: application/json' -d '{
-  "user_id": "user-1", "vacancy_id": "sales-1", "liked": false
+  "user_id": "user-1", "vacancy_id": "hh.ru:12345678", "liked": false
 }'
 ```
 
@@ -82,7 +114,7 @@ Alternatively send data directly, without calling `/rank` first:
 
 ```bash
 curl -s http://127.0.0.1:8000/feedback -H 'Content-Type: application/json' -d '{
-  "user_id": "user-1", "vacancy_id": "other-1", "liked": true,
+  "user_id": "user-1", "vacancy_id": "hh.ru:99999999", "liked": true,
   "vacancy": {"title": "Backend developer", "description": "Develop Python services."}
 }'
 ```
@@ -98,7 +130,7 @@ If a correction leaves only one class, ranking returns to neutral.
 An ID-only correction uses the text originally reacted to, even if a later rank
 request included a changed listing. References are scoped to the user: another
 user's stored vacancy is not available. Unknown references return `404`.
-The latest received rating is authoritative; ApplyPilot should serialize a user's
+The last serialized update is authoritative; ApplyPilot should serialize a user's
 changes and avoid retrying superseded ratings after a newer correction.
 
 ### `POST /generate-cover-letter`
@@ -144,8 +176,19 @@ Embedding coordinates are its only features. Each new explicit reaction calls
 or downstream training pipeline. Receiving both classes enables sorting, but does
 not establish model quality or calibrated probabilities.
 
-SQLite stores user-scoped vacancies, current feedback text/labels, and numeric JSON
-model snapshots. Feedback and model updates commit in the same transaction.
+PostgreSQL stores user-scoped vacancies (`ml_vacancies`), current feedback
+text/labels (`ml_feedback`), and numeric JSON model snapshots and revisions
+(`ml_users`). `ml_users` is preference state keyed by an external user ID, not an
+authentication or account system. There are no foreign keys into ApplyPilot's
+schema. The feedback key `(user_id, vacancy_id)` is unique; corrections replace
+the current label and preserve original feedback order, rather than appending a
+second active training example. This is current training history, not a full
+immutable audit log of every superseded reaction.
+
+Feedback and model updates commit in the same transaction. A first-use upsert and
+`SELECT ... FOR UPDATE` on the corresponding `ml_users` row serialize requests
+for that user across workers. Other users can use independent transactions. No
+in-memory mutable classifier is shared between requests.
 Snapshots contain weights, intercept, iteration count, revision, and feature/model
 identity, protected by a checksum. No pickle or executable serialization is used.
 A missing, malformed, or stale snapshot is rebuilt from stored feedback. The
@@ -159,14 +202,23 @@ rebuilds models. Restart all workers together after configuration changes. Do no
 mutate model files while the service runs. Old cache files can be removed manually
 when no process uses them.
 
-SQLite transactions coordinate writers, including separate processes. A single
-worker is recommended: multiple workers duplicate heavyweight models in memory.
-Corrections/recovery replay all current feedback, and version changes can require
-expensive re-embedding while holding the database transaction. There is no bounded
-history policy, background queue, or claim of large-scale throughput. Back up the
-SQLite database using SQLite's backup API or while the service is stopped; account
-for WAL files when making filesystem backups. Protect its permissions: it stores
-user IDs, vacancy text, feedback, and learned preferences.
+All database access uses SQLAlchemy 2.x `AsyncEngine`, `async_sessionmaker`, and
+asyncpg. SQL and ORM operations live in `storage.py`; the recommender consumes
+user-scoped storage operations. E5 inference, River learning/replay, and scoring
+run in the threadpool, while database awaits remain on the event loop. Qwen runs
+in a worker thread and never opens or holds a database transaction.
+
+A single worker is recommended to avoid duplicating heavyweight models in memory.
+Restoring/re-embedding a user's history or resolving an ID-only feedback cache
+miss may hold that user's row lock during E5 computation. Same-user requests wait;
+PostgreSQL lock and command waits are bounded at 30 seconds and connection startup
+at 10 seconds. Database failures produce a redacted `503`, and the transaction is
+rolled back. A caller can retry the current rating, but should not retry superseded
+ratings. There is no queue or automatic replay worker.
+
+Use PostgreSQL backups and appropriate database permissions: the database stores
+user IDs, vacancy text, feedback, and preferences. The old SQLite databases are
+not read, migrated, or deleted. `RESUMEANALYSIS_DATABASE_PATH` is no longer used.
 
 ## Configuration
 
@@ -177,7 +229,7 @@ an empty cache directory disables embedding caching.
 
 | Variable suffix | Default | Purpose |
 |---|---|---|
-| `DATABASE_PATH` | `data/ml-service.sqlite3` | New service database |
+| `DATABASE_URL` | `postgresql+asyncpg://localhost/resumeanalysis` | PostgreSQL URL; set explicit deployment credentials |
 | `EMBEDDING_CACHE_DIR` | `artifacts/service-embeddings` | E5 vector cache; empty disables |
 | `E5_MODEL` | `intfloat/multilingual-e5-small` | Frozen encoder |
 | `E5_REVISION` | `614241f622f53c4eeff9890bdc4f31cfecc418b3` | Pinned E5 revision |
@@ -199,12 +251,25 @@ an empty cache directory disables embedding caching.
 
 ## ApplyPilot integration
 
-ApplyPilot calls these HTTP endpoints directly. It authenticates users, derives
-`user_id` from the authenticated session, supplies stable vacancy IDs, collects
-explicit reactions, and displays letters for review. Sending applications remains
-ApplyPilot's responsibility. This MVP has no built-in authentication: run it on a
-private interface behind the trusted backend, never as an unauthenticated public
-endpoint accepting arbitrary user IDs.
+The reference [zvictor12/pet_proj](https://github.com/zvictor12/pet_proj) was inspected
+at `65d400cd4a1851e98f3c19dc44b391c444147447`. Its real implementation currently
+extracts vacancy links from email and models mail/link records. It does not yet
+provide application user records, full vacancy descriptions, or an ML HTTP client.
+The source-by-source findings and mapping are in
+[docs/applypilot_integration.md](docs/applypilot_integration.md).
+
+The calling backend must provide a trusted stable `user_id`, fetch/extract complete
+vacancy titles and descriptions, and send source-qualified IDs or stable internal
+IDs. It collects explicit reactions and calls `/feedback`, and displays generated
+letters for review. Sending applications remains the backend's responsibility.
+This service does not parse mail, fetch job sites, or send applications.
+
+There is no interservice authentication in this service or the inspected reference
+contract. Deploy on loopback or a private network accessible only to the trusted
+backend; do not expose these endpoints directly to the internet. ApplyPilot must
+authenticate users and must not forward arbitrary client-supplied user IDs.
+For untrusted network hops, put authenticated TLS/mTLS at your existing gateway.
+The two repositories remain independent, communicating over HTTP.
 
 ## Layout and development
 
@@ -215,7 +280,8 @@ src/resumeanalysis/
   config.py         # Environment settings
   embeddings.py     # Lazy E5, chunking, batching, cache
   recommender.py    # Per-user River training, ranking, replay
-  storage.py        # SQLite schema and transactions
+  storage.py        # Async PostgreSQL operations and user row locks
+  models.py         # ML-only SQLAlchemy ORM tables
   cover_letter.py   # Lazy Qwen inference and output checks
   prompts.py        # Resume-grounded prompt and input encoding
 ```
@@ -223,21 +289,41 @@ src/resumeanalysis/
 ```bash
 uv run --frozen ruff check .
 uv run --frozen ruff format --check .
-HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 uv run --frozen pytest -q
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 uv run --frozen pytest -q -m "not integration"
 uv build
 ```
 
-Tests use deterministic embeddings, a tiny locally created transformer, and mocked
-Qwen generation. They do not download pretrained weights or measure real-model
-ranking/generation quality. They cover cold start, both feedback classes, isolation,
-restart/continued learning, retries, corrections, atomic rollback, cross-connection
-concurrency, corrupt snapshots, changed embeddings, API validation, and lazy startup.
+Fast unit tests require no running database. All model tests use deterministic
+embeddings, a tiny locally created transformer, or mocked Qwen, without downloading
+pretrained weights or measuring real-model quality.
 
-The former extraction, qualification, handcrafted feature, MLP, profile parsing,
-legacy/research, and offline training modules and their documentation/tests have
-been removed. There is no compatibility layer. Use a new database; the service
-refuses to repurpose an old database. Existing local data, environments, secrets,
-and model artifacts are left untouched. Git history retains the old implementation.
+Run real PostgreSQL integration tests against a disposable test instance:
+
+```bash
+docker run --detach --name resumeanalysis-pg-test \
+  --publish 127.0.0.1:55432:5432 \
+  --env POSTGRES_USER=resumeanalysis_test --env POSTGRES_DB=resumeanalysis_test \
+  --env POSTGRES_HOST_AUTH_METHOD=trust postgres:16
+docker exec resumeanalysis-pg-test pg_isready -U resumeanalysis_test -d resumeanalysis_test
+export RESUMEANALYSIS_TEST_DATABASE_URL=postgresql+asyncpg://resumeanalysis_test@127.0.0.1:55432/resumeanalysis_test
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 uv run --frozen pytest -q
+```
+
+The trust-auth example is exclusively for an isolated local test container with
+no real user data. Test credentials need permission to create/drop databases.
+The fixture accepts only a `resumeanalysis_test...` database on PostgreSQL 16,
+creates a fresh randomly named database for each integration test, applies real
+Alembic migrations, and drops only that generated test database afterwards. It
+never clears the database supplied in the URL. With no test URL, integration
+tests are explicitly skipped; SQLite is never used as a substitute. CI supplies
+PostgreSQL 16 and runs the full suite on Python 3.11 and 3.12.
+
+Tests cover repeatable migrations and preservation of unrelated tables, cold
+start, both classes, user isolation, persistence and recovery, duplicates,
+corrections, atomic rollback, multi-pool concurrency and row locks, namespaced
+IDs, version changes, API validation, generation, lazy startup, and pool disposal.
+All old local datasets, environments, secrets, and pretrained artifacts remain
+untouched. There is no automatic migration from the previous SQLite schema.
 
 The source is MIT. Original upstream notices remain in `LICENSES/`; see
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for current dependencies and model

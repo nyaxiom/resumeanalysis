@@ -1,6 +1,5 @@
-"""Three synchronous routes run inference off FastAPI's event loop."""
+"""Async database routes with heavyweight ML delegated to the threadpool."""
 
-import sqlite3
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException
@@ -19,7 +18,7 @@ from resumeanalysis.schemas import (
     RankRequest,
     RankResponse,
 )
-from resumeanalysis.storage import Storage
+from resumeanalysis.storage import Storage, StorageUnavailable
 
 
 def create_app(settings: Settings | None = None, *, embeddings=None, letter_backend=None):
@@ -27,7 +26,7 @@ def create_app(settings: Settings | None = None, *, embeddings=None, letter_back
 
     @asynccontextmanager
     async def lifespan(app):
-        storage = Storage(settings.database_path)
+        storage = Storage(settings.database_url.get_secret_value())
         app.state.recommender = Recommender(
             storage,
             embeddings if embeddings is not None else Embeddings(settings),
@@ -37,9 +36,9 @@ def create_app(settings: Settings | None = None, *, embeddings=None, letter_back
         try:
             yield
         finally:
-            storage.close()
+            await storage.close()
 
-    app = FastAPI(title="ResumeAnalysis", version="0.3.0", lifespan=lifespan)
+    app = FastAPI(title="ResumeAnalysis", version="0.4.0", lifespan=lifespan)
 
     @app.exception_handler(RequestValidationError)
     async def validation_error(request, exc):
@@ -53,21 +52,25 @@ def create_app(settings: Settings | None = None, *, embeddings=None, letter_back
         )
 
     @app.post("/rank", response_model=RankResponse)
-    def rank(request: RankRequest):
+    async def rank(request: RankRequest):
         try:
-            return app.state.recommender.rank(request)
-        except (OSError, RuntimeError, ValueError, sqlite3.Error):
+            return await app.state.recommender.rank(request)
+        except StorageUnavailable as exc:
+            raise HTTPException(503, str(exc)) from None
+        except (OSError, RuntimeError, ValueError):
             raise HTTPException(
                 503, "Ranking unavailable; check model assets and storage"
             ) from None
 
     @app.post("/feedback", response_model=FeedbackResponse)
-    def feedback(request: FeedbackRequest):
+    async def feedback(request: FeedbackRequest):
         try:
-            return app.state.recommender.feedback(request)
+            return await app.state.recommender.feedback(request)
         except UnknownVacancy as exc:
             raise HTTPException(404, str(exc)) from None
-        except (OSError, RuntimeError, ValueError, sqlite3.Error):
+        except StorageUnavailable as exc:
+            raise HTTPException(503, str(exc)) from None
+        except (OSError, RuntimeError, ValueError):
             raise HTTPException(
                 503, "Feedback unavailable; check model assets and storage"
             ) from None

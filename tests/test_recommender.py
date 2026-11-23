@@ -1,23 +1,26 @@
 import hashlib
 import json
-import sqlite3
 from concurrent.futures import ThreadPoolExecutor
 
 import pytest
-from conftest import VACANCIES, FakeEmbeddings, feedback, rank
+from conftest import VACANCIES, FakeEmbeddings, db, feedback, rank
 from fastapi.testclient import TestClient
 from river import linear_model
+from sqlalchemy import select, update
 
 from resumeanalysis.main import create_app
-from resumeanalysis.recommender import Recommender
-from resumeanalysis.schemas import FeedbackRequest
-from resumeanalysis.storage import Storage
+from resumeanalysis.models import MLUser
+
+pytestmark = pytest.mark.integration
+
+
+@pytest.fixture
+def settings(db_settings):
+    return db_settings
 
 
 def snapshot(client, user="alice"):
-    db = client.app.state.recommender.storage.connection
-    row = db.execute("SELECT model_json FROM users WHERE user_id=?", (user,)).fetchone()
-    return json.loads(row[0])
+    return json.loads(db(client, select(MLUser.model_json).where(MLUser.user_id == user)))
 
 
 def test_cold_start_then_real_likes_and_dislikes(client, monkeypatch):
@@ -92,8 +95,7 @@ def test_restart_restores_model_and_continues_learning(settings):
             restarted, "python2", True, vacancy={"title": "Python", "description": "Python API"}
         )
         after = rank(restarted)
-        with restarted.app.state.recommender.storage.transaction() as db:
-            db.execute("UPDATE users SET model_json=NULL")
+        db(restarted, update(MLUser).values(model_json=None))
         assert rank(restarted) == after  # Same result as fresh replay of the full history.
 
 
@@ -154,11 +156,10 @@ def test_missing_or_corrupted_snapshot_rebuilt_from_feedback(client, corruption)
     feedback(client, "python", True)
     feedback(client, "sales", False)
     expected = rank(client)
-    with client.app.state.recommender.storage.transaction() as db:
-        checksum = hashlib.sha256((corruption or "").encode()).hexdigest()
-        if corruption == "wrong-checksum":
-            checksum = "bad"
-        db.execute("UPDATE users SET model_json=?,model_checksum=?", (corruption, checksum))
+    checksum = hashlib.sha256((corruption or "").encode()).hexdigest()
+    if corruption == "wrong-checksum":
+        checksum = "bad"
+    db(client, update(MLUser).values(model_json=corruption, model_checksum=checksum))
     assert rank(client) == expected
     assert snapshot(client)["iterations"] == 2
 
@@ -204,34 +205,19 @@ def test_failure_rolls_back_feedback_and_model(client, monkeypatch):
 
 
 def test_duplicate_requests_from_two_connections_train_once(settings):
-    stores = [Storage(settings.database_path), Storage(settings.database_path)]
-    services = [Recommender(store, FakeEmbeddings(), settings) for store in stores]
-    request = FeedbackRequest(
-        user_id="alice",
-        vacancy_id="p",
-        liked=True,
-        vacancy={"title": "Python", "description": "Python systems"},
-    )
-    try:
+    # Independent applications/pools exercise PostgreSQL, not an in-process mutex.
+    with (
+        TestClient(create_app(settings, embeddings=FakeEmbeddings())) as one,
+        TestClient(create_app(settings, embeddings=FakeEmbeddings())) as two,
+    ):
+
+        def send(client):
+            return feedback(
+                client, "p", True, vacancy={"title": "Python", "description": "Python systems"}
+            )
+
         with ThreadPoolExecutor(max_workers=2) as executor:
-            results = list(executor.map(lambda service: service.feedback(request), services))
-        assert sorted(r.updated for r in results) == [False, True]
-        assert [r.revision for r in results] == [1, 1]
-        state = json.loads(
-            stores[0].connection.execute("SELECT model_json FROM users").fetchone()[0]
-        )
-        assert state["iterations"] == 1
-    finally:
-        for store in stores:
-            store.close()
-
-
-def test_old_database_is_not_modified(tmp_path):
-    path = tmp_path / "old.sqlite3"
-    with sqlite3.connect(path) as db:
-        db.execute("CREATE TABLE preference_users(user_id TEXT)")
-        db.execute("INSERT INTO preference_users VALUES ('existing-user')")
-    before = path.read_bytes()
-    with pytest.raises(ValueError, match="new database"):
-        Storage(path)
-    assert path.read_bytes() == before
+            results = list(executor.map(send, [one, two]))
+        assert sorted(r["updated"] for r in results) == [False, True]
+        assert [r["revision"] for r in results] == [1, 1]
+        assert snapshot(one)["iterations"] == 1

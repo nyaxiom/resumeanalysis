@@ -1,68 +1,133 @@
-"""SQLite transactions shared by feedback and numeric model snapshots; no pickle."""
+"""Async PostgreSQL storage with one transaction/row lock per user's update."""
 
-import sqlite3
-import threading
-from contextlib import contextmanager
-from pathlib import Path
+from contextlib import asynccontextmanager
+
+from asyncpg import PostgresError
+from sqlalchemy import select
+from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.asyncio import AsyncEngine, async_sessionmaker, create_async_engine
+
+from resumeanalysis.models import MLFeedback, MLUser, MLVacancy
+
+
+class StorageUnavailable(RuntimeError):
+    """Redacted database failure safe to expose through the service boundary."""
+
+
+class UserStorage:
+    """Operations bound to the row-locked user; never shared across requests."""
+
+    def __init__(self, session, user):
+        self.session, self.user = session, user
+
+    def state(self):
+        return {
+            "revision": self.user.revision,
+            "model_json": self.user.model_json,
+            "model_checksum": self.user.model_checksum,
+        }
+
+    async def history(self):
+        rows = await self.session.scalars(
+            select(MLFeedback)
+            .where(MLFeedback.user_id == self.user.user_id)
+            .order_by(MLFeedback.sequence)
+        )
+        return [self._record(row) for row in rows]
+
+    @staticmethod
+    def _record(row):
+        if row is None:
+            return None
+        fields = ["vacancy_id", "title", "description"]
+        if isinstance(row, MLFeedback):
+            fields += ["liked", "sequence"]
+        return {field: getattr(row, field) for field in fields}
+
+    async def feedback(self, vacancy_id):
+        row = await self.session.scalar(
+            select(MLFeedback).where(
+                MLFeedback.user_id == self.user.user_id,
+                MLFeedback.vacancy_id == vacancy_id,
+            )
+        )
+        return self._record(row)
+
+    async def vacancy(self, vacancy_id):
+        return self._record(await self.session.get(MLVacancy, (self.user.user_id, vacancy_id)))
+
+    async def save_vacancy(self, vacancy_id, vacancy):
+        await self.session.execute(
+            insert(MLVacancy)
+            .values(
+                user_id=self.user.user_id,
+                vacancy_id=vacancy_id,
+                title=vacancy.title,
+                description=vacancy.description,
+            )
+            .on_conflict_do_update(
+                index_elements=[MLVacancy.user_id, MLVacancy.vacancy_id],
+                set_={"title": vacancy.title, "description": vacancy.description},
+            )
+        )
+
+    async def save_feedback(self, vacancy_id, vacancy, liked):
+        await self.save_vacancy(vacancy_id, vacancy)
+        await self.session.execute(
+            insert(MLFeedback)
+            .values(
+                user_id=self.user.user_id,
+                vacancy_id=vacancy_id,
+                title=vacancy.title,
+                description=vacancy.description,
+                liked=liked,
+            )
+            .on_conflict_do_update(
+                index_elements=[MLFeedback.user_id, MLFeedback.vacancy_id],
+                set_={"title": vacancy.title, "description": vacancy.description, "liked": liked},
+            )
+        )
+
+    async def save_model(self, state, checksum, revision):
+        self.user.model_json = state
+        self.user.model_checksum = checksum
+        self.user.revision = revision
+        await self.session.flush()
 
 
 class Storage:
-    def __init__(self, path: str | Path):
-        if str(path) != ":memory:":
-            Path(path).parent.mkdir(parents=True, exist_ok=True)
-        self.lock = threading.RLock()
-        self.connection = sqlite3.connect(
-            str(path), isolation_level=None, timeout=30, check_same_thread=False
+    def __init__(self, database_url: str):
+        self.engine: AsyncEngine = create_async_engine(
+            database_url,
+            pool_pre_ping=True,
+            hide_parameters=True,
+            connect_args={
+                "timeout": 10,
+                "command_timeout": 30,
+                "server_settings": {"application_name": "resumeanalysis", "lock_timeout": "30s"},
+            },
         )
-        self.connection.row_factory = sqlite3.Row
+        self.sessions = async_sessionmaker(self.engine, expire_on_commit=False)
+        # No connection, DDL, or migrations at construction/startup.
+
+    @asynccontextmanager
+    async def transaction(self, user_id):
         try:
-            # Never repurpose the old application's database or an unrelated database.
-            tables = {
-                r[0]
-                for r in self.connection.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
+            async with self.sessions.begin() as session:
+                # The unique insert serializes first-use races; SELECT FOR UPDATE
+                # serializes all subsequent mutations across processes/workers.
+                await session.execute(
+                    insert(MLUser).values(user_id=user_id).on_conflict_do_nothing()
                 )
-            }
-            if tables and "ml_service_meta" not in tables:
-                raise ValueError("Use a new database path for the minimal ML service")
-            if tables:
-                version = self.connection.execute("SELECT version FROM ml_service_meta").fetchone()
-                if version is None or version[0] != 1:
-                    raise ValueError("Unsupported ML service database version")
-            self.connection.execute("PRAGMA journal_mode=WAL")
-            with self.transaction() as db:
-                db.execute("CREATE TABLE IF NOT EXISTS ml_service_meta (version INTEGER NOT NULL)")
-                if not db.execute("SELECT 1 FROM ml_service_meta").fetchone():
-                    db.execute("INSERT INTO ml_service_meta VALUES (1)")
-                db.execute("""CREATE TABLE IF NOT EXISTS users (
-                    user_id TEXT PRIMARY KEY, revision INTEGER NOT NULL DEFAULT 0,
-                    model_json TEXT, model_checksum TEXT)""")
-                db.execute("""CREATE TABLE IF NOT EXISTS vacancies (
-                    user_id TEXT NOT NULL, vacancy_id TEXT NOT NULL,
-                    title TEXT NOT NULL, description TEXT NOT NULL,
-                    PRIMARY KEY (user_id, vacancy_id))""")
-                db.execute("""CREATE TABLE IF NOT EXISTS feedback (
-                    sequence INTEGER PRIMARY KEY AUTOINCREMENT,
-                    user_id TEXT NOT NULL, vacancy_id TEXT NOT NULL,
-                    title TEXT NOT NULL, description TEXT NOT NULL,
-                    liked INTEGER NOT NULL CHECK (liked IN (0, 1)),
-                    UNIQUE (user_id, vacancy_id))""")
-        except BaseException:
-            self.connection.close()
-            raise
+                user = await session.scalar(
+                    select(MLUser).where(MLUser.user_id == user_id).with_for_update()
+                )
+                yield UserStorage(session, user)
+        except (SQLAlchemyError, PostgresError, OSError, TimeoutError):
+            raise StorageUnavailable(
+                "PostgreSQL unavailable; check connectivity and migrations"
+            ) from None
 
-    @contextmanager
-    def transaction(self):
-        # BEGIN IMMEDIATE also serializes writers in separate processes.
-        with self.lock:
-            self.connection.execute("BEGIN IMMEDIATE")
-            try:
-                yield self.connection
-                self.connection.execute("COMMIT")
-            except BaseException:
-                self.connection.execute("ROLLBACK")
-                raise
-
-    def close(self):
-        with self.lock:
-            self.connection.close()
+    async def close(self):
+        await self.engine.dispose()

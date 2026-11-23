@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resumeanalysis"
-version = "0.3.0"
+version = "0.4.0"
 description = "Minimal personal job ranking and Qwen cover-letter service"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -13,6 +13,7 @@ license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "LICENSES/**/*.txt"]
 dependencies = [
   "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "pydantic>=2.9,<3",
   "numpy>=1.26,<3", "torch>=2.6,<3", "transformers>=4.45,<5", "river==0.26.1",
+  "sqlalchemy[asyncio]>=2.0.51,<2.1", "asyncpg>=0.31,<1", "alembic>=1.18.5,<2",
 ]
 
 [project.optional-dependencies]
@@ -24,6 +25,7 @@ namespaces = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["integration: requires an isolated PostgreSQL 16 test database"]
 
 [tool.ruff]
 line-length = 100

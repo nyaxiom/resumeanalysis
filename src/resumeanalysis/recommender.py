@@ -6,10 +6,10 @@ import math
 from importlib.metadata import version
 
 from river import linear_model, optim
+from starlette.concurrency import run_in_threadpool
 
 from resumeanalysis.config import Settings
 from resumeanalysis.schemas import FeedbackResponse, RankedVacancy, RankResponse, VacancyText
-from resumeanalysis.storage import Storage
 
 
 class UnknownVacancy(ValueError):
@@ -17,7 +17,7 @@ class UnknownVacancy(ValueError):
 
 
 class Recommender:
-    def __init__(self, storage: Storage, embeddings, settings: Settings):
+    def __init__(self, storage, embeddings, settings: Settings):
         self.storage, self.embeddings, self.settings = storage, embeddings, settings
 
     @property
@@ -51,19 +51,13 @@ class Recommender:
         return [dict(enumerate(v)) for v in vectors]
 
     @staticmethod
-    def _history(db, user_id):
-        return db.execute(
-            "SELECT * FROM feedback WHERE user_id=? ORDER BY sequence", (user_id,)
-        ).fetchall()
-
-    @staticmethod
     def _personalized(history):
         return {row["liked"] for row in history} == {0, 1}
 
-    def _save(self, db, user_id, model, dimension, revision):
+    async def _save(self, session, model, dimension, revision, identity):
         state = json.dumps(
             {
-                "identity": self.identity,
+                "identity": identity,
                 "revision": revision,
                 "dimension": dimension,
                 "weights": [float(model.weights.get(i, 0)) for i in range(dimension)],
@@ -73,10 +67,7 @@ class Recommender:
             allow_nan=False,
             sort_keys=True,
         )
-        db.execute(
-            "UPDATE users SET revision=?,model_json=?,model_checksum=? WHERE user_id=?",
-            (revision, state, hashlib.sha256(state.encode()).hexdigest(), user_id),
-        )
+        await session.save_model(state, hashlib.sha256(state.encode()).hexdigest(), revision)
 
     def _replay(self, history, dimension):
         model = self._new_model()
@@ -89,17 +80,15 @@ class Recommender:
             model.learn_one(features, bool(row["liked"]))
         return model
 
-    def _model(self, db, user_id, dimension):
-        db.execute("INSERT OR IGNORE INTO users(user_id) VALUES (?)", (user_id,))
-        row = db.execute("SELECT * FROM users WHERE user_id=?", (user_id,)).fetchone()
-        history = self._history(db, user_id)
+    async def _model(self, session, dimension, identity):
+        row, history = session.state(), await session.history()
         try:
             raw = row["model_json"]
             if not raw or hashlib.sha256(raw.encode()).hexdigest() != row["model_checksum"]:
                 raise ValueError("Missing or corrupt model")
             state = json.loads(raw)
             if (
-                state["identity"] != self.identity
+                state["identity"] != identity
                 or state["revision"] != row["revision"]
                 or state["dimension"] != dimension
                 or state["iterations"] != len(history)
@@ -117,81 +106,68 @@ class Recommender:
             model.intercept = intercept
             model.optimizer.n_iterations = len(history)
         except (ValueError, TypeError, KeyError, OverflowError):
-            model = self._replay(history, dimension)
-            self._save(db, user_id, model, dimension, row["revision"])
+            model = await run_in_threadpool(self._replay, history, dimension)
+            await self._save(session, model, dimension, row["revision"], identity)
         return model, history, row["revision"]
 
     @staticmethod
-    def _store_vacancy(db, user_id, vacancy_id, vacancy):
-        db.execute(
-            "INSERT INTO vacancies VALUES (?, ?, ?, ?) ON CONFLICT(user_id,vacancy_id) "
-            "DO UPDATE SET title=excluded.title,description=excluded.description",
-            (user_id, vacancy_id, vacancy.title, vacancy.description),
-        )
-
-    def rank(self, request):
-        vectors = self._vectors([v.text for v in request.vacancies])
-        with self.storage.transaction() as db:
-            model, history, _ = self._model(db, request.user_id, len(vectors[0]))
-            personalized = self._personalized(history)
-            results = []
-            for vacancy, features in zip(request.vacancies, vectors, strict=True):
-                self._store_vacancy(db, request.user_id, vacancy.vacancy_id, vacancy)
-                score = float(model.predict_proba_one(features)[True]) if personalized else 0.5
-                results.append(RankedVacancy(**vacancy.model_dump(), score=score))
-        # Python's stable sort preserves input order for cold start and tied scores.
+    def _ranked(vacancies, vectors, model, personalized):
+        results = []
+        for vacancy, features in zip(vacancies, vectors, strict=True):
+            score = float(model.predict_proba_one(features)[True]) if personalized else 0.5
+            results.append(RankedVacancy(**vacancy.model_dump(), score=score))
         results.sort(key=lambda v: -v.score)
         return RankResponse(personalized=personalized, vacancies=results)
 
-    def feedback(self, request):
-        with self.storage.transaction() as db:
-            previous = db.execute(
-                "SELECT * FROM feedback WHERE user_id=? AND vacancy_id=?",
-                (request.user_id, request.vacancy_id),
-            ).fetchone()
+    async def rank(self, request):
+        vectors = await run_in_threadpool(self._vectors, [v.text for v in request.vacancies])
+        identity = await run_in_threadpool(lambda: self.identity)
+        async with self.storage.transaction(request.user_id) as session:
+            model, history, _ = await self._model(session, len(vectors[0]), identity)
+            for vacancy in request.vacancies:
+                await session.save_vacancy(vacancy.vacancy_id, vacancy)
+        # This request owns its model snapshot; scoring never mutates shared state.
+        return await run_in_threadpool(
+            self._ranked,
+            request.vacancies,
+            vectors,
+            model,
+            self._personalized(history),
+        )
+
+    async def feedback(self, request):
+        identity = await run_in_threadpool(lambda: self.identity)
+        features = (
+            (await run_in_threadpool(self._vectors, [request.vacancy.text]))[0]
+            if request.vacancy is not None
+            else None
+        )
+        async with self.storage.transaction(request.user_id) as session:
+            previous = await session.feedback(request.vacancy_id)
             vacancy = request.vacancy
             if vacancy is None:
-                # A correction keeps the original reacted-to text, even if /rank
-                # has since seen a changed listing. Send explicit text to replace it.
-                saved = (
-                    previous
-                    or db.execute(
-                        "SELECT * FROM vacancies WHERE user_id=? AND vacancy_id=?",
-                        (request.user_id, request.vacancy_id),
-                    ).fetchone()
-                )
+                # Keep the originally reacted-to text unless explicitly replaced.
+                saved = previous or await session.vacancy(request.vacancy_id)
                 if saved is None:
                     raise UnknownVacancy("Supply vacancy data or rank it for this user first")
                 vacancy = VacancyText(title=saved["title"], description=saved["description"])
-            features = self._vectors([vacancy.text])[0]
+                features = (await run_in_threadpool(self._vectors, [vacancy.text]))[0]
             dimension = len(features)
-            model, history, revision = self._model(db, request.user_id, dimension)
+            model, history, revision = await self._model(session, dimension, identity)
             updated = previous is None or (
                 previous["liked"],
                 previous["title"],
                 previous["description"],
             ) != (request.liked, vacancy.title, vacancy.description)
             if updated:
-                db.execute(
-                    "INSERT INTO feedback(user_id,vacancy_id,title,description,liked) "
-                    "VALUES (?, ?, ?, ?, ?) ON CONFLICT(user_id,vacancy_id) DO UPDATE SET "
-                    "title=excluded.title,description=excluded.description,liked=excluded.liked",
-                    (
-                        request.user_id,
-                        request.vacancy_id,
-                        vacancy.title,
-                        vacancy.description,
-                        int(request.liked),
-                    ),
-                )
-                self._store_vacancy(db, request.user_id, request.vacancy_id, vacancy)
-                history = self._history(db, request.user_id)
+                await session.save_feedback(request.vacancy_id, vacancy, request.liked)
+                history = await session.history()
                 if previous is None:
-                    model.learn_one(features, request.liked)
+                    await run_in_threadpool(model.learn_one, features, request.liked)
                 else:
-                    model = self._replay(history, dimension)
+                    model = await run_in_threadpool(self._replay, history, dimension)
                 revision += 1
-                self._save(db, request.user_id, model, dimension, revision)
+                await self._save(session, model, dimension, revision, identity)
             return FeedbackResponse(
                 updated=updated,
                 revision=revision,

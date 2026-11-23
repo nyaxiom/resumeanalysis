@@ -3,12 +3,14 @@ import subprocess
 import sys
 
 import pytest
-from conftest import VACANCIES, FakeEmbeddings, FakeLLM
+from conftest import VACANCIES, FakeEmbeddings, FakeLLM, db
 from fastapi.testclient import TestClient
+from sqlalchemy import func, select
 
 from resumeanalysis.config import Settings
 from resumeanalysis.cover_letter import ContextTooLong
 from resumeanalysis.main import create_app
+from resumeanalysis.models import MLFeedback, MLUser, MLVacancy
 
 LETTER = {
     "resume_text": "I build Python services.",
@@ -98,6 +100,7 @@ def test_context_budget_reports_validation_error(client):
         ),
         ("/feedback", {"user_id": "u", "vacancy_id": "v", "liked": "false"}),
         ("/feedback", {"user_id": "u", "vacancy_id": "v", "liked": 1}),
+        ("/feedback", {"user_id": "u\u0000", "vacancy_id": "v", "liked": True}),
         ("/feedback", {"user_id": "u", "vacancy_id": "v"}),
         ("/generate-cover-letter", {**LETTER, "resume_text": " "}),
         ("/generate-cover-letter", {**LETTER, "resume_text": "x" * 30001}),
@@ -123,25 +126,26 @@ def test_startup_loads_no_heavy_models(tmp_path):
     code = """
 import sys
 from fastapi.testclient import TestClient
+from sqlalchemy import func, select
 from resumeanalysis.config import Settings
 from resumeanalysis.main import create_app
-with TestClient(create_app(Settings(database_path=sys.argv[1]))) as client:
+with TestClient(create_app(Settings())) as client:
     assert client.get('/openapi.json').status_code == 200
     assert client.app.state.recommender.embeddings.model is None
     assert client.app.state.letters.backend.model is None
     assert 'torch' not in sys.modules
     assert 'transformers' not in sys.modules
 """
-    subprocess.run([sys.executable, "-c", code, str(tmp_path / "lazy.sqlite3")], check=True)
+    subprocess.run([sys.executable, "-c", code], check=True)
 
 
 def test_environment_settings(monkeypatch, tmp_path):
-    monkeypatch.setenv("RESUMEANALYSIS_DATABASE_PATH", str(tmp_path / "chosen.sqlite3"))
+    monkeypatch.setenv("RESUMEANALYSIS_DATABASE_URL", "postgresql+asyncpg://localhost/chosen")
     monkeypatch.setenv("RESUMEANALYSIS_E5_BATCH_SIZE", "4")
     monkeypatch.setenv("RESUMEANALYSIS_EMBEDDING_CACHE_DIR", "")
     assert Settings.from_env().e5_batch_size == 4
     assert Settings.from_env().embedding_cache_dir is None
-    assert Settings.from_env().database_path == tmp_path / "chosen.sqlite3"
+    assert Settings.from_env().database_url.get_secret_value().endswith("/chosen")
 
 
 @pytest.mark.parametrize(
@@ -151,6 +155,8 @@ def test_environment_settings(monkeypatch, tmp_path):
         {"qwen_revision": "latest"},
         {"e5_max_length": 16, "e5_overlap": 10},
         {"qwen_dtype": "float16"},
+        {"database_url": "sqlite+aiosqlite:///:memory:"},
+        {"database_url": "postgresql://localhost/service"},
     ],
 )
 def test_invalid_model_configuration(kwargs):
@@ -158,11 +164,11 @@ def test_invalid_model_configuration(kwargs):
         Settings(**kwargs)
 
 
-def test_no_letter_or_resume_is_stored(settings):
+@pytest.mark.integration
+def test_no_letter_or_resume_is_stored(db_settings):
     with TestClient(
-        create_app(settings, embeddings=FakeEmbeddings(), letter_backend=FakeLLM())
+        create_app(db_settings, embeddings=FakeEmbeddings(), letter_backend=FakeLLM())
     ) as client:
         assert client.post("/generate-cover-letter", json=LETTER).status_code == 200
-        db = client.app.state.recommender.storage.connection
-        for table in ("users", "feedback", "vacancies"):
-            assert db.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0
+        for table in (MLUser, MLVacancy, MLFeedback):
+            assert db(client, select(func.count()).select_from(table)) == 0

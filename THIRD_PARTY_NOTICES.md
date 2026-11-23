@@ -69,6 +69,26 @@ actual binaries and distribution method when shipping a complete environment.
 CUDA builds require their own binary/license review. Dependencies installed
 separately still retain their upstream notices in their distributions.
 
+## PostgreSQL integration
+
+The PostgreSQL integration adds SQLAlchemy 2.0.58 (MIT), asyncpg 0.32.0
+(Apache-2.0), Alembic 1.20.1 (MIT), greenlet 3.5.6 (MIT AND PSF-2.0), and
+Mako 1.4.3 (MIT). Their complete original distribution notices and the hashes of
+those copied files are in [LICENSES/postgres/](LICENSES/postgres/). No upstream
+copyright statement has been replaced. These are imported dependencies, not
+vendored implementations.
+
+PostgreSQL 16 runs separately under the PostgreSQL License. The test image's
+server/package copyright bundle is retained in
+[postgresql-16-copyright.txt](LICENSES/postgres/postgresql-16-copyright.txt), with
+image/version provenance in `LICENSES/postgres/server.json`. The server and Docker
+image are not shipped in the Python package; distributing a complete image also
+requires reviewing its other OS and package notices.
+
+`zvictor12/pet_proj` at commit `65d400cd4a1851e98f3c19dc44b391c444147447`
+was read as an integration reference. No source files were copied from that repo,
+and it was not modified.
+
 ## Preserved historical notices
 
 The previous notice document is preserved byte-for-byte as

@@ -4,13 +4,15 @@ import os
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, SecretStr, field_validator, model_validator
+from sqlalchemy.engine import make_url
+from sqlalchemy.exc import ArgumentError
 
 
 class Settings(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid", hide_input_in_errors=True)
 
-    database_path: Path = Path("data/ml-service.sqlite3")
+    database_url: SecretStr = SecretStr("postgresql+asyncpg://localhost/resumeanalysis")
     embedding_cache_dir: Path | None = Path("artifacts/service-embeddings")
     e5_model: str = "intfloat/multilingual-e5-small"
     e5_revision: str = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
@@ -29,6 +31,19 @@ class Settings(BaseModel):
     qwen_max_input_tokens: int = Field(default=4096, ge=64, le=32768)
     qwen_max_new_tokens: int = Field(default=512, ge=32, le=2048)
     letter_max_words: int = Field(default=180, ge=40, le=350)
+
+    @field_validator("database_url")
+    @classmethod
+    def postgres_url(cls, value):
+        try:
+            url = make_url(value.get_secret_value())
+            if url.drivername != "postgresql+asyncpg" or not url.database:
+                raise ValueError
+        except (ArgumentError, ValueError):
+            raise ValueError(
+                "DATABASE_URL must use postgresql+asyncpg and name a database"
+            ) from None
+        return value
 
     @model_validator(mode="after")
     def validate_models(self):
